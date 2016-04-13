@@ -30,7 +30,7 @@
 
     </head>
     <body>
-    <header class="navbar navbar-inverse navbar-fixed-top navbar-border" role="navigation">
+    <header class="navbar navbar-default navbar-fixed-top navbar-border" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <a href="#/"><img src="assets/logo.png"></a>
@@ -46,7 +46,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li ng-class="{active: activetab=='/'}" ng-if="token"><a href="#/">Home</a></li>
                     <li ng-class="{active: activetab=='/admin'}" ng-if="token"><a href="#/admin">Administration</a></li>
-                    <li ng-class="{active: activetab=='/about'}"><a href="#/about">About</a></li>
+                    <li ng-class="{active: activetab=='/about'}"><a href="#/about">Se connecter</a></li>
                     <li ng-if="token"><a href="#/" ng-click="logout()">Logout</a></li>
                 </ul>
             </nav>
