@@ -4,29 +4,29 @@
       <p>{{signupMessage.message}}</p>
   </div>
   <div class="bs-callout bs-callout-success" ng-show="(username != '')">
-      <h4>Account created !</h4>
+      <h4>Compte créé !</h4>
       <p>Redirecting...</p>
   </div>
   <form name="formCreate">
     <div class="form-group">
-      <label for="inputName">Login</label>
+      <label for="inputName">Nom</label>
       <input type="text" class="form-control" id="inputName" 
-      placeholder="Your name" ng-model="user.name" ng-required="true">
+      placeholder="Nom" ng-model="user.name" ng-required="true">
     </div>
     <div class="form-group">
-      <label for="inputName">Password</label>
+      <label for="inputName">Mot de Passe</label>
       <input type="password" class="form-control" id="inputPass"  name="inputPass"
-      placeholder="Your password" ng-model="user.password" ng-required="true">
+      placeholder="mot de passe" ng-model="user.password" ng-required="true">
     </div>
     <div class="form-group" ng-class="{ 'has-error': formCreate.inputConfirmPass.$error.passwordMatch }">
-      <label for="inputName">Confirm password</label>
+      <label for="inputName">Confirmer Votre Mot de Passe </label>
       <input type="password" class="form-control" id="inputConfirmPass" name="inputConfirmPass"
-      placeholder="Confirm your password" ng-model="confirm_password" ng-required="true" check-password="inputPass">
+      placeholder="Confirmer votre mot de passe" ng-model="confirm_password" ng-required="true" check-password="inputPass">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-success col-sm-5" 
-        ng-disabled="formCreate.$invalid" ng-click="signup()">Create</button>
-        <a class="btn btn-danger col-sm-5 col-sm-offset-2" href="#/">Cancel</a>
+        ng-disabled="formCreate.$invalid" ng-click="signup()">Créer</button>
+        <a class="btn btn-danger col-sm-5 col-sm-offset-2" href="#/">Annuler</a>
     </div>
   </form>
 </div>
