@@ -1,0 +1,16 @@
+<!-- IMAGE -->
+<div class="form-group">
+  <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+    <div ng-repeat="image in uploader.flow.files track by $index">
+      <img ng-show="out" class="preview" flow-img="image"/>
+      <p><img class="preview" ng-src="{{imageStrings[$index]}}"/></p>
+      <p>
+        <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="image.cancel()"></span>
+      </p>
+    </div>
+    <!-- BOTON IMAGE -->
+    <button flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage" class="btn btn-success">Télécharger une image</button>
+  </div>
+  <!-- Bouton ajout vers la BDD -->
+  <button type="submit" class="btn btn-success btn-lg" ng-click="add()">Envoyer a la base de donne</button>
+</div><br>
