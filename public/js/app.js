@@ -11,6 +11,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/connect.html',
             controller: 'connectController'
         })
+        .when('/events', {
+            templateUrl: 'views/events.html',
+            controller: 'eventController'
+        })
         .when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'signupController'
