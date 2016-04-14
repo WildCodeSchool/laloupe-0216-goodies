@@ -1,9 +1,17 @@
+
+/* COLOR:
+* Orange: #F8AC37;
+*
+*/
+
+
+
 body{
     padding-top: 70px;
 }
 
 .navbar-border{
-	border-bottom: 3px solid #F0DB4F;
+	border-bottom: 3px solid #F8AC37;
 }
 
 .navbar-header img{
@@ -70,4 +78,10 @@ body{
 
 .bs-callout-danger h4 {
     color: #ce4844;
+}
+
+.dropdown-header {
+    font-family: 'Yesteryear', cursive;
+    font-size: 1.7em;
+    color: black;
 }
