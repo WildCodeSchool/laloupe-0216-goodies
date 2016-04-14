@@ -6,10 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="" />
-    <title>Sample {{title}}</title>
+    <title>Goodies</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/libs/jquery-1.11.3.min.js"></script>
@@ -18,11 +19,13 @@
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/angular-route.min.js"></script>
-
+    
+    <script src="js/controllers/eventController.js"></script>
     <script src="js/controllers/connectController.js"></script>
     <script src="js/controllers/signupController.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/adminController.js"></script>
+    <script src="js/services/eventService.js"></script>
     <script src="js/services/connectService.js"></script>
     <script src="js/services/userService.js"></script>
     
@@ -32,8 +35,8 @@
     <body>
     <header class="navbar navbar-default navbar-fixed-top navbar-border" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <a href="#/"><img src="assets/logo.png"></a>
+            <div class="navbar-header pull-right">
+                <li><a href="#/">Connexion</a></li>
                  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" 
                          aria-controls="bs-navbar" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -46,8 +49,21 @@
                 <ul class="nav navbar-nav pull-right">
                     <li ng-class="{active: activetab=='/'}" ng-if="token"><a href="#/">Home</a></li>
                     <li ng-class="{active: activetab=='/admin'}" ng-if="token"><a href="#/admin">Administration</a></li>
-                    <li ng-class="{active: activetab=='/about'}"><a href="#/about">Se connecter</a></li>
-                    <li ng-if="token"><a href="#/" ng-click="logout()">Logout</a></li>
+                    <li ng-class="{active: activetab=='/about'}"><a href="#/about"></a></li>
+                        
+                    <li>
+                    <li class="dropdown" ng-if="token">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Mes Goodies</li>
+                                <li ng-class="{active: activetab=='/recettes'}"><a href="#/recettes">Mes Recettes</a></li>
+                                <li ng-class="{active: activetab=='/events'}"><a href="#/events">Mes événements</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Paramètres</li>
+                                <li><a href="#/">Mon Compte</a></li>
+                                <li><a href="#/" ng-click="logout()">Déconnexion</a></li>
+                            </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
