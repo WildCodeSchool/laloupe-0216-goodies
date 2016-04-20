@@ -31,6 +31,11 @@ function config($routeProvider, $httpProvider) {
           templateUrl: 'views/dessert.html',
           controller: 'dessertController',
         })
+
+        .when('/menu', {
+          templateUrl: 'views/menu.html',
+          controller: 'menuController',
+        })
         .when('/about', {
             templateUrl: 'views/about.html'
         })
@@ -123,6 +128,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('mainController', mainController)
   .controller('adminController', adminController)
   .controller('dessertController', dessertController)
+  .controller('menuController', menuController)
   .service('dessertService', dessertService)
   .service('connectService', connectService)
   .service('userService', userService)
