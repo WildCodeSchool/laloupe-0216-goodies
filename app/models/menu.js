@@ -8,7 +8,7 @@ img: String
 
 var menu = {
 
-    model: mongoose.model('menu', dessertSchema),
+    model: mongoose.model('menu', menuSchema),
 
     create: function(req, res) {
         menu.model.create({

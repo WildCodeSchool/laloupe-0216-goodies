@@ -1,1 +1,34 @@
 <h2>Menu</h2>
+<h2 ng-click="ajout()">Ajouter un menu</h2>
+<div ng-show="ajoutRecette">
+
+  <div class="boutonMenu" ng-click="menuShow('entree')">ENTREE</div>
+  <div class="boutonMenu" ng-click="menuShow('plat')">PLAT</div>
+  <div class="boutonMenu" ng-click="menuShow('dessert')">DESSERT</div>
+
+  <div ng-show="showRecette == 'entree'">
+    <h2>Mes entrées</h2>
+    <!-- <div ng-repeat="" class="$entree">
+
+    </div> -->
+  </div>
+
+  <div ng-show="showRecette == 'plat'">
+    <h2>Mes plats</h2>
+    <!-- <div ng-repeat="" class="plat">
+
+    </div> -->
+  </div>
+
+  <div ng-show="showRecette == 'dessert'">
+    <h2>Mes desserts</h2>
+    <!-- <div ng-repeat="" class="dessert">
+
+    </div> -->
+  </div>
+</div>
+
+<h2>Mes menus</h2>
+<!-- <div ng-repeat="" class="menu">
+
+</div> -->

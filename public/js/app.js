@@ -130,6 +130,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('dessertController', dessertController)
   .controller('menuController', menuController)
   .service('dessertService', dessertService)
+  .service('menuService', menuService)
   .service('connectService', connectService)
   .service('userService', userService)
   /*.factory('', )*/
