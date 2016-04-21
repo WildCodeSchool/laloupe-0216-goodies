@@ -391,3 +391,217 @@ html { height: 100%;}
   /*=======================================================
                         End Left Menu
   ========================================================*/
+
+/*==========================================================
+                        EVENT CSS
+==========================================================*/
+
+/*.EvFormName {
+    width: 400px;
+}
+
+.EvFormDate {
+    width: 160px;
+}
+
+.EvFormTime {
+    width: 85px;
+}
+
+.EvFormNum {
+    width: 85px;
+}
+
+.EvFormStreet {
+    width: 300px;
+}
+
+.EvFormCity {
+    width: 400px;
+}*/
+
+
+/* =================================================*/
+/* Carousel */
+
+#quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+    /* Control buttons  */
+    /* Previous button  */
+    /* Next button  */
+    /* Changes the position of the indicators */
+    /* Changes the color of the indicators */
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-control.left {
+    left: -60px;
+}
+#quote-carousel .carousel-control.right {
+    right: -60px;
+}
+#quote-carousel .carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+#quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 4px solid #CCC;
+    border-radius: 50px;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+#quote-carousel .carousel-indicators .active {
+    background: #333333;
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    border-color: #f33;
+    opacity: 1;
+    overflow: hidden;
+}
+.carousel-inner {
+    min-height: 300px;
+}
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+.item blockquote p:before {
+    content: "";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+}
+
+.form2 {
+    margin-top: 50px;
+}
+
+/* ================== form 3 ==================*/
+    @import url(//fonts.googleapis.com/css?family=Lato:400,900);
+    @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+    body {
+        padding: 60px 0px;
+    }
+    .animate {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    .info-card {
+        width: 200px;
+        border: 1px solid rgb(215, 215, 215);
+        position: relative;
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    .info-card > img {
+        width: 200px;
+        margin-bottom: 60px;
+    }
+    .info-card .info-card-details,
+    .info-card .info-card-details .info-card-header  {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        padding: 0 15px;
+        background: rgb(255, 255, 255);
+        text-align: center;
+    }
+    .info-card .info-card-details::-webkit-scrollbar {
+        width: 8px;
+    }
+    .info-card .info-card-details::-webkit-scrollbar-button {
+        width: 8px;
+        height: 0px;
+    }
+    .info-card .info-card-details::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .info-card .info-card-details::-webkit-scrollbar-thumb {
+        background: rgb(160, 160, 160);
+    }
+    .info-card .info-card-details::-webkit-scrollbar-thumb:hover {
+        background: rgb(130, 130, 130);
+    }           
+
+    .info-card .info-card-details .info-card-header {
+        height: auto;       
+        bottom: 100%;
+        padding: 10px 5px;
+    }
+    .info-card:hover .info-card-details {
+        bottom: 0px;
+        overflow: auto;
+        padding-bottom: 25px;
+    }
+    .info-card:hover .info-card-details .info-card-header {
+        position: relative;
+        bottom: 0px;
+        padding-top: 45px;
+        padding-bottom: 25px;
+    }
+    .info-card .info-card-details .info-card-header h1, 
+    .info-card .info-card-details .info-card-header h3 {
+        color: rgb(62, 62, 62);
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .info-card .info-card-details .info-card-header h3 {
+        color: rgb(142, 182, 52);
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: 5px;
+    }
+    .info-card .info-card-details .info-card-detail .social {
+        list-style: none;
+        padding: 0px;
+        margin-top: 25px;
+        text-align: center;
+    }
+    .info-card .info-card-details .info-card-detail .social a {
+        position: relative;
+        display: inline-block;
+        min-width: 40px;
+        padding: 10px 0px;
+        margin: 0px 5px;
+        overflow: hidden;
+        text-align: center;
+        background-color: rgb(215, 215, 215);
+        border-radius: 40px;
+    }
+
+    .info-card-header h2 {
+        font-size: 1.2em;
+    }
+    
+    .cardform {
+    margin-left: 80px;
+        width: 280px;
+    } 

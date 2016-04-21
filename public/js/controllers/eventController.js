@@ -1,40 +1,23 @@
 
 // eventController ==============================
 
-function eventsController($scope, $http, eventService) {
-	$scope.title = "Evénements";
-	// $scope.test = 1;
+function eventController($scope, $http, eventService) {
+	
 
-	// $scope.suivant = function (){
-	// 	$scope.test += 1;
-	// }
-	// $scope.retour = function (){
-	// 	$scope.test -= 1;
-	// }
-	// $scope.required = true;
+	$scope.form = 1;
+
+	
+	$scope.required = true;
 	
 
 	function load(){
 		eventService.get().then(function(res){
 			$scope.events = res.data;
 		});
-		menuService.get().then(function(res){
-			$scope.menus = res.data;
-		});
-		accountService.get().then(function(res){
-			$scope.accounts = res.data;
-		});
+		
 	}
-	$scope.event = {
-		menu:[],
-		invites: []
-	};
-	$scope.addToEventMenu= function(menu){
-    $scope.event.menu.push(menu);
-	};
-	$scope.addToEventInvites= function(account){
-	    $scope.event.invites.push(account);
-	};
+	
+	
 
 	// $scope.jours = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
 	// 				'16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
@@ -60,18 +43,13 @@ function eventsController($scope, $http, eventService) {
 
 	$scope.add = function(){
 		var data = {};
-		data.description = $scope.description;
-		data.description1 = $scope.evenement[$scope.description];
-		data.nom = $scope.nom;
-		data.lieu = $scope.lieu;
-		data.jour = $scope.jour;
-		data.mois = $scope.mois;
-		data.annee = $scope.annee;
-		data.heure = $scope.heure;
-		data.minute = $scope.minute;
-		data.menu = $scope.event.menu;
+		data.name = $scope.name;
+		data.date = $scope.date;
+		data.time = $scope.time;
+		data.num = $scope.num;
+		data.street = $scope.street;
+		data.city = $scope.city;
 		data.invites = $scope.event.invites;
-		data.image = $scope.images[$scope.description];
 		$scope.test=1;
 		
 
@@ -79,13 +57,12 @@ function eventsController($scope, $http, eventService) {
 			load();
 		});
 		$scope.description = "";
-		$scope.nom = "";
-		$scope.lieu = "";
-		$scope.jour = "";
-		$scope.mois = "";
-		$scope.annee = "";
-		$scope.heure = "";
-		$scope.minute = "";
+		$scope.name = "";
+		$scope.date = "";
+		$scope.time = "";
+		$scope.num = "";
+		$scope.street = "";
+		$scope.city = "";
 		$scope.invitation = "";
 		$scope.event.menu = [];
 		$scope.event.invites = [];
