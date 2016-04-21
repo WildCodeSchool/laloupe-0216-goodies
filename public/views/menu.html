@@ -8,9 +8,9 @@
 <h2 ng-click="ajoutRecette=!ajoutRecette">Ajouter un menu</h2>
 <div ng-show="ajoutRecette">
 
-  <div class="boutonMenu" ng-click="menuShow('entree')">ENTREES</div>
-  <div class="boutonMenu" ng-click="menuShow('plat')">PLATS</div>
-  <div class="boutonMenu" ng-click="menuShow('dessert')">DESSERTS</div>
+  <div class="col-md-4" ng-click="menuShow('entree')" ><center>ENTREES</center></div>
+  <div class="col-md-4" ng-click="menuShow('plat')"><center>PLATS</center></div>
+  <div class="col-md-4" ng-click="menuShow('dessert')"><center>DESSERTS</center></div>
 
   <div ng-show="showRecette == 'entree'">
     <h2>Mes entrées</h2>
