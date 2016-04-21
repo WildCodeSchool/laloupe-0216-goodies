@@ -17,7 +17,4 @@ function menuController($scope, menuService) {
     $scope.showRecette = n;
   }
 
-  $scope.ajout = function (){
-    $scope.ajoutRecette = !$scope.ajoutRecette;
-  }
 }
