@@ -1,5 +1,5 @@
 // ROUTES DESSERTS
-var Dessert = require('../models/menu.js');
+var menu = require('../models/menu.js');
 module.exports = function(app) {
 
     app.get('/menu', menu.findAll);
