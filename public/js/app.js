@@ -123,6 +123,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('mainController', mainController)
   .controller('adminController', adminController)
   .controller('dessertController', dessertController)
+
   .service('dessertService', dessertService)
   .service('connectService', connectService)
   .service('userService', userService)

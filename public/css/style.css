@@ -20,7 +20,7 @@ body{
 
 .navbar-header img:hover{
 	transform: rotate(360deg);
-}  
+}
 
 .sub-login-form{
 	text-align: center;
@@ -28,7 +28,7 @@ body{
 
 
 /* ----------------- *\
-	  BS CALLOUT 
+	  BS CALLOUT
 \* ----------------- */
 
 .bs-callout {
