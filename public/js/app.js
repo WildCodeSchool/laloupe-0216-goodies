@@ -115,7 +115,7 @@ function checkPassword() {
   }
 }
 
-
+  
 
 angular.module('app', ['ngRoute','flow'])
   .config(config)
@@ -125,8 +125,10 @@ angular.module('app', ['ngRoute','flow'])
   .controller('mainController', mainController)
   .controller('adminController', adminController)
   .controller('dessertController', dessertController)
+  .controller('eventController', eventController)
   .controller('menuController', menuController)
   .service('dessertService', dessertService)
+  .service('eventService', eventService)
   .service('menuService', menuService)
   .service('connectService', connectService)
   .service('userService', userService)
