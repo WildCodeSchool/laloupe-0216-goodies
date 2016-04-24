@@ -1,0 +1,38 @@
+.desserthtml{
+  background-image: url("/assets/dessert/dessertbg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  width: auto;
+  }
+
+.container-fluid{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.bg{
+  background-color: white;
+  margin-top: 50px;
+}
+.preview {
+    width: 420px;
+    height: auto;
+}
+
+.addpic{
+  border: dashed 2px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  background-color: #D3D3D3;
+
+}
+#inputTitre{
+  margin-top: 15px;
+}
+
+h1{
+  text-align: center;
+}
