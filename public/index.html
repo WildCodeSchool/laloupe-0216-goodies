@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/yoan.css">
+    <link rel="stylesheet" href="css/dragandcrop/jquery.drag-n-crop.css">
 
     <script src="js/libs/jquery-1.11.3.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
@@ -44,7 +46,6 @@
     <!-- App js -->
     <script src="js/app.js"></script>
     <script src="js/nav.js"></script>
-   
 
 
     </head>
@@ -62,7 +63,6 @@
               </button>
             </div>
             <div class="navbar-header pull-right">
-                <li><a href="#/">Connexion</a></li>
                  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar"
                          aria-controls="bs-navbar" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -88,12 +88,13 @@
                                 <li class="dropdown-header">Paramètres</li>
                                 <li><a href="#/">Mon Compte</a></li>
                                 <li><a href="#/" ng-click="logout()">Déconnexion</a></li>
-                            </ul>
+                          </ul>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <div  class="leftMenu">
       <div class="overlay"></div>
 
@@ -106,22 +107,25 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#">Accueil</a>
+                      <a href="#/" class="links">Accueil</a>
                   </li>
                   <li>
-                      <a href="#">Connection / S'inscrire</a>
+                      <a href="#/login" class="links">Connection / S'inscrire</a>
                   </li>
                   <li>
-                      <a href="#/menu">Les Menus</a>
+                      <a href="#/menu" class="links">Les Menus</a>
                   </li>
                   <li>
-                      <a href="#">Les Entrées</a>
+                      <a href="#" class="links">Les Entrées</a>
                   </li>
                   <li>
-                      <a href="#">Les Plats</a>
+                      <a href="#" class="links">Les Plats</a>
                   </li>
                   <li>
-                      <a href="#">Les Desserts</a>
+                      <a href="#/dessert" class="links">Les Desserts</a>
+                  </li>
+                  <li>
+                      <a href="#/events" class="links">Les Evènements</a>
                   </li>
                   <li>
                       <a href="#">Les Evènements</a>
@@ -129,10 +133,11 @@
               </ul>
           </nav>
     </div>
+
     <div class="container-fluid">
       <ng-view></ng-view>
     </div>
 
-  </div>
+
   </body>
 </html>

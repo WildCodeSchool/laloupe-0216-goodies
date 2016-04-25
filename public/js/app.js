@@ -4,9 +4,6 @@ function config($routeProvider, $httpProvider) {
         .when('/', {
             templateUrl: 'views/main.html',
             controller: 'mainController',
-            resolve: {
-                connected: checkIsConnected
-            }
         })
         .when('/login', {
             templateUrl: 'views/connect.html',

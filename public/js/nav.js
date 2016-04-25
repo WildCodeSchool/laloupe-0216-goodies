@@ -1,10 +1,16 @@
 $(document).ready(function () {
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
+      links = $('.links'),
       isClosed = false;
 
   trigger.click(function () {
     hamburger_cross();
+  });
+  
+  links.click(function () {
+    hamburger_cross();
+    $('#wrapper').toggleClass('toggled');
   });
 
   function hamburger_cross() {
