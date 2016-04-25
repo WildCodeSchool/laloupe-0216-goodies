@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <center><h3>Authentification</h3></center>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 compte">
     <div class="bs-callout bs-callout-danger" ng-show="(loginMessage.title != '')">
       <h4>{{loginMessage.title}}</h4>
       <p>{{loginMessage.message}}</p>
@@ -14,11 +14,11 @@
         placeholder="Email" ng-model="user.name" ng-required="true">
       </div>
       <div class="form-group">
-        
+
         <input type="password" class="form-control" id="inputPass"
         placeholder="Mot de passe" ng-model="user.password" ng-required="true">
       </div>
-      <button type="submit" class="btn btn-success btn-block"
+      <button type="submit" class="btn btn-warning btn-block"
       ng-disabled="formConnect.$invalid" ng-click="connect()"> Se Connecter</button>
     </form>
   </div>
