@@ -9,9 +9,6 @@ var eventSchema = new mongoose.Schema({
   num: String,
   street: String,
   city: String,
-  menu: Array,
-  invites: Array
-  
 });
 var Event = {
     
@@ -25,8 +22,6 @@ var Event = {
 			num: req.body.num,
 			street: req.body.street,
 			city: req.body.city,
-			menu: req.body.menu,
-			invites: req.body.invites
 		}, function(){
 			res.sendStatus(200);
 		})
@@ -44,8 +39,6 @@ var Event = {
 			num: req.body.num,
 			street: req.body.street,
 			city: req.body.city,
-			menu: req.body.menu,
-			invites: req.body.invites
 		}, function(){
 			res.sendStatus(200);
 		})

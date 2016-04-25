@@ -1,20 +1,40 @@
 
-<div class="container">
+<div class="container-fluid EvBody">
 	<div class="row">
 		
-		<h2 class="page-header">Evenements</h2>
+		<div class="container">
+			<div class="row">
+				<h2 class="page-header Ev-PghH2"> Mes Evenements</h2>
+			</div>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-link btn-lg-CreatEV" data-toggle="modal" data-target="#myModal">
+  			Créer Mon événement
+			</button>
+		</div>
 
-		<!-- Formulaire 1 ===================================================================================-->
-	<form ng-show="form==1">
-		
 
+	
+
+
+<!-- ===============================  MODAL  ======================================================== -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  	<div class="modal-dialog EvMoDial" role="document">
+        <!-- Formulaire 1 ===================================================================================-->
+    	<div class="modal-content EvMoCo" ng-show="form==1">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Détails de mon événement</h4>
+      		</div>
+      		<div class="modal-body EvMoBo1">		
 	        	<!-- formulaire: nom -->
-	            <div class="form-group EvFormName">
+	            <div class="form-group EvFormName col-md-offset-1 col-md-10">
 	                <label class="">Donner un nom à mon événement :</label>
 	                <input name="nom" type="text" class="form-control" id="inputNameEv" placeholder="Nom" ng-model="name"> 
 	            </div>
 
-				<div class="col-md-12">
+				<div class="col-md-offset-1 col-md-10">
 				   	<div class="row">
 						<!-- formulaire: date -->
 			            <div class="form-group EvFormDate col-md-5">
@@ -30,7 +50,7 @@
 		           	</div>
 				</div>
 
-				<div class="">
+				<div class="col-md-offset-1 col-md-10">
 					<div class="row">
 						<!-- formulaire: N° de rue -->
 			            <div class="form-group EvFormNum col-md-3">
@@ -46,7 +66,7 @@
 			        </div>
 			    </div>
 
-				<div class="">
+				<div class="col-md-offset-1 col-md-10">
 					<div class="row">
 			            <!-- formulaire: ville -->
 			            <div class="form-groupLieu EvFormCity">
@@ -55,124 +75,176 @@
 			            </div>
 			        </div>
 			    </div>
+      		</div>
 
-		<button type="submit" class="btn btn-default pull-right" ng-click="form=2">Suivant</button>
-	</form>
-	<!-- / Fin Formulaire 1 -->
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+			        
+					<button type="submit" class="btn btn-default" ng-click="form=2">Suivant</button>
+			    </div>
+		</div><!-- / End Modal Content - Formulaire 1 -->
+				
+	
+		<!-- Formulaire 2 / fenetre modal ======================================================== -->
+		<div class="modal-content EvMoCo" ng-show="form==2">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Ajouter un menu</h4>
+      		</div>
+      	
+      		<div class="modal-body EvMoBo2">		
+	    		<div class="col-md-12" data-wow-delay="0.2s">
+            		<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+	                	<!-- Bottom Carousel Indicators -->
+	                	<ol class="carousel-indicators">
+	                    	<li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive circle" src="../assets/peppers-1300830_1920.jpg" title="Entée" alt="">
+	                    	</li>
+	                    	<li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive circle" src="../assets/pasta-1181189_1920.jpg" title="Plat" alt="">
+	                    	</li>
+	                    	<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive circle" src="../assets/ice-cream-246161_1920.jpg" title="Dessert" alt="">
+	                    	</li>
+	                	</ol>
 
-		
-<!-- Formulaire 2 / fenetre modal ======================================================== -->
+	                	<!-- Carousel Slides / Quotes -->
+	                	<div class="carousel-inner text-center EvCarouselBody">
 
+		                    <!-- Quote 1 -->
+		                    <div class="item active">
+		                        <blockquote>
+		                            <div class="row">
+		                                <div class="col-sm-8 col-sm-offset-2">
 
-		<form ng-show="form==2">
-	    	<div class="col-md-12" data-wow-delay="0.2s">
-            	<div class="carousel slide" data-ride="carousel" id="quote-carousel">
-	                <!-- Bottom Carousel Indicators -->
-	                <ol class="carousel-indicators">
-	                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive circle" src="../assets/peppers-1300830_1920.jpg" title="Entée" alt="">
-	                    </li>
-	                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive circle" src="../assets/pasta-1181189_1920.jpg" title="Plat" alt="">
-	                    </li>
-	                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive circle" src="../assets/ice-cream-246161_1920.jpg" title="Dessert" alt="">
-	                    </li>
-	                </ol>
+		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+		                                	<img src="../assets/glyphicons-476-dining-set.png">
+		                                    <small>Bon appétit</small>
+		                                </div>
+		                            </div>
+		                        </blockquote>
+		                    </div>
 
-	                <!-- Carousel Slides / Quotes -->
-	                <div class="carousel-inner text-center">
+		                    <!-- Quote 2 -->
+		                    <div class="item">
+		                        <blockquote>
+		                            <div class="row">
+		                                <div class="col-sm-8 col-sm-offset-2">
 
-	                    <!-- Quote 1 -->
-	                    <div class="item active">
-	                        <blockquote>
-	                            <div class="row">
-	                                <div class="col-sm-8 col-sm-offset-2">
+		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+		                                	<img src="../assets/glyphicons-476-dining-set.png">
+		                                    <small>Bon appétit</small>
+		                                </div>
+		                            </div>
+		                        </blockquote>
+		                    </div>
 
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
-	                                	<img src="../assets/glyphicons-476-dining-set.png">
-	                                    <small>Bon appétit</small>
+		                    <!-- Quote 3 -->
+		                    <div class="item">
+		                        <blockquote>
+		                            <div class="row">
+		                                <div class="col-sm-8 col-sm-offset-2">
+
+		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+		                                	<img src="../assets/glyphicons-476-dining-set.png">
+		                                    <small>Bon appétit</small>
+		                                </div>
+		                            </div>
+		                        </blockquote>
+		                    </div>
+                		</div>
+
+	                    <!-- Carousel Buttons Next/Prev -->
+	                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+	                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+	                </div>
+            	</div>
+	        </div>
+
+	      	<div class="modal-footer">
+				<button type="submit" class="btn btn-default pull-left" ng-click="form=1">Retour</button>
+				<button type="submit" class="btn btn-default pull-right" ng-click="form=3">Suivant</button>
+	      	</div>
+	    </div><!-- / End Modal Content - Form 2 -->
+
+	    <!-- Modal Content - Form 3 =================================================== -->
+		<div class="modal-content EvMoCo" ng-show="form==3">
+      		<div class="modal-header Ev-ModalHeader-Form3">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Invitations :</h4>
+        		<h5>Rechercher un(e) ami(e)s.</h5>
+		        <div class="form-group">
+		            <div class="col-sm-12 col-md-12 col-lg-12">
+		                <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
+		            </div>
+		        </div>
+      		</div>
+
+      		<div class="modal-body EvMoBo3">
+					<div class="form-group">
+	            <div class="searchable-container">
+	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+	                    <div class="info-block block-info clearfix">
+	                        <div class="square-box pull-left">
+	                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+	                        </div>
+	                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+	                            <label class="btn btn-default">
+	                                <div class="bizcontent">
+	                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+	                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+	                                    <h5>Jeremy</h5>
 	                                </div>
-	                            </div>
-	                        </blockquote>
+	                            </label>
+	                        </div>
 	                    </div>
-	                    <!-- Quote 2 -->
-	                    <div class="item">
-	                        <blockquote>
-	                            <div class="row">
-	                                <div class="col-sm-8 col-sm-offset-2">
-
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-	                                	<img src="../assets/glyphicons-476-dining-set.png">
-	                                    <small>Bon appétit</small>
+	                </div>
+	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+	                    <div class="info-block block-info clearfix">
+	                        <div class="square-box pull-left">
+	                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+	                        </div>
+	                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+	                            <label class="btn btn-default">
+	                                <div class="bizcontent">
+	                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+	                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+	                                    <h5>Yoan</h5>
 	                                </div>
-	                            </div>
-	                        </blockquote>
+	                            </label>
+	                        </div>
 	                    </div>
-	                    <!-- Quote 3 -->
-	                    <div class="item">
-	                        <blockquote>
-	                            <div class="row">
-	                                <div class="col-sm-8 col-sm-offset-2">
-
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-	                                	<img src="../assets/glyphicons-476-dining-set.png">
-	                                    <small>Bon appétit</small>
+	                </div>
+	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+	                    <div class="info-block block-info clearfix">
+	                        <div class="square-box pull-left">
+	                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+	                        </div>
+	                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+	                            <label class="btn btn-default">
+	                                <div class="bizcontent">
+	                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+	                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+	                                    <h5>Ludovic</h5>
 	                                </div>
-	                            </div>
-	                        </blockquote>
+	                            </label>
+	                        </div>
 	                    </div>
-                	</div>
+	                </div>
+	            </div>
+	        </div>
+      		</div><!-- / modal body -->
+			
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default pull-left" ng-click="form=2">Retour</button>
+	        	<button type="submit" class="btn btn-success pull-right" data-dismiss="modal" ng-click="add()">Créer</button>
+	      	</div>
+      	</div><!-- / End Modal Content - Form 3 -->	
 
-                    <!-- Carousel Buttons Next/Prev -->
-                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-                </div>
-            </div>
-			<button type="submit" class="btn btn-default" ng-click="form=1">Retour</button>
-			<button type="submit" class="btn btn-default pull-right" ng-click="form=3">Suivant</button>
-		</form>
-	<!-- / End Formulaire 2 -->
+  	</div><!-- / Modal-dialog -->
+</div><!-- / Modal-fade -->
 
 
-<!-- formulaire 3 ===================================================================-->
-
-		    
-		    <form ng-show="form==3">
-				<div class="[ col-sm-6 col-md-offset-1 col-md-4  cardform]">
-					<div class="[ info-card ]">
-						<img style="width: 100%" src="https://avatars.githubusercontent.com/u/564874?v=3" />
-						<div class="[ info-card-details ] animate">
-							<div class="[ info-card-header ]">
-								<h2> Robert McIntosh </h2>
-							</div>
-							<div class="[ info-card-detail ]">
-								<!-- Description -->
-								<p>The idea of creating something out of nothing has always generated a passion in my heart. This is what lead me to website development. I can literally create little worlds that hopefully thousands of people can see and even experience.</p>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-	    		<div class="[ col-sm-6 col-md-4 cardform]">
-					<div class="[ info-card ]">
-						<img style="width: 100%" src="http://api.randomuser.me/portraits/women/45.jpg" />
-						<div class="[ info-card-details ] animate">
-							<div class="[ info-card-header ]">
-								<h2> Caroline Henderson </h2>
-								
-							</div>
-							<div class="[ info-card-detail ]">
-								<!-- Description -->
-								<p>People often say that beauty is in the eye of the beholder, and I say that the most liberating thing about beauty is realizing that you are the beholder. This empowers us to find beauty in places where others have not dared to look including inside ourselves.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-		
-				<button type="submit" class="btn btn-default" ng-click="form=2">Retour</button>
-				<button type="submit" class="btn btn-success pull-right" ng-click="add()">Créer</button>
-			</form>
-
-	</div>
-</div>
+<!-- ===============================  / MODAL  ========================================================== -->
+	</div><!-- / row -->
+</div><!-- / container -->
 
 
 

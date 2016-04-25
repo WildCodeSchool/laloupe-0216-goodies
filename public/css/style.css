@@ -63,7 +63,10 @@ body{
 	text-align: center;
 }
 
-
+.container-fluid {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 /* ----------------- *\
 	  BS CALLOUT
 \* ----------------- */
@@ -428,9 +431,10 @@ html { height: 100%;}
                         End Left Menu
   ========================================================*/
 
-/*==========================================================
+
+/*=====================================================================================================
                         EVENT CSS
-==========================================================*/
+====================================================================================================*/
 
 /*.EvFormName {
     width: 400px;
@@ -456,10 +460,33 @@ html { height: 100%;}
     width: 400px;
 }*/
 
+.EvBody {
+  background-image: url('../assets/dessertbg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 
-/* =================================================*/
-/* Carousel */
+.EvFormContainer {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
 
+.Ev-PghH2 {
+  font-family: 'Yesteryear', cursive;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+/*  -----  MODAL  -----  */
+.EvFormFooter {
+  padding-top: 25px;
+}
+
+/* --  Carousel  -- */
 #quote-carousel {
     padding: 0 10px 30px 10px;
     margin-top: 30px;
@@ -520,6 +547,10 @@ html { height: 100%;}
     font-family: 'Fontawesome';
     float: left;
     margin-right: 10px;
+}
+
+.EvCarouselBody {
+  margin-bottom: 122px;
 }
 
 .circle {
@@ -642,41 +673,85 @@ html { height: 100%;}
         width: 280px;
     }
 
-    /*==========================================================
-                          END EVENT CSS
-    ==========================================================*/
+.btn-lg-CreatEV {
+  position: relative;
+    top: 145px;
+    font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    text-decoration: underline;
+}
+.btn-lg-CreateEv:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  text-decoration: overline;
+}
+.EvMoCo {
+
+}
+
+.EvMoBo1 {
+  height: 320px;
+}
+.EvMoBo2 {
+  height: 525px;
+}
+
+.Ev-ModalHeader-Form3 {
+  height: 130px;
+}
+.EvMoBo3 {
+  height: 400px;
+}
+/* =====  / MODAL  ===== */
+
+/* -- search form 3 -- */
+.searchable-container{margin:20px 0 0 0}
+.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+.searchable-container .btn-group{width:90%}
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+/* =====  / search form 3  ===== */
+
+/*===========================  / END EVENT CSS  !! =========================================
+=========================================================================================== */
+
+/*==========================================================
+                        HOME CSS
+==========================================================*/
+.backhome{
+  background: url('/assets/backhome.jpg');
+  background-size: cover;
+  font-family: 'Pacifico', cursive;
+  color : white;
+  padding: 150px;
+  margin-bottom: 50px;
+}
+.backhome img{
+  width: 100px;
+  height: auto;
+}
+.dessins {
+  margin-top: 120px;
+}
+.backsecond{
+  background: url('/assets/floor.jpg');
+  background-size: cover;
+  padding: 90px;
+  margin-top: 100px;
+  color: white;
+}
+.homeCenterTitle {
+  margin-bottom: 50px;
+}
 
 
-    /*==========================================================
-                            HOME CSS
-    ==========================================================*/
-    .backhome{
-      background: url('/assets/backhome.jpg');
-      background-size: cover;
-      font-family: 'Pacifico', cursive;
-      color : white;
-      padding: 150px;
-      margin-bottom: 50px;
-    }
-    .backhome img{
-      width: 100px;
-      height: auto;
-    }
-    .dessins {
-      margin-top: 120px;
-    }
-    .backsecond{
-      background: url('/assets/floor.jpg');
-      background-size: cover;
-      padding: 90px;
-      margin-top: 100px;
-      color: white;
-    }
-    .homeCenterTitle {
-      margin-bottom: 50px;
-    }
-
-
-    /*==========================================================
-                          END HOME CSS
-    ==========================================================*/
+/*==========================================================
+                      END HOME CSS
+==========================================================*/

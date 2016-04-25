@@ -17,6 +17,15 @@ function eventController($scope, $http, eventService) {
 		
 	}
 	
+	$(function() {
+    $('#search').on('keyup', function() {
+        var pattern = $(this).val();
+        $('.searchable-container .items').hide();
+        $('.searchable-container .items').filter(function() {
+            return $(this).text().match(new RegExp(pattern, 'i'));
+        }).show();
+    });
+});
 	
 
 	// $scope.jours = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
@@ -42,6 +51,7 @@ function eventController($scope, $http, eventService) {
 	// $scope.evenement = ['Anniversaire','Noel','Nouvel an','Petit déjeuner','déjeuner','diner'];
 
 	$scope.add = function(){
+		$scope.form = 1;
 		var data = {};
 		data.name = $scope.name;
 		data.date = $scope.date;
@@ -49,7 +59,6 @@ function eventController($scope, $http, eventService) {
 		data.num = $scope.num;
 		data.street = $scope.street;
 		data.city = $scope.city;
-		data.invites = $scope.event.invites;
 		$scope.test=1;
 		
 
@@ -64,8 +73,6 @@ function eventController($scope, $http, eventService) {
 		$scope.street = "";
 		$scope.city = "";
 		$scope.invitation = "";
-		$scope.event.menu = [];
-		$scope.event.invites = [];
 	}
 	$scope.update = function(event){
 		eventService.update(event._id, event).then(function(res){
