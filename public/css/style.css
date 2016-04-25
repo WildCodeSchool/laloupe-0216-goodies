@@ -3,11 +3,48 @@
 * Orange: #F8AC37;
 *
 */
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  margin-top: 15px;
+  line-height: 25px;
+  margin-left: -2%;
+}
+/* ===========================================*\
+	                  Connection
+\* ===========================================*/
 
-
-
+.connection {
+  margin-top: 12%;
+  background-color: rgba(236, 240, 241, 0.7);
+  border-radius: 5px;
+  padding: 20px;
+}
+.connection h3{
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
+}
+input[type="text"], input[type="password"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 3px #c9c9c9;
+  transition: border 0.3s;
+}
+input[type="text"]:focus,
+input[type="text"].focus,
+input[type="password"]:focus,
+input[type="password"].focus {
+  border-bottom: solid 3px #F8AC37;
+}
+.compte {
+  margin-bottom: 15px;
+}
+/* ===========================================*\
+	              End Connection
+\* ===========================================*/
 body{
-    padding-top: 70px;
+    background: url('/assets/pasta.jpg');
+    background-size: cover;
 }
 
 .navbar-border{
@@ -242,7 +279,7 @@ html { height: 100%;}
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 90px;
     font-size: 20px;
     line-height: 44px;
 }
@@ -268,7 +305,6 @@ html { height: 100%;}
   display: block;
   width: 32px;
   height: 32px;
-  margin-left: 15px;
   background: transparent;
   border: none;
 }
@@ -546,10 +582,10 @@ html { height: 100%;}
     }
     .info-card .info-card-details::-webkit-scrollbar-thumb:hover {
         background: rgb(130, 130, 130);
-    }           
+    }
 
     .info-card .info-card-details .info-card-header {
-        height: auto;       
+        height: auto;
         bottom: 100%;
         padding: 10px 5px;
     }
@@ -564,7 +600,7 @@ html { height: 100%;}
         padding-top: 45px;
         padding-bottom: 25px;
     }
-    .info-card .info-card-details .info-card-header h1, 
+    .info-card .info-card-details .info-card-header h1,
     .info-card .info-card-details .info-card-header h3 {
         color: rgb(62, 62, 62);
         font-size: 22px;
@@ -600,8 +636,47 @@ html { height: 100%;}
     .info-card-header h2 {
         font-size: 1.2em;
     }
-    
+
     .cardform {
     margin-left: 80px;
         width: 280px;
-    } 
+    }
+
+    /*==========================================================
+                          END EVENT CSS
+    ==========================================================*/
+
+
+    /*==========================================================
+                            HOME CSS
+    ==========================================================*/
+    .backhome{
+      background: url('/assets/backhome.jpg');
+      background-size: cover;
+      font-family: 'Pacifico', cursive;
+      color : white;
+      padding: 150px;
+      margin-bottom: 50px;
+    }
+    .backhome img{
+      width: 100px;
+      height: auto;
+    }
+    .dessins {
+      margin-top: 120px;
+    }
+    .backsecond{
+      background: url('/assets/floor.jpg');
+      background-size: cover;
+      padding: 90px;
+      margin-top: 100px;
+      color: white;
+    }
+    .homeCenterTitle {
+      margin-bottom: 50px;
+    }
+
+
+    /*==========================================================
+                          END HOME CSS
+    ==========================================================*/

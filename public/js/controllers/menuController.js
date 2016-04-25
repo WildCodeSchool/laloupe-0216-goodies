@@ -1,6 +1,6 @@
 function menuController($scope, menuService) {
   $scope.showRecette = 'entree';
-
+  $('body').css('background-image', 'none');
 
 
 

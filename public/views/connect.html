@@ -1,28 +1,33 @@
-<div class="col-md-4 col-md-offset-4">
-  <div class="bs-callout bs-callout-danger" ng-show="(loginMessage.title != '')">
-  <h4>{{loginMessage.title}}</h4>
-  <p>{{loginMessage.message}}</p>
+<div class="col-md-4 col-md-offset-4 connection">
+  <div class="col-md-12">
+    <center><h3>Authentification</h3></center>
   </div>
-  <form name="formConnect">
-    <div class="form-group">
-      <label for="inputName">Nom</label>
-      <input type="text" class="form-control" id="inputName" 
-      placeholder="Votre nom ici" ng-model="user.name" ng-required="true">
+  <div class="col-md-12 compte">
+    <div class="bs-callout bs-callout-danger" ng-show="(loginMessage.title != '')">
+      <h4>{{loginMessage.title}}</h4>
+      <p>{{loginMessage.message}}</p>
     </div>
-    <div class="form-group">
-      <label for="inputName">Mot de Passe</label>
-      <input type="password" class="form-control" id="inputPass" 
-      placeholder="Votre mot de passe ici" ng-model="user.password" ng-required="true">
-    </div>
-    <button type="submit" class="btn btn-success btn-block" 
-    ng-disabled="formConnect.$invalid" ng-click="connect()"> Me Connecter</button>
-  </form>
-</div>
-<div class="row sub-login-form">
-  <div class="col-md-offset-4 col-md-2">
-    <a href="#/signup">Créer un Compte</a>
+    <form name="formConnect">
+      <div class="form-group">
+
+        <input type="text" class="form-control" id="inputName"
+        placeholder="Email" ng-model="user.name" ng-required="true">
+      </div>
+      <div class="form-group">
+
+        <input type="password" class="form-control" id="inputPass"
+        placeholder="Mot de passe" ng-model="user.password" ng-required="true">
+      </div>
+      <button type="submit" class="btn btn-warning btn-block"
+      ng-disabled="formConnect.$invalid" ng-click="connect()"> Se Connecter</button>
+    </form>
   </div>
-  <div class="col-md-2">
-    <a href="">Mot de Passe Oublié ?</a>
+  <div class="row sub-login-form">
+    <div class="col-md-6">
+      <a href="#/signup">Créer un Compte</a>
+    </div>
+    <div class="col-md-6">
+      <a href="">Mot de Passe Oublié ?</a>
+    </div>
   </div>
 </div>
