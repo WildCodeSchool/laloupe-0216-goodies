@@ -1,33 +1,47 @@
-<h2>Menu</h2>
-
-<h2>Mes menus</h2>
+<div class="col-md-12 menu"><center><h2>Mes menus</h2></center></div>
 <!-- <div ng-repeat="" class="menu">
 
 </div> -->
 
-<h2 ng-click="ajoutRecette=!ajoutRecette">Ajouter un menu</h2>
+<h2 ng-click="ajoutRecette=!ajoutRecette" class="col-md-12 menu"><center>Ajouter un menu</center></h2>
 <div ng-show="ajoutRecette">
-
-  <div class="col-md-4" ng-click="menuShow('entree')" ><center>ENTREES</center></div>
-  <div class="col-md-4" ng-click="menuShow('plat')"><center>PLATS</center></div>
-  <div class="col-md-4" ng-click="menuShow('dessert')"><center>DESSERTS</center></div>
+  <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4" ng-click="menuShow('entree')" >
+          <center>
+            <button id="entree" class="btn btn-info btn-block">
+              ENTREES
+            </button>
+          </center>
+      </div>
+      <div class="col-md-4" ng-click="menuShow('plat')">
+          <center>
+            <button id="plat" class="btn btn-warning btn-block">
+              PLATS
+            </button>
+          </center>
+      </div>
+      <div class="col-md-4" ng-click="menuShow('dessert')">
+          <center>
+            <button id="dessert" class="btn btn-warning btn-block">
+              DESSERTS
+            </button>
+          </center>
+      </div>
+  </div>
 
   <div ng-show="showRecette == 'entree'">
-    <h2>Mes entrées</h2>
     <!-- <div ng-repeat="" class="$entree">
 
     </div> -->
   </div>
 
   <div ng-show="showRecette == 'plat'">
-    <h2>Mes plats</h2>
     <!-- <div ng-repeat="" class="plat">
 
     </div> -->
   </div>
 
   <div ng-show="showRecette == 'dessert'">
-    <h2>Mes desserts</h2>
     <!-- <div ng-repeat="" class="dessert">
 
     </div> -->
