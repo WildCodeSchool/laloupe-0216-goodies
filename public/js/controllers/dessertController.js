@@ -1,5 +1,7 @@
 function dessertController($scope, dessertService) {
+  $('body').css('background-image', 'none').css('background-image','url("./assets/dessert/dessertbg.png")');
   $scope.i = 0;
+  $scope.y = 0;
   // ADD PROFILE
   $scope.add = function() {
     var datas = {};
@@ -44,6 +46,7 @@ function dessertController($scope, dessertService) {
       $scope.imagePlat = $scope.imageStrings[0];
     }
     $scope.i ++;
+    $scope.y = 0;
   }
   //  ------------   FLOW   -----------
   $scope.imageStrings = [];
@@ -54,8 +57,13 @@ function dessertController($scope, dessertService) {
         var uri = event.target.result;
         console.log($scope.imageStrings[i]);
         $scope.imageStrings[i] = uri;
+        $scope.y = 1;
       };
       fileReader.readAsDataURL(flowFile.file);
     });
   };
+  $scope.cancel = function(image){
+    image.cancel();
+    $scope.y = 0;
+  }
 }

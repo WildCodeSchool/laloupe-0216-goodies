@@ -1,85 +1,88 @@
 <div class="desserthtml">
-  <h1>Création de votre Entrée</h1>
+  <h1 ng-show="i == 0">Création de votre Entrée</h1>
+  <h1 ng-show="i == 1">Création de votre Plat</h1>
+  <h1 ng-show="i == 2">Création de votre Dessert</h1>
   <div class="col-md-4 col-md-push-1">
-      <!-- ng-show == 0 Partie Entrée -->
-      <div class="form-group bg" ng-show="i == 0">
+    <!-- ng-show == 0 Partie Entrée -->
+    <div class="form-group bg" ng-show="i == 0">
+      <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
         <div class="addpic">
-              <p>Ajouter une photo</p>
-              <img src="./assets/dessert/cam.png" alt="downloadicon" />
-        </div>
-        <div class="rectangle"></div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Entrée" ng-model="titreEntre"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionEntre"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recetteEntre"><br>
-        </div>
-        <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
-            <div ng-repeat="image in uploader.flow.files track by $index">
-              <img ng-show="out" class="preview" flow-img="image"/>
-              <p><img class="preview" ng-src="{{imageStrings[$index]}}"/></p>
-              <p>
-                <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="image.cancel()"></span>
-              </p>
-            </div>
-              <!-- BOTON IMAGE -->
-            <button flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage" class="btn btn-success">Télécharger une image</button>
-            <button type="submit" class="btn btn-success btn-lg" ng-click="valid()">Valider</button>
-        </div>
-      </div>
-      <!-- ng-show == 1 Partie Plat -->
-      <div class="form-group" ng-show="i == 1">
-        <h1>Création de votre Plat</h1>
-        <!-- <div class="rectangle"> -->
-        <div class="form-group bg">
-          <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Plat" ng-model="titrePlat"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionPlat"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recettePlat"><br>
-        </div>
-        <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+          <div ng-hide="y==1">
+            <!-- Clique sur photo pour ajout d'image -->
+            <p>Ajouter une photo</p>
+            <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
+          </div>
           <div ng-repeat="image in uploader.flow.files track by $index">
             <img ng-show="out" class="preview" flow-img="image"/>
-            <p><img class="preview" ng-src="{{imageStrings[$index]}}"/></p>
-            <p>
-              <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="image.cancel()"></span>
-            </p>
+            <img class="preview" ng-src="{{imageStrings[$index]}}"/>
+              <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
           </div>
-          <!-- BOTON IMAGE -->
-          <button flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage" class="btn btn-success">Télécharger une image</button>
-          <button type="submit" class="btn btn-success btn-lg" ng-click="valid()">Valider</button>
         </div>
       </div>
-      <!-- ng-show == 2 Partie Dessert -->
-      <div class="form-group bg" ng-show="i == 2">
-        <h1>Création de votre Dessert</h1>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre déssert" ng-model="titreDessert"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionDessert"><br>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recetteDessert"><br>
-        </div>
-        <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Entrée" ng-model="titreEntre"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionEntre"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recetteEntre"><br>
+      </div>
+      <button type="submit" class="btn btn-success btn-lg" ng-click="valid()">Valider</button>
+    </div>
+    <!-- ng-show == 1 Partie Plat -->
+    <div class="form-group bg" ng-show="i == 1">
+      <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+        <div class="addpic">
+          <div ng-hide="y==1">
+            <!-- Clique sur photo pour ajout d'image -->
+            <p>Ajouter une photo</p>
+            <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
+          </div>
           <div ng-repeat="image in uploader.flow.files track by $index">
             <img ng-show="out" class="preview" flow-img="image"/>
-            <p><img class="preview" ng-src="{{imageStrings[$index]}}"/></p>
-            <p>
-              <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="image.cancel()"></span>
-            </p>
+            <img class="preview" ng-src="{{imageStrings[$index]}}"/>
+              <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
           </div>
-          <!-- BOTON IMAGE -->
-          <button flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage" class="btn btn-success">Télécharger une image</button>
-          <button type="submit" class="btn btn-success btn-lg" ng-click="add()">Valider</button>
         </div>
       </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Plat" ng-model="titrePlat"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionPlat"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recettePlat"><br>
+        <button type="submit" class="btn btn-success btn-lg" ng-click="valid()">Valider</button>
+      </div>
+    </div>
+    <!-- ng-show == 2 Partie Dessert -->
+    <div class="form-group bg" ng-show="i == 2">
+      <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+        <div class="addpic">
+          <div ng-hide="y==1">
+            <!-- Clique sur photo pour ajout d'image -->
+            <p>Ajouter une photo</p>
+            <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
+          </div>
+          <div ng-repeat="image in uploader.flow.files track by $index">
+            <img ng-show="out" class="preview" flow-img="image"/>
+            <img class="preview" ng-src="{{imageStrings[$index]}}"/>
+              <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre déssert" ng-model="titreDessert"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="descriptionDessert"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recetteDessert"><br>
+      </div>
+      <button type="submit" class="btn btn-success btn-lg" ng-click="add()">Valider</button>
+    </div>
   </div>
 </div>
