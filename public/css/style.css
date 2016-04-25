@@ -26,7 +26,10 @@ body{
 	text-align: center;
 }
 
-
+.container-fluid {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 /* ----------------- *\
 	  BS CALLOUT
 \* ----------------- */
@@ -392,9 +395,10 @@ html { height: 100%;}
                         End Left Menu
   ========================================================*/
 
-/*==========================================================
+
+/*=====================================================================================================
                         EVENT CSS
-==========================================================*/
+====================================================================================================*/
 
 /*.EvFormName {
     width: 400px;
@@ -420,10 +424,33 @@ html { height: 100%;}
     width: 400px;
 }*/
 
+.EvBody {
+  background-image: url('../assets/dessertbg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 
-/* =================================================*/
-/* Carousel */
+.EvFormContainer {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
 
+.Ev-PghH2 { 
+  font-family: 'Yesteryear', cursive;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+/*  -----  MODAL  -----  */
+.EvFormFooter {
+  padding-top: 25px;
+}
+
+/* --  Carousel  -- */
 #quote-carousel {
     padding: 0 10px 30px 10px;
     margin-top: 30px;
@@ -486,6 +513,10 @@ html { height: 100%;}
     margin-right: 10px;
 }
 
+.EvCarouselBody {
+  margin-bottom: 122px;
+}
+
 .circle {
     width: 120px;
     height: 120px;
@@ -495,113 +526,51 @@ html { height: 100%;}
     margin-top: 50px;
 }
 
-/* ================== form 3 ==================*/
-    @import url(//fonts.googleapis.com/css?family=Lato:400,900);
-    @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-    body {
-        padding: 60px 0px;
-    }
-    .animate {
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-    .info-card {
-        width: 200px;
-        border: 1px solid rgb(215, 215, 215);
-        position: relative;
-        font-family: 'Lato', sans-serif;
-        margin-bottom: 20px;
-        overflow: hidden;
-    }
-    .info-card > img {
-        width: 200px;
-        margin-bottom: 60px;
-    }
-    .info-card .info-card-details,
-    .info-card .info-card-details .info-card-header  {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        bottom: -100%;
-        left: 0;
-        padding: 0 15px;
-        background: rgb(255, 255, 255);
-        text-align: center;
-    }
-    .info-card .info-card-details::-webkit-scrollbar {
-        width: 8px;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-button {
-        width: 8px;
-        height: 0px;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-thumb {
-        background: rgb(160, 160, 160);
-    }
-    .info-card .info-card-details::-webkit-scrollbar-thumb:hover {
-        background: rgb(130, 130, 130);
-    }           
+.btn-lg-CreatEV {
+  position: relative;
+    top: 145px;
+    font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    text-decoration: underline;
+}
+.btn-lg-CreateEv:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  text-decoration: overline;
+}
+.EvMoCo {
+  
+}
 
-    .info-card .info-card-details .info-card-header {
-        height: auto;       
-        bottom: 100%;
-        padding: 10px 5px;
-    }
-    .info-card:hover .info-card-details {
-        bottom: 0px;
-        overflow: auto;
-        padding-bottom: 25px;
-    }
-    .info-card:hover .info-card-details .info-card-header {
-        position: relative;
-        bottom: 0px;
-        padding-top: 45px;
-        padding-bottom: 25px;
-    }
-    .info-card .info-card-details .info-card-header h1, 
-    .info-card .info-card-details .info-card-header h3 {
-        color: rgb(62, 62, 62);
-        font-size: 22px;
-        font-weight: 900;
-        text-transform: uppercase;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .info-card .info-card-details .info-card-header h3 {
-        color: rgb(142, 182, 52);
-        font-size: 15px;
-        font-weight: 400;
-        margin-top: 5px;
-    }
-    .info-card .info-card-details .info-card-detail .social {
-        list-style: none;
-        padding: 0px;
-        margin-top: 25px;
-        text-align: center;
-    }
-    .info-card .info-card-details .info-card-detail .social a {
-        position: relative;
-        display: inline-block;
-        min-width: 40px;
-        padding: 10px 0px;
-        margin: 0px 5px;
-        overflow: hidden;
-        text-align: center;
-        background-color: rgb(215, 215, 215);
-        border-radius: 40px;
-    }
+.EvMoBo1 {
+  height: 320px;
+}
+.EvMoBo2 {
+  height: 525px;
+}
 
-    .info-card-header h2 {
-        font-size: 1.2em;
-    }
-    
-    .cardform {
-    margin-left: 80px;
-        width: 280px;
-    } 
+.Ev-ModalHeader-Form3 {
+  height: 130px;
+}
+.EvMoBo3 {
+  height: 400px;
+}
+/* =====  / MODAL  ===== */
+
+/* -- search form 3 -- */
+.searchable-container{margin:20px 0 0 0}
+.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+.searchable-container .btn-group{width:90%}
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+/* =====  / search form 3  ===== */
+
+/*===========================  / END EVENT CSS  !! =========================================
+=========================================================================================== */
