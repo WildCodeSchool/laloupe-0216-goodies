@@ -9,7 +9,7 @@ function eventController($scope, $http, eventService) {
 	
 	$scope.required = true;
 	
-
+	
 	function load(){
 		eventService.get().then(function(res){
 			$scope.events = res.data;
