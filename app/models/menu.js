@@ -1,4 +1,4 @@
-// MODEL DESSERT
+// MODEL RECETTE
 var mongoose = require('mongoose');
 
 var menuSchema = new mongoose.Schema({

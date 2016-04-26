@@ -11,7 +11,7 @@
             <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')" >
               ENTREES
             </button>
-            <button type="button" class="btn btn-default btn-default">
+            <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target=".bs-modal-lg" ng-click="boutonAjout('Ajouter une Entrée')">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </center>
@@ -21,7 +21,7 @@
             <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
               PLATS
             </button>
-            <button type="button" class="btn btn-default btn-default">
+            <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target=".bs-modal-lg" ng-click="boutonAjout('Ajouter un Plat')">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </center>
@@ -31,12 +31,25 @@
             <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
               DESSERTS
             </button>
-            <button type="button" class="btn btn-default btn-default">
+            <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target=".bs-modal-lg" ng-click="boutonAjout('Ajouter un Dessert')">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </center>
       </div>
   </div>
+  <!-- ============= MODAL ENTREE PLAT DESSERT =========================  -->
+  <div class="modal fade bs-modal-lg modalMenu" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">{{recetteTitle}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============= END MODAL ENTREE PLAT DESSERT =====================  -->
 
   <div ng-show="showRecette == 'entree'">
     <!-- <div ng-repeat="" class="$entree">

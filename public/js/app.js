@@ -26,9 +26,16 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/dessert', {
           templateUrl: 'views/dessert.html',
-          controller: 'dessertController',
+          controller: 'recetteController',
         })
-
+        .when('/plat', {
+          templateUrl: 'views/plat.html',
+          controller: 'recetteController',
+        })
+        .when('/entree', {
+          templateUrl: 'views/entree.html',
+          controller: 'recetteController',
+        })
         .when('/menu', {
           templateUrl: 'views/menu.html',
           controller: 'menuController',
@@ -115,7 +122,7 @@ function checkPassword() {
   }
 }
 
-  
+
 
 angular.module('app', ['ngRoute','flow'])
   .config(config)
@@ -124,11 +131,11 @@ angular.module('app', ['ngRoute','flow'])
   .controller('signupController', signupController)
   .controller('mainController', mainController)
   .controller('adminController', adminController)
-  .controller('dessertController', dessertController)
+  .controller('recetteController', recetteController)
   .controller('eventController', eventController)
   .controller('menuController', menuController)
-  .service('dessertService', dessertService)
   .service('eventService', eventService)
+  .service('recetteService', recetteService)
   .service('menuService', menuService)
   .service('connectService', connectService)
   .service('userService', userService)
