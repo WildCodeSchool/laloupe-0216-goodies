@@ -1,7 +1,6 @@
 function menuController($scope, menuService) {
   $scope.showRecette = 'entree';
-  $('body').css('background-image', 'none');
-
+  $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
 
   // ADD PROFILE
   $scope.add = function() {
@@ -19,7 +18,9 @@ function menuController($scope, menuService) {
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     $scope.showRecette = n;
   }
-
+  $scope.boutonAjout = function (recette){
+    $scope.recetteTitle = recette;
+  }
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
