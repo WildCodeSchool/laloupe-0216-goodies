@@ -4,10 +4,10 @@
 		
 		<div class="container">
 			<div class="row">
-				<h2 class="page-header Ev-PghH2"> Mes Evenements</h2>
+				<h2 class="page-header col-xs-10 Ev-PghH2"> Mes Evenements</h2>
 			</div>
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-link btn-lg-CreatEV" data-toggle="modal" data-target="#myModal">
+			<button type="button" class="btn btn-warning btnCreatEV" data-toggle="modal" data-target="#myModal">
   			Créer Mon événement
 			</button>
 		</div>
@@ -20,9 +20,9 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  	<div class="modal-dialog EvMoDial" role="document">
-        <!-- Formulaire 1 ===================================================================================-->
-    	<div class="modal-content EvMoCo" ng-show="form==1">
+    <!-- Formulaire 1 ===================================================================================-->
+  	<div class="modal-dialog EvMoDial1" role="document" ng-show="form==1">
+    	<div class="modal-content EvMoCo">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         		<h4 class="modal-title" id="myModalLabel">Détails de mon événement</h4>
@@ -78,94 +78,110 @@
       		</div>
 
 				<div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-			        
-					<button type="submit" class="btn btn-default" ng-click="form=2">Suivant</button>
+			        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-default pull-right" ng-click="form=2">Suivant</button>
 			    </div>
-		</div><!-- / End Modal Content - Formulaire 1 -->
+		</div>
+	</div><!-- / End Modal Content - Formulaire 1 -->
 				
 	
-		<!-- Formulaire 2 / fenetre modal ======================================================== -->
-		<div class="modal-content EvMoCo" ng-show="form==2">
+		<!-- form 2 / modal ======================================================== -->
+	<div class="modal-dialog EvMoDial2" role="document" ng-show="form==2">
+		<div class="modal-content EvMoCo">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         		<h4 class="modal-title" id="myModalLabel">Ajouter un menu</h4>
       		</div>
       	
-      		<div class="modal-body EvMoBo2">		
-	    		<div class="col-md-12" data-wow-delay="0.2s">
-            		<div class="carousel slide" data-ride="carousel" id="quote-carousel">
-	                	<!-- Bottom Carousel Indicators -->
-	                	<ol class="carousel-indicators">
-	                    	<li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive circle" src="../assets/peppers-1300830_1920.jpg" title="Entée" alt="">
-	                    	</li>
-	                    	<li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive circle" src="../assets/pasta-1181189_1920.jpg" title="Plat" alt="">
-	                    	</li>
-	                    	<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive circle" src="../assets/ice-cream-246161_1920.jpg" title="Dessert" alt="">
-	                    	</li>
-	                	</ol>
+      		<div class="modal-body EvMoBo2 col-md-12">
 
-	                	<!-- Carousel Slides / Quotes -->
-	                	<div class="carousel-inner text-center EvCarouselBody">
+	    		<div class="" data-wow-delay="">
+            		<div class="carousel slide Ev-CarSli" data-ride="carousel" id="quote-carousel">
+						
+
+	                	<!-- Carousel Slides -->
+	                	<div class="carousel-inner EvCarouselBody">
+							
+								<div class="row">
+	                            	<!-- Bottom Carousel Indicators -->
+				                	<ol class="carousel-indicators Ev-CarIndic">
+				                    	<li data-target="#quote-carousel" data-slide-to="0"><img class="img-responsive circle" src="../assets/plat.jpg" title="Plat" alt="">
+				                    	</li>
+				                    	<li data-target="#quote-carousel" data-slide-to="1" class="active"><img class="img-responsive circle" src="../assets/entre.jpg" title="Entrée" alt="">
+				                    	</li>
+				                    	<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive circle" src="../assets/dessert.jpg" title="Dessert" alt="">
+				                    	</li>
+				                	</ol>
+		                        </div>
+		                    
 
 		                    <!-- Quote 1 -->
-		                    <div class="item active">
-		                        <blockquote>
-		                            <div class="row">
-		                                <div class="col-sm-8 col-sm-offset-2">
-
-		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
-		                                	<img src="../assets/glyphicons-476-dining-set.png">
-		                                    <small>Bon appétit</small>
-		                                </div>
-		                            </div>
-		                        </blockquote>
+		                    <div class="item">
+		                    	<div class="row">
+			                    	<div class="Ev-CarouselHeader col-md-6">
+			                    		<img src="../assets/plat.jpg" alt="" class="imgCarousel img-responsive">
+										<h4 class="Ev-h4">Pasta basilic</h4>
+										<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
+										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
+										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
+			                    	</div>
+			             
+	                                <div class="col-md-6">
+	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+	                                </div>
+	                            </div>	                        
 		                    </div>
 
 		                    <!-- Quote 2 -->
-		                    <div class="item">
-		                        <blockquote>
-		                            <div class="row">
-		                                <div class="col-sm-8 col-sm-offset-2">
-
-		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-		                                	<img src="../assets/glyphicons-476-dining-set.png">
-		                                    <small>Bon appétit</small>
-		                                </div>
-		                            </div>
-		                        </blockquote>
+		                    <div class="item active">
+		                    	<div class="row">
+		                    		<div class="Ev-CarouselHeader col-md-6">
+		                    			<img src="../assets/entre.jpg" alt="" class="imgCarousel img-responsive">
+		                    			<h4 class="Ev-h4">St Jacques maison</h4>
+		                    			<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
+										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
+										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
+		                       		</div>
+		                       	
+	                                <div class="col-md-6">
+	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+	                                </div>
+	                            </div>		                        
 		                    </div>
 
 		                    <!-- Quote 3 -->
 		                    <div class="item">
-		                        <blockquote>
-		                            <div class="row">
-		                                <div class="col-sm-8 col-sm-offset-2">
-
-		                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-		                                	<img src="../assets/glyphicons-476-dining-set.png">
-		                                    <small>Bon appétit</small>
-		                                </div>
-		                            </div>
-		                        </blockquote>
+		                    	<div class="row">
+		                    		<div class="Ev-CarouselHeader col-md-6">
+		                    			<img src="../assets/dessert.jpg" alt="" class="imgCarousel img-responsive">
+					                   	<h4 class="Ev-h4">Fondant au chocolat</h4> 
+					                   	<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
+										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
+										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
+									</div>
+								
+	                                <div class="col-md-6">
+	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+	                                </div>
+	                            </div>
 		                    </div>
-                		</div>
 
-	                    <!-- Carousel Buttons Next/Prev -->
-	                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-	                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+
+                		</div>
 	                </div>
             	</div>
 	        </div>
 
-	      	<div class="modal-footer">
+	      	<div class="modal-footer modalFooter2-EV">
 				<button type="submit" class="btn btn-default pull-left" ng-click="form=1">Retour</button>
 				<button type="submit" class="btn btn-default pull-right" ng-click="form=3">Suivant</button>
 	      	</div>
-	    </div><!-- / End Modal Content - Form 2 -->
+	    </div>
+	</div><!-- / End Modal Content - Form 2 -->
 
 	    <!-- Modal Content - Form 3 =================================================== -->
-		<div class="modal-content EvMoCo" ng-show="form==3">
+	<div class="modal-dialog EvMoDial2" role="document" ng-show="form==3">
+		<div class="modal-content EvMoCo">
       		<div class="modal-header Ev-ModalHeader-Form3">
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         		<h4 class="modal-title" id="myModalLabel">Invitations :</h4>
@@ -236,7 +252,8 @@
 				<button type="submit" class="btn btn-default pull-left" ng-click="form=2">Retour</button>
 	        	<button type="submit" class="btn btn-success pull-right" data-dismiss="modal" ng-click="add()">Créer</button>
 	      	</div>
-      	</div><!-- / End Modal Content - Form 3 -->	
+      	</div>
+    </div><!-- / End Modal Content - Form 3 -->	
 
   	</div><!-- / Modal-dialog -->
 </div><!-- / Modal-fade -->
