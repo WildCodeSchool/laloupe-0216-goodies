@@ -5,25 +5,34 @@
 
 <h2 ng-click="ajoutRecette=!ajoutRecette" class="col-md-12 menu"><center>Ajouter un menu</center></h2>
 <div ng-show="ajoutRecette">
-  <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-4" ng-click="menuShow('entree')" >
+  <div class="col-md-8 col-md-offset-2 boutonMenu">
+      <div class="col-md-4">
           <center>
-            <button id="entree" class="btn btn-info btn-block">
+            <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')" >
               ENTREES
             </button>
-          </center>
-      </div>
-      <div class="col-md-4" ng-click="menuShow('plat')">
-          <center>
-            <button id="plat" class="btn btn-warning btn-block">
-              PLATS
+            <button type="button" class="btn btn-default btn-default">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </center>
       </div>
-      <div class="col-md-4" ng-click="menuShow('dessert')">
+      <div class="col-md-4">
           <center>
-            <button id="dessert" class="btn btn-warning btn-block">
+            <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
+              PLATS
+            </button>
+            <button type="button" class="btn btn-default btn-default">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+          </center>
+      </div>
+      <div class="col-md-4">
+          <center>
+            <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
               DESSERTS
+            </button>
+            <button type="button" class="btn btn-default btn-default">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </center>
       </div>
