@@ -1,4 +1,5 @@
 <div class="col-md-6 col-md-push-0">
+  <!-- ng-show == 0 Partie Entrée -->
   <div class="form-group bg">
     <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
       <div class="addpic">
@@ -15,7 +16,7 @@
       </div>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Dessert" ng-model="titre"><br>
+      <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Entrée" ng-model="titre"><br>
     </div>
     <div class="form-group">
       <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="description"><br>
@@ -27,12 +28,12 @@
       <input type="text" class="form-control" id="inputCuisson" placeholder="Temp de cuisson" ng-model="cuisson"><br>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputIngredient" placeholder="Les ingrédients" ng-model="ingredient"><br>
+      <input type="text" class="form-control" id="inputRecette" placeholder="Les ingrédient" ng-model="recette"><br>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputRecette" placeholder="La recette" ng-model="recette"><br>
+      <input type="text" class="form-control" id="inputIngredient" placeholder="La recette" ng-model="ingredient"><br>
     </div>
-    <button type="submit" class="btn btn-success btn-lg" ng-click="add('dessert')">Valider</button>
+    <button type="submit" class="btn btn-success btn-lg" ng-click="add('entree')">Valider</button>
   </div>
 </div>
 <button type="submit" class="btn btn-success btn-lg" ng-click="entree()">Entree</button>
