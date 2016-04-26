@@ -3,7 +3,6 @@ function menuController($scope, menuService) {
   $('body').css('background-image', 'none');
 
 
-
   // ADD PROFILE
   $scope.add = function() {
     var datas = {};
@@ -13,8 +12,26 @@ function menuController($scope, menuService) {
     });
   };
 
-  $scope.menuShow = function (n) {
+  /*===================  Fonction bouton Recette  ========================= */
+
+  $scope.bouton = function (n){
+    angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
+    angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     $scope.showRecette = n;
   }
 
+  $scope.menuShow = function (n) {
+    $scope.bouton(n);
+    if (n == 'entree'){
+      $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+    }
+    if (n == 'plat'){
+      $('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
+    }
+    if (n == 'dessert'){
+      $('body').css('background-image', 'none').css('background-image','url("./assets/dessertmenu.jpg")');
+    }
+  }
 }
+
+  /*==================  Fin Fonction bouton Recette  ===================== */
