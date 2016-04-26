@@ -8,7 +8,7 @@
   margin-top: 50px;
 }
 .preview {
-    width: 370px;
+    width: 100%;
     height: auto;
 }
 
@@ -22,9 +22,4 @@
 }
 #inputTitre{
   margin-top: 15px;
-}
-
-h1{
-  text-align: center;
-  color: white;
 }

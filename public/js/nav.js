@@ -7,12 +7,15 @@ $(document).ready(function () {
   trigger.click(function () {
     hamburger_cross();
   });
-  
+
   links.click(function () {
     hamburger_cross();
     $('#wrapper').toggleClass('toggled');
   });
-
+  overlay.click(function () {
+    hamburger_cross();
+    $('#wrapper').toggleClass('toggled');
+  });
   function hamburger_cross() {
 
     if (isClosed == true) {
