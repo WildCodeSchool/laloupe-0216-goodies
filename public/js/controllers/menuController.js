@@ -1,6 +1,13 @@
-function menuController($scope, menuService) {
+function menuController($scope, menuService,recetteService) {
   $scope.showRecette = 'entree';
   $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+
+  function loadRecette() {
+		recetteService.get().then(function (res) {
+			$scope.recettes = res.data;
+		});
+	}
+  loadRecette();
 
   // ADD PROFILE
   $scope.add = function() {
@@ -33,6 +40,6 @@ function menuController($scope, menuService) {
       $('body').css('background-image', 'none').css('background-image','url("./assets/dessertmenu.jpg")');
     }
   }
-}
+  /*==================  End Fonction bouton Recette  ===================== */
 
-  /*==================  Fin Fonction bouton Recette  ===================== */
+}

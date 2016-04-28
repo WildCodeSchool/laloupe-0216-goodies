@@ -4,11 +4,14 @@
 *
 */
 .title {
-  font-family: 'Yesteryear', Pacifico, cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 40px;
   margin-top: 15px;
   line-height: 25px;
   margin-left: -2%;
+}
+.page{
+  margin-top: 90px;
 }
 /* ===========================================*\
 	                  Connection
@@ -43,7 +46,7 @@ input[type="password"].focus {
 	              End Connection
 \* ===========================================*/
 body{
-    background: url('/assets/pasta.jpg');
+    background: url('/assets/pasta.jpg') fixed;
     background-size: cover;
 }
 
@@ -475,7 +478,7 @@ html { height: 100%;}
 }
 
 .EvMoDial1 {
-  
+
 }
 
 .EvMoDial2 {
@@ -483,7 +486,7 @@ html { height: 100%;}
 }
 
 .EvMoBo1 {
- min-height: 320px; 
+ min-height: 320px;
 }
 
 .EvMoBo2 {
@@ -614,8 +617,8 @@ html { height: 100%;}
 /* <==========<  / end search (form 3)  <==========< */
 
 
-/*===============================================================================  
-                    / END EVENT CSS  !! 
+/*===============================================================================
+                    / END EVENT CSS  !!
 ============================================================================== */
 
 /*==========================================================
@@ -664,6 +667,10 @@ html { height: 100%;}
 }
 .modalMenu {
   margin-top: 14%;
+}
+.imgRecette img {
+  width: 100%;
+  height: auto;
 }
 
 /*==========================================================
