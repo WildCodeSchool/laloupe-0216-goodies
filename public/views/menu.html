@@ -1,41 +1,103 @@
-<div class="col-md-12 menu"><center><h2>Mes menus</h2></center></div>
+<div class="col-md-12 menu">
+  <center>
+    <h2>Mes menus</h2>
+  </center>
+</div>
 <!-- <div ng-repeat="" class="menu">
 
 </div> -->
 
-<h2 ng-click="ajoutRecette=!ajoutRecette" class="col-md-12 menu"><center>Ajouter un menu</center></h2>
+<h2 ng-click="ajoutRecette=!ajoutRecette" class="col-md-12 menu">
+  <center>Ajouter un menu</center>
+</h2>
 <div ng-show="ajoutRecette">
   <div class="col-md-8 col-md-offset-2 boutonMenu">
-      <div class="col-md-4">
-          <center>
-            <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')" >
-              ENTREES
-            </button>
-            <button type="button" class="btn btn-default btn-default">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
-          </center>
-      </div>
-      <div class="col-md-4">
-          <center>
-            <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
-              PLATS
-            </button>
-            <button type="button" class="btn btn-default btn-default">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
-          </center>
-      </div>
-      <div class="col-md-4">
-          <center>
-            <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
-              DESSERTS
-            </button>
-            <button type="button" class="btn btn-default btn-default">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
-          </center>
-      </div>
+    <!-- creation de la partie entree -->
+    <div class="col-md-4">
+      <center>
+        <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')">
+          ENTREES
+        </button>
+        <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target="#myModal">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Créer votre goodies entrée</h4>
+              </div>
+              <div class="modal-body">
+                <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+                  <div class="addpic">
+                    <div ng-hide="y==1">
+                      <!-- Clique sur photo pour ajout d'image -->
+                      <p>Ajouter une photo</p>
+                      <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
+                    </div>
+                    <div ng-repeat="image in uploader.flow.files track by $index">
+                      <img ng-show="out" class="preview" flow-img="image"/>
+                      <img class="preview" ng-src="{{imageStrings[$index]}}"/>
+                      <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
+                </div>
+                <p>Temp de préparation</p>
+                <div class="form-group col-md-6">
+                  <input type="number" min="0" class="form-control" id="inputPreparation" placeholder="HH" ng-model="preparation0"><br>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="number" min="0" class="form-control" id="inputPreparation" placeholder="MM" ng-model="preparation1"><br>
+                </div>
+                <p>Temp de cuisson</p>
+                <div class="form-group col-md-6">
+                  <input type="number" min="0" class="form-control" id="inputCuisson" placeholder="HH" ng-model="cuisson0"><br>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="number" min="0" class="form-control" id="inputCuisson" placeholder="MM" ng-model="cuisson1"><br>
+                </div>
+                <div class="form-group">
+                  <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
+                </div>
+                <div class="form-group">
+                  <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg valid" ng-click="add('entree')">Valider</button>
+              </div>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+      </center>
+    </div>
+    <div class="col-md-4">
+      <center>
+        <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
+          PLATS
+        </button>
+        <button type="button" class="btn btn-default btn-default">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </center>
+    </div>
+    <div class="col-md-4">
+      <center>
+        <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
+          DESSERTS
+        </button>
+        <button type="button" class="btn btn-default btn-default">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </center>
+    </div>
   </div>
 
   <div ng-show="showRecette == 'entree'">

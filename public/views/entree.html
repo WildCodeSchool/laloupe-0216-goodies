@@ -16,26 +16,32 @@
       </div>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre Entrée" ng-model="titre"><br>
+      <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="description"><br>
+      <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number" min="0" class="form-control" id="inputPreparation" placeholder="HH" ng-model="preparation0"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number" min="0" class="form-control" id="inputPreparation" placeholder="MM" ng-model="preparation1"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number" min="0" class="form-control" id="inputCuisson" placeholder="HH" ng-model="cuisson0"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="number" min="0" class="form-control" id="inputCuisson" placeholder="MM" ng-model="cuisson1"><br>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputPreparation" placeholder="Temp de preparation" ng-model="preparation"><br>
+      <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputCuisson" placeholder="Temp de cuisson" ng-model="cuisson"><br>
+      <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
     </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="inputRecette" placeholder="Les ingrédient" ng-model="recette"><br>
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="inputIngredient" placeholder="La recette" ng-model="ingredient"><br>
-    </div>
-    <button type="submit" class="btn btn-success btn-lg" ng-click="add('entree')">Valider</button>
+    <button type="submit" class="btn btn-success btn-lg valid" ng-click="add('entree')">Valider</button>
   </div>
+  <button type="submit" class="btn btn-success btn-lg" ng-click="entree()">Entree</button>
+  <button type="submit" class="btn btn-success btn-lg" ng-click="plat()">Plat</button>
+  <button type="submit" class="btn btn-success btn-lg" ng-click="dessert()">Dessert</button>
 </div>
-<button type="submit" class="btn btn-success btn-lg" ng-click="entree()">Entree</button>
-<button type="submit" class="btn btn-success btn-lg" ng-click="plat()">Plat</button>
-<button type="submit" class="btn btn-success btn-lg" ng-click="dessert()">Dessert</button>
