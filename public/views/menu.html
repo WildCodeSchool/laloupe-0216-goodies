@@ -51,10 +51,18 @@
 
   <!-- ============= END MODAL ENTREE PLAT DESSERT =====================  -->
 
-  <div ng-show="showRecette == 'entree'">
-    <!-- <div ng-repeat="" class="$entree">
-
-    </div> -->
+  <div ng-show="showRecette == 'entree'" class="col-md-12 text-center">
+    <div ng-repeat="recette in recettes | filter : 'entree'" class="$entree">
+          <div class="col-md-6 recette">
+            <div class="imgRecette"><img data-ng-src="{{recette.img}}" /></div>
+            <div>{{recette.titre}}</div>
+            <div>{{recette.description}}</div>
+            <div>{{recette.preparation}}</div>
+            <div>{{recette.cuisson}}</div>
+            <div>{{recette.ingredient}}</div>
+            <div>{{recette.recette}}</div>
+          </div>
+    </div>
   </div>
 
   <div ng-show="showRecette == 'plat'">

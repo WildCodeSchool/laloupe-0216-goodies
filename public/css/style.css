@@ -4,11 +4,14 @@
 *
 */
 .title {
-  font-family: 'Pacifico', cursive;
-  font-size: 40px;
-  margin-top: 15px;
-  line-height: 25px;
-  margin-left: -2%;
+  font-family: 'Yesteryear', Pacifico, cursive;
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  line-height: 0px;
+}
+.page{
+  margin-top: 90px;
 }
 /* ===========================================*\
 	                  Connection
@@ -21,7 +24,7 @@
   padding: 20px;
 }
 .connection h3{
-  font-family: 'Pacifico', cursive;
+  font-family: 'Yesteryear', Pacifico, cursive;
   margin-bottom: 30px;
 }
 input[type="text"], input[type="password"] {
@@ -43,7 +46,7 @@ input[type="password"].focus {
 	              End Connection
 \* ===========================================*/
 body{
-    background: url('/assets/pasta.jpg');
+    background: url('/assets/pasta.jpg') fixed;
     background-size: cover;
 }
 
@@ -432,33 +435,12 @@ html { height: 100%;}
   ========================================================*/
 
 
-/*=====================================================================================================
+/*==================================================================
                         EVENT CSS
-====================================================================================================*/
-
-/*.EvFormName {
-    width: 400px;
+===================================================================*/
+.EvTimeInput {
+  width: 105px;
 }
-
-.EvFormDate {
-    width: 160px;
-}
-
-.EvFormTime {
-    width: 85px;
-}
-
-.EvFormNum {
-    width: 85px;
-}
-
-.EvFormStreet {
-    width: 300px;
-}
-
-.EvFormCity {
-    width: 400px;
-}*/
 
 .EvBody {
   background-image: url('../assets/dessertbg.png');
@@ -479,17 +461,63 @@ html { height: 100%;}
   font-family: 'Yesteryear', cursive;
   font-size: 3.5em;
   color: #fff;
+  margin-top: 135px;
 }
 
-/*  -----  MODAL  -----  */
+/* >==========>  modal  >==========> */
 .EvFormFooter {
   padding-top: 25px;
 }
 
-/* --  Carousel  -- */
+.btnCreatEV {
+  position: relative;
+    top: 145px;
+    font-size: 2em;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.EvMoDial1 {
+
+}
+
+.EvMoDial2 {
+  width: 1000px;
+}
+
+.EvMoBo1 {
+ min-height: 320px;
+}
+
+.EvMoBo2 {
+  height: auto;
+}
+.modalFooter2-EV {
+  margin-top: 570px;
+}
+.Ev-ModalHeader-Form3 {
+  height: 130px;
+}
+
+.EvMoBo3 {
+  height: 400px;
+}
+/* <==========<  / end modal  <==========< */
+
+
+/* >==========>  carousel (form 2) >==========> */
+
+.Ev-h4 {
+  background-color: #F8AC37;
+  color: #fff;
+  font-size: 1.7em;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
 #quote-carousel {
     padding: 0 10px 30px 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     /* Control buttons  */
     /* Previous button  */
     /* Next button  */
@@ -511,8 +539,6 @@ html { height: 100%;}
 }
 #quote-carousel .carousel-indicators {
     right: 50%;
-    top: auto;
-    bottom: 0px;
     margin-right: -19px;
 }
 #quote-carousel .carousel-indicators li {
@@ -528,10 +554,10 @@ html { height: 100%;}
 }
 #quote-carousel .carousel-indicators .active {
     background: #333333;
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
-    border-color: #f33;
+    border-color: #F8AC37;
     opacity: 1;
     overflow: hidden;
 }
@@ -550,164 +576,35 @@ html { height: 100%;}
 }
 
 .EvCarouselBody {
-  margin-bottom: 122px;
+  margin-bottom: 18px;
+}
+
+.Ev-CarIndic {
+  position: fixed;
+  bottom: 15px;
+}
+
+.Ev-CarouselHeader h5 {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-left: 20px;
+}
+
+.imgCarousel {
+  width: 100%;
+  height: 300px;
 }
 
 .circle {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 }
+/* <==========<  / end carousel (form 2) <==========< */
 
-.form2 {
-    margin-top: 50px;
-}
 
-/* ================== form 3 ==================*/
-    @import url(//fonts.googleapis.com/css?family=Lato:400,900);
-    @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-    body {
-        padding: 60px 0px;
-    }
-    .animate {
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-    .info-card {
-        width: 200px;
-        border: 1px solid rgb(215, 215, 215);
-        position: relative;
-        font-family: 'Lato', sans-serif;
-        margin-bottom: 20px;
-        overflow: hidden;
-    }
-    .info-card > img {
-        width: 200px;
-        margin-bottom: 60px;
-    }
-    .info-card .info-card-details,
-    .info-card .info-card-details .info-card-header  {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        bottom: -100%;
-        left: 0;
-        padding: 0 15px;
-        background: rgb(255, 255, 255);
-        text-align: center;
-    }
-    .info-card .info-card-details::-webkit-scrollbar {
-        width: 8px;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-button {
-        width: 8px;
-        height: 0px;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    .info-card .info-card-details::-webkit-scrollbar-thumb {
-        background: rgb(160, 160, 160);
-    }
-    .info-card .info-card-details::-webkit-scrollbar-thumb:hover {
-        background: rgb(130, 130, 130);
-    }
-
-    .info-card .info-card-details .info-card-header {
-        height: auto;
-        bottom: 100%;
-        padding: 10px 5px;
-    }
-    .info-card:hover .info-card-details {
-        bottom: 0px;
-        overflow: auto;
-        padding-bottom: 25px;
-    }
-    .info-card:hover .info-card-details .info-card-header {
-        position: relative;
-        bottom: 0px;
-        padding-top: 45px;
-        padding-bottom: 25px;
-    }
-    .info-card .info-card-details .info-card-header h1,
-    .info-card .info-card-details .info-card-header h3 {
-        color: rgb(62, 62, 62);
-        font-size: 22px;
-        font-weight: 900;
-        text-transform: uppercase;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .info-card .info-card-details .info-card-header h3 {
-        color: rgb(142, 182, 52);
-        font-size: 15px;
-        font-weight: 400;
-        margin-top: 5px;
-    }
-    .info-card .info-card-details .info-card-detail .social {
-        list-style: none;
-        padding: 0px;
-        margin-top: 25px;
-        text-align: center;
-    }
-    .info-card .info-card-details .info-card-detail .social a {
-        position: relative;
-        display: inline-block;
-        min-width: 40px;
-        padding: 10px 0px;
-        margin: 0px 5px;
-        overflow: hidden;
-        text-align: center;
-        background-color: rgb(215, 215, 215);
-        border-radius: 40px;
-    }
-
-    .info-card-header h2 {
-        font-size: 1.2em;
-    }
-
-    .cardform {
-    margin-left: 80px;
-        width: 280px;
-    }
-
-.btn-lg-CreatEV {
-  position: relative;
-    top: 145px;
-    font-size: 2em;
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
-    text-decoration: underline;
-}
-.btn-lg-CreateEv:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #fff;
-  text-decoration: overline;
-}
-.EvMoCo {
-
-}
-
-.EvMoBo1 {
-  height: 320px;
-}
-.EvMoBo2 {
-  height: 525px;
-}
-
-.Ev-ModalHeader-Form3 {
-  height: 130px;
-}
-.EvMoBo3 {
-  height: 400px;
-}
-/* =====  / MODAL  ===== */
-
-/* -- search form 3 -- */
+/* >==========>  search (form 3)  >==========> */
 .searchable-container{margin:20px 0 0 0}
-.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
 .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
 .searchable-container label .bizcontent{width:100%;}
 .searchable-container .btn-group{width:90%}
@@ -717,10 +614,12 @@ html { height: 100%;}
 .searchable-container .btn.active span.glyphicon {
     opacity: 1;
 }
-/* =====  / search form 3  ===== */
+/* <==========<  / end search (form 3)  <==========< */
 
-/*===========================  / END EVENT CSS  !! =========================================
-=========================================================================================== */
+
+/*===============================================================================
+                    / END EVENT CSS  !!
+============================================================================== */
 
 /*==========================================================
                         HOME CSS
@@ -728,10 +627,11 @@ html { height: 100%;}
 .backhome{
   background: url('/assets/backhome.jpg');
   background-size: cover;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Yesteryear', Pacifico, cursive;
   color : white;
   padding: 150px;
   margin-bottom: 50px;
+  font-size: 50px;
 }
 .backhome img{
   width: 100px;
@@ -747,8 +647,29 @@ html { height: 100%;}
   margin-top: 100px;
   color: white;
 }
+.botTitle{
+  margin-bottom: 90px;
+  font-family: 'Yesteryear', Pacifico, cursive;
+  font-size: 50px;
+}
+.boutonRecette{
+  margin-bottom: 50px;
+  font-family: 'Yesteryear', Pacifico, cursive;
+  font-size: 40px;
+  cursor:pointer;
+}
+.boutonActive {
+  color: #F8AC37;
+}
+#entree:hover,
+#plat:hover,
+#dessert:hover{
+  color: #F8AC37;
+}
 .homeCenterTitle {
   margin-bottom: 50px;
+  font-family: 'Yesteryear', Pacifico, cursive;
+  font-size: 50px;
 }
 
 
@@ -769,7 +690,141 @@ html { height: 100%;}
 .modalMenu {
   margin-top: 14%;
 }
+.imgRecette img {
+  width: 100%;
+  height: auto;
+}
 
 /*==========================================================
                       END MENU CSS
 ==========================================================*/
+
+
+/*==========================================================
+                      Image CSS
+==========================================================*/
+
+			.creds {
+			  text-align: center;
+			  color: #666;
+			  font-size: 0.85em;
+			}
+			.creds a {
+			  color: #000;
+			  text-decoration: none;
+			  border-bottom: 1px dotted #000;
+			}
+			.flip-menu{
+			margin: 30px 0 0;
+			}
+			.flip-item-wrap{
+			width: 25%;
+		    height: auto;
+		    float: left;
+			position:relative;
+			-webkit-perspective:800px;
+			   -moz-perspective:800px;
+			    -ms-perspective:800px;
+			     -o-perspective:800px;
+			        perspective:800px;
+			}
+			@media screen and (min-width: 1280px) {
+				.flip-item-wrap{
+				width: 16.6%;
+				}
+			}
+			@media screen and (max-width: 979px) {
+				.flip-item-wrap{
+				width: 33.3%;
+				}
+			}
+			@media screen and (max-width: 639px) {
+				.flip-item-wrap{
+				width: 50%;
+				}
+			}
+			@media screen and (max-width: 379px) {
+				.flip-item-wrap{
+				width: 100%;
+				}
+			}
+			.flip-item-wrap img{
+			width:100%;
+			height:auto;
+			display:block;
+			margin:0;
+			}
+			.flip-item-wrap input{
+			display: none;
+			}
+			.flip-item-wrap .fake-image{
+			visibility: hidden;
+			}
+			.flip-item{
+			display: block;
+			width:100%;
+			height:100%;
+			float:left;
+			position:absolute;
+			top:0;
+			left:0;
+			cursor:pointer;
+			color:#fff;
+			-webkit-transform-style:preserve-3d;
+			   -moz-transform-style:preserve-3d;
+			    -ms-transform-style:preserve-3d;
+			     -o-transform-style:preserve-3d;
+			        transform-style:preserve-3d;
+			-webkit-transition:-webkit-transform 1s;
+			   -moz-transition:   -moz-transform 1s;
+			     -o-transition:     -o-transform 1s;
+			        transition:        transform 1s;
+			}
+			.flip-item figure{
+			display:block;
+			position:absolute;
+			width:100%;
+			height:100%;
+			margin:0;
+			-webkit-backface-visibility:hidden;
+			   -moz-backface-visibility:hidden;
+			    -ms-backface-visibility:hidden;
+			     -o-backface-visibility:hidden;
+			        backface-visibility:hidden;
+			}
+			.flip-item .back{
+			width:100%;
+			display:block;
+			margin:0;
+			-webkit-transform:rotateY( 180deg );
+			   -moz-transform:rotateY( 180deg );
+			    -ms-transform:rotateY( 180deg );
+			     -o-transform:rotateY( 180deg );
+			        transform:rotateY( 180deg );
+			}
+			.flipper:checked + .flip-item{
+			-webkit-transform:rotateY( 180deg );
+			   -moz-transform:rotateY( 180deg );
+			    -ms-transform:rotateY( 180deg );
+			     -o-transform:rotateY( 180deg );
+			        transform:rotateY( 180deg );
+			}
+			.flip-item-desc{
+			background: rgba(0,0,0,0.2);
+			width:90%;
+			height:90%;
+			padding:5%;
+			position:absolute;
+			top: 0;
+			left: 0;
+			text-shadow:1px 2px 1px rgba(0,0,0,0.9);
+			overflow:hidden;
+			}
+			.flip-item-title{
+			font-size: 1.5em;
+			margin: 1em 0 0.8em;
+			}
+
+  /*==========================================================
+                        Image CSS
+  ==========================================================*/
