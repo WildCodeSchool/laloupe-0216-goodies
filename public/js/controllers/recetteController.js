@@ -1,6 +1,6 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
-  $('body').css('background-image', 'none');
+  $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
 
   /*===================  Fonction bouton Recette  ========================= */
 
