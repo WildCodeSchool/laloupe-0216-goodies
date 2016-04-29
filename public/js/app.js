@@ -38,7 +38,7 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/menu', {
           templateUrl: 'views/menu.html',
-          controller: 'menuController',
+          controller: 'recetteController',
         })
         .when('/about', {
             templateUrl: 'views/about.html'
@@ -121,8 +121,6 @@ function checkPassword() {
     }
   }
 }
-
-
 
 angular.module('app', ['ngRoute','flow'])
   .config(config)
