@@ -34,7 +34,6 @@ function recetteController($scope, recetteService) {
       datas.description = $scope.description;
       datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
       datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson;
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;
@@ -49,6 +48,7 @@ function recetteController($scope, recetteService) {
       $scope.ingredient = "";
       $scope.recette = "";
       $scope.type = "";
+      $scope.i ++;
     };
 
   $scope.update = function(recette) {
