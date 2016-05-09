@@ -210,11 +210,26 @@
 
         </div>
       </div>
-      
-      <div ng-show="showRecette == '{{}}'">
+      <div ng-show="showRecette == '{{showRecette}}'">
           <div class="description">
-            <div class="" ng-repeat="recette in recettes | filter : {{}}">
-                <img class="photos" data-ng-src="{{recette.img}}" alt="">
+            <div class="container text-center">
+            <div ng-repeat="recette in recettes" class="repeat">
+
+              <div class="cardtest col-md-3">
+                <div class="test">
+                  <div class="button-wrapper">
+                      <div class="layer"></div>
+                      <button class="cardbutton main-button fa fa-info" ng-click="boutbout()">
+                          <div class="ripple"></div>
+                      </button>
+                  </div>
+                </div>
+                <div class="testcontent">
+                    <button class="cardbutton close-button fa fa-times" ng-click="closeButton()"></button>
+                </div>
+              </div>
+
+            </div>
             </div>
           </div>
       </div>
