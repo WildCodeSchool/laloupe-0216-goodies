@@ -1,6 +1,6 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
-  $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -13,7 +13,7 @@ function recetteController($scope, recetteService) {
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
-      $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+      $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
     }
     if (n == 'plat'){
       $('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
