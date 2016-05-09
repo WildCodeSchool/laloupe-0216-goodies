@@ -1,6 +1,7 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
-  $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
+
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -13,7 +14,7 @@ function recetteController($scope, recetteService) {
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
-      $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+      $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
     }
     if (n == 'plat'){
       $('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
@@ -34,7 +35,6 @@ function recetteController($scope, recetteService) {
       datas.description = $scope.description;
       datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
       datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson;
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;
@@ -49,6 +49,7 @@ function recetteController($scope, recetteService) {
       $scope.ingredient = "";
       $scope.recette = "";
       $scope.type = "";
+      $scope.i ++;
     };
 
   $scope.update = function(recette) {
