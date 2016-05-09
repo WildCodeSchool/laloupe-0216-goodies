@@ -2,6 +2,12 @@ function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
+  function load() {
+		recetteService.get().then(function (res) {
+			$scope.recettes = res.data;
+		});
+	}
+	load();
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -9,6 +15,7 @@ function recetteController($scope, recetteService) {
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     $scope.showRecette = n;
+    console.log($scope.showRecette);
   }
 
   $scope.menuShow = function (n) {
@@ -25,6 +32,24 @@ function recetteController($scope, recetteService) {
   }
 
   /*==================  Fin Fonction bouton Recette  ===================== */
+
+  /*===================  Fonction card  ========================= */
+
+  $scope.boutbout =  function(){
+      $(".ripple").addClass("rippling");
+      $(".button-wrapper").addClass("clicked").delay(1500).queue(function(){
+          $(".layered-content").addClass("active");
+          console.log(',fk,vp,');
+      });
+  };
+
+  $scope.closeButton = function(){
+      $(".button-wrapper").removeClass("clicked");
+      $(".ripple").removeClass("rippling");
+      $(".layered-content").removeClass("active");
+  };
+
+  /*===================  END Fonction card  ========================= */
 
   $scope.i = 0;
   $scope.y = 0;
