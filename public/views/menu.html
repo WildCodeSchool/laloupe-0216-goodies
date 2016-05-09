@@ -1,15 +1,11 @@
 <div class="col-md-12 menu">
   <center>
-    <h2>Mes menus</h2>
+    <h2>Mes recettes</h2>
   </center>
 </div>
 <!-- <div ng-repeat="" class="menu">
 </div> -->
 
-<h2 ng-click="ajoutRecette=!ajoutRecette" class="col-md-12 menu">
-  <center>Ajouter une recettes</center>
-</h2>
-<div ng-show="ajoutRecette">
   <div class="col-md-8 col-md-offset-2 boutonMenu">
     <!-- creation de la partie entree -->
     <div class="col-md-4">
@@ -75,8 +71,10 @@
             <!-- /.modal-dialog -->
           </div>
           <!-- /.modal -->
+          </div>
         </center>
       </div>
+
       <div class="col-md-4">
         <center>
           <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
@@ -140,8 +138,10 @@
               <!-- /.modal-dialog -->
             </div>
             <!-- /.modal -->
+            </div>
           </center>
         </div>
+
         <div class="col-md-4">
           <center>
             <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
@@ -205,27 +205,16 @@
                 <!-- /.modal-dialog -->
               </div>
               <!-- /.modal -->
+              </div>
             </center>
-          </div>
-        </div>
-        <div ng-show="showRecette == 'entree'">
-            <div class="description">
-            <div class="" ng-repeat="recette in recettes">
-                <img class="photos" data-ng-src="{{recette.img}}" alt="">
-            </div>
-            </div>
-        </div>
-        <div ng-show="showRecette == 'plat'">
-          <!-- <div ng-repeat="" class="plat">
-    </div> -->
-    <img class="photos" data-ng-src="{{recette.img}}" alt="">
-
-        </div>
-
-        <div ng-show="showRecette == 'dessert'">
-          <!-- <div ng-repeat="" class="dessert">
-    </div> -->
-    <img class="photos" data-ng-src="{{recette.img}}" alt="">
 
         </div>
       </div>
+
+        <div ng-show="showRecette == '{{}}'">
+            <div class="description">
+              <div class="" ng-repeat="recette in recettes | filter : {{}}">
+                  <img class="photos" data-ng-src="{{recette.img}}" alt="">
+              </div>
+            </div>
+        </div>
