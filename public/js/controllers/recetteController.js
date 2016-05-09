@@ -77,8 +77,4 @@ function recetteController($scope, recetteService) {
       fileReader.readAsDataURL(flowFile.file);
     });
   };
-  $scope.cancel = function(image) {
-    image.cancel();
-    $scope.y = 0;
-  }
 }
