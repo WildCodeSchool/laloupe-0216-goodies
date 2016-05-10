@@ -212,8 +212,11 @@
       </div>
       <div ng-show="showRecette == '{{showRecette}}'">
           <div class="description">
-            <div class="container text-center">
-            <div ng-repeat="recette in recettes" class="repeat">
+            <div class="container-fluid">
+              <div class="col-md-offset-2 col-md-10">
+
+
+            <div ng-repeat="recette in recettes">
 
               <div class="cardtest col-md-3">
                 <div class="test">
@@ -224,11 +227,12 @@
                       </button>
                   </div>
                 </div>
-                <div class="testcontent">
+                <div class="testcontent" ng-show="closebtn">
                     <button class="cardbutton close-button fa fa-times" ng-click="closeButton()"></button>
                 </div>
               </div>
 
+            </div>
             </div>
             </div>
           </div>
