@@ -1,4 +1,4 @@
-function recetteController($scope, recetteService, $rootScope) {
+function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
@@ -9,18 +9,15 @@ function recetteController($scope, recetteService, $rootScope) {
 		});
 	}
 	load();
+
   /*===================  Fonction bouton Recette  ========================= */
-  $scope.tab = [];
-  $scope.pushtab = function (i){
-    $scope.tab.push(i);
-    console.log($scope.tab);
-  }
+
   $scope.bouton = function (n){
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     $scope.showRecette = n;
+    console.log($scope.showRecette);
   }
-
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
@@ -36,9 +33,13 @@ function recetteController($scope, recetteService, $rootScope) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
-  $scope.test = function () {
-    console.log($rootScope.userId);
+  $scope.id = function(recette){
+    $scope.recetteAffiche = recette;
   }
+
+
+  /*==================  Stockage de l'ID  ===================== */
+
 
   $scope.i = 0;
   $scope.y = 0;
@@ -47,13 +48,11 @@ function recetteController($scope, recetteService, $rootScope) {
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;
-      datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
+      datas.preparation = 'Temps de preparation: ' + $scope.preparation + ' minutes';
+      datas.cuisson = 'Temps de cuisson: ' + $scope.cuisson + ' minutes';
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;
-      datas.userId = $rootScope.userId;
-      console.log(datas.userId);
       recetteService.create(datas).then(function(res) {
         load();
       });
@@ -93,4 +92,8 @@ function recetteController($scope, recetteService, $rootScope) {
       fileReader.readAsDataURL(flowFile.file);
     });
   };
+  $scope.cancel = function(image) {
+    image.cancel();
+    $scope.y = 0;
+  }
 }
