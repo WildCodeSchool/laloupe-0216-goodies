@@ -215,25 +215,27 @@
             <div class="container-fluid">
               <div class="col-md-offset-2 col-md-10">
 
+                  <div ng-repeat="recette in recettes | filter : showRecette">
 
-            <div ng-repeat="recette in recettes">
-
-              <div class="cardtest col-md-3">
-                <div class="test">
-                  <div class="button-wrapper">
-                      <div class="layer"></div>
-                      <button class="cardbutton main-button fa fa-info" ng-click="boutbout()">
-                          <div class="ripple"></div>
-                      </button>
+                    <div class="cardtest col-md-3">
+                      <div class="test">
+                        <div class="button-wrapper">
+                          <div class={{"button-wrapper"+$index}}>
+                              <div class="layer"></div>
+                              <button class="cardbutton main-button fa fa-info" ng-click="boutbout('.button-wrapper'+$index,'.ripple'+$index,'.close-button'+$index, $index)">
+                                  <div class={{"ripple"+$index}}></div>
+                              </button>
+                          </div>
+                        </div>
+                      </div>
+                        <div class={{"close-button"+$index}} ng-show="closeBtnTab[{{$index}}] == 'closebtn{{$index}}'">
+                            <button class="cardbutton fa fa-times close-button" ng-click="closeButton('.button-wrapper'+$index,'.ripple'+$index,'.close-button'+$index, $index)"></button>
+                        </div>
+                    </div>
                   </div>
-                </div>
-                <div class="testcontent" ng-show="closebtn">
-                    <button class="cardbutton close-button fa fa-times" ng-click="closeButton()"></button>
-                </div>
-              </div>
 
-            </div>
-            </div>
+              </div>
             </div>
           </div>
       </div>
+    </div>
