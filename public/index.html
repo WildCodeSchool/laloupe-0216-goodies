@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" type="image/png" href="" />
+    <link rel="icon" type="image/png" href=""/>
     <title>Goodies</title>
 
     <!-- Fonts -->
@@ -51,87 +51,98 @@
     <script src="js/nav.js"></script>
     <script src="js/login.js"></script>
 
-
-    </head>
-    <body>
+  </head>
+  <body>
     <div id="wrapper">
 
-
-    <header class="navbar navbar-default navbar-fixed-top navbar-border" role="navigation">
+      <header class="navbar navbar-default navbar-fixed-top navbar-border" role="navigation">
         <div class="container">
-            <div class="navbar-header pull-left">
-              <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
-              </button>
-            </div>
-            <center class="title">Goodies</center>
-            <div class="navbar-header pull-right">
-                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar"
-                         aria-controls="bs-navbar" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-            </div>
-            <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-class="{active: activetab=='/'}" ng-if="token"><a href="#/">Home</a></li>
-                    <li ng-class="{active: activetab=='/admin'}" ng-if="token"><a href="#/admin">Administration</a></li>
-                    <li ng-class="{active: activetab=='/about'}"><a href="#/about"></a></li>
+          <div class="navbar-header pull-left">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+              <span class="hamb-top"></span>
+              <span class="hamb-middle"></span>
+              <span class="hamb-bottom"></span>
+            </button>
+          </div>
+          <center class="title">Goodies</center>
+          <div class="navbar-header pull-right">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav pull-right">
+              <li ng-class="{active: activetab=='/'}" ng-if="token">
+                <a href="#/">Home</a>
+              </li>
+              <li ng-class="{active: activetab=='/admin'}" ng-if="token">
+                <a href="#/admin">Administration</a>
+              </li>
+              <li ng-class="{active: activetab=='/about'}">
+                <a href="#/about"></a>
+              </li>
 
-                    <li>
-                    <li class="dropdown" ng-if="token">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-header">Mes Goodies</li>
-                                <li ng-class="{active: activetab=='/recettes'}"><a href="#/recettes">Mes Recettes</a></li>
-                                <li ng-class="{active: activetab=='/events'}"><a href="#/events">Mes événements</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Paramètres</li>
-                                <li><a href="#/">Mon Compte</a></li>
-                                <li><a href="#/" ng-click="logout()">Déconnexion</a></li>
-                          </ul>
-                    </li>
+              <li>
+              <li class="dropdown" ng-if="token">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Mes Goodies</li>
+                  <li ng-class="{active: activetab=='/recettes'}">
+                    <a href="#/recettes">Mes Recettes</a>
+                  </li>
+                  <li ng-class="{active: activetab=='/events'}">
+                    <a href="#/events">Mes événements</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Paramètres</li>
+                  <li>
+                    <a href="#/">Mon Compte</a>
+                  </li>
+                  <li>
+                    <a href="#/" ng-click="logout()">Déconnexion</a>
+                  </li>
                 </ul>
-            </nav>
+              </li>
+            </ul>
+          </nav>
         </div>
-    </header>
+      </header>
 
-    <div  class="leftMenu">
-      <div class="overlay"></div>
+      <div class="leftMenu">
+        <div class="overlay"></div>
 
         <!-- Sidebar -->
-          <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-              <ul class="nav sidebar-nav">
-                  <li class="sidebar-brand">
-                      <a href="#">
-                         Brand
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#/" class="links">Accueil</a>
-                  </li>
-                  <li>
-                      <a href="#/login" ng-if="!token" class="links">Connection / S'inscrire</a>
-                  </li>
-                  <li>
-                      <a href="#/menu" class="links">Les recettes</a>
-                  </li>
-                  <li>
-                      <a href="#/events" class="links">Les évènements</a>
-                  </li>
-              </ul>
-          </nav>
-    </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+              <a href="#">
+                Brand
+              </a>
+            </li>
+            <li>
+              <a href="#/" class="links">Accueil</a>
+            </li>
+            <li>
+              <a href="#/login" ng-if="!token" class="links">Connection / S'inscrire</a>
+            </li>
+            <li>
+              <a href="#/menu" class="links">Les recettes</a>
+            </li>
+            <li>
+              <a href="#/events" class="links">Les évènements</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
+      <div class="container-fluid page">
+        <ng-view></ng-view>
+      </div>
 
-    <div class="container-fluid page">
-      <ng-view></ng-view>
-    </div>
-
-
-  </body>
-</html>
+    </body>
+  </html>
