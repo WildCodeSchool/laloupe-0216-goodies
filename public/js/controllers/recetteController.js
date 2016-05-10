@@ -1,6 +1,10 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
+<<<<<<< HEAD
   $scope.closebtn = false;
+=======
+  $scope.closeBtnTab = [];
+>>>>>>> origin/jerem
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
   function load() {
@@ -36,6 +40,7 @@ function recetteController($scope, recetteService) {
 
   /*===================  Fonction card  ========================= */
 
+<<<<<<< HEAD
   $scope.boutbout =  function(){
       $(".ripple").addClass("rippling");
       $scope.closebtn = true;
@@ -51,6 +56,22 @@ function recetteController($scope, recetteService) {
       $(".ripple").removeClass("rippling");
       $(".layered-content").removeClass("active");
       $scope.closebtn = false;
+=======
+  $scope.boutbout =  function(wrapper,ripple,button,id){
+      angular.element($(ripple)).addClass("rippling");
+      angular.element($(wrapper)).addClass("clicked");
+      angular.element($(button)).addClass("fadeenter");
+      console.log(id);
+      $scope.closeBtnTab[id] = 'closebtn'+id;
+
+  };
+
+  $scope.closeButton = function(wrapper,ripple,button,id){
+      angular.element($(wrapper)).removeClass("clicked");
+      angular.element($(ripple)).removeClass("rippling");
+      // angular.element($(".layered-content")).removeClass("active");
+      $scope.closeBtnTab[id] = false;
+>>>>>>> origin/jerem
   };
 
   /*===================  END Fonction card  ========================= */
