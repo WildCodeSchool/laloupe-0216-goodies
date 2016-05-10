@@ -122,7 +122,7 @@ function checkPassword() {
   }
 }
 
-angular.module('app', ['ngRoute','flow','ngAnimate'])
+angular.module('app', ['ngRoute','flow'])
   .config(config)
   .directive('checkPassword', checkPassword)
   .controller('connectController', connectController)
