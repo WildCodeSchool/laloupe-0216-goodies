@@ -1,5 +1,6 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
+  $scope.closebtn = false;
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
   function load() {
@@ -37,9 +38,11 @@ function recetteController($scope, recetteService) {
 
   $scope.boutbout =  function(){
       $(".ripple").addClass("rippling");
+      $scope.closebtn = true;
       $(".button-wrapper").addClass("clicked").delay(1500).queue(function(){
           $(".layered-content").addClass("active");
-          console.log(',fk,vp,');
+          $scope.closebtn = true;
+          console.log($scope.closebtn);
       });
   };
 
@@ -47,6 +50,7 @@ function recetteController($scope, recetteService) {
       $(".button-wrapper").removeClass("clicked");
       $(".ripple").removeClass("rippling");
       $(".layered-content").removeClass("active");
+      $scope.closebtn = false;
   };
 
   /*===================  END Fonction card  ========================= */
