@@ -25,17 +25,62 @@
   margin-top: 15px;
 }
 
-.imgDescription{
-    width: 100%;
-    height: 160px;
-    margin-top: 10px;
+.test{
+  font-size: 200px;
+
 }
 
-.titreDescription{
-  margin-top: 5px;
+.demo{
+  background: white;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+  height: 600px;
+  margin-top: 30px;
+}
+
+/*CARD*/
+.RecettePreparation{
   text-align: center;
 }
+.RecetteCuisson{
+  text-align: center;
+}
+.RecetteDescription{
+  text-align: center;
+  font-size: 1.2em;
+}
 
-.descriptionDescription{
-  margin-top: 0px;
+.RecetteImg{
+  width:  100%;
+  height: 170px;
+}
+
+.RecetteTitle{
+  text-align: center;
+  font-size: 1.5em;
+}
+.RecetteImgA{
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+}
+.RecetteTitreA{
+  text-align: center;
+  font-size: 2em;
+}
+.RecetteRecetteA{
+}
+
+.RecetteIngredientA{
+  padding-bottom: 30px;
+}
+
+.textIngredient{
+  font-size: 1.7em;
+}
+
+.changepage{
+  text-align: center;
+  font-size: 2em;
 }
