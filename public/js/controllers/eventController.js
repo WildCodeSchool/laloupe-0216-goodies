@@ -15,8 +15,37 @@ function eventController($scope, $http, eventService) {
 			$scope.events = res.data;
 		});
 		
-	}
-	
+	};
+
+
+
+	$(function() {
+	    $('#affiche').click(function() {
+	      $('.itemApp').show('slow', function(){
+	      	 $('.itemMain').show('slow', function(){
+		      	$('.itemDessert').show('slow')
+	      	})
+	      });
+	    });
+	    $('.itemApp').click(function() {
+	      $('.itemMain').hide('slow', function hideNextOne() {
+	        $('.itemDessert').hide('slow');
+	      });    
+	    });
+	    $('.itemMain').click(function() {
+	      $('.itemApp').hide('slow', function hideNextOne() {
+	        $('.itemDessert').hide('slow');
+	      });    
+	    });
+	    $('.itemDessert').click(function() {
+	      $('.itemApp').hide('slow', function hideNextOne() {
+	        $('.itemMain').hide('slow');
+	      });    
+	    });
+	});
+
+
+
 	$(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
