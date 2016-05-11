@@ -750,7 +750,7 @@ html { height: 100%;}
 			.flip-item-wrap input{
 			display: none;
 			}
-			.flip-item-wrap .fake-image{
+		.flip-item-wrap .fake-image{
 			visibility: hidden;
 			}
 			.flip-item{
@@ -843,19 +843,6 @@ html { height: 100%;}
       color: white;
   }
 
-  .cardcontainer {
-      width: 330px;
-      height: 508px;
-      max-width: 330px;
-      background: white;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      overflow: hidden;
-      box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
-      transform: translate3d(-50%, -50%, 0);
-  }
-
   .cardtitle {
       padding: 20px;
       color: white;
@@ -889,8 +876,7 @@ html { height: 100%;}
       width: 100%;
   }
 
-
-    .img-wrapper img {
+  .img-wrapper img {
       width: 100%;
       height: 200px;
       -o-object-fit: cover;
@@ -960,12 +946,6 @@ html { height: 100%;}
       transition: .3s all ease;
       opacity: 1;
   }
-  .rippling {
-      -webkit-animation: .3s rippling 1;
-      animation: .3s rippling 1;
-      -moz-animation: .3s rippling 1;
-  }
-
   @-webkit-keyframes rippling {
 
       25% {
@@ -1017,6 +997,8 @@ html { height: 100%;}
       -moz-animation: .3s rippling 1;
   }
 
+
+
   .layer {
       position: absolute;
       left: 0;
@@ -1035,7 +1017,7 @@ html { height: 100%;}
       -ms-transform: rotate(90deg) translateY(-96px);
       transform: rotate(90deg) translateY(-96px);
       right: 0;
-      bottom: 0;
+      bottom: 10;
       -webkit-transition: .3s all ease .6s;
       transition: .3s all ease .6s;
   }
@@ -1076,21 +1058,20 @@ html { height: 100%;}
     margin : 5px;
     height: 300px;
     margin-top: 40px;
-    height: 300px
+
   }
 
-  @-webkit-keyframes fadeIn { from { opacity:0;} to { opacity:1; } }
-  @-moz-keyframes fadeIn { from { opacity:0;} to { opacity:1; } }
-  @keyframes fadeIn { from { opacity:0;} to { opacity:1; } }
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
-  @-webkit-keyframes fadeOut { from { opacity:1;} to { opacity:0; } }
-  @-moz-keyframes fadeOut { from { opacity:1;} to { opacity:0; } }
-  @keyframes fadeOut { from { opacity:1;} to { opacity:0; } }
+  @-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+  @-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+  @keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
 
   .fadeenter {
     animation: 6s fadeIn;
   }
-
 
   /*==========================================================
                       END  CARD CSS
