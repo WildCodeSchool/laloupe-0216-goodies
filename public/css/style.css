@@ -435,9 +435,9 @@ html { height: 100%;}
   ========================================================*/
 
 
-/*==================================================================
+/*===============================================================================================
                         EVENT CSS
-===================================================================*/
+===============================================================================================*/
 .EvTimeInput {
   width: 105px;
 }
@@ -470,11 +470,9 @@ html { height: 100%;}
 }
 
 .btnCreatEV {
-  position: relative;
-    top: 145px;
-    font-size: 2em;
-    color: #fff;
-    border-radius: 5px;
+  font-family: 'Yesteryear', cursive;
+  font-size: 2em;
+  border-radius: 5px;
 }
 
 .EvMoDial1 {
@@ -493,7 +491,7 @@ html { height: 100%;}
   height: auto;
 }
 .modalFooter2-EV {
-  margin-top: 570px;
+  margin-top: auto;
 }
 .Ev-ModalHeader-Form3 {
   height: 130px;
@@ -503,7 +501,122 @@ html { height: 100%;}
   height: 400px;
 }
 /* <==========<  / end modal  <==========< */
+/*
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  position: absolute;
+  background: white;
+  font-family: 'Open Sans', sans serif;
+}*/
 
+/*.container {
+  width: 880px;
+  margin: auto;
+  height: 80%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: space-around;
+}*/
+
+.item:hover .content img {
+  font-size: 4.6em;
+}
+
+.item {
+  
+  border-radius: 50%;
+    width: 125px;
+    height: 125px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  background: white;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #a9a9a9;
+}
+
+.appetizer {
+  color: #1fa597;
+}
+
+.mainPlat {
+  color: #f9a02e;
+}
+
+.dess {
+  color: #b9184d;
+}
+
+.item {
+  margin-right: 5px;
+}
+.itemApp {
+  border: 2px solid #e1e1e1;
+}
+
+.itemApp:hover {
+  border: 2px solid #1fa597;
+  
+}
+
+#dessert {
+  border: 2px solid #e1e1e1;
+}
+
+#dessert:hover {
+  border: 2px solid #b9184d;
+  color: #b9184d;
+}
+
+#main {
+  border: 2px solid #e1e1e1;
+}
+
+#main:hover {
+  border: 2px solid #f9a02e;
+  font-color: #f9a02e;
+}
+
+.content img {
+  font-size: 4em;
+  transition: .3s cubic-bezier(0, .25, .3, 2);
+  -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -o-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
+}
+
+.disclaimer {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .8em;
+}
 
 /* >==========>  carousel (form 2) >==========> */
 
@@ -593,6 +706,7 @@ html { height: 100%;}
 .imgCarousel {
   width: 100%;
   height: 300px;
+  background-size: cover;
 }
 
 .circle {
