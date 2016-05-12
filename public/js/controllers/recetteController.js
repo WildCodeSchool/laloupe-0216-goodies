@@ -34,25 +34,6 @@ function recetteController($scope, recetteService) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
-  /*===================  Fonction card  ========================= */
-
-  $scope.boutbout =  function(wrapper,ripple,button,id){
-      angular.element($(ripple)).addClass("rippling");
-      angular.element($(wrapper)).addClass("clicked");
-      angular.element($(button)).addClass("fadeenter");
-      console.log(id);
-      $scope.closeBtnTab[id] = 'closebtn'+id;
-
-  };
-
-  $scope.closeButton = function(wrapper,ripple,button,id){
-      angular.element($(wrapper)).removeClass("clicked");
-      angular.element($(ripple)).removeClass("rippling");
-      // angular.element($(".layered-content")).removeClass("active");
-      $scope.closeBtnTab[id] = false;
-  };
-
-  /*===================  END Fonction card  ========================= */
 
   $scope.i = 0;
   $scope.y = 0;
