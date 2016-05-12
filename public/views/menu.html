@@ -3,10 +3,8 @@
     <h2>Mes recettes</h2>
   </center>
 </div>
-<!-- <div ng-repeat="" class="menu">
-</div> -->
 
-  <div class="col-md-8 col-md-offset-2 boutonMenu">
+<div class="col-md-8 col-md-offset-2 boutonMenu">
     <!-- creation de la partie entree -->
     <div class="col-md-4">
       <center>
@@ -209,8 +207,8 @@
             </center>
 
         </div>
-      </div>
-      <div ng-show="showRecette == '{{showRecette}}'">
+</div>
+<div ng-show="showRecette == '{{showRecette}}'">
           <div class="description">
             <div class="container-fluid">
               <div class="col-md-offset-2 col-md-10">
@@ -218,18 +216,12 @@
                   <div ng-repeat="recette in recettes | filter : showRecette">
 
                     <div class="cardtest col-md-3">
-                      <div class="test">
-                        <div class="button-wrapper">
-                          <div class={{"button-wrapper"+$index}}>
-                              <div class="layer"></div>
-                              <button class="cardbutton main-button fa fa-info" ng-click="boutbout('.button-wrapper'+$index,'.ripple'+$index,'.close-button'+$index, $index)">
-                                  <div class={{"ripple"+$index}}></div>
-                              </button>
-                          </div>
-                        </div>
-                      </div>
-                        <div class={{"close-button"+$index}} ng-show="closeBtnTab[{{$index}}] == 'closebtn{{$index}}'">
-                            <button class="cardbutton fa fa-times close-button" ng-click="closeButton('.button-wrapper'+$index,'.ripple'+$index,'.close-button'+$index, $index)"></button>
+                        <img src={{recette.img}} alt="" />
+                        <div class="cardTitle"><p>{{recette.titre}}</p></div>
+                        <div class="row">
+                            <div class="preparation col-md-4">{{recette.preparation}}</div>
+                            <div class="cuisson col-md-4">{{recette.cuisson}}</div>
+                            <div class="nbPersonne col-md-4">{{recette.nbrPersonne}}</div>
                         </div>
                     </div>
                   </div>
@@ -237,5 +229,4 @@
               </div>
             </div>
           </div>
-      </div>
-    </div>
+</div>
