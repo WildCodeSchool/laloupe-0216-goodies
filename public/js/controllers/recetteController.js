@@ -12,6 +12,7 @@ function recetteController($scope, recetteService, $rootScope) {
 	}
 	load();
 
+
   /*===================  Fonction bouton Recette  ========================= */
 
   $scope.bouton = function (n){
@@ -63,8 +64,13 @@ function recetteController($scope, recetteService, $rootScope) {
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;
+<<<<<<< HEAD
       datas.preparation = 'Temps de preparation: ' + $scope.preparation + ' minutes';
       datas.cuisson = 'Temps de cuisson: ' + $scope.cuisson + ' minutes';
+=======
+      datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
+      datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
+>>>>>>> b87735becdc2acea1aebe66b6e764c76b8c83e2a
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;
