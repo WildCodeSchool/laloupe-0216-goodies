@@ -214,8 +214,7 @@
               <div class="col-md-offset-2 col-md-10">
 
                   <div ng-repeat="recette in recettes | filter : showRecette">
-
-                    <div class="cardtest col-md-3">
+                    <div id="{{card + $index}}" ng-init="$index == 0 ? pushtab(recette) : $index" class="cardtest col-md-3">
                         <img src={{recette.img}} alt="" />
                         <div class="cardTitle"><p>{{recette.titre}}</p></div>
                         <div class="row">
