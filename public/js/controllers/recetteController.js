@@ -18,7 +18,6 @@ function recetteController($scope, recetteService) {
     $scope.showRecette = n;
     console.log($scope.showRecette);
   }
-
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
@@ -34,6 +33,13 @@ function recetteController($scope, recetteService) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
+  $scope.id = function(recette){
+    $scope.recetteAffiche = recette;
+  }
+
+
+  /*==================  Stockage de l'ID  ===================== */
+
 
   $scope.i = 0;
   $scope.y = 0;
@@ -42,8 +48,8 @@ function recetteController($scope, recetteService) {
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;
-      datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
+      datas.preparation = 'Temps de preparation: ' + $scope.preparation + ' minutes';
+      datas.cuisson = 'Temps de cuisson: ' + $scope.cuisson + ' minutes';
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;

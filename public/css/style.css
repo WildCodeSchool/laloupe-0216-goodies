@@ -829,11 +829,10 @@ html { height: 100%;}
 
   .cardtest{
     background: white;
-    margin: auto;
     overflow: hidden;
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
-    margin : 5px;
-    height: 300px
+    height: 300px;
+    margin-top: 30px;
   }
 
   /*==========================================================
