@@ -21,7 +21,7 @@
   padding: 20px;
 }
 .connection h3{
-  font-family: 'Yesteryear', Pacifico, cursive;
+  font-family: 'Pacifico', cursive;
   margin-bottom: 30px;
 }
 input[type="text"], input[type="password"] {
@@ -432,13 +432,11 @@ html { height: 100%;}
   ========================================================*/
 
 
-/*==================================================================
-                        EVENT CSS
-===================================================================*/
-.EvTimeInput {
-  width: 105px;
-}
+/*============================================================================================
+         EVENT CSS
+===============================================================================================*/
 
+/*** Events page ***/
 .EvBody {
   background-image: url('../assets/dessertbg.png');
   background-repeat: no-repeat;
@@ -448,12 +446,6 @@ html { height: 100%;}
   padding-right: 0px !important;
 }
 
-.EvFormContainer {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 10px;
-}
-
 .Ev-PghH2 {
   font-family: 'Yesteryear', cursive;
   font-size: 3.5em;
@@ -461,145 +453,99 @@ html { height: 100%;}
   margin-top: 135px;
 }
 
-/* >==========>  modal  >==========> */
-.EvFormFooter {
-  padding-top: 25px;
-}
-
-.btnCreatEV {
-  position: relative;
-    top: 145px;
-    font-size: 2em;
-    color: #fff;
-    border-radius: 5px;
-}
-
-.EvMoDial1 {
-
-}
-
-.EvMoDial2 {
-  width: 1000px;
-}
-
-.EvMoBo1 {
- min-height: 320px;
-}
-
-.EvMoBo2 {
-  height: auto;
-}
-.modalFooter2-EV {
-  margin-top: 570px;
-}
-.Ev-ModalHeader-Form3 {
-  height: 130px;
-}
-
-.EvMoBo3 {
-  height: 400px;
-}
-/* <==========<  / end modal  <==========< */
 
 
-/* >==========>  carousel (form 2) >==========> */
-
-.Ev-h4 {
-  background-color: #F8AC37;
-  color: #fff;
-  font-size: 1.7em;
-  font-weight: bold;
-  padding-left: 10px;
+.item:hover .content img {
+  font-size: 4.6em;
 }
 
-#quote-carousel {
-    padding: 0 10px 30px 10px;
-    margin-top: 10px;
-    /* Control buttons  */
-    /* Previous button  */
-    /* Next button  */
-    /* Changes the position of the indicators */
-    /* Changes the color of the indicators */
-}
-#quote-carousel .carousel-control {
-    background: none;
-    color: #CACACA;
-    font-size: 2.3em;
-    text-shadow: none;
-    margin-top: 30px;
-}
-#quote-carousel .carousel-control.left {
-    left: -60px;
-}
-#quote-carousel .carousel-control.right {
-    right: -60px;
-}
-#quote-carousel .carousel-indicators {
-    right: 50%;
-    margin-right: -19px;
-}
-#quote-carousel .carousel-indicators li {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    cursor: pointer;
-    border: 4px solid #CCC;
-    border-radius: 50px;
-    opacity: 0.4;
-    overflow: hidden;
-    transition: all 0.4s;
-}
-#quote-carousel .carousel-indicators .active {
-    background: #333333;
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    border-color: #F8AC37;
-    opacity: 1;
-    overflow: hidden;
-}
-.carousel-inner {
-    min-height: 300px;
-}
-.item blockquote {
-    border-left: none;
-    margin: 0;
-}
-.item blockquote p:before {
-    content: "";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
+.item {
+  width: 125px;
+  height: 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: white;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  cursor: pointer;
 }
 
-.EvCarouselBody {
-  margin-bottom: 18px;
+.content {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #a9a9a9;
 }
 
-.Ev-CarIndic {
-  position: fixed;
-  bottom: 15px;
+.appetizer {
+  color: #1fa597;
 }
 
-.Ev-CarouselHeader h5 {
-  font-weight: bold;
-  font-size: 1.3em;
-  margin-left: 20px;
+.mainPlat {
+  color: #f9a02e;
 }
 
-.imgCarousel {
+.dess {
+  color: #b9184d;
+}
+
+.item {
+  margin-right: 5px;
+}
+.itemApp {
+  border: 2px solid #e1e1e1;
+}
+
+.itemApp:hover {
+  border: 2px solid #1fa597;
+
+}
+
+#dessert {
+  border: 2px solid #e1e1e1;
+}
+
+#dessert:hover {
+  border: 2px solid #b9184d;
+  color: #b9184d;
+}
+
+#main {
+  border: 2px solid #e1e1e1;
+}
+
+#main:hover {
+  border: 2px solid #f9a02e;
+  font-color: #f9a02e;
+}
+
+.content img {
+  font-size: 4em;
+  transition: .3s cubic-bezier(0, .25, .3, 2);
+  -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -o-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
+}
+
+.disclaimer {
+  display: block;
+  position: absolute;
+  bottom: 20px;
   width: 100%;
-  height: 300px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .8em;
 }
 
-.circle {
-    width: 100px;
-    height: 100px;
-}
-/* <==========<  / end carousel (form 2) <==========< */
 
 
-/* >==========>  search (form 3)  >==========> */
+
+/* search (form 3)  --> */
 .searchable-container{margin:20px 0 0 0}
 .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
 .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
@@ -611,11 +557,18 @@ html { height: 100%;}
 .searchable-container .btn.active span.glyphicon {
     opacity: 1;
 }
-/* <==========<  / end search (form 3)  <==========< */
 
+/*** create Event page ***/
+.crE-container {
+  margin-top: 100px;
+  border-left: 1px solid #e2e0e0;
+  border-right: 1px solid #e2e0e0;
+}
+ .form-control {
+  margin-bottom: 10px;
+ }
 
-/*===============================================================================
-                    / END EVENT CSS  !!
+/*  / END EVENT CSS  !!
 ============================================================================== */
 
 /*==========================================================
@@ -624,8 +577,7 @@ html { height: 100%;}
 .backhome{
   background: url('/assets/backhome.jpg');
   background-size: cover;
-  font-family: 'Yesteryear', Pacifico, cursive;
-  font-size: 50px;
+  font-family: 'Pacifico', cursive;
   color : white;
   padding: 150px;
   margin-bottom: 50px;

@@ -13,6 +13,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/events.html',
             controller: 'eventController'
         })
+        .when('/createEvent', {
+            templateUrl: 'views/createEvent.html',
+            controller: 'eventController'
+        })
         .when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'signupController'
