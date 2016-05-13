@@ -189,12 +189,12 @@
     </center>
   </div>
 </div>
-<div ng-show="showRecette == '{{showRecette}}'">
+<div>
   <div class="description">
     <div class="container">
       <div class="col-md-6">
-        <div ng-repeat="recette in recettes | filter : showRecette">
-          <div class="col-md-6">
+        <div ng-repeat="recette in recettes | filter : userId | filter : {type: showRecette}">
+          <div class="col-md-6" ng-init="$index == 0 ? pushtab(recette) : $index">
             <div class="cardtest">
               <img class="RecetteImg"src={{recette.img}} alt=""/>
               <div class="RecetteTitle">{{recette.titre}}</div>
@@ -211,7 +211,7 @@
       </div>
         <!-- Zone d'affichage -->
         <div class="col-md-6">
-          <div class="demo">
+          <div class="demo" ng-show="recetteTab.length != 0">
             <div class="RecetteTitreA">{{recetteAffiche.titre}}</div>
             <div class="col-md-8">
               <img class="RecetteImgA"src={{recetteAffiche.img}} alt=""/>

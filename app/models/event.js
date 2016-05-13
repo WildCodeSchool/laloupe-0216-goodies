@@ -3,12 +3,17 @@
 
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
-  name: String,
-  date: Date,
-  time: String,
-  num: String,
-  street: String,
-  city: String,
+  crEnameForm: String,
+  crEdateForm: Date,
+  crEtimeForm: String,
+  crEnumberForm: Number,
+  crEwayForm: String,
+  crEcityForm: String,
+  crEpostalcodeForm: String,
+  crEcountryForm: String,
+  friendlastname: String,
+  friendfirstname: String,
+  friendmail: String,
 });
 var Event = {
     
@@ -16,12 +21,17 @@ var Event = {
     
     create: function(req, res) {
 		Event.model.create({
-			name: req.body.name,
-			date: req.body.date,
-			time: req.body.time,
-			num: req.body.num,
-			street: req.body.street,
-			city: req.body.city,
+			crEnameForm: req.body.crEnameForm,
+			crEdateForm: req.body.crEdateForm,
+			crEtimeForm: req.body.crEtimeForm,
+			crEnumberForm: req.body.crEnumberForm,
+			crEwayForm: req.body.crEwayForm,
+			crEcityForm: req.body.crEcityForm,
+			crEpostalcodeForm: req.body.crEpostalcodeForm,
+			crEcountryForm: req.body.crEcountryForm,
+			friendlastname: req.body.friendlastname,
+			friendfirstname: req.body.friendfirstname,
+			friendmail: req.body.friendmail,
 		}, function(){
 			res.sendStatus(200);
 		})
@@ -33,12 +43,17 @@ var Event = {
 	},
 	update: function(req, res){
 		Event.model.findByIdAndUpdate(req.params.id, {
-			name: req.body.name,
-			date: req.body.date,
-			time: req.body.time,
-			num: req.body.num,
-			street: req.body.street,
-			city: req.body.city,
+			crEnameForm: req.body.crEnameForm,
+			crEdateForm: req.body.crEdateForm,
+			crEtimeForm: req.body.crEtimeForm,
+			crEnumberForm: req.body.crEnumberForm,
+			crEwayForm: req.body.crEwayForm,
+			crEcityForm: req.body.crEcityForm,
+			crEpostalcodeForm: req.body.crEpostalcodeForm,
+			crEcountryForm: req.body.crEcountryForm,
+			friendlastname: req.body.friendlastname,
+			friendfirstname: req.body.friendfirstname,
+			friendmail: req.body.friendmail,
 		}, function(){
 			res.sendStatus(200);
 		})

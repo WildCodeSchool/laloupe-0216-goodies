@@ -4,67 +4,66 @@
 
 		<div class="container">
 			<div class="row">
-				<h2 class="page-header col-xs-10 Ev-PghH2"> Mes Evenements</h2>
+				<h2 class="page-header col-xs-12 Ev-PghH2"> Mes Evenements</h2>
 			</div>
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-warning btnCreatEV" data-toggle="modal" data-target="#myModal">
-  			Créer Mon événement
+			<button type="button" class="btn btn-warning btnCreatEV col-md-offset-2 col-sm-offset-2 col-xs-offset-3" data-toggle="modal" data-target="#myModal">
+  			Créer un événement
 			</button>
 		</div>
 
+			<a href="#/createEvent" class="btn btn-default col-md-offset-4" role="button">Add an Event</a>
 
 
-
-
-<!-- ===============================  MODAL  ======================================================== -->
-
-<!-- Modal -->
+<!-- ===============================  MODAL  =============================================== -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <!-- Formulaire 1 ===================================================================================-->
-  	<div class="modal-dialog EvMoDial1" role="document" ng-show="form==1">
-    	<div class="modal-content EvMoCo">
-      		<div class="modal-header">
+   <!-- form 1 ===================================================================================-->
+  	<div class="modal-dialog" role="document" ng-show="form=1">
+    	<div class="modal-content">
+
+      	<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title" id="myModalLabel">Détails de mon événement</h4>
-      		</div>
-      		<div class="modal-body EvMoBo1">
+        		<h4 class="modal-title" id="myModalLabel">Créer un événement</h4>
+      	</div>
+
+      	<div class="modal-body">
 	        	<!-- formulaire: nom -->
-	            <div class="form-group EvFormName col-md-offset-1 col-md-10">
-	                <label class="">Donner un nom à mon événement :</label>
-	                <input name="nom" type="text" class="form-control" id="inputNameEv" placeholder="Nom" ng-model="name">
-	            </div>
+            <div class="form-group EvFormName col-md-offset-1 col-md-10">
+                <label class="">Donner un nom à mon événement :</label>
+                <input name="nom" type="text" class="form-control" id="inputNameEv" placeholder="Nom" ng-model="name" required>
+            </div>
 
+				<!-- formulaire: date -->
 				<div class="col-md-offset-1 col-md-10">
-				   	<div class="row">
-						<!-- formulaire: date -->
-			            <div class="form-group EvFormDate col-md-5">
-			                <label class="">Date :</label>
-			                <input name="date" type="date" class="form-control EvDateInput" id="inputDateEv" ng-model="date">
-			            </div>
+			   	<div class="row">
+		            <div class="form-group EvFormDate col-md-5">
+		                <label class="">Date :</label>
+		                <input name="date" type="date" class="form-control EvDateInput" id="inputDateEv" ng-model="date" required>
+		            </div>
 
-			            <!-- formulaire: heure -->
-			            <div class="form-group EvFormTime col-md-offset-2 col-md-3">
-			                <label class="">Heure : </label>
-			                <input name="hours" type="time" class="form-control EvTimeInput" id="inputTimeEv" ng-model="time">
-			            </div>
-		           	</div>
+		            <!-- formulaire: heure -->
+		            <div class="form-group EvFormTime col-md-offset-2 col-md-3">
+		                <label class="">Heure : </label>
+		                <input name="hours" type="time" class="form-control EvTimeInput" id="inputTimeEv" ng-model="time">
+		            </div>
+	           	</div>
 				</div>
 
+				<!-- formulaire: N° de rue -->
 				<div class="col-md-offset-1 col-md-10">
 					<div class="row">
-						<!-- formulaire: N° de rue -->
 			            <div class="form-group EvFormNum col-md-3">
 			                <label class="">N° :</label>
 			                <input name="number" type="number" class="form-control EvNumAdressInput" id="inputNumEv" ng-model="num">
 			            </div>
 
-						<!-- formulaire: rue -->
+							<!-- formulaire: rue -->
 			            <div class="form-group EvFormStreet col-md-offset-1 col-md-8">
 			            	<label class="">Rue :</label>
-			            	<input name="rue" type="text" class="form-control EvStreetInput" id="inputStreetEv" ng-model="street">
-			        	</div>
-			        </div>
-			    </div>
+			            	<input name="rue" placeholder="Adresse" type="text" class="form-control EvStreetInput" id="inputStreetEv" ng-model="street">
+			        		</div>
+			      </div>
+			   </div>
 
 				<div class="col-md-offset-1 col-md-10">
 					<div class="row">
@@ -75,126 +74,68 @@
 			            </div>
 			        </div>
 			    </div>
-      		</div>
+			</div><!-- / End modal-body -->
 
-				<div class="modal-footer">
-			        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
-					<button type="submit" class="btn btn-default pull-right" ng-click="form=2">Suivant</button>
-			    </div>
-		</div>
-	</div><!-- / End Modal Content - Formulaire 1 -->
+		</div><!-- / End modal content -->
+	</div><!-- / End modal-dialog form 1 -->
 
 
-		<!-- form 2 / modal ======================================================== -->
-	<div class="modal-dialog EvMoDial2" role="document" ng-show="form==2">
-		<div class="modal-content EvMoCo">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title" id="myModalLabel">Ajouter un menu</h4>
-      		</div>
+	<!-- form 2 ======================================================== -->
+   <div class="modal-dialog" role="document" ng-show="form=2">
+    	<div class="modal-content">
 
-      		<div class="modal-body EvMoBo2 col-md-12">
-
-	    		<div class="" data-wow-delay="">
-            		<div class="carousel slide Ev-CarSli" data-ride="carousel" id="quote-carousel">
+      	<div class="modal-header">
+        		<h4>Choisir des plats</h4>
+        	</div>
 
 
-	                	<!-- Carousel Slides -->
-	                	<div class="carousel-inner EvCarouselBody">
 
-								<div class="row">
-	                            	<!-- Bottom Carousel Indicators -->
-				                	<ol class="carousel-indicators Ev-CarIndic">
-				                    	<li data-target="#quote-carousel" data-slide-to="0"><img class="img-responsive circle" src="../assets/plat.jpg" title="Plat" alt="">
-				                    	</li>
-				                    	<li data-target="#quote-carousel" data-slide-to="1" class="active"><img class="img-responsive circle" src="../assets/entre.jpg" title="Entrée" alt="">
-				                    	</li>
-				                    	<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive circle" src="../assets/dessert.jpg" title="Dessert" alt="">
-				                    	</li>
-				                	</ol>
-		                        </div>
+				<button id="affiche">Retour à la carte</button>
+				<!-- <button id="cache">Faire disparaître les images</button><br /> -->
 
+				<div class="container col-md-12">
+					<div class="row">
+					  	<div class="item itemApp col-md-offset-1 col-md-3" id="itemApp2">
+					    	<div class="content">
+					      		<img src="../assets/salad-bowl.png" class="appetizer">
+					      		<p>Entrée</p>
+					    	</div>
+					  	</div>
+					  	<div class="item itemMain col-md-offset-1 col-md-3" id="main">
+						    <div class="content">
+						      	<img src="../assets/chicken.png" class="mainPlat">
+					      		<p>Plat</p>
+					    	</div>
+					  	</div>
+					  	<div class="item itemDessert col-md-offset-1 col-md-3" id="dessert">
+					   		<div class="content">
+					      		<img src="../assets/birthday-cake.png" class="dess">
+					      		<p>Dessert</p>
+					    	</div>
+					  	</div>
+					</div>
+				</div>
 
-		                    <!-- Quote 1 -->
-		                    <div class="item">
-		                    	<div class="row">
-			                    	<div class="Ev-CarouselHeader col-md-6">
-			                    		<img src="../assets/plat.jpg" alt="" class="imgCarousel img-responsive">
-										<h4 class="Ev-h4">Pasta basilic</h4>
-										<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
-										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
-										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
-			                    	</div>
-
-	                                <div class="col-md-6">
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
-	                                </div>
-	                            </div>
-		                    </div>
-
-		                    <!-- Quote 2 -->
-		                    <div class="item active">
-		                    	<div class="row">
-		                    		<div class="Ev-CarouselHeader col-md-6">
-		                    			<img src="../assets/entre.jpg" alt="" class="imgCarousel img-responsive">
-		                    			<h4 class="Ev-h4">St Jacques maison</h4>
-		                    			<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
-										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
-										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
-		                       		</div>
-
-	                                <div class="col-md-6">
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-	                                </div>
-	                            </div>
-		                    </div>
-
-		                    <!-- Quote 3 -->
-		                    <div class="item">
-		                    	<div class="row">
-		                    		<div class="Ev-CarouselHeader col-md-6">
-		                    			<img src="../assets/dessert.jpg" alt="" class="imgCarousel img-responsive">
-					                   	<h4 class="Ev-h4">Fondant au chocolat</h4>
-					                   	<h5><i class="fa fa-cutlery" aria-hidden="true"></i> 4 personnes </h5>
-										<h5><i class="fa fa-clock-o" aria-hidden="true"></i> Préparation  15 min</h5>
-										<h5><i class="fa fa-fire" aria-hidden="true"></i> Cuisson 30 min</h5>
-									</div>
-
-	                                <div class="col-md-6">
-	                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-	                                </div>
-	                            </div>
-		                    </div>
+	     </div><!-- / End modal-content -->
+	</div><!-- / End modal-dialog form 2 -->
 
 
-                		</div>
-	                </div>
-            	</div>
-	        </div>
+	<!-- Modal Content - Form 3 =================================================== -->
+	<div class="modal-dialog" role="document" ng-show="form=3">
+    	<div class="modal-content">
+      	<div class="modal-header">
 
-	      	<div class="modal-footer modalFooter2-EV">
-				<button type="submit" class="btn btn-default pull-left" ng-click="form=1">Retour</button>
-				<button type="submit" class="btn btn-default pull-right" ng-click="form=3">Suivant</button>
-	      	</div>
-	    </div>
-	</div><!-- / End Modal Content - Form 2 -->
-
-	    <!-- Modal Content - Form 3 =================================================== -->
-	<div class="modal-dialog EvMoDial2" role="document" ng-show="form==3">
-		<div class="modal-content EvMoCo">
-      		<div class="modal-header Ev-ModalHeader-Form3">
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title" id="myModalLabel">Invitations :</h4>
+        		<h4>Invitations :</h4>
         		<h5>Rechercher un(e) ami(e)s.</h5>
 		        <div class="form-group">
 		            <div class="col-sm-12 col-md-12 col-lg-12">
-		                <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
+		              <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
 		            </div>
 		        </div>
-      		</div>
+      	</div>
 
-      		<div class="modal-body EvMoBo3">
-					<div class="form-group">
+
+				<div class="form-group">
 	            <div class="searchable-container">
 	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
 	                    <div class="info-block block-info clearfix">
@@ -244,21 +185,19 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            </div>
-	        </div>
-      		</div><!-- / modal body -->
+	            </div><!-- / end searchable-container -->
+	        </div><!-- / end form group -->
+      	</div><!-- /end modal body -->
 
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-default pull-left" ng-click="form=2">Retour</button>
-	        	<button type="submit" class="btn btn-success pull-right" data-dismiss="modal" ng-click="add()">Créer</button>
-	      	</div>
-      	</div>
-    </div><!-- / End Modal Content - Form 3 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Annuler</button>
+	        			<button type="submit" class="btn btn-success pull-right" data-dismiss="modal" ng-click="add()">Créer</button>
+	      		</div>
 
-  	</div><!-- / Modal-dialog -->
-</div><!-- / Modal-fade -->
-
-
+      </div><!-- / end modal content -->
+  	</div><!-- / end Modal-dialog -->
+</div><!-- / end Modal-fade -->
 <!-- ===============================  / MODAL  ========================================================== -->
-	</div><!-- / row -->
-</div><!-- / container -->
+
+	</div><!-- / End row -->
+</div><!-- / End  Main container-fluid -->
