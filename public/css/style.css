@@ -1,4 +1,6 @@
 
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
 /* COLOR:
 * Orange: #F8AC37;
 *
@@ -506,15 +508,6 @@ html { height: 100%;}
   .itemApp:hover {
     border: 2px solid #1fa597;
 
-  }
-
-  #dessert {
-    border: 2px solid #e1e1e1;
-  }
-
-  #dessert:hover {
-    border: 2px solid #b9184d;
-    color: #b9184d;
   }
 
   #main {
