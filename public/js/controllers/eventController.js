@@ -1,15 +1,15 @@
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService) {
+function eventController($scope, $http, eventService, friendService) {
 	$('body').css('background-image', 'none');
-
+	$scope.dataFriends = {};
 	$scope.form = 1;
 	$scope.creform = 1;
 
-	
+
 	$scope.required = true;
-	
+
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
 		if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché
@@ -32,11 +32,19 @@ function eventController($scope, $http, eventService) {
 		eventService.get().then(function(res){
 			$scope.events = res.data;
 		});
-		
+
 	};
 
+// =================== Charge tous les Amis dans friends =============
 
-	// button ( select menu ) 
+	function loadFriends(){
+		friendService.get().then(function(res){
+			$scope.friends = res.data;
+		});
+	};
+// =================== END tous les Amis dans friends =============
+
+	// button ( select menu )
 	$(function() {
 	    $('#affiche').click(function() {
 	      $('.itemApp').show('slow', function(){
@@ -48,17 +56,17 @@ function eventController($scope, $http, eventService) {
 	    $('.itemApp').click(function() {
 	      $('.itemMain').hide('slow', function hideNextOne() {
 	        $('.itemDessert').hide('slow');
-	      });    
+	      });
 	    });
 	    $('.itemMain').click(function() {
 	      $('.itemApp').hide('slow', function hideNextOne() {
 	        $('.itemDessert').hide('slow');
-	      });    
+	      });
 	    });
 	    $('.itemDessert').click(function() {
 	      $('.itemApp').hide('slow', function hideNextOne() {
 	        $('.itemMain').hide('slow');
-	      });    
+	      });
 	    });
 	});
 
@@ -89,7 +97,7 @@ function eventController($scope, $http, eventService) {
 		data.friendlastname = $scope.friendlastname;
 		data.friendmail = $scope.friendmail;
 		$scope.test=1;
-		
+
 
 		eventService.create(data).then(function(res){
 			load();
@@ -116,5 +124,23 @@ function eventController($scope, $http, eventService) {
 			load();
 		});
 	}
+
+// ========================= Ajout des amis dans la BD ==============
+
+$scope.addFriends = function(){
+	friendService.create($scope.dataFriends).then(function(res){
+		load();
+		$scope.dataFriends.friendfirstname = "";
+		$scope.dataFriends.friendlastname = "";
+		$scope.dataFriends.friendmail = "";
+	});
+	loadFriends()
+}
+
+
+// ===================  END Ajout des amis dans la BD =============
+
+
 	load();
+	loadFriends();
 }

@@ -4,7 +4,7 @@
 <div class="container crE-container">
 	<div class="row">
 		<div class="col-md-12">
-			
+
 			<!-- formulaire 1 ============================================================= -->
 			<div ng-show="creform == 1">
 				<!-- formulaire: nom -->
@@ -18,43 +18,43 @@
                 <label><span class="glyphicon glyphicon-calendar"></span> Date :</label>
                 <input name="date" type="date" id="crEdateForm" class="form-control" ng-model="crEdateForm" required/>
             </div>
-            
+
             <!-- formulaire: heure -->
             <div class="form-group">
                 <label><span class="glyphicon glyphicon-time"></span> Heure : </label>
                 <input name="time" type="time" id="crEtimeForm" class="form-control" ng-model="crEtimeForm">
             </div>
-	         
+
 	         <!-- checkbox (at home) -->
 	         <div class="form-group">
 	         	<label><span class="glyphicon glyphicon-home"></span> chez moi : </label>
 	         	<input name="home" type="checkbox" id="crEhomeCheckbox" value="home" ng-click="adress()"/>
-	         </div> 
+	         </div>
 
-				<!-- formulaire: N° de rue -->			
+				<!-- formulaire: N° de rue -->
             <div class="form-group">
                 <label> N° : </label>
                 <input name="number" type="number" id="crEnumberForm" class="form-control" ng-model="crEnumberForm" required/>
             </div>
-	
+
 				<!-- formulaire: rue -->
             <div class="form-group">
             	<label><span class="glyphicon glyphicon-road"></span> Rue : </label>
             	<input name="way" type="text" id="crEwayForm" class="form-control" placeholder="Adresse" ng-model="crEwayForm" required/>
         		</div>
-			      	
+
             <!-- formulaire: ville -->
             <div class="form-group">
                <label>Ville : </label>
-               <input name="city" type="text" id="crEcityForm" class="form-control" placeholder="Ville" ng-model="crEcityForm" required/> 
+               <input name="city" type="text" id="crEcityForm" class="form-control" placeholder="Ville" ng-model="crEcityForm" required/>
             </div>
-			     
-			   <!-- formulaire: code postal -->     
-			  	<div class="form-group">     
+
+			   <!-- formulaire: code postal -->
+			  	<div class="form-group">
 			    	<label>Code postal : </label>
           		<input name="postalcode" type="text" id="crEpostalcodeForm" class="form-control" placeholder="Code postal" ng-model="crEpostalcodeForm" required/>
         		</div>
-          
+
           	<!-- formulaire: pays -->
           	<div class="form-group">
 		         <label><span class="glyphicon glyphicon-globe"></span> Pays : </label>
@@ -69,10 +69,10 @@
 			<!-- formulaire 2 ========================================================== -->
 			<div ng-show="creform == 2">
 				<h4>Choisir des plats</h4>
-      	      		
+
 				<button id="affiche">Retour à la carte</button>
 				<!-- <button id="cache">Faire disparaître les images</button><br /> -->
-			
+
 				<div class="container col-md-12">
 					<div class="row">
 					  	<div class="item itemApp col-md-offset-3 col-md-2" id="itemApp2">
@@ -96,10 +96,6 @@
 					</div>
 				</div>
 
-				<div ng-repeat="">
-					
-				</div>
-
 				<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
 				<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
 			</div><!-- / formulaire 2 -->
@@ -117,23 +113,23 @@
 		            </div>
 		        	</div>
 		      </div>
-      			
+
       		<div class="col-md-6">
 					<h5>Ajouter un(e) ami(e)s</h5>
 					<div class="form-group">
-						<input type="text" id="friendlastname" class="form-control" ng-model="friendlastname" placeholder="Nom"/>
-						<input type="text" id="friendfirstname" class="form-control" ng-model="friendfirstname" placeholder="Prénom"/>
-						<input type="email" id="friendmail" class="form-control" ng-model="friendmail" placeholder="Email" required/>
-						<button type="submit" class="btn btn-default" ng-click="add()">Ajouter</button>
+						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom"/>
+						<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.friendfirstname" placeholder="Prénom"/>
+						<input type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
+						<button type="submit" class="btn btn-default" ng-click="addFriends()">Ajouter</button>
 					</div>
 				</div>
-					
 
-      		
+
+
 				<div class="form-group">
 	            <div class="searchable-container">
 
-	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="event in events">
+	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="friend in friends">
 	                    <div class="info-block block-info clearfix">
 	                        <div class="square-box pull-left">
 	                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
@@ -143,7 +139,7 @@
 	                                <div class="bizcontent">
 	                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
 	                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-	                                    <h5>{{event.friendfirstname}} {{event.friendlastname}}</h5>
+	                                    <h5>{{friend.friendfirstname}} {{friend.friendlastname}}</h5>
 	                                </div>
 	                            </label>
 	                        </div>
@@ -152,7 +148,7 @@
 
 	            </div><!-- / end searchable-container -->
 	        	</div><!-- / end form group -->
-				
+
 				<div class="col-md-12 myfoot">
 					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
 	     			<button type="submit" class="btn btn-success pull-right" ng-click="add()">Créer</button>
@@ -162,4 +158,3 @@
 		</div><!-- / col-md-12 -->
 	</div><!-- / row -->
 </div><!-- / container -->
-
