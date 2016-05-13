@@ -508,11 +508,11 @@ html { height: 100%;}
 
   }
 
-  #dessert {
+  #itemDessert {
     border: 2px solid #e1e1e1;
   }
 
-  #dessert:hover {
+  #itemDessert:hover {
     border: 2px solid #b9184d;
     color: #b9184d;
   }
@@ -568,10 +568,20 @@ html { height: 100%;}
     border-left: 1px solid #e2e0e0;
     border-right: 1px solid #e2e0e0;
   }
-   .form-control {
+  .form-control {
     margin-bottom: 10px;
-   }
+  }
 
+  .ctf1 {
+    border-left: 1px solid #e2e0e0;
+    border-right: 1px solid #e2e0e0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .creformhome{
+    margin-top: 180px;
+    margin-left: 60px;
+  }
 /*===============================================================================
                     / END EVENT CSS  !!
 ============================================================================== */
