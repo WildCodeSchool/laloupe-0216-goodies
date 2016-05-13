@@ -1,7 +1,7 @@
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService, friendService) {
+function eventController($scope, $http, eventService, friendService, $location) {
 	$('body').css('background-image', 'none');
 	$scope.dataFriends = {};
 	$scope.form = 1;
@@ -93,10 +93,6 @@ function eventController($scope, $http, eventService, friendService) {
 		data.crEcityForm = $scope.crEcityForm;
 		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
 		data.crEcountryForm = $scope.crEcountryForm;
-		data.friendfirstname = $scope.friendfirstname;
-		data.friendlastname = $scope.friendlastname;
-		data.friendmail = $scope.friendmail;
-		$scope.test=1;
 
 
 		eventService.create(data).then(function(res){
@@ -110,9 +106,7 @@ function eventController($scope, $http, eventService, friendService) {
 		$scope.crEcityForm = "";
 		$scope.crEpostalcodeForm = "";
 		$scope.crEcountryForm = "";
-		$scope.friendfirstname = "";
-		$scope.friendlastname = "";
-		$scope.friendmail = "";
+		$location.path('/events');
 	}
 	$scope.update = function(event){
 		eventService.update(event._id, event).then(function(res){
