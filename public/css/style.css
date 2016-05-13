@@ -658,14 +658,6 @@ html { height: 100%;}
   font-size: 40px;
   cursor:pointer;
 }
-.boutonActive {
-  color: #F8AC37;
-}
-#entree:hover,
-#plat:hover,
-#dessert:hover{
-  color: #F8AC37;
-}
 .homeCenterTitle {
   margin-bottom: 50px;
   font-family: 'Yesteryear', Pacifico, cursive;
@@ -828,4 +820,21 @@ html { height: 100%;}
 
   /*==========================================================
                         Image CSS
+  ==========================================================*/
+
+
+  /*==========================================================
+                        CARD CSS
+  ==========================================================*/
+
+  .cardtest{
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  /*==========================================================
+                      END  CARD CSS
   ==========================================================*/

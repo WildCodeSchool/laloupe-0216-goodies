@@ -1,7 +1,14 @@
 function recetteController($scope, recetteService) {
   $scope.showRecette = 'entree';
+  $scope.closeBtnTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
+  function load() {
+		recetteService.get().then(function (res) {
+			$scope.recettes = res.data;
+		});
+	}
+	load();
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -9,8 +16,8 @@ function recetteController($scope, recetteService) {
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     $scope.showRecette = n;
+    console.log($scope.showRecette);
   }
-
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
@@ -26,6 +33,14 @@ function recetteController($scope, recetteService) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
+  $scope.id = function(recette){
+    $scope.recetteAffiche = recette;
+  }
+
+
+  /*==================  Stockage de l'ID  ===================== */
+
+
   $scope.i = 0;
   $scope.y = 0;
     $scope.add = function(type) {
@@ -33,8 +48,8 @@ function recetteController($scope, recetteService) {
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;
-      datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
+      datas.preparation = 'Temps de preparation: ' + $scope.preparation + ' minutes';
+      datas.cuisson = 'Temps de cuisson: ' + $scope.cuisson + ' minutes';
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;
