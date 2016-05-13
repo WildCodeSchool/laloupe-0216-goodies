@@ -18,7 +18,7 @@ function recetteController($scope, recetteService, $rootScope) {
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     if ($scope.showRecette != n){
-    $scope.recetteTab = [];      
+    $scope.recetteTab = [];
     }
     $scope.showRecette = n;
   }

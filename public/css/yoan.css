@@ -84,3 +84,14 @@
   text-align: center;
   font-size: 2em;
 }
+
+.boutonActive{
+  color: Red;
+}
+
+.titleMenu{
+  color: white;
+}
+.textIngredient{
+  font-family: 'Pacifico', cursive;
+}
