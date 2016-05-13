@@ -1,6 +1,8 @@
-function recetteController($scope, recetteService) {
+function recetteController($scope, recetteService, $rootScope) {
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
+  $scope.userId = $rootScope.userId;
+  $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
   function load() {
@@ -15,8 +17,10 @@ function recetteController($scope, recetteService) {
   $scope.bouton = function (n){
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
+    if ($scope.showRecette != n){
+    $scope.recetteTab = [];      
+    }
     $scope.showRecette = n;
-    console.log($scope.showRecette);
   }
   $scope.menuShow = function (n) {
     $scope.bouton(n);
@@ -33,18 +37,29 @@ function recetteController($scope, recetteService) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
+
+  /*==================  Stockage de l'ID  ===================== */
+
   $scope.id = function(recette){
     $scope.recetteAffiche = recette;
   }
 
+  /*==================  End Stockage de l'ID  ===================== */
 
-  /*==================  Stockage de l'ID  ===================== */
+  /*==================  Add first menu  ===================== */
 
+  $scope.pushtab = function (menu){
+    $scope.recetteTab.push(menu);
+    $scope.recetteAffiche = $scope.recetteTab[0];
+  }
+
+  /*==================  end Add first menu  ===================== */
 
   $scope.i = 0;
   $scope.y = 0;
     $scope.add = function(type) {
       var datas = {};
+      datas.userId = $scope.userId;
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;

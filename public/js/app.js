@@ -13,6 +13,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/events.html',
             controller: 'eventController'
         })
+        .when('/createEvent', {
+            templateUrl: 'views/createEvent.html',
+            controller: 'eventController'
+        })
         .when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'signupController'
@@ -58,7 +62,7 @@ function config($routeProvider, $httpProvider) {
       },
       'responseError': function(response) {
         if (response.status === 401 || response.status === 403) {
-          $location.path('/');
+          $location.path('/login');
         }
         return $q.reject(response);
       }
