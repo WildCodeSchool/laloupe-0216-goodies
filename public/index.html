@@ -132,10 +132,10 @@
               <a href="#/login" ng-if="!token" class="links">Connection / S'inscrire</a>
             </li>
             <li>
-              <a href="#/menu" class="links">Les recettes</a>
+              <a href="#/menu" ng-if="token" class="links">Les recettes</a>
             </li>
             <li>
-              <a href="#/events" class="links">Les évènements</a>
+              <a href="#/events" ng-if="token" class="links">Les évènements</a>
             </li>
           </ul>
         </nav>
