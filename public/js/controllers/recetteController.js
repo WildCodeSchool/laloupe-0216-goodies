@@ -4,7 +4,6 @@ function recetteController($scope, recetteService, $rootScope) {
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
-
   function load() {
 		recetteService.get().then(function (res) {
 			$scope.recettes = res.data;
@@ -18,7 +17,7 @@ function recetteController($scope, recetteService, $rootScope) {
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
     if ($scope.showRecette != n){
-    $scope.recetteTab = [];      
+    $scope.recetteTab = [];
     }
     $scope.showRecette = n;
   }

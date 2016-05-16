@@ -13,6 +13,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/events.html',
             controller: 'eventController'
         })
+        .when('/createEvent', {
+            templateUrl: 'views/createEvent.html',
+            controller: 'eventController'
+        })
         .when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'signupController'
@@ -133,6 +137,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('eventController', eventController)
   .controller('menuController', menuController)
   .service('eventService', eventService)
+  .service('friendService', friendService)
   .service('recetteService', recetteService)
   .service('menuService', menuService)
   .service('connectService', connectService)
