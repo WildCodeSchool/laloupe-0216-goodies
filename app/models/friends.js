@@ -6,6 +6,7 @@ var friendsSchema = new mongoose.Schema({
   friendlastname: String,
   friendfirstname: String,
   friendmail: String,
+  userId: String
 });
 var friends = {
 
