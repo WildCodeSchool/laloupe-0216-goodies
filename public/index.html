@@ -54,16 +54,17 @@
     <div id="wrapper">
 
       <header class="navbar navbar-default navbar-fixed-top navbar-border" role="navigation">
-        <div class="container">
-          <div class="navbar-header pull-left">
+        <div class="row">
+          <div class="navbar-header col-md-4">
             <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
               <span class="hamb-top"></span>
               <span class="hamb-middle"></span>
               <span class="hamb-bottom"></span>
             </button>
           </div>
-          <center class="title">Goodies</center>
-          <div class="navbar-header pull-right">
+          <div class="title col-md-4">Goodies</div>
+          <div class="navbar-header col-md-4">
+            
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -71,21 +72,10 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-          <nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <ul class="nav navbar-nav pull-right">
-              <li ng-class="{active: activetab=='/'}" ng-if="token">
-                <a href="#/">Home</a>
-              </li>
-              <li ng-class="{active: activetab=='/admin'}" ng-if="token">
-                <a href="#/admin">Administration</a>
-              </li>
-              <li ng-class="{active: activetab=='/about'}">
-                <a href="#/about"></a>
-              </li>
-
-              <li>
-              <li class="dropdown" ng-if="token">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom
+          <nav id="bs-navbar"  aria-expanded="false">
+            <ul class="nav navbar-nav">
+              <li class="dropdown" ng-show="token">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
@@ -141,6 +131,6 @@
       <div class="container-fluid page">
         <ng-view></ng-view>
       </div>
-
+    </div>
     </body>
   </html>
