@@ -1,20 +1,19 @@
 $(document).ready(function () {
-  var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
-      links = $('.links'),
+  var trigger = angular.element($('.hamburger')),
+      overlay = angular.element($('.overlay')),
+      links = angular.element($('.links')),
       isClosed = false;
 
   trigger.click(function () {
     hamburger_cross();
   });
-
   links.click(function () {
     hamburger_cross();
-    $('#wrapper').toggleClass('toggled');
+    angular.element($('#wrapper')).toggleClass('toggled');
   });
   overlay.click(function () {
     hamburger_cross();
-    $('#wrapper').toggleClass('toggled');
+    angular.element($('#wrapper')).toggleClass('toggled');
   });
   function hamburger_cross() {
 
@@ -31,7 +30,7 @@ $(document).ready(function () {
     }
   }
 
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
+  angular.element($('[data-toggle="offcanvas"]')).click(function () {
+        angular.element($('#wrapper')).toggleClass('toggled');
   });
 });
