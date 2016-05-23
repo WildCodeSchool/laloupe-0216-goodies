@@ -1,4 +1,6 @@
 
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
 /* COLOR:
 * Orange: #F8AC37;
 *
@@ -14,7 +16,7 @@
   margin-top: 90px;
 }
 /* ===========================================*\
-	                  Connection
+                    Connection
 \* ===========================================*/
 
 .connection {
@@ -43,7 +45,7 @@ input[type="password"].focus {
   margin-bottom: 15px;
 }
 /* ===========================================*\
-	              End Connection
+                End Connection
 \* ===========================================*/
 body{
     background: url('/assets/pasta.jpg') fixed;
@@ -51,19 +53,19 @@ body{
 }
 
 .navbar-border{
-	border-bottom: 3px solid #F8AC37;
+  border-bottom: 3px solid #F8AC37;
 }
 
 .navbar-header img{
-	transition: 0.4s;
+  transition: 0.4s;
 }
 
 .navbar-header img:hover{
-	transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .sub-login-form{
-	text-align: center;
+  text-align: center;
 }
 
 .container-fluid {
@@ -71,7 +73,7 @@ body{
   padding-right: 0px !important;
 }
 /* ----------------- *\
-	  BS CALLOUT
+    BS CALLOUT
 \* ----------------- */
 
 .bs-callout {
@@ -435,157 +437,155 @@ html { height: 100%;}
   ========================================================*/
 
 
-
   /*============================================================================================
-           EVENT CSS
-  ===============================================================================================*/
+             EVENT CSS
+    ===============================================================================================*/
 
-  /*** Events page ***/
-  .EvBody {
-    background-image: url('../assets/dessertbg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
+    /*** Events page ***/
+    .EvBody {
+      background-image: url('../assets/dessertbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
 
-  .Ev-PghH2 {
-    font-family: 'Yesteryear', cursive;
-    font-size: 3.5em;
-    color: #fff;
-    margin-top: 135px;
-  }
-
-
-
-  .item:hover .content img {
-    font-size: 4.6em;
-  }
-
-  .item {
-    width: 125px;
-    height: 125px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background: white;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -o-flex;
-    display: -ms-flex;
-    cursor: pointer;
-  }
-
-  .content {
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: #a9a9a9;
-  }
-
-  .appetizer {
-    color: #1fa597;
-  }
-
-  .mainPlat {
-    color: #f9a02e;
-  }
-
-  .dess {
-    color: #b9184d;
-  }
-
-  .item {
-    margin-right: 5px;
-  }
-  .itemApp {
-    border: 2px solid #e1e1e1;
-  }
-
-  .itemApp:hover {
-    border: 2px solid #1fa597;
-
-  }
-
-  #itemDessert {
-    border: 2px solid #e1e1e1;
-  }
-
-  #itemDessert:hover {
-    border: 2px solid #b9184d;
-    color: #b9184d;
-  }
-
-  #main {
-    border: 2px solid #e1e1e1;
-  }
-
-  #main:hover {
-    border: 2px solid #f9a02e;
-    font-color: #f9a02e;
-  }
-
-  .content img {
-    font-size: 4em;
-    transition: .3s cubic-bezier(0, .25, .3, 2);
-    -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
-    -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
-    -o-transition: .3s cubic-bezier(0, .25, .3, 2);
-    -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
-  }
-
-  .disclaimer {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: .8em;
-  }
+    .Ev-PghH2 {
+      font-family: 'Yesteryear', cursive;
+      font-size: 3.5em;
+      color: #fff;
+      margin-top: 135px;
+    }
 
 
 
+    .item:hover .content img {
+      font-size: 4.6em;
+    }
 
-  /* search (form 3)  --> */
-  .searchable-container{margin:20px 0 0 0}
-  .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
-  .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
-  .searchable-container label .bizcontent{width:100%;}
-  .searchable-container .btn-group{width:90%}
-  .searchable-container .btn span.glyphicon{
-      opacity: 0;
-  }
-  .searchable-container .btn.active span.glyphicon {
-      opacity: 1;
-  }
+    .item {
+      width: 125px;
+      height: 125px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background: white;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -o-flex;
+      display: -ms-flex;
+      cursor: pointer;
+    }
 
-  /*** create Event page ***/
-  .crE-container {
-    margin-top: 100px;
-    border-left: 1px solid #e2e0e0;
-    border-right: 1px solid #e2e0e0;
-  }
-  .form-control {
-    margin-bottom: 10px;
-  }
+    .content {
+      margin-top: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      color: #a9a9a9;
+    }
 
-  .ctf1 {
-    border-left: 1px solid #e2e0e0;
-    border-right: 1px solid #e2e0e0;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .creformhome{
-    margin-top: 180px;
-    margin-left: 60px;
-  }
-/*===============================================================================
-                    / END EVENT CSS  !!
-============================================================================== */
+    .appetizer {
+      color: #1fa597;
+    }
 
+    .mainPlat {
+      color: #f9a02e;
+    }
+
+    .dess {
+      color: #b9184d;
+    }
+
+    .item {
+      margin-right: 5px;
+    }
+    .itemApp {
+      border: 2px solid #e1e1e1;
+    }
+
+    .itemApp:hover {
+      border: 2px solid #1fa597;
+
+    }
+
+    #itemDessert {
+      border: 2px solid #e1e1e1;
+    }
+
+    #itemDessert:hover {
+      border: 2px solid #b9184d;
+      color: #b9184d;
+    }
+
+    #main {
+      border: 2px solid #e1e1e1;
+    }
+
+    #main:hover {
+      border: 2px solid #f9a02e;
+      font-color: #f9a02e;
+    }
+
+    .content img {
+      font-size: 4em;
+      transition: .3s cubic-bezier(0, .25, .3, 2);
+      -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
+      -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
+      -o-transition: .3s cubic-bezier(0, .25, .3, 2);
+      -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
+    }
+
+    .disclaimer {
+      display: block;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: .8em;
+    }
+
+
+
+
+    /* search (form 3)  --> */
+    .searchable-container{margin:20px 0 0 0}
+    .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
+    .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+    .searchable-container label .bizcontent{width:100%;}
+    .searchable-container .btn-group{width:90%}
+    .searchable-container .btn span.glyphicon{
+        opacity: 0;
+    }
+    .searchable-container .btn.active span.glyphicon {
+        opacity: 1;
+    }
+
+    /*** create Event page ***/
+    .crE-container {
+      margin-top: 100px;
+      border-left: 1px solid #e2e0e0;
+      border-right: 1px solid #e2e0e0;
+    }
+    .form-control {
+      margin-bottom: 10px;
+    }
+
+    .ctf1 {
+      border-left: 1px solid #e2e0e0;
+      border-right: 1px solid #e2e0e0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .creformhome{
+      margin-top: 180px;
+      margin-left: 60px;
+    }
+  /*===============================================================================
+                      / END EVENT CSS  !!
+  ============================================================================== */
 /*==========================================================
                         HOME CSS
 ==========================================================*/
@@ -642,7 +642,6 @@ html { height: 100%;}
 }
 .menu {
   margin-top: 30px;
-<<<<<<< HEAD
   color: white;
 }
 .modalMenu {
@@ -652,11 +651,6 @@ html { height: 100%;}
   width: 100%;
   height: auto;
 
-<<<<<<< HEAD
-=======
->>>>>>> ludo
-=======
->>>>>>> b87735becdc2acea1aebe66b6e764c76b8c83e2a
 }
 
 /*==========================================================
@@ -668,126 +662,126 @@ html { height: 100%;}
                       Image CSS
 ==========================================================*/
 
-			.creds {
-			  text-align: center;
-			  color: #666;
-			  font-size: 0.85em;
-			}
-			.creds a {
-			  color: #000;
-			  text-decoration: none;
-			  border-bottom: 1px dotted #000;
-			}
-			.flip-menu{
-			margin: 30px 0 0;
-			}
-			.flip-item-wrap{
-			width: 25%;
-		    height: auto;
-		    float: left;
-			position:relative;
-			-webkit-perspective:800px;
-			   -moz-perspective:800px;
-			    -ms-perspective:800px;
-			     -o-perspective:800px;
-			        perspective:800px;
-			}
-			@media screen and (min-width: 1280px) {
-				.flip-item-wrap{
-				width: 16.6%;
-				}
-			}
-			@media screen and (max-width: 979px) {
-				.flip-item-wrap{
-				width: 33.3%;
-				}
-			}
-			@media screen and (max-width: 639px) {
-				.flip-item-wrap{
-				width: 50%;
-				}
-			}
-			@media screen and (max-width: 379px) {
-				.flip-item-wrap{
-				width: 100%;
-				}
-			}
-			.flip-item-wrap img{
-			width:100%;
-			height:auto;
-			display:block;
-			margin:0;
-			}
-			.flip-item-wrap input{
-			display: none;
-			}
-			.flip-item-wrap .fake-image{
-			visibility: hidden;
-			}
-			.flip-item{
-			display: block;
-			width:100%;
-			height:100%;
-			float:left;
-			position:absolute;
-			top:0;
-			left:0;
-			cursor:pointer;
-			color:#fff;
-			-webkit-transform-style:preserve-3d;
-			   -moz-transform-style:preserve-3d;
-			    -ms-transform-style:preserve-3d;
-			     -o-transform-style:preserve-3d;
-			        transform-style:preserve-3d;
-			-webkit-transition:-webkit-transform 1s;
-			   -moz-transition:   -moz-transform 1s;
-			     -o-transition:     -o-transform 1s;
-			        transition:        transform 1s;
-			}
-			.flip-item figure{
-			display:block;
-			position:absolute;
-			width:100%;
-			height:100%;
-			margin:0;
-			-webkit-backface-visibility:hidden;
-			   -moz-backface-visibility:hidden;
-			    -ms-backface-visibility:hidden;
-			     -o-backface-visibility:hidden;
-			        backface-visibility:hidden;
-			}
-			.flip-item .back{
-			width:100%;
-			display:block;
-			margin:0;
-			-webkit-transform:rotateY( 180deg );
-			   -moz-transform:rotateY( 180deg );
-			    -ms-transform:rotateY( 180deg );
-			     -o-transform:rotateY( 180deg );
-			        transform:rotateY( 180deg );
-			}
-			.flipper:checked + .flip-item{
-			-webkit-transform:rotateY( 180deg );
-			   -moz-transform:rotateY( 180deg );
-			    -ms-transform:rotateY( 180deg );
-			     -o-transform:rotateY( 180deg );
-			        transform:rotateY( 180deg );
-			}
-			.flip-item-desc{
-			background: rgba(0,0,0,0.2);
-			width:90%;
-			height:90%;
-			padding:5%;
-			position:absolute;
-			top: 0;
-			left: 0;
-			text-shadow:1px 2px 1px rgba(0,0,0,0.9);
-			overflow:hidden;
-			}
-			.flip-item-title{
-			font-size: 1.5em;
-			margin: 1em 0 0.8em;
-			}
+      .creds {
+        text-align: center;
+        color: #666;
+        font-size: 0.85em;
+      }
+      .creds a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px dotted #000;
+      }
+      .flip-menu{
+      margin: 30px 0 0;
+      }
+      .flip-item-wrap{
+      width: 25%;
+        height: auto;
+        float: left;
+      position:relative;
+      -webkit-perspective:800px;
+         -moz-perspective:800px;
+          -ms-perspective:800px;
+           -o-perspective:800px;
+              perspective:800px;
+      }
+      @media screen and (min-width: 1280px) {
+        .flip-item-wrap{
+        width: 16.6%;
+        }
+      }
+      @media screen and (max-width: 979px) {
+        .flip-item-wrap{
+        width: 33.3%;
+        }
+      }
+      @media screen and (max-width: 639px) {
+        .flip-item-wrap{
+        width: 50%;
+        }
+      }
+      @media screen and (max-width: 379px) {
+        .flip-item-wrap{
+        width: 100%;
+        }
+      }
+      .flip-item-wrap img{
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0;
+      }
+      .flip-item-wrap input{
+      display: none;
+      }
+      .flip-item-wrap .fake-image{
+      visibility: hidden;
+      }
+      .flip-item{
+      display: block;
+      width:100%;
+      height:100%;
+      float:left;
+      position:absolute;
+      top:0;
+      left:0;
+      cursor:pointer;
+      color:#fff;
+      -webkit-transform-style:preserve-3d;
+         -moz-transform-style:preserve-3d;
+          -ms-transform-style:preserve-3d;
+           -o-transform-style:preserve-3d;
+              transform-style:preserve-3d;
+      -webkit-transition:-webkit-transform 1s;
+         -moz-transition:   -moz-transform 1s;
+           -o-transition:     -o-transform 1s;
+              transition:        transform 1s;
+      }
+      .flip-item figure{
+      display:block;
+      position:absolute;
+      width:100%;
+      height:100%;
+      margin:0;
+      -webkit-backface-visibility:hidden;
+         -moz-backface-visibility:hidden;
+          -ms-backface-visibility:hidden;
+           -o-backface-visibility:hidden;
+              backface-visibility:hidden;
+      }
+      .flip-item .back{
+      width:100%;
+      display:block;
+      margin:0;
+      -webkit-transform:rotateY( 180deg );
+         -moz-transform:rotateY( 180deg );
+          -ms-transform:rotateY( 180deg );
+           -o-transform:rotateY( 180deg );
+              transform:rotateY( 180deg );
+      }
+      .flipper:checked + .flip-item{
+      -webkit-transform:rotateY( 180deg );
+         -moz-transform:rotateY( 180deg );
+          -ms-transform:rotateY( 180deg );
+           -o-transform:rotateY( 180deg );
+              transform:rotateY( 180deg );
+      }
+      .flip-item-desc{
+      background: rgba(0,0,0,0.2);
+      width:90%;
+      height:90%;
+      padding:5%;
+      position:absolute;
+      top: 0;
+      left: 0;
+      text-shadow:1px 2px 1px rgba(0,0,0,0.9);
+      overflow:hidden;
+      }
+      .flip-item-title{
+      font-size: 1.5em;
+      margin: 1em 0 0.8em;
+      }
 
   /*==========================================================
                         Image CSS
