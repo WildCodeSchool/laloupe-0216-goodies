@@ -4,7 +4,6 @@ function recetteController($scope, recetteService, $rootScope) {
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
-
   function load() {
     recetteService.get().then(function (res) {
       $scope.recettes = res.data;

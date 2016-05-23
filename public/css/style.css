@@ -5,11 +5,18 @@
 * Orange: #F8AC37;
 *
 */
+.hamburger{
+  margin-left: 50px;
+}
+#bs-navbar{
+  margin-left: 400px;
+}
 .title {
   font-family: 'Yesteryear', Pacifico, cursive;
+  text-align: center;
   font-size: 50px;
   margin-top: 40px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   line-height: 0px;
 }
 .page{
@@ -308,7 +315,7 @@ html { height: 100%;}
 
 .hamburger {
   position: fixed;
-  top: 20px;
+  top: 10px;
   z-index: 999;
   display: block;
   width: 32px;
