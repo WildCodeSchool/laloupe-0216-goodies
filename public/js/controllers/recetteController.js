@@ -5,11 +5,11 @@ function recetteController($scope, recetteService, $rootScope) {
   $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
   function load() {
-		recetteService.get().then(function (res) {
-			$scope.recettes = res.data;
-		});
-	}
-	load();
+    recetteService.get().then(function (res) {
+      $scope.recettes = res.data;
+    });
+  }
+  load();
 
   /*===================  Fonction bouton Recette  ========================= */
 

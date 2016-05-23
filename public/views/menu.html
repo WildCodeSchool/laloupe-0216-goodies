@@ -169,7 +169,7 @@
               <div class="form-group">
                 <input class="col-md-4" type="number" value="0" min="0" class="form-control" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
               </div>
-              <p>Temp de cuisson</p>
+              <i class="fa fa-fire" aria-hidden="true"></i><p>Temp de cuisson</p>
               <div class="form-group">
                 <input class="col-md-4" type="number" value="0" min="0" class="form-control" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
               </div>
@@ -217,8 +217,9 @@
               <img class="RecetteImgA"src={{recetteAffiche.img}} alt=""/>
             </div>
             <div class="col-md-4">
-              <div class="preparationA">{{recetteAffiche.preparation}}</div>
-              <div class="preparationA">{{recetteAffiche.cuisson}}</div>
+              <div class="preparationA"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                {{recetteAffiche.preparation}}</div>
+              <div class="preparationA"><i class="fa fa-fire" aria-hidden="true"></i> {{recetteAffiche.cuisson}}</div>
             </div>
             <div class="col-md-12">
               <p class="textIngredient">Ingrédient:</p>
