@@ -106,6 +106,7 @@
 						<button type="button" class="btn btn-link bcem" ng-click="showRecette='dessert'" style="color: white;">Desserts</button>
 					</div>
 				</div>
+
 				<div class="col-md-12" style="margin-top: 10px">
 					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
 					<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
@@ -177,6 +178,7 @@
 
 			    <div class="col-md-offset-1 col-md-5">
 					<h5>Ajouter un(e) ami(e)</h5>
+
 					<div class="form-group">
 						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom" minlength="3"  maxlength="10" required />
 						<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.friendfirstname" placeholder="Prénom" minlength="3"  maxlength="10" required />
@@ -184,6 +186,7 @@
 						<button type="submit" class="btn btn-default" ng-click="addFriends()">Ajouter</button>
 					</div>
 				</div>
+
 			</div>
 
 
@@ -207,14 +210,13 @@
 			             </div>
 			      	</div><!-- / end searchable-container -->
 			  	</div><!-- / end form group -->
-			  
 
-			<div class="col-md-12 myfoot">
-				<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
-					<button type="submit" class="btn btn-success pull-right" ng-click="add()">Créer</button>
-			</div>
-		</div>
-	</div>
-</div><!-- / formulaire 3 -->
-
+				<div class="col-md-12 myfoot">
+					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
+	     			<button type="submit" class="btn btn-success pull-right" ng-click="add()">Créer</button>
+				</div>
+			</div><!-- / formulaire 3 -->
+		</div><!-- / col-md-12 -->
+	</div><!-- / row -->
+</div><!-- / container -->
 
