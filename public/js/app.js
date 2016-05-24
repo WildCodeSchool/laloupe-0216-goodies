@@ -44,6 +44,10 @@ function config($routeProvider, $httpProvider) {
           templateUrl: 'views/menu.html',
           controller: 'recetteController',
         })
+        .when('/myfriends', {
+          templateUrl: 'views/myfriends.html',
+          // controller: 'recetteController', define a name
+        })
         .when('/about', {
             templateUrl: 'views/about.html'
         })
@@ -55,8 +59,8 @@ function config($routeProvider, $httpProvider) {
     return {
       'request': function(config) {
         config.headers = config.headers || {};
-        if ($rootScope.token) {
-          config.headers.authorization = $rootScope.token;
+        if (sessionStorage.getItem('token')) {// Replace with cookies
+          config.headers.authorization = sessionStorage.getItem('token');
         }
         return config;
       },
@@ -87,6 +91,10 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 
 
 function run($rootScope, $location, connectService) {
+  if (sessionStorage.getItem('token')) {// Replace with cookies
+    $rootScope.token = sessionStorage.getItem('token');
+  }
+
   $rootScope.loginMessage = {};
   $rootScope.loginMessage.title = '';
   $rootScope.loginMessage.message = '';
@@ -101,7 +109,8 @@ function run($rootScope, $location, connectService) {
 
   // Logout
   $rootScope.logout = function() {
-    $rootScope.token = null;
+    sessionStorage.setItem('token', ''); // Replace with cookies
+    sessionStorage.setItem('userId', ''); // Replace with cookies
     $rootScope.loginMessage.title = '';
     $rootScope.loginMessage.message = '';
     connectService.disconnect().then(function() {
