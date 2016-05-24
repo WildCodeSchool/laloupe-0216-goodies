@@ -75,26 +75,15 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav">
               <li class="dropdown" ng-show="token">
-                <a class="dropdown-toggle glyphicon glyphicon-user usericon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="caret"></span>
+                <a href="" class="col-md-4">
+                  <i class="fa fa-user fa-3" aria-hidden="true"></i>
                 </a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Mes Goodies</li>
-                  <li ng-class="{active: activetab=='/recettes'}">
-                    <a href="#/recettes">Mes Recettes</a>
-                  </li>
-                  <li ng-class="{active: activetab=='/events'}">
-                    <a href="#/events">Mes événements</a>
-                  </li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Paramètres</li>
-                  <li>
-                    <a href="#/">Mon Compte</a>
-                  </li>
-                  <li>
-                    <a href="#/" ng-click="logout()">Déconnexion</a>
-                  </li>
-                </ul>
+                <a href="" class="col-md-4">
+                  <i class="fa fa-users fa-3" aria-hidden="true"></i>
+                </a>
+                <a href="#/" ng-click="logout()" class="col-md-4">
+                  <i class="fa fa-power-off fa-3" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
           </nav>
