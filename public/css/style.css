@@ -444,155 +444,400 @@ html { height: 100%;}
   ========================================================*/
 
 
-  /*============================================================================================
-             EVENT CSS
-    ===============================================================================================*/
+/* **********************************************************
+         EVENT CSS
+*********************************************************** */
 
-    /*** Events page ***/
-    .EvBody {
-      background-image: url('../assets/dessertbg.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 100vh;
-      padding-left: 0px !important;
-      padding-right: 0px !important;
+/*** Events page ***/
+.EvBody {
+  background-image: url('../assets/dessertbg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.Ev-PghH2 {
+  font-family: 'Yesteryear', cursive;
+  font-size: 3.5em;
+  color: #fff;
+  margin-top: 135px;
+}
+
+.item:hover .content img {
+  font-size: 4.6em;
+}
+
+.item {
+  width: 125px;
+  height: 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: white;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #a9a9a9;
+}
+
+.appetizer {
+  color: #1fa597;
+}
+
+.mainPlat {
+  color: #f9a02e;
+}
+
+.dess {
+  color: #b9184d;
+}
+
+.item {
+  margin-right: 5px;
+}
+.itemApp {
+  border: 2px solid #e1e1e1;
+}
+
+.itemApp:hover {
+  border: 2px solid #1fa597;
+
+}
+
+#itemDessert {
+  border: 2px solid #e1e1e1;
+}
+
+#itemDessert:hover {
+  border: 2px solid #b9184d;
+  color: #b9184d;
+}
+
+#main {
+  border: 2px solid #e1e1e1;
+}
+
+#main:hover {
+  border: 2px solid #f9a02e;
+  font-color: #f9a02e;
+}
+
+.content img {
+  font-size: 4em;
+  transition: .3s cubic-bezier(0, .25, .3, 2);
+  -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -o-transition: .3s cubic-bezier(0, .25, .3, 2);
+  -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
+}
+
+.disclaimer {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .8em;
+}
+
+/* search (form 3)  --> */
+.searchable-container{margin:20px 0 0 0}
+.searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
+.searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+.searchable-container .btn-group{width:90%}
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+
+/*** create Event page ***/
+.crE-container {
+  margin-top: 100px;
+  border-left: 1px solid #e2e0e0;
+  border-right: 1px solid #e2e0e0;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.ctf1 {
+  border-left: 1px solid #e2e0e0;
+  border-right: 1px solid #e2e0e0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.creformhome{
+  margin-top: 180px;
+  margin-left: 60px;
+}
+
+.blocForm2CreateEvent {
+  position: fixed;
+}
+.createEventMenu {
+  background-image: url('../assets/tableau_resto.png');
+  background-repeat: no-repeat;
+  height: 450px;
+  width: 359px;
+  box-shadow: 5px 5px 15px 2px;
+}
+
+.btnCreateEventMenu {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 95px;
+  position: relative;
+  top: 144px;
+}
+
+.bcem {
+  font-family: 'Yesteryear', cursive;
+  font-size: 1.9em;
+  margin-bottom: 5px;
+}
+
+/*** test ***/
+.btnAddMenuEvent {
+  border-radius: 50%;
+  width: 38px;
+  height: 36px;
+  position: relative;
+  top: 65px;
+  left: 9px;
+}
+
+.foodbox{
+    h3 {
+        margin-top: 6px !important;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        max-height: 20px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
     }
-
-    .Ev-PghH2 {
-      font-family: 'Yesteryear', cursive;
-      font-size: 3.5em;
-      color: #fff;
-      margin-top: 135px;
+    .thumbnail {
+        padding: 0px !important;
+        border: 0px solid rgba(78, 78, 78, 0.36);
+        box-shadow: 1px 1px 1px #929292;
+        border-radius: 2px;
+        max-width: 262px;
+        max-height: 238px;
+        background: #fff;
     }
-
-
-
-    .item:hover .content img {
-      font-size: 4.6em;
+    p {
+        color: rgba(51, 51, 51, 0.63);
     }
-
-    .item {
-      width: 125px;
-      height: 125px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background: white;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -o-flex;
-      display: -ms-flex;
-      cursor: pointer;
+    .responsive p {
+        margin: 0 0 0px !important;
+        font-size: 14px;
     }
-
-    .content {
-      margin-top: 15px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      color: #a9a9a9;
+    .responsive {
+        float: left;
+        box-sizing: border-box;
     }
-
-    .appetizer {
-      color: #1fa597;
+    .vegnonveg {
+        width: 12%;
+        padding: 14px 5px;
     }
-
-    .mainPlat {
-      color: #f9a02e;
+    .contentPart {
+        width: 63%;
+        padding: 5px 5px;
     }
-
-    .dess {
-      color: #b9184d;
+    .cartPart {
+        width: 37%;
+        padding: 13px 5px;
     }
-
-    .item {
-      margin-right: 5px;
+    .thumbnail .caption {
+        padding: 5px 9px;
     }
-    .itemApp {
-      border: 2px solid #e1e1e1;
+    .pricesection {
+        position: absolute;
+        top: 5px;
+        z-index: 99999;
     }
-
-    .itemApp:hover {
-      border: 2px solid #1fa597;
-
+    .pricesection {
+        /*       width: 262px; */
+        /* background: rgba(0,0,0,0.4); */
+        max-width: 262px;
+        width: 90%;
     }
-
-    #itemDessert {
-      border: 2px solid #e1e1e1;
+    .foodDesc {}
+    .pricesection h3 {
+        color: #fff !important;
     }
-
-    #itemDessert:hover {
-      border: 2px solid #b9184d;
-      color: #b9184d;
+    .pricesection .h3 {
+        color: #fff !important;
+        background: rgba(0, 0, 0, 0.47);
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 5px;
+        font-weight: 500;
+        cursor: default;
+        box-sizing: border-box;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
     }
-
-    #main {
-      border: 2px solid #e1e1e1;
+    .pricesection .h3:hover {
+        background: rgba(0, 0, 0, 0.77);
     }
-
-    #main:hover {
-      border: 2px solid #f9a02e;
-      font-color: #f9a02e;
+    .fifty {
+        width: 50%;
+        padding: 8px 10px;
     }
-
-    .content img {
-      font-size: 4em;
-      transition: .3s cubic-bezier(0, .25, .3, 2);
-      -webkit-transition: .3s cubic-bezier(0, .25, .3, 2);
-      -moz-transition: .3s cubic-bezier(0, .25, .3, 2);
-      -o-transition: .3s cubic-bezier(0, .25, .3, 2);
-      -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
+    .addRemoveButton {
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background: transparent;
+        /* color: #333; */
+        line-height: 0.9;
+        font-size: 15px;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
     }
-
-    .disclaimer {
-      display: block;
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: .8em;
+    .addButton {
+        border-color: #EA485F;
+        color: #EA485F;
     }
+    .addButton:hover {
+        background: #EA485F;
+        color: #fff;
+    }
+    .removeButton {
+        border-color: rgba(0, 0, 0, 0.45);
+        color: rgba(0, 0, 0, 0.45);
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+    .removeButton:hover {
+        border-color: rgba(0, 0, 0, 0.69);
+        color: rgba(0, 0, 0, 0.69);
+    }
+    .vegNonvegIcon {
+        margin-top: -4px;
+    }
+    img {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+    
+    p {}
+    p.foodDesc {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        max-height: 20px;
+        /* fallback */
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .availOption {
+        position: absolute;
+        bottom: 93px;
+        height: 0px;
+        z-index: 999;
+    }
+    .itsAvaliable {
+        padding: 2px 5px;
+        background: #4CAF50;
+        color: #fff;
+    }
+    .itsSoldOut {
+        padding: 2px 5px;
+        background: #FF5722;
+        color: #fff;
+    }
+    .fillingFast {
+        padding: 2px 5px;
+        background: #FF9800;
+        color: #fff !important;
+    }
+    .clearfix{
+        max-width: 262px;
+        /* max-height: 238px; */
+    }
+    .foodMoreDesc {
+        display: none;
+        padding: 14px;
+        background: #fff;
+        position: absolute;
+        bottom: 21px;
+        left: auto;
+        max-width: 262px;
+        z-index: 999;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* display: -webkit-box; */
+        max-height: 122px;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        color: #6B6B6B;
+        margin-top: 10px;
+    }
+    .closeDesc {
+        color: #fff;
+        background: #FF5722;
+        height: 22px;
+        width: 22px;
+        display: block;
+        text-align: center;
+        border-radius: 2px;
+        position: static;
+        text-decoration: none;
+        float: right;
+    }
+    .closeDesc i {
+        color: #fff;
+    }
+    p.foodDesc a {
+        color: #E91E63;
+        text-decoration: none;
+    }
+    p.foodDesc a:hover {
+        color: #E6539C;
+    }
+}
 
 
 
+/********************************************************************
+          / END EVENT CSS  !!
+**************************************************************************/
 
-    /* search (form 3)  --> */
-    .searchable-container{margin:20px 0 0 0}
-    .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
-    .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
-    .searchable-container label .bizcontent{width:100%;}
-    .searchable-container .btn-group{width:90%}
-    .searchable-container .btn span.glyphicon{
-        opacity: 0;
-    }
-    .searchable-container .btn.active span.glyphicon {
-        opacity: 1;
-    }
 
-    /*** create Event page ***/
-    .crE-container {
-      margin-top: 100px;
-      border-left: 1px solid #e2e0e0;
-      border-right: 1px solid #e2e0e0;
-    }
-    .form-control {
-      margin-bottom: 10px;
-    }
 
-    .ctf1 {
-      border-left: 1px solid #e2e0e0;
-      border-right: 1px solid #e2e0e0;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    .creformhome{
-      margin-top: 180px;
-      margin-left: 60px;
-    }
-  /*===============================================================================
-                      / END EVENT CSS  !!
-  ============================================================================== */
 /*==========================================================
                         HOME CSS
 ==========================================================*/
