@@ -75,13 +75,13 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav">
               <li class="dropdown" ng-show="token">
-                <a href="" class="col-md-4">
+                <a href="" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
                   <i class="fa fa-user fa-3" aria-hidden="true"></i>
                 </a>
-                <a href="#/myfriends" class="col-md-4">
+                <a href="#/myfriends" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mes amies">
                   <i class="fa fa-users fa-3" aria-hidden="true"></i>
                 </a>
-                <a href="#/" ng-click="logout()" class="col-md-4">
+                <a href="#/" ng-click="logout()" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Déconnexion">
                   <i class="fa fa-power-off fa-3" aria-hidden="true"></i>
                 </a>
               </li>
@@ -121,5 +121,10 @@
         <ng-view></ng-view>
       </div>
     </div>
+    <script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     </body>
   </html>
