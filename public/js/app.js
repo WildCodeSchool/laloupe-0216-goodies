@@ -93,6 +93,7 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 function run($rootScope, $location, connectService) {
   if (sessionStorage.getItem('token')) {// Replace with cookies
     $rootScope.token = sessionStorage.getItem('token');
+    $rootScope.userId = sessionStorage.getItem('userId');
   }
 
   $rootScope.loginMessage = {};
@@ -113,6 +114,8 @@ function run($rootScope, $location, connectService) {
     sessionStorage.setItem('userId', ''); // Replace with cookies
     $rootScope.loginMessage.title = '';
     $rootScope.loginMessage.message = '';
+    $rootScope.token = '';
+    $rootScope.userId = '';
     connectService.disconnect().then(function() {
       $location.url('/login');
     })

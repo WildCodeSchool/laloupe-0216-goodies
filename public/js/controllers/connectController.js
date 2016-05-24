@@ -4,6 +4,8 @@ function connectController($scope, $rootScope, $location, connectService){
 		connectService.connect($scope.user).then(function(res){
 			sessionStorage.setItem('token', res.data.token); // Replace with cookies
 			sessionStorage.setItem('userId', res.data.id); // Replace with cookies
+			$rootScope.token = sessionStorage.getItem('token');
+	    $rootScope.userId = sessionStorage.getItem('userId');
 			$location.path('/');
 		}).catch(function(){
 			$rootScope.loginMessage.title = "Connexion error";
