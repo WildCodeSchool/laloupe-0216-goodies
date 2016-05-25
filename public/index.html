@@ -33,6 +33,7 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/adminController.js"></script>
     <script src="js/controllers/recetteController.js"></script>
+    <script src="js/controllers/createEventController.js"></script>
 
     <script src="js/services/eventService.js"></script>
     <script src="js/services/friendService.js"></script>
@@ -47,7 +48,6 @@
     <!-- App js -->
     <script src="js/app.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/login.js"></script>
 
   </head>
   <body>
@@ -75,29 +75,15 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav">
               <li class="dropdown" ng-show="token">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon nom
-                  <span class="caret"></span>
+                <a href="" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
+                  <i class="fa fa-user fa-3" aria-hidden="true"></i>
                 </a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Mes Goodies</li>
-                  <li ng-class="{active: activetab=='/recettes'}">
-                    <a href="#/recettes">Mes Recettes</a>
-                  </li>
-                  <li ng-class="{active: activetab=='/events'}">
-                    <a href="#/events">Mes événements</a>
-                  </li>
-                  <li ng-class="{active: activetab=='/myfriends'}">
-                    <a href="#/myfriends">Mes amis</a>
-                  </li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Paramètres</li>
-                  <li>
-                    <a href="#/">Mon Compte</a>
-                  </li>
-                  <li>
-                    <a href="#/" ng-click="logout()">Déconnexion</a>
-                  </li>
-                </ul>
+                <a href="#/myfriends" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mes amis">
+                  <i class="fa fa-users fa-3" aria-hidden="true"></i>
+                </a>
+                <a href="#/" ng-click="logout()" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Déconnexion">
+                  <i class="fa fa-power-off fa-3" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
           </nav>
@@ -135,5 +121,10 @@
         <ng-view></ng-view>
       </div>
     </div>
+    <script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     </body>
   </html>
