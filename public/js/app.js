@@ -43,7 +43,7 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/myfriends', {
           templateUrl: 'views/myfriends.html',
-          // controller: 'recetteController', define a name
+          controller: 'myfriendsController'
         })
         .otherwise({
             redirectTo: '/'
@@ -142,6 +142,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('recetteController', recetteController)
   .controller('eventController', eventController)
   .controller('createEventController', createEventController)
+  .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
   .service('friendService', friendService)
   .service('recetteService', recetteService)
