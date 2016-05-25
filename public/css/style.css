@@ -595,7 +595,7 @@ html { height: 100%;}
   background-image: url('../assets/tableau_resto.png');
   background-repeat: no-repeat;
   height: 450px;
-  width: 359px;
+  width: 362px;
   box-shadow: 5px 5px 15px 2px;
 }
 
@@ -763,17 +763,7 @@ html { height: 100%;}
         /* number of lines to show */
         -webkit-box-orient: vertical;
     }
-    .availOption {
-        position: absolute;
-        bottom: 93px;
-        height: 0px;
-        z-index: 999;
-    }
-    .itsAvaliable {
-        padding: 2px 5px;
-        background: #4CAF50;
-        color: #fff;
-    }
+    
     .itsSoldOut {
         padding: 2px 5px;
         background: #FF5722;
@@ -830,7 +820,15 @@ html { height: 100%;}
     }
 }
 
-
+@media (max-device-width: 480px) {
+  .createEventMenu {
+    width: 340px;
+    height: 450px;
+    background-position: top;
+    position: relative;
+    top: 76px;
+  }
+}
 
 /********************************************************************
           / END EVENT CSS  !!

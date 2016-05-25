@@ -9,10 +9,10 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	$scope.showRecette = 'entree';
 
 	$scope.required = true;
-
-	function showMoreDesc(id) {
+	$scope.showMoreDesc = function (id) {
       $('#' + id).toggle(400)
-}
+	}
+	
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
 		if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché

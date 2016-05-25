@@ -97,7 +97,7 @@
 	<div class="container-fluid cfCreateEventform2">
 		<div class="row">
 
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="col-md-3 blocForm2CreateEvent">
 				<div class="createEventMenu">
 					<div class="btnCreateEventMenu">
@@ -114,47 +114,28 @@
 			</div>
 		</div>
 				
-		
-		<div class="col-md-2" ng-repeat="recette in recettes | filter : showRecette">
+		<div class="col-md-9">
+		<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette}">
          <div class="clearfix foodbox center-block">
-               <button type="button" class="btn btn-warning btnAddMenuEvent" title="Ajouter à mon événement">
-               	<span class="glyphicon glyphicon-plus"></span>
-               </button>
-
-               <div class="availOption">
-                     <span class="itsAvaliable">
-                           Froid
-                     </span>
-               </div>
+                       
                <div class="thumbnail">
-                     <img src="{{recette.img}}" alt="" style="width:220px; height: 165px;">
+                     <img src="{{recette.img}}" alt="" style="width:245px; height: 165px;">
                      <div class="caption">
                            <div class="contentInline clearfix">
                                  <div class="responsive contentPart">
                                        <div class="clearfix">
-                                             <h3 class="pull-left">{{recette.titre}}</h3>
+                                             <h4 class="pull-left">{{recette.titre}}</h4>
                                        </div>
-                                       <p class="foodDesc">
-                                             <a href="javascript:void(0)" onclick="showMoreDesc('moreDesc1')">Description</a>
-                                       </p>
+                                       <button type="button" class="btn btn-link btnCrEmeal" id="crEmeal" title="Ajouter à mon événement">Ajouter</button>
                                  </div>
                                  
                            </div>
                      </div>
                </div>
-               <div class="foodMoreDesc" id="moreDesc1">
-                     <a href="javascript:void(0)" onclick="showMoreDesc('moreDesc1')">
-                           <span class="closeDesc">
-                                 <i class="fa fa-times"></i>
-                           </span>
-                     </a>
-                     <p>
-                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                     </p>
-               </div>
+               
          </div>
 		</div>                        
-			      	
+		</div>	      	
 		</div>
 	</div>
 </div><!-- / formulaire 2 -->
@@ -219,4 +200,3 @@
 		</div><!-- / col-md-12 -->
 	</div><!-- / row -->
 </div><!-- / container -->
-
