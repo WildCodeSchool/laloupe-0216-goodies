@@ -1,14 +1,18 @@
 
 // eventController ==============================
 
-function eventController($scope, eventService, friendService, $location) {
-	$('body').css('background-image', 'none');
+function eventController($scope, $http, eventService, friendService, $location, recetteService) {
+	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
+
 	$scope.dataFriends = {};
 	$scope.form = 1;
 	$scope.creform = 1;
-
+	$scope.showRecette = 'entree';
 
 	$scope.required = true;
+	$scope.showMoreDesc = function (id) {
+      $('#' + id).toggle(400)
+	}
 
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
@@ -32,16 +36,15 @@ function eventController($scope, eventService, friendService, $location) {
 		eventService.get().then(function(res){
 			$scope.events = res.data;
 		});
-
-	};
-
-// =================== Charge tous les Amis dans friends =============
-
-	function loadFriends(){
+		recetteService.get().then(function(res){
+			$scope.recettes = res.data;
+		});
 		friendService.get().then(function(res){
 			$scope.friends = res.data;
 		});
 	};
+
+
 // =================== END tous les Amis dans friends =============
 
 	// button ( select menu )
@@ -81,6 +84,7 @@ function eventController($scope, eventService, friendService, $location) {
         }).show();
 		    });
 		});
+
 
 	$scope.add = function(){
 		$scope.form = 1;
@@ -128,7 +132,7 @@ $scope.addFriends = function(){
 		$scope.dataFriends.friendlastname = "";
 		$scope.dataFriends.friendmail = "";
 	});
-	loadFriends()
+	load()
 }
 
 
@@ -136,5 +140,5 @@ $scope.addFriends = function(){
 
 
 	load();
-	loadFriends();
+
 }

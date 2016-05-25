@@ -1,15 +1,15 @@
 <!-- CREATE EVENT ===========================
 ============================================= -->
 
+
+			<!-- formulaire 1 ============================================================= -->
+			<div ng-show="creform == 1">
 <div class="container crE-container">
 	<div class="row">
 		<div class="col-md-12">
 
-			<!-- formulaire 1 ============================================================= -->
-			<div ng-show="creform == 1">
-
 			<div class="container col-md-offset-3 col-md-6 ctf1">
-
+				<h3 class="page-header">Détails de l'événement</h3>
 					<div class="col-md-offset-1 col-md-10">
 						<!-- formulaire: nom -->
 		            <div class="form-group">
@@ -46,7 +46,7 @@
 						<!-- formulaire: N° de rue -->
 		            <div class="form-group">
 		                <label> N° : </label>
-		                <input name="number" type="number" id="crEnumberForm" class="form-control" ng-model="crEnumberForm" required/>
+		                <input name="number" type="number" min="1" max="9999" id="crEnumberForm" class="form-control" ng-model="crEnumberForm" required/>
 		            </div>
 		         </div>
 
@@ -88,85 +88,109 @@
 					</div>
 			</div><!-- / container -->
 			</div><!-- / formulaire 1 -->
+		</div><!-- / col-md-12 -->
+	</div><!-- / row -->
+</div><!-- / container -->
 
-			<!-- formulaire 2 ========================================================== -->
-			<div ng-show="creform == 2">
-				<h4>Choisir des plats</h4>
+<!-- formulaire 2 ========================================================== -->
+<div ng-show="creform == 2">
+	<div class="container-fluid cfCreateEventform2">
+		<div class="row">
 
-				<button id="affiche">Retour à la carte</button>
-				<!-- <button id="cache">Faire disparaître les images</button><br /> -->
-
-				<div class="container col-md-12">
-					<div class="row">
-					  	<div class="item itemApp col-md-offset-3 col-md-2" id="itemApp2">
-					    	<div class="content">
-					      		<img src="../assets/salad-bowl.png" class="appetizer">
-					      		<p>Entrée</p>
-					    	</div>
-					  	</div>
-					  	<div class="item itemMain col-md-offset-1 col-md-2" id="main">
-						    <div class="content">
-						      	<img src="../assets/chicken.png" class="mainPlat">
-					      		<p>Plat</p>
-					    	</div>
-					  	</div>
-					  	<div class="item itemDessert col-md-offset-1 col-md-2" id="itemDessert">
-					   		<div class="content">
-					      		<img src="../assets/birthday-cake.png" class="dess">
-					      		<p>Dessert</p>
-					    	</div>
-					  	</div>
+		<div class="col-md-3">
+			<div class="col-md-3 blocForm2CreateEvent">
+				<div class="createEventMenu">
+					<div class="btnCreateEventMenu">
+						<button type="button" class="btn btn-link bcem" ng-click="showRecette='entree'" style="color: white;">Entrées</button>
+						<button type="button" class="btn btn-link bcem" ng-click="showRecette='plat'" style="color: white;">Plats</button>
+						<button type="button" class="btn btn-link bcem" ng-click="showRecette='dessert'" style="color: white;">Desserts</button>
 					</div>
 				</div>
 
-				<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
-				<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
-			</div><!-- / formulaire 2 -->
+				<div class="col-md-12" style="margin-top: 10px">
+					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
+					<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
+				</div>
+			</div>
+		</div>
+				
+		<div class="col-md-9">
+		<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette}">
+         <div class="clearfix foodbox center-block">
+                       
+               <div class="thumbnail">
+                     <img src="{{recette.img}}" alt="" style="width:245px; height: 165px;">
+                     <div class="caption">
+                           <div class="contentInline clearfix">
+                                 <div class="responsive contentPart">
+                                       <div class="clearfix">
+                                             <h4 class="pull-left">{{recette.titre}}</h4>
+                                       </div>
+                                       <button type="button" class="btn btn-link btnCrEmeal" id="crEmeal" title="Ajouter à mon événement">Ajouter</button>
+                                 </div>
+                                 
+                           </div>
+                     </div>
+               </div>
+               
+         </div>
+		</div>                        
+		</div>	      	
+		</div>
+	</div>
+</div><!-- / formulaire 2 -->
 
 
-			<!-- formulaire 3 ============================================================ -->
-			<div ng-show="creform == 3">
-				<h4>Invitations :</h4>
+<!-- formulaire 3 ============================================================ -->
+<div ng-show="creform == 3">
+	<div class="container">
+		<div class="row">
+			<div class="row crEform3-container">
+				<h3 class="page-header">Inviter des ami(e)s :</h3>
 
-				<div class="col-md-6">
-        			<h5>Rechercher un(e) ami(e)s.</h5>
-		        	<div class="form-group">
-		            <div class="col-sm-12 col-md-12">
-		              <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
-		            </div>
-		        	</div>
-		      </div>
-      		<div class="col-md-6">
-					<h5>Ajouter un(e) ami(e)s</h5>
+				<div class="col-md-5">
+						<h5>Rechercher un(e) ami(e) :</h5>
+			     	<div class="form-group">
+			         <div class="col-sm-12 col-md-12">
+			           <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
+			         </div>
+			     	</div>
+			    </div>
+
+			    <div class="col-md-offset-1 col-md-5">
+					<h5>Ajouter un(e) ami(e)</h5>
+
 					<div class="form-group">
-						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom"/>
-						<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.friendfirstname" placeholder="Prénom"/>
-						<input type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
+						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom" minlength="3"  maxlength="10" required />
+						<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.friendfirstname" placeholder="Prénom" minlength="3"  maxlength="10" required />
+						<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
 						<button type="submit" class="btn btn-default" ng-click="addFriends()">Ajouter</button>
 					</div>
 				</div>
+
+			</div>
+
+
 				<div class="form-group">
-	            <div class="searchable-container">
-
-	                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="friend in friends">
-	                    <div class="info-block block-info clearfix">
-	                        <div class="square-box pull-left">
-	                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-	                        </div>
-	                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
-	                            <label class="btn btn-default">
-	                                <div class="bizcontent">
-	                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-	                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-	                                    <h5>{{friend.friendfirstname}} {{friend.friendlastname}}</h5>
-	                                </div>
-	                            </label>
-	                        </div>
-	                    </div>
-	                </div>
-
-	            </div><!-- / end searchable-container -->
-	        	</div><!-- / end form group -->
+			      	<div class="searchable-container">
+			             <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="friend in friends">
+			                 <div class="info-block block-info clearfix">
+			                     <div class="square-box pull-left">
+			                         <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+			                     </div>
+			                     <div data-toggle="buttons" class="btn-group bizmoduleselect">
+			                         <label class="btn btn-default">
+			                             <div class="bizcontent">
+			                                 <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+			                                 <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+			                                 <h5>{{friend.friendfirstname}} {{friend.friendlastname}}</h5>
+			                             </div>
+			                         </label>
+			                     </div>
+			                 </div>
+			             </div>
+			      	</div><!-- / end searchable-container -->
+			  	</div><!-- / end form group -->
 
 				<div class="col-md-12 myfoot">
 					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
