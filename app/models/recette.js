@@ -9,7 +9,8 @@ var recetteSchema = new mongoose.Schema({
   cuisson: String,
   ingredient: String,
   recette: String,
-  type: String
+  type: String,
+  userId: String
 })
 var Recette = {
   model: mongoose.model('Recette', recetteSchema),

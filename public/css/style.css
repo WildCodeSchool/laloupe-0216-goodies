@@ -1,20 +1,34 @@
 
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
 /* COLOR:
 * Orange: #F8AC37;
 *
 */
+.hamburger{
+  margin-left: 50px;
+}
+#bs-navbar{
+  margin-left: 400px;
+}
 .title {
   font-family: 'Yesteryear', Pacifico, cursive;
+  text-align: center;
   font-size: 50px;
   margin-top: 40px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   line-height: 0px;
 }
 .page{
   margin-top: 90px;
 }
+.fa-3 {
+  font-size: 1.8em;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 /* ===========================================*\
-	                  Connection
+                    Connection
 \* ===========================================*/
 
 .connection {
@@ -43,7 +57,7 @@ input[type="password"].focus {
   margin-bottom: 15px;
 }
 /* ===========================================*\
-	              End Connection
+                End Connection
 \* ===========================================*/
 body{
     background: url('/assets/pasta.jpg') fixed;
@@ -51,19 +65,19 @@ body{
 }
 
 .navbar-border{
-	border-bottom: 3px solid #F8AC37;
+  border-bottom: 3px solid #F8AC37;
 }
 
 .navbar-header img{
-	transition: 0.4s;
+  transition: 0.4s;
 }
 
 .navbar-header img:hover{
-	transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .sub-login-form{
-	text-align: center;
+  text-align: center;
 }
 
 .container-fluid {
@@ -71,7 +85,7 @@ body{
   padding-right: 0px !important;
 }
 /* ----------------- *\
-	  BS CALLOUT
+    BS CALLOUT
 \* ----------------- */
 
 .bs-callout {
@@ -306,7 +320,7 @@ html { height: 100%;}
 
 .hamburger {
   position: fixed;
-  top: 20px;
+  top: 10px;
   z-index: 999;
   display: block;
   width: 32px;
@@ -435,13 +449,18 @@ html { height: 100%;}
   ========================================================*/
 
 
-/*===============================================================================================
-                        EVENT CSS
-===============================================================================================*/
-.EvTimeInput {
-  width: 105px;
+/* **********************************************************
+         EVENT CSS
+*********************************************************** */
+/* ****** recette check ************ */
+.gly {
+  color: rgba(189, 195, 199,0.7);
+  font-size: 1.6em;
 }
-
+.gly-checked{
+  color: green;
+}
+/*** Events page ***/
 .EvBody {
   background-image: url('../assets/dessertbg.png');
   background-repeat: no-repeat;
@@ -451,12 +470,6 @@ html { height: 100%;}
   padding-right: 0px !important;
 }
 
-.EvFormContainer {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 10px;
-}
-
 .Ev-PghH2 {
   font-family: 'Yesteryear', cursive;
   font-size: 3.5em;
@@ -464,82 +477,15 @@ html { height: 100%;}
   margin-top: 135px;
 }
 
-/* >==========>  modal  >==========> */
-.EvFormFooter {
-  padding-top: 25px;
-}
-
-.btnCreatEV {
-  font-family: 'Yesteryear', cursive;
-  font-size: 2em;
-  border-radius: 5px;
-}
-
-.EvMoDial1 {
-
-}
-
-.EvMoDial2 {
-  width: 1000px;
-}
-
-.EvMoBo1 {
- min-height: 320px;
-}
-
-.EvMoBo2 {
-  height: auto;
-}
-.modalFooter2-EV {
-  margin-top: auto;
-}
-.Ev-ModalHeader-Form3 {
-  height: 130px;
-}
-
-.EvMoBo3 {
-  height: 400px;
-}
-/* <==========<  / end modal  <==========< */
-/*
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -o-flex;
-  display: -ms-flex;
-  position: absolute;
-  background: white;
-  font-family: 'Open Sans', sans serif;
-}*/
-
-/*.container {
-  width: 880px;
-  margin: auto;
-  height: 80%;
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -o-flex;
-  display: -ms-flex;
-  justify-content: space-around;
-}*/
-
 .item:hover .content img {
   font-size: 4.6em;
 }
 
 .item {
-  
-  border-radius: 50%;
-    width: 125px;
-    height: 125px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+  width: 125px;
+  height: 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background: white;
   display: -webkit-flex;
   display: -moz-flex;
@@ -577,14 +523,14 @@ body {
 
 .itemApp:hover {
   border: 2px solid #1fa597;
-  
+
 }
 
-#dessert {
+#itemDessert {
   border: 2px solid #e1e1e1;
 }
 
-#dessert:hover {
+#itemDessert:hover {
   border: 2px solid #b9184d;
   color: #b9184d;
 }
@@ -618,105 +564,7 @@ body {
   font-size: .8em;
 }
 
-/* >==========>  carousel (form 2) >==========> */
-
-.Ev-h4 {
-  background-color: #F8AC37;
-  color: #fff;
-  font-size: 1.7em;
-  font-weight: bold;
-  padding-left: 10px;
-}
-
-#quote-carousel {
-    padding: 0 10px 30px 10px;
-    margin-top: 10px;
-    /* Control buttons  */
-    /* Previous button  */
-    /* Next button  */
-    /* Changes the position of the indicators */
-    /* Changes the color of the indicators */
-}
-#quote-carousel .carousel-control {
-    background: none;
-    color: #CACACA;
-    font-size: 2.3em;
-    text-shadow: none;
-    margin-top: 30px;
-}
-#quote-carousel .carousel-control.left {
-    left: -60px;
-}
-#quote-carousel .carousel-control.right {
-    right: -60px;
-}
-#quote-carousel .carousel-indicators {
-    right: 50%;
-    margin-right: -19px;
-}
-#quote-carousel .carousel-indicators li {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    cursor: pointer;
-    border: 4px solid #CCC;
-    border-radius: 50px;
-    opacity: 0.4;
-    overflow: hidden;
-    transition: all 0.4s;
-}
-#quote-carousel .carousel-indicators .active {
-    background: #333333;
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    border-color: #F8AC37;
-    opacity: 1;
-    overflow: hidden;
-}
-.carousel-inner {
-    min-height: 300px;
-}
-.item blockquote {
-    border-left: none;
-    margin: 0;
-}
-.item blockquote p:before {
-    content: "";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
-}
-
-.EvCarouselBody {
-  margin-bottom: 18px;
-}
-
-.Ev-CarIndic {
-  position: fixed;
-  bottom: 15px;
-}
-
-.Ev-CarouselHeader h5 {
-  font-weight: bold;
-  font-size: 1.3em;
-  margin-left: 20px;
-}
-
-.imgCarousel {
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-}
-/* <==========<  / end carousel (form 2) <==========< */
-
-
-/* >==========>  search (form 3)  >==========> */
+/*** formulaire 3 - recherche d'amis ***/
 .searchable-container{margin:20px 0 0 0}
 .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
 .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
@@ -724,16 +572,283 @@ body {
 .searchable-container .btn-group{width:90%}
 .searchable-container .btn span.glyphicon{
     opacity: 0;
-}
+} 
+
 .searchable-container .btn.active span.glyphicon {
     opacity: 1;
+} /* End formulaire 3 - recherche d'amis */
+
+/*** create Event page ***/
+.crE-container {
+  margin-top: 100px;
+  border-left: 1px solid #e2e0e0;
+  border-right: 1px solid #e2e0e0;
 }
-/* <==========<  / end search (form 3)  <==========< */
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.ctf1 {
+  border-left: 1px solid #e2e0e0;
+  border-right: 1px solid #e2e0e0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.creformhome{
+  margin-top: 180px;
+  margin-left: 60px;
+}
+
+.blocForm2CreateEvent {
+  position: fixed;
+}
+.createEventMenu {
+  background-image: url('../assets/tableau_resto.png');
+  background-repeat: no-repeat;
+  height: 450px;
+  width: 362px;
+  box-shadow: 5px 5px 15px 2px;
+}
+
+.btnCreateEventMenu {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 95px;
+  position: relative;
+  top: 144px;
+}
+
+.bcem {
+  font-family: 'Yesteryear', cursive;
+  font-size: 1.9em;
+  margin-bottom: 5px;
+}
+
+/*** test ***/
+.btnAddMenuEvent {
+  border-radius: 50%;
+  width: 38px;
+  height: 36px;
+  position: relative;
+  top: 65px;
+  left: 9px;
+}
+
+.foodbox{
+    h3 {
+        margin-top: 6px !important;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        max-height: 20px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .thumbnail {
+        padding: 0px !important;
+        border: 0px solid rgba(78, 78, 78, 0.36);
+        box-shadow: 1px 1px 1px #929292;
+        border-radius: 2px;
+        max-width: 262px;
+        max-height: 238px;
+        background: #fff;
+    }
+    p {
+        color: rgba(51, 51, 51, 0.63);
+    }
+    .responsive p {
+        margin: 0 0 0px !important;
+        font-size: 14px;
+    }
+    .responsive {
+        float: left;
+        box-sizing: border-box;
+    }
+    .vegnonveg {
+        width: 12%;
+        padding: 14px 5px;
+    }
+    .contentPart {
+        width: 63%;
+        padding: 5px 5px;
+    }
+    .cartPart {
+        width: 37%;
+        padding: 13px 5px;
+    }
+    .thumbnail .caption {
+        padding: 5px 9px;
+    }
+    .pricesection {
+        position: absolute;
+        top: 5px;
+        z-index: 99999;
+    }
+    .pricesection {
+        /*       width: 262px; */
+        /* background: rgba(0,0,0,0.4); */
+        max-width: 262px;
+        width: 90%;
+    }
+    .foodDesc {}
+    .pricesection h3 {
+        color: #fff !important;
+    }
+    .pricesection .h3 {
+        color: #fff !important;
+        background: rgba(0, 0, 0, 0.47);
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 5px;
+        font-weight: 500;
+        cursor: default;
+        box-sizing: border-box;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+    .pricesection .h3:hover {
+        background: rgba(0, 0, 0, 0.77);
+    }
+    .fifty {
+        width: 50%;
+        padding: 8px 10px;
+    }
+    .addRemoveButton {
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background: transparent;
+        /* color: #333; */
+        line-height: 0.9;
+        font-size: 15px;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+    .addButton {
+        border-color: #EA485F;
+        color: #EA485F;
+    }
+    .addButton:hover {
+        background: #EA485F;
+        color: #fff;
+    }
+    .removeButton {
+        border-color: rgba(0, 0, 0, 0.45);
+        color: rgba(0, 0, 0, 0.45);
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+    .removeButton:hover {
+        border-color: rgba(0, 0, 0, 0.69);
+        color: rgba(0, 0, 0, 0.69);
+    }
+    .vegNonvegIcon {
+        margin-top: -4px;
+    }
+    img {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+    
+    p {}
+    p.foodDesc {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        max-height: 20px;
+        /* fallback */
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    
+    .itsSoldOut {
+        padding: 2px 5px;
+        background: #FF5722;
+        color: #fff;
+    }
+    .fillingFast {
+        padding: 2px 5px;
+        background: #FF9800;
+        color: #fff !important;
+    }
+    .clearfix{
+        max-width: 262px;
+        /* max-height: 238px; */
+    }
+    .foodMoreDesc {
+        display: none;
+        padding: 14px;
+        background: #fff;
+        position: absolute;
+        bottom: 21px;
+        left: auto;
+        max-width: 262px;
+        z-index: 999;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* display: -webkit-box; */
+        max-height: 122px;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        color: #6B6B6B;
+        margin-top: 10px;
+    }
+    .closeDesc {
+        color: #fff;
+        background: #FF5722;
+        height: 22px;
+        width: 22px;
+        display: block;
+        text-align: center;
+        border-radius: 2px;
+        position: static;
+        text-decoration: none;
+        float: right;
+    }
+    .closeDesc i {
+        color: #fff;
+    }
+    p.foodDesc a {
+        color: #E91E63;
+        text-decoration: none;
+    }
+    p.foodDesc a:hover {
+        color: #E6539C;
+    }
+}
+
+@media (max-device-width: 480px) {
+  .createEventMenu {
+    width: 340px;
+    height: 450px;
+    background-position: top;
+    position: relative;
+    top: 76px;
+  }
+}
 
 
-/*===============================================================================
-                    / END EVENT CSS  !!
-============================================================================== */
+
+/********************************************************************
+          / END EVENT CSS  !!
+**************************************************************************/
+
+
 
 /*==========================================================
                         HOME CSS
@@ -771,14 +886,6 @@ body {
   font-family: 'Yesteryear', Pacifico, cursive;
   font-size: 40px;
   cursor:pointer;
-}
-.boutonActive {
-  color: #F8AC37;
-}
-#entree:hover,
-#plat:hover,
-#dessert:hover{
-  color: #F8AC37;
 }
 .homeCenterTitle {
   margin-bottom: 50px;
@@ -819,127 +926,154 @@ body {
                       Image CSS
 ==========================================================*/
 
-			.creds {
-			  text-align: center;
-			  color: #666;
-			  font-size: 0.85em;
-			}
-			.creds a {
-			  color: #000;
-			  text-decoration: none;
-			  border-bottom: 1px dotted #000;
-			}
-			.flip-menu{
-			margin: 30px 0 0;
-			}
-			.flip-item-wrap{
-			width: 25%;
-		    height: auto;
-		    float: left;
-			position:relative;
-			-webkit-perspective:800px;
-			   -moz-perspective:800px;
-			    -ms-perspective:800px;
-			     -o-perspective:800px;
-			        perspective:800px;
-			}
-			@media screen and (min-width: 1280px) {
-				.flip-item-wrap{
-				width: 16.6%;
-				}
-			}
-			@media screen and (max-width: 979px) {
-				.flip-item-wrap{
-				width: 33.3%;
-				}
-			}
-			@media screen and (max-width: 639px) {
-				.flip-item-wrap{
-				width: 50%;
-				}
-			}
-			@media screen and (max-width: 379px) {
-				.flip-item-wrap{
-				width: 100%;
-				}
-			}
-			.flip-item-wrap img{
-			width:100%;
-			height:auto;
-			display:block;
-			margin:0;
-			}
-			.flip-item-wrap input{
-			display: none;
-			}
-			.flip-item-wrap .fake-image{
-			visibility: hidden;
-			}
-			.flip-item{
-			display: block;
-			width:100%;
-			height:100%;
-			float:left;
-			position:absolute;
-			top:0;
-			left:0;
-			cursor:pointer;
-			color:#fff;
-			-webkit-transform-style:preserve-3d;
-			   -moz-transform-style:preserve-3d;
-			    -ms-transform-style:preserve-3d;
-			     -o-transform-style:preserve-3d;
-			        transform-style:preserve-3d;
-			-webkit-transition:-webkit-transform 1s;
-			   -moz-transition:   -moz-transform 1s;
-			     -o-transition:     -o-transform 1s;
-			        transition:        transform 1s;
-			}
-			.flip-item figure{
-			display:block;
-			position:absolute;
-			width:100%;
-			height:100%;
-			margin:0;
-			-webkit-backface-visibility:hidden;
-			   -moz-backface-visibility:hidden;
-			    -ms-backface-visibility:hidden;
-			     -o-backface-visibility:hidden;
-			        backface-visibility:hidden;
-			}
-			.flip-item .back{
-			width:100%;
-			display:block;
-			margin:0;
-			-webkit-transform:rotateY( 180deg );
-			   -moz-transform:rotateY( 180deg );
-			    -ms-transform:rotateY( 180deg );
-			     -o-transform:rotateY( 180deg );
-			        transform:rotateY( 180deg );
-			}
-			.flipper:checked + .flip-item{
-			-webkit-transform:rotateY( 180deg );
-			   -moz-transform:rotateY( 180deg );
-			    -ms-transform:rotateY( 180deg );
-			     -o-transform:rotateY( 180deg );
-			        transform:rotateY( 180deg );
-			}
-			.flip-item-desc{
-			background: rgba(0,0,0,0.2);
-			width:90%;
-			height:90%;
-			padding:5%;
-			position:absolute;
-			top: 0;
-			left: 0;
-			text-shadow:1px 2px 1px rgba(0,0,0,0.9);
-			overflow:hidden;
-			}
-			.flip-item-title{
-			font-size: 1.5em;
-			margin: 1em 0 0.8em;
-			}
+      .creds {
+        text-align: center;
+        color: #666;
+        font-size: 0.85em;
+      }
+      .creds a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px dotted #000;
+      }
+      .flip-menu{
+      margin: 30px 0 0;
+      }
+      .flip-item-wrap{
+      width: 25%;
+        height: auto;
+        float: left;
+      position:relative;
+      -webkit-perspective:800px;
+         -moz-perspective:800px;
+          -ms-perspective:800px;
+           -o-perspective:800px;
+              perspective:800px;
+      }
+      @media screen and (min-width: 1280px) {
+        .flip-item-wrap{
+        width: 16.6%;
+        }
+      }
+      @media screen and (max-width: 979px) {
+        .flip-item-wrap{
+        width: 33.3%;
+        }
+      }
+      @media screen and (max-width: 639px) {
+        .flip-item-wrap{
+        width: 50%;
+        }
+      }
+      @media screen and (max-width: 379px) {
+        .flip-item-wrap{
+        width: 100%;
+        }
+      }
+      .flip-item-wrap img{
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0;
+      }
+      .flip-item-wrap input{
+      display: none;
+      }
+      .flip-item-wrap .fake-image{
+      visibility: hidden;
+      }
+      .flip-item{
+      display: block;
+      width:100%;
+      height:100%;
+      float:left;
+      position:absolute;
+      top:0;
+      left:0;
+      cursor:pointer;
+      color:#fff;
+      -webkit-transform-style:preserve-3d;
+         -moz-transform-style:preserve-3d;
+          -ms-transform-style:preserve-3d;
+           -o-transform-style:preserve-3d;
+              transform-style:preserve-3d;
+      -webkit-transition:-webkit-transform 1s;
+         -moz-transition:   -moz-transform 1s;
+           -o-transition:     -o-transform 1s;
+              transition:        transform 1s;
+      }
+      .flip-item figure{
+      display:block;
+      position:absolute;
+      width:100%;
+      height:100%;
+      margin:0;
+      -webkit-backface-visibility:hidden;
+         -moz-backface-visibility:hidden;
+          -ms-backface-visibility:hidden;
+           -o-backface-visibility:hidden;
+              backface-visibility:hidden;
+      }
+      .flip-item .back{
+      width:100%;
+      display:block;
+      margin:0;
+      -webkit-transform:rotateY( 180deg );
+         -moz-transform:rotateY( 180deg );
+          -ms-transform:rotateY( 180deg );
+           -o-transform:rotateY( 180deg );
+              transform:rotateY( 180deg );
+      }
+      .flipper:checked + .flip-item{
+      -webkit-transform:rotateY( 180deg );
+         -moz-transform:rotateY( 180deg );
+          -ms-transform:rotateY( 180deg );
+           -o-transform:rotateY( 180deg );
+              transform:rotateY( 180deg );
+      }
+      .flip-item-desc{
+      background: rgba(0,0,0,0.2);
+      width:90%;
+      height:90%;
+      padding:5%;
+      position:absolute;
+      top: 0;
+      left: 0;
+      text-shadow:1px 2px 1px rgba(0,0,0,0.9);
+      overflow:hidden;
+      }
+      .flip-item-title{
+      font-size: 1.5em;
+      margin: 1em 0 0.8em;
+      }
 
   /*==========================================================
                         Image CSS
   ==========================================================*/
+
+
+  /*==========================================================
+                        CARD CSS
+  ==========================================================*/
+
+  .cardtest{
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  /*==========================================================
+                      END  CARD CSS
+  ==========================================================*/
+
+  /*==========================================================
+                      Delete dataList Arrow
+  ==========================================================*/
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+/*==========================================================
+                    End delete dataList Arrow
+==========================================================*/

@@ -1,20 +1,31 @@
-function recetteController($scope, recetteService) {
+function recetteController($scope, recetteService, $rootScope, userService) {
   $scope.showRecette = 'entree';
-  $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+  $scope.closeBtnTab = [];
+  $scope.userId = $rootScope.userId;
+  $scope.recetteTab = [];
+  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
+  function load() {
+    recetteService.get().then(function (res) {
+      $scope.recettes = res.data;
+    });
+  }
+  load();
 
   /*===================  Fonction bouton Recette  ========================= */
 
   $scope.bouton = function (n){
     angular.element($('#'+$scope.showRecette)).removeClass( "btn-info" ).addClass( "btn-warning" );
     angular.element($('#'+n)).removeClass( "btn-warning" ).addClass( "btn-info" );
+    if ($scope.showRecette != n){
+    $scope.recetteTab = [];
+    }
     $scope.showRecette = n;
   }
-
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
-      $('body').css('background-image', 'none').css('background-image','url("./assets/back.jpg")');
+      $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
     }
     if (n == 'plat'){
       $('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
@@ -26,15 +37,34 @@ function recetteController($scope, recetteService) {
 
   /*==================  Fin Fonction bouton Recette  ===================== */
 
+
+  /*==================  Stockage de l'ID  ===================== */
+
+  $scope.id = function(recette){
+    $scope.recetteAffiche = recette;
+  }
+
+  /*==================  End Stockage de l'ID  ===================== */
+
+  /*==================  Add first menu  ===================== */
+
+  $scope.pushtab = function (menu){
+    $scope.recetteTab.push(menu);
+    $scope.recetteAffiche = $scope.recetteTab[0];
+  }
+
+  /*==================  end Add first menu  ===================== */
+
   $scope.i = 0;
   $scope.y = 0;
     $scope.add = function(type) {
       var datas = {};
+      datas.userId = $scope.userId;
       datas.img = $scope.imageStrings[0];
       datas.titre = $scope.titre;
       datas.description = $scope.description;
-      datas.preparation = $scope.preparation0 + " Heure(s)   " + $scope.preparation1 + " Minute(s)";
-      datas.cuisson = $scope.cuisson0 + " Heure(s)   " + $scope.cuisson1 + " Minute(s)";
+      datas.preparation = 'Temps de preparation: ' + $scope.preparation + ' minutes';
+      datas.cuisson = 'Temps de cuisson: ' + $scope.cuisson + ' minutes';
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
       datas.type = type;

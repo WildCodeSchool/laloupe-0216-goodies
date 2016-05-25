@@ -5,6 +5,7 @@ var userSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   email: String,
   password: String,
+  newFriend: String,
   isAdmin : { type: Boolean, default: false}
 });
 
@@ -23,7 +24,8 @@ var User = {
                 // return the information including token as JSON
                 res.json({
                   success: true,
-                  token: token
+                  token: token,
+                  id : user._id
                 });
             }
         });

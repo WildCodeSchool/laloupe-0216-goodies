@@ -11,7 +11,17 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/events', {
             templateUrl: 'views/events.html',
-            controller: 'eventController'
+            controller: 'eventController',
+            resolve: {
+                connected: checkIsConnected
+            }
+        })
+        .when('/createEvent', {
+            templateUrl: 'views/createEvent.html',
+            controller: 'createEventController',
+            resolve: {
+                connected: checkIsConnected
+            }
         })
         .when('/signup', {
             templateUrl: 'views/signup.html',
@@ -24,24 +34,16 @@ function config($routeProvider, $httpProvider) {
                 connected: checkIsConnected
             }
         })
-        .when('/dessert', {
-          templateUrl: 'views/dessert.html',
-          controller: 'recetteController',
-        })
-        .when('/plat', {
-          templateUrl: 'views/plat.html',
-          controller: 'recetteController',
-        })
-        .when('/entree', {
-          templateUrl: 'views/entree.html',
-          controller: 'recetteController',
-        })
         .when('/menu', {
           templateUrl: 'views/menu.html',
           controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
         })
-        .when('/about', {
-            templateUrl: 'views/about.html'
+        .when('/myfriends', {
+          templateUrl: 'views/myfriends.html',
+          controller: 'myfriendsController'
         })
         .otherwise({
             redirectTo: '/'
@@ -51,14 +53,14 @@ function config($routeProvider, $httpProvider) {
     return {
       'request': function(config) {
         config.headers = config.headers || {};
-        if ($rootScope.token) {
-          config.headers.authorization = $rootScope.token;
+        if (sessionStorage.getItem('token')) {// Replace with cookies
+          config.headers.authorization = sessionStorage.getItem('token');
         }
         return config;
       },
       'responseError': function(response) {
         if (response.status === 401 || response.status === 403) {
-          $location.path('/');
+          $location.path('/login');
         }
         return $q.reject(response);
       }
@@ -83,6 +85,11 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 
 
 function run($rootScope, $location, connectService) {
+  if (sessionStorage.getItem('token')) {// Replace with cookies
+    $rootScope.token = sessionStorage.getItem('token');
+    $rootScope.userId = sessionStorage.getItem('userId');
+  }
+
   $rootScope.loginMessage = {};
   $rootScope.loginMessage.title = '';
   $rootScope.loginMessage.message = '';
@@ -97,9 +104,12 @@ function run($rootScope, $location, connectService) {
 
   // Logout
   $rootScope.logout = function() {
-    $rootScope.token = null;
+    sessionStorage.setItem('token', ''); // Replace with cookies
+    sessionStorage.setItem('userId', ''); // Replace with cookies
     $rootScope.loginMessage.title = '';
     $rootScope.loginMessage.message = '';
+    $rootScope.token = '';
+    $rootScope.userId = '';
     connectService.disconnect().then(function() {
       $location.url('/login');
     })
@@ -131,10 +141,11 @@ angular.module('app', ['ngRoute','flow'])
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)
   .controller('eventController', eventController)
-  .controller('menuController', menuController)
+  .controller('createEventController', createEventController)
+  .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
+  .service('friendService', friendService)
   .service('recetteService', recetteService)
-  .service('menuService', menuService)
   .service('connectService', connectService)
   .service('userService', userService)
   /*.factory('', )*/
