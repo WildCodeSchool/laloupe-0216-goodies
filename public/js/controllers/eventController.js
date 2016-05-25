@@ -1,7 +1,7 @@
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService, friendService, $location) {
+function eventController($scope, eventService, friendService, $location) {
 	$('body').css('background-image', 'none');
 	$scope.dataFriends = {};
 	$scope.form = 1;
@@ -79,8 +79,8 @@ function eventController($scope, $http, eventService, friendService, $location) 
         $('.searchable-container .items').filter(function() {
             return $(this).text().match(new RegExp(pattern, 'i'));
         }).show();
-    });
-});
+		    });
+		});
 
 	$scope.add = function(){
 		$scope.form = 1;
