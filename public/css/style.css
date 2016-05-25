@@ -22,6 +22,11 @@
 .page{
   margin-top: 90px;
 }
+.fa-3 {
+  font-size: 1.8em;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
