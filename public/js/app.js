@@ -11,11 +11,17 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/events', {
             templateUrl: 'views/events.html',
-            controller: 'eventController'
+            controller: 'eventController',
+            resolve: {
+                connected: checkIsConnected
+            }
         })
         .when('/createEvent', {
             templateUrl: 'views/createEvent.html',
-            controller: 'eventController'
+            controller: 'createEventController',
+            resolve: {
+                connected: checkIsConnected
+            }
         })
         .when('/signup', {
             templateUrl: 'views/signup.html',
@@ -28,28 +34,16 @@ function config($routeProvider, $httpProvider) {
                 connected: checkIsConnected
             }
         })
-        .when('/dessert', {
-          templateUrl: 'views/dessert.html',
-          controller: 'recetteController',
-        })
-        .when('/plat', {
-          templateUrl: 'views/plat.html',
-          controller: 'recetteController',
-        })
-        .when('/entree', {
-          templateUrl: 'views/entree.html',
-          controller: 'recetteController',
-        })
         .when('/menu', {
           templateUrl: 'views/menu.html',
           controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
         })
         .when('/myfriends', {
           templateUrl: 'views/myfriends.html',
           // controller: 'recetteController', define a name
-        })
-        .when('/about', {
-            templateUrl: 'views/about.html'
         })
         .otherwise({
             redirectTo: '/'
@@ -147,6 +141,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)
   .controller('eventController', eventController)
+  .controller('createEventController', createEventController)
   .service('eventService', eventService)
   .service('friendService', friendService)
   .service('recetteService', recetteService)
