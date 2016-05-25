@@ -11,10 +11,11 @@ var eventSchema = new mongoose.Schema({
   crEcityForm: String,
   crEpostalcodeForm: String,
   crEcountryForm: String,
-  btnCrEmeal: String,
   friendlastname: String,
   friendfirstname: String,
   friendmail: String,
+  tabRecetteEvent: Array,
+  tabFriendEvent: Array,
 });
 var Event = {
     
@@ -30,10 +31,11 @@ var Event = {
 			crEcityForm: req.body.crEcityForm,
 			crEpostalcodeForm: req.body.crEpostalcodeForm,
 			crEcountryForm: req.body.crEcountryForm,
-			btnCrEmeal: req.body.btnCrEmeal,
 			friendlastname: req.body.friendlastname,
 			friendfirstname: req.body.friendfirstname,
 			friendmail: req.body.friendmail,
+			tabRecetteEvent: req.body.tabRecetteEvent,
+			tabFriendEvent: req.body.tabFriendEvent,
 		}, function(){
 			res.sendStatus(200);
 		})
@@ -53,7 +55,6 @@ var Event = {
 			crEcityForm: req.body.crEcityForm,
 			crEpostalcodeForm: req.body.crEpostalcodeForm,
 			crEcountryForm: req.body.crEcountryForm,
-			btnCrEmeal: req.body.btnCrEmeal,
 			friendlastname: req.body.friendlastname,
 			friendfirstname: req.body.friendfirstname,
 			friendmail: req.body.friendmail,

@@ -452,7 +452,14 @@ html { height: 100%;}
 /* **********************************************************
          EVENT CSS
 *********************************************************** */
-
+/* ****** recette check ************ */
+.gly {
+  color: rgba(189, 195, 199,0.7);
+  font-size: 1.6em;
+}
+.gly-checked{
+  color: green;
+}
 /*** Events page ***/
 .EvBody {
   background-image: url('../assets/dessertbg.png');
@@ -557,7 +564,7 @@ html { height: 100%;}
   font-size: .8em;
 }
 
-/* search (form 3)  --> */
+/*** formulaire 3 - recherche d'amis ***/
 .searchable-container{margin:20px 0 0 0}
 .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
 .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
@@ -565,11 +572,11 @@ html { height: 100%;}
 .searchable-container .btn-group{width:90%}
 .searchable-container .btn span.glyphicon{
     opacity: 0;
-}
+} 
 
 .searchable-container .btn.active span.glyphicon {
     opacity: 1;
-}
+} /* End formulaire 3 - recherche d'amis */
 
 /*** create Event page ***/
 .crE-container {
@@ -834,6 +841,8 @@ html { height: 100%;}
     top: 76px;
   }
 }
+
+
 
 /********************************************************************
           / END EVENT CSS  !!

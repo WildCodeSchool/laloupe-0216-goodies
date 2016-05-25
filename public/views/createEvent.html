@@ -22,7 +22,7 @@
 						<!-- formulaire: date -->
 		            <div class="form-group">
 		                <label><span class="glyphicon glyphicon-calendar"></span> Date :</label>
-		                <input name="date" type="date" id="crEdateForm" class="form-control" ng-model="crEdateForm" required/>
+		                <input name="date" type="datetime" id="crEdateForm" class="form-control" ng-model="crEdateForm" required/>
 		            </div>
 	            </div>
 
@@ -97,48 +97,46 @@
 	<div class="container-fluid cfCreateEventform2">
 		<div class="row">
 
-		<div class="col-md-3">
-			<div class="col-md-3 blocForm2CreateEvent">
-				<div class="createEventMenu">
-					<div class="btnCreateEventMenu">
-						<button type="button" class="btn btn-link bcem" ng-click="showRecette='entree'" style="color: white;">Entrées</button>
-						<button type="button" class="btn btn-link bcem" ng-click="showRecette='plat'" style="color: white;">Plats</button>
-						<button type="button" class="btn btn-link bcem" ng-click="showRecette='dessert'" style="color: white;">Desserts</button>
+			<div class="col-md-3">
+				<div class="col-md-3 blocForm2CreateEvent">
+					<div class="createEventMenu">
+						<div class="btnCreateEventMenu">
+							<button type="button" class="btn btn-link bcem" ng-click="showRecette='entree'" style="color: white;">Entrées</button>
+							<button type="button" class="btn btn-link bcem" ng-click="showRecette='plat'" style="color: white;">Plats</button>
+							<button type="button" class="btn btn-link bcem" ng-click="showRecette='dessert'" style="color: white;">Desserts</button>
+						</div>
+					</div>
+
+					<div class="col-md-12" style="margin-top: 10px">
+						<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
+						<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
 					</div>
 				</div>
-
-				<div class="col-md-12" style="margin-top: 10px">
-					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
-					<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
-				</div>
 			</div>
-		</div>
-				
-		<div class="col-md-9">
-		<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette}">
-         <div class="clearfix foodbox center-block">
-                       
-               <div class="thumbnail">
+					
+			<div class="col-md-9">
+				<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette}">
+		         <div class="clearfix foodbox center-block" ng-click="addRecette(recette._id, $index)" style="cursor: pointer">		                       
+	               <div class="thumbnail">
                      <img src="{{recette.img}}" alt="" style="width:245px; height: 165px;">
-                     <div class="caption">
+	                     <div class="caption">
                            <div class="contentInline clearfix">
                                  <div class="responsive contentPart">
                                        <div class="clearfix">
                                              <h4 class="pull-left">{{recette.titre}}</h4>
                                        </div>
-                                       <button type="button" class="btn btn-link btnCrEmeal" id="crEmeal" title="Ajouter à mon événement">Ajouter</button>
-                                 </div>
-                                 
+                                       <span id="gly{{$index}}" class="glyphicon glyphicon-ok gly" style="float:right" aria-hidden="true"></span>
+                                 </div>                                 
                            </div>
-                     </div>
-               </div>
-               
-         </div>
-		</div>                        
-		</div>	      	
-		</div>
-	</div>
-</div><!-- / formulaire 2 -->
+	                     </div>
+	               </div>		               
+		         </div>
+				</div>                        
+			</div>
+
+		</div><!-- / end row -->
+	</div><!-- / end cfCreateEventform2 -->
+</div><!-- / end creform 2 -->
 
 
 <!-- formulaire 3 ============================================================ -->
@@ -146,19 +144,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="row crEform3-container">
-				<h3 class="page-header">Inviter des ami(e)s :</h3>
 
-				<div class="col-md-5">
-						<h5>Rechercher un(e) ami(e) :</h5>
+				<div class="col-md-4">
+				<h3 class="page-header">Inviter des amis :</h3>
+						<h5>Rechercher des amis :</h5>
+						
 			     	<div class="form-group">
 			         <div class="col-sm-12 col-md-12">
-			           <input type="search" class="form-control" id="search" placeholder="Recherche par nom">
+			           <input type="search" class="form-control" id="search" autocomplete="on" placeholder="Recherche des amis" autosave/>
 			         </div>
 			     	</div>
-			    </div>
 
-			    <div class="col-md-offset-1 col-md-5">
-					<h5>Ajouter un(e) ami(e)</h5>
+			    <div class="">
+					<h5>Ajouter des amis :</h5>
 
 					<div class="form-group">
 						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom" minlength="3"  maxlength="10" required />
@@ -167,6 +165,7 @@
 						<button type="submit" class="btn btn-default" ng-click="addFriends()">Ajouter</button>
 					</div>
 				</div>
+			    </div>
 
 			</div>
 
@@ -174,7 +173,7 @@
 				<div class="form-group">
 			      	<div class="searchable-container">
 			             <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="friend in friends">
-			                 <div class="info-block block-info clearfix">
+			                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend._id)">
 			                     <div class="square-box pull-left">
 			                         <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
 			                     </div>
