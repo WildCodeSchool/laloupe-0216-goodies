@@ -1,9 +1,10 @@
-function recetteController($scope, recetteService, $rootScope) {
+function recetteController($scope, recetteService, $rootScope, userService) {
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
+
   function load() {
     recetteService.get().then(function (res) {
       $scope.recettes = res.data;
