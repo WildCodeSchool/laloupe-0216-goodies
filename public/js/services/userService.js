@@ -1,6 +1,9 @@
 function userService($http){
 	return {
-		create: function(user){
+		get : function() {
+			return $http.get('/api/users');
+		},
+		create : function(user){
 			return $http.post('/api/users', user);
 		}
 	}

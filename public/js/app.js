@@ -46,7 +46,7 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/myfriends', {
           templateUrl: 'views/myfriends.html',
-          // controller: 'recetteController', define a name
+          controller: 'myfriendsController'
         })
         .when('/about', {
             templateUrl: 'views/about.html'
@@ -147,6 +147,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)
   .controller('eventController', eventController)
+  .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
   .service('friendService', friendService)
   .service('recetteService', recetteService)
