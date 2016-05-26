@@ -9,7 +9,8 @@
 		<div class="col-md-12">
 
 			<div class="container col-md-offset-3 col-md-6 ctf1">
-				<h3 class="page-header">Détails de l'événement</h3>
+				<h3 class="page-header" style="font-family: 'yesteryear', cursive; font-size: 2.7em; border-bottom: 1px solid black;">
+				Détails de l'événement</h3>
 					<div class="col-md-offset-1 col-md-10">
 						<!-- formulaire: nom -->
 		            <div class="form-group">
@@ -143,36 +144,34 @@
 <div ng-show="creform == 3">
 	<div class="container">
 		<div class="row">
-			<div class="row crEform3-container">
+			<div class="boxform3friend">
 
-				<div class="col-md-4">
-				<h3 class="page-header">Inviter des amis :</h3>
+				<h3 class="page-header" style="font-family: 'yesteryear';font-size: 2.7em; color:black; border-bottom: 1px solid black;">Inviter des amis :</h3>
+	<div class="col-md-12 contentfriend">
+			<div class="col-md-4">
 						<h5>Rechercher des amis :</h5>
 						
-			     	<div class="form-group">
-			         <div class="col-sm-12 col-md-12">
+			     	<div class="form-group">			         
 			           <input type="search" class="form-control" id="search" autocomplete="on" placeholder="Recherche des amis" autosave/>
-			         </div>
-			     	</div>
-
-			    <div class="">
-					<h5>Ajouter des amis :</h5>
+	            </div>
+			
+					<h5 style="margin-top:45px;">Ajouter des amis :</h5>
 
 					<div class="form-group">
 						<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.friendlastname" placeholder="Nom" minlength="3"  maxlength="10" required />
 						<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.friendfirstname" placeholder="Prénom" minlength="3"  maxlength="10" required />
 						<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
-						<button type="submit" class="btn btn-default" ng-click="addFriends()">Ajouter</button>
+						<button type="submit" class="btn btn-default pull-right" ng-click="addFriends()">Ajouter</button>
 					</div>
-				</div>
-			    </div>
-
 			</div>
+		   
 
-
+			
+				<h5 style="text-align: center;">Sélectionner des amis :</h5>
+			<div class="col-md-8 boxfriend">
 				<div class="form-group">
 			      	<div class="searchable-container">
-			             <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3" ng-repeat="friend in friends">
+			             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends">
 			                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend._id)">
 			                     <div class="square-box pull-left">
 			                         <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
@@ -190,12 +189,15 @@
 			             </div>
 			      	</div><!-- / end searchable-container -->
 			  	</div><!-- / end form group -->
+			</div>
 
 				<div class="col-md-12 myfoot">
 					<button type="button" class="btn btn-warning pull-left" ng-click="creform = creform-1">Retour</button>
 	     			<button type="submit" class="btn btn-success pull-right" ng-click="add()">Créer</button>
 				</div>
-			</div><!-- / formulaire 3 -->
-		</div><!-- / col-md-12 -->
-	</div><!-- / row -->
-</div><!-- / container -->
+		</div>
+</div>
+		</div><!-- / end row -->
+	</div><!-- / end container -->
+</div><!-- / end creform3 -->
+

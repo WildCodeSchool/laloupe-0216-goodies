@@ -460,16 +460,8 @@ html { height: 100%;}
 .gly-checked{
   color: green;
 }
-/*** Events page ***/
-.EvBody {
-  background-image: url('../assets/dessertbg.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 
+/*** Events page ***/
 .Ev-PghH2 {
   font-family: 'Yesteryear', cursive;
   font-size: 3.5em;
@@ -502,47 +494,6 @@ html { height: 100%;}
   color: #a9a9a9;
 }
 
-.appetizer {
-  color: #1fa597;
-}
-
-.mainPlat {
-  color: #f9a02e;
-}
-
-.dess {
-  color: #b9184d;
-}
-
-.item {
-  margin-right: 5px;
-}
-.itemApp {
-  border: 2px solid #e1e1e1;
-}
-
-.itemApp:hover {
-  border: 2px solid #1fa597;
-
-}
-
-#itemDessert {
-  border: 2px solid #e1e1e1;
-}
-
-#itemDessert:hover {
-  border: 2px solid #b9184d;
-  color: #b9184d;
-}
-
-#main {
-  border: 2px solid #e1e1e1;
-}
-
-#main:hover {
-  border: 2px solid #f9a02e;
-  font-color: #f9a02e;
-}
 
 .content img {
   font-size: 4em;
@@ -553,23 +504,12 @@ html { height: 100%;}
   -ms-transition: .3s cubic-bezier(0, .25, .3, 2);
 }
 
-.disclaimer {
-  display: block;
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: .8em;
-}
-
 /*** formulaire 3 - recherche d'amis ***/
 .searchable-container{margin:20px 0 0 0}
 .searchable-container label.btn-default.active{background-color:#F8AC37;color:#FFF}
 .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
 .searchable-container label .bizcontent{width:100%;}
-.searchable-container .btn-group{width:90%}
+.searchable-container .btn-group{width:95%}
 .searchable-container .btn span.glyphicon{
     opacity: 0;
 } 
@@ -578,7 +518,7 @@ html { height: 100%;}
     opacity: 1;
 } /* End formulaire 3 - recherche d'amis */
 
-/*** create Event page ***/
+/************ create Event page ************/
 .crE-container {
   margin-top: 100px;
   border-left: 1px solid #e2e0e0;
@@ -592,8 +532,9 @@ html { height: 100%;}
 .ctf1 {
   border-left: 1px solid #e2e0e0;
   border-right: 1px solid #e2e0e0;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
 }
 .creformhome{
   margin-top: 180px;
@@ -637,7 +578,7 @@ html { height: 100%;}
 }
 
 .foodbox{
-    h3 {
+    h4 {
         margin-top: 6px !important;
         font-size: 16px;
         font-weight: 500;
@@ -832,6 +773,30 @@ html { height: 100%;}
     }
 }
 
+.contentfriend {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.boxfriend {
+    width: 545px;
+    height: 400px;
+    overflow-y: scroll;
+    margin-left: 71px;
+    margin-bottom: 15px;
+    border: 1px dotted black;
+    border-radius: 5px;
+}
+
+.boxform3friend {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    height: 634px;
+    padding: 20px;
+}
+
+.myfoot {
+  width: 953px;
+}
 @media (max-device-width: 480px) {
   .createEventMenu {
     width: 340px;
