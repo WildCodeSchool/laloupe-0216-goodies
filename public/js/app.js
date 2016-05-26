@@ -41,7 +41,7 @@ function config($routeProvider, $httpProvider) {
               connected: checkIsConnected
           }
         })
-        .when('/menu', {
+        .when('/moncompte', {
           templateUrl: 'views/moncompte.html',
           controller: 'compteController',
           resolve: {
