@@ -3,7 +3,8 @@
 
 function eventController($scope, $http, eventService, friendService, $location, recetteService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
-
+	$scope.nbEvents = 0;
+	$scope.nbInvit = 0;
 	$scope.dataFriends = {};
 	$scope.form = 1;
 	$scope.creform = 1;
@@ -35,6 +36,8 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	function load(){
 		eventService.get().then(function(res){
 			$scope.events = res.data;
+			$scope.nbEvents = $scope.events.length;
+			$scope.nbInvit = $scope.events.length;
 		});
 		recetteService.get().then(function(res){
 			$scope.recettes = res.data;
@@ -47,33 +50,7 @@ function eventController($scope, $http, eventService, friendService, $location, 
 
 // =================== END tous les Amis dans friends =============
 
-	// button ( select menu )
-	$(function() {
-	    $('#affiche').click(function() {
-	      $('.itemApp').show('slow', function(){
-	      	 $('.itemMain').show('slow', function(){
-		      	$('.itemDessert').show('slow')
-	      	})
-	      });
-	    });
-	    $('.itemApp').click(function() {
-	      $('.itemMain').hide('slow', function hideNextOne() {
-	        $('.itemDessert').hide('slow');
-	      });
-	    });
-	    $('.itemMain').click(function() {
-	      $('.itemApp').hide('slow', function hideNextOne() {
-	        $('.itemDessert').hide('slow');
-	      });
-	    });
-	    $('.itemDessert').click(function() {
-	      $('.itemApp').hide('slow', function hideNextOne() {
-	        $('.itemMain').hide('slow');
-	      });
-	    });
-	});
-
-
+	
 
 	$(function() {
     $('#search').on('keyup', function() {
@@ -137,7 +114,6 @@ $scope.addFriends = function(){
 
 
 // ===================  END Ajout des amis dans la BD =============
-
 
 	load();
 
