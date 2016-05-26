@@ -572,7 +572,7 @@ html { height: 100%;}
 .searchable-container .btn-group{width:90%}
 .searchable-container .btn span.glyphicon{
     opacity: 0;
-} 
+}
 
 .searchable-container .btn.active span.glyphicon {
     opacity: 1;
@@ -763,7 +763,7 @@ html { height: 100%;}
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
     }
-    
+
     p {}
     p.foodDesc {
         overflow: hidden;
@@ -775,7 +775,7 @@ html { height: 100%;}
         /* number of lines to show */
         -webkit-box-orient: vertical;
     }
-    
+
     .itsSoldOut {
         padding: 2px 5px;
         background: #FF5722;
