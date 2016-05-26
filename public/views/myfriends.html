@@ -1,1 +1,11 @@
-<h1>test</h1>
+<h1>work</h1>
+<form>
+  <label>Rechercher un nouvel utilisateur</label>
+    <input list="friend" autocomplete="off" name="friend" ng-model="userName">
+      <datalist id="friend">
+        <div ng-repeat="user in users">
+          <option value={{user.name}}>
+        </div>
+    </datalist>
+    <input type="submit" class="btn btn-info" value="Add a friend" ng-click="addNewFriend()" />
+</form>

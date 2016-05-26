@@ -1,18 +1,13 @@
+createEventController
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService, friendService, $location, recetteService) {
+function createEventController($scope, $http, eventService, friendService, $location, recetteService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
-
 	$scope.dataFriends = {};
 	$scope.form = 1;
 	$scope.creform = 1;
-	$scope.showRecette = 'entree';
-
 	$scope.required = true;
-	$scope.showMoreDesc = function (id) {
-      $('#' + id).toggle(400)
-	}
 
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
@@ -22,6 +17,11 @@ function eventController($scope, $http, eventService, friendService, $location, 
 			angular.element($('#crEcityForm')).val('La Loupe');
 			angular.element($('#crEpostalcodeForm')).val('28240');
 			angular.element($('#crEcountryForm')).val('France');
+			$scope.crEnumberForm = '18';
+			$scope.crEwayForm = 'rue de la gare';
+			$scope.crEcityForm = 'La Loupe';
+			$scope.crEpostalcodeForm = '28240';
+			$scope.crEcountryForm = 'France';
 		}
 		else {
 			angular.element($('#crEnumberForm')).val('');
@@ -29,50 +29,48 @@ function eventController($scope, $http, eventService, friendService, $location, 
 			angular.element($('#crEcityForm')).val('');
 			angular.element($('#crEpostalcodeForm')).val('');
 			angular.element($('#crEcountryForm')).val('');
+			$scope.crEnumberForm = '';
+			$scope.crEwayForm = '';
+			$scope.crEcityForm = '';
+			$scope.crEpostalcodeForm = '';
+			$scope.crEcountryForm = '';
 		}
 	}
+
+  // =================== Charge tous les Amis dans friends =============
 
 	function load(){
 		eventService.get().then(function(res){
 			$scope.events = res.data;
 		});
-		recetteService.get().then(function(res){
-			$scope.recettes = res.data;
-		});
-		friendService.get().then(function(res){
+    friendService.get().then(function(res){
 			$scope.friends = res.data;
 		});
-	};
+    recetteService.get().then(function(res){
+			$scope.recettes = res.data;
+		});
 
+	};
 
 // =================== END tous les Amis dans friends =============
 
-	// button ( select menu )
-	$(function() {
-	    $('#affiche').click(function() {
-	      $('.itemApp').show('slow', function(){
-	      	 $('.itemMain').show('slow', function(){
-		      	$('.itemDessert').show('slow')
-	      	})
-	      });
-	    });
-	    $('.itemApp').click(function() {
-	      $('.itemMain').hide('slow', function hideNextOne() {
-	        $('.itemDessert').hide('slow');
-	      });
-	    });
-	    $('.itemMain').click(function() {
-	      $('.itemApp').hide('slow', function hideNextOne() {
-	        $('.itemDessert').hide('slow');
-	      });
-	    });
-	    $('.itemDessert').click(function() {
-	      $('.itemApp').hide('slow', function hideNextOne() {
-	        $('.itemMain').hide('slow');
-	      });
-	    });
-	});
+// =================== Ajout recettes à un évènement =============
+$scope.tabRecetteEvent = [];
+$scope.addRecette = function (idRecette,index) {
+	if ($scope.tabRecetteEvent.indexOf(idRecette) == -1){
+	$scope.tabRecetteEvent.push(idRecette);
+	console.log($scope.tabRecetteEvent);
+	$('#gly'+index).addClass('gly-checked');
+	}
+	else
+	{
+	$scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette),1);
+	console.log($scope.tabRecetteEvent);
+	$('#gly'+index).removeClass('gly-checked');
+	}
+}
 
+// =================== END Ajout recettes à un évènement =============
 
 
 	$(function() {
@@ -97,7 +95,8 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		data.crEcityForm = $scope.crEcityForm;
 		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
 		data.crEcountryForm = $scope.crEcountryForm;
-
+		data.tabRecetteEvent = $scope.tabRecetteEvent;
+		data.tabFriendEvent = $scope.tabFriendEvent;
 
 		eventService.create(data).then(function(res){
 			load();
@@ -110,6 +109,8 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		$scope.crEcityForm = "";
 		$scope.crEpostalcodeForm = "";
 		$scope.crEcountryForm = "";
+		$scope.tabRecetteEvent = [];
+		$scope.tabFriendEvent = [];
 		$location.path('/events');
 	}
 	$scope.update = function(event){
@@ -138,7 +139,21 @@ $scope.addFriends = function(){
 
 // ===================  END Ajout des amis dans la BD =============
 
+// ===================  Ajout amis event =============
+	$scope.tabFriendEvent = [];
+	$scope.addFriendEvent = function (id){
+		if ($scope.tabFriendEvent.indexOf(id) == -1){
+			$scope.tabFriendEvent.push(id)
+			console.log($scope.tabFriendEvent);
+		}
+		else {
+			$scope.tabFriendEvent.splice($scope.tabFriendEvent.indexOf(id),1)
+			console.log($scope.tabFriendEvent);
+
+		}
+	}
+
+// ===================  END Ajout des amis dans la BD =============
 
 	load();
-
 }
