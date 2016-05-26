@@ -78,13 +78,16 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav">
               <li class="dropdown" ng-show="token">
-                <a href="#/moncompte" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
+                <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Notifications">
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true"><span class="badge" style="margin: -10px; background-color: #F8AC37">4</span></i>
+                </a>
+                <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
                   <i class="fa fa-user fa-3" aria-hidden="true"></i>
                 </a>
-                <a href="#/myfriends" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Mes amis">
+                <a href="#/myfriends" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mes amis">
                   <i class="fa fa-users fa-3" aria-hidden="true"></i>
                 </a>
-                <a href="#/" ng-click="logout()" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="Déconnexion">
+                <a href="#/" ng-click="logout()" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Déconnexion">
                   <i class="fa fa-power-off fa-3" aria-hidden="true"></i>
                 </a>
               </li>
