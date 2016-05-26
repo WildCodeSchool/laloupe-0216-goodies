@@ -41,6 +41,13 @@ function config($routeProvider, $httpProvider) {
               connected: checkIsConnected
           }
         })
+        .when('/menu', {
+          templateUrl: 'views/moncompte.html',
+          controller: 'compteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
         .when('/myfriends', {
           templateUrl: 'views/myfriends.html',
           controller: 'myfriendsController'
@@ -141,6 +148,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)
   .controller('eventController', eventController)
+  .controller('compteController', compteController)
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
