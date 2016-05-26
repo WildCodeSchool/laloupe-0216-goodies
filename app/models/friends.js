@@ -26,14 +26,6 @@ var friends = {
 	},
 	update: function(req, res){
 		friends.model.findByIdAndUpdate(req.params.id, {
-			crEnameForm: req.body.crEnameForm,
-			crEdateForm: req.body.crEdateForm,
-			crEtimeForm: req.body.crEtimeForm,
-			crEnumberForm: req.body.crEnumberForm,
-			crEwayForm: req.body.crEwayForm,
-			crEcityForm: req.body.crEcityForm,
-			crEpostalcodeForm: req.body.crEpostalcodeForm,
-			crEcountryForm: req.body.crEcountryForm,
 			friendlastname: req.body.friendlastname,
 			friendfirstname: req.body.friendfirstname,
 			friendmail: req.body.friendmail,
