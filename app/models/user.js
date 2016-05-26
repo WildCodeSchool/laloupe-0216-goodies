@@ -38,7 +38,7 @@ var User = {
 	},
 
 	findById: function(req, res) {
-		User.model.findById(req.params.id, {password: 0}, function (err, user) {
+		User.model.findById(req.params.id, {password: 0, _id: 0, __v: 0, isAdmin: 0}, function (err, user) {
 			 res.json(user);
 		});
 	},
