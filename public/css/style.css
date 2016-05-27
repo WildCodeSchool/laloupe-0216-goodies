@@ -28,11 +28,12 @@
   margin-right: 15px;
 }
 .fa-1{
+  font-size: 1.2em;
   color: white;
   margin-left: 15px;
 }
-.fa-1:hover{
-  color: red;
+.fa-12{
+  color: #F8AC37;
   cursor: pointer;
 }
 /* ===========================================*\

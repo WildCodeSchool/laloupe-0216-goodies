@@ -13,7 +13,7 @@ module.exports 	= function(app) {
 
 	app.post('/api/users', User.create);
 
-	app.put('/api/users/:id', Auth.user.isAdministrator, User.update);
+	app.put('/api/users/:id', Auth.user.hasAuthorization, User.update);
 
 	app.delete('/api/users/:id', Auth.user.isAdministrator, User.delete);
 
