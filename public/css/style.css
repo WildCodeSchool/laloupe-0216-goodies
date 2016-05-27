@@ -462,18 +462,27 @@ html { height: 100%;}
 }
 
 /*** Events page ***/
+.mainContainerEvent {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
 .contEv {
    background-color: #fff;
     padding-left: 0;
     padding-right: 0;
     border-radius: 5px;
+
 }
+
 .ntev {
   padding-left: 20px;
   padding-right: 20px;
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .nomEvent {
   color: red;
 }
@@ -484,6 +493,7 @@ html { height: 100%;}
   margin-right: auto;
   margin-top: 116px;
 }
+
 .headingEvent {
   background-color: #F8AC37;
   font-family: 'Yesteryear', cursive;
@@ -504,7 +514,6 @@ html { height: 100%;}
   text-align: center;
   color: #a9a9a9;
 }
-
 
 .content img {
   font-size: 4em;
