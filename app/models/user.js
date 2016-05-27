@@ -2,8 +2,9 @@ var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-  name: { type: String, required: true, unique: true },
-  email: String,
+  name: String,
+  prenom : String,
+  email: { type: String, required: true, unique: true },
   password: String,
   newFriend: String,
   isAdmin : { type: Boolean, default: false}
