@@ -6,8 +6,35 @@
       </div>
       <div class="container col-md-12">
               <h2>{{user.prenom}} {{user.name}}</h2>
+        <div class="info" ng-hide="adresseEmail">
+          {{user.email}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseEmail = true"></span>
+        </div>
+        <div ng-show="adresseEmail">
+            <p><label for="email">Email </label><input type="text" ng-model="user.email" name="email" value=""></p>
+            <button id="" class="btn btn-warning btn-lg" ng-click="updateEmail(user)">
+              Valider
+            </button>
+        </div>
         <div class="info">
-          {{user.email}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true"></span>
+          <h2>Mon adresse <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresse = true"></span></h2>
+          <h3 ng-hide="user.adresse">Aucune adresse</h3>
+          <div ng-hide="adresse">
+              <p>N° {{user.adresse.num}}</p>
+              <p>Rue {{user.adresse.rue}}</p>
+              <p>Code Postal {{user.adresse.cp}}</p>
+              <p>Ville {{user.adresse.ville}}</p>
+              <p>Pays {{user.adresse.pays}}</p>
+          </div>
+        </div>
+        <div class="adresse" ng-show="adresse">
+          <p><label for="N°">N° </label><input type="text" ng-model="user.adresse.num" name="N°" value=""></p>
+          <p><label for="Rue">Rue </label><input type="text" ng-model="user.adresse.rue" name="Rue" value=""></p>
+          <p><label for="Code Postal">Code Postal </label><input type="text" ng-model="user.adresse.cp" name="Code Postal" value=""></p>
+          <p><label for="Ville">Ville </label><input type="text" ng-model="user.adresse.ville" name="Ville" value=""></p>
+          <p><label for="Pays">Pays </label><input type="text" ng-model="user.adresse.pays" name="Pays" value=""></p>
+          <button id="" class="btn btn-warning btn-lg" ng-click="update(user)">
+            Valider
+          </button>
         </div>
       </div>
   </div>
@@ -16,7 +43,7 @@
       <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Mes invitations</h2>
     </div>
     <div class="container col-md-12">
-      <h2>lkdjf</h2>
+      <h2>Aucune invitation</h2>
     </div>
   </div>
 </div>
