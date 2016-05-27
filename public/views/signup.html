@@ -14,17 +14,22 @@
       placeholder="Nom" ng-model="user.name" ng-required="true">
     </div>
     <div class="form-group">
-      <label for="inputName">Email</label>
+      <label for="inputPrenom">Prenom</label>
+      <input type="text" class="form-control" id="inputPrenom"
+      placeholder="Prenom" ng-model="user.prenom" ng-required="true">
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Email</label>
       <input type="text" class="form-control" id="inputEmail"
       placeholder="Email" ng-model="user.email" ng-required="true">
     </div>
     <div class="form-group">
-      <label for="inputName">Mot de Passe</label>
+      <label for="inputPass">Mot de Passe</label>
       <input type="password" class="form-control" id="inputPass"  name="inputPass"
       placeholder="mot de passe" ng-model="user.password" ng-required="true">
     </div>
     <div class="form-group" ng-class="{ 'has-error': formCreate.inputConfirmPass.$error.passwordMatch }">
-      <label for="inputName">Confirmer Votre Mot de Passe </label>
+      <label for="inputConfirmPass">Confirmer Votre Mot de Passe </label>
       <input type="password" class="form-control" id="inputConfirmPass" name="inputConfirmPass"
       placeholder="Confirmer votre mot de passe" ng-model="confirm_password" ng-required="true" check-password="inputPass">
     </div>

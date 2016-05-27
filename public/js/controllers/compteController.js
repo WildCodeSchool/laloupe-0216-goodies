@@ -13,5 +13,18 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 	}
 	load();
 
+	$(document).ready(function () {
+        $('.info').hover(function () {
+            $('.fa-1').addClass('topNavActive');
+        }, function () {
+            $(this).removeClass('topNavActive');
+        });
+    });
 
+		// $(document).ready(function () {
+    //     $('#topNav a').hover(function () {
+    //         $(this).siblings().removeClass('topNavActive');
+    //         $(this).addClass('topNavActive');
+    //     }
+    // });
 }
