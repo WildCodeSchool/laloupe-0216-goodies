@@ -1,32 +1,63 @@
-
-
-
 <div class="container">
-	<div class="row">
-	</div>
 
 	<div class="container col-md-7 contEv">
 			<div class="headingEvent">
 				<h2 class="page-header" style="margin-top:0; padding-bottom: 0px;"> Mes Evenements</h2>
 			</div>
-		<div class="row" style="margin-left: 10px; margin-right: 10px;">
-			<div>
-				<ul class="nav nav-tabs ntev">
-					<li role="presentation" class="active"><a href="#">J'organise <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
-					<li role="presentation"><a href="#">Invitations <span class="badge" style="margin-left:10px;" ng-show="">{{nbInvit}}</span></a></li>
-					<a href="#/createEvent" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-plus"></span> Créer </a>
-				</ul>
-			</div>
 
-			<!-- <img src="../assets/calendar.png" class="circle" alt=""> -->
-			<div class="col-md-12">
-			<ul class="list-group" style="margin-top:32px;">
-			    <button type="button" ng-repeat="event in events" class="list-group-item">
-			    	<h4 class="list-group-item-heading">{{event.crEnameForm}}</h4>
+		<div>
 
-			    </button>
-			</ul>
-			</div>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs container col-md-12" role="tablist">
+		    <li role="presentation" class="active" style="cursor: pointer"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">J'organise <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
+		    <li role="presentation" style="cursor: pointer"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Invitations <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
+				<a href="#/createEvent" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-plus"></span> Créer </a>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+				<!-- ========================== TAB EVENTS ===================== -->
+		    <div role="tabpanel" class="tab-pane active" id="home">
+					<div class="container col-md-12" style="margin-top:20px;">
+						<div class="panel-group" id="accordion">
+
+							<div class="panel panel-default" ng-repeat="event in events">
+								<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+									<h4 class="panel-title">
+										<p>{{event.crEnameForm}}<span style="float: right">{{event.crEdateForm}}</span></p>
+									</h4>
+								</div>
+								<div id="collapse{{$index}}" class="panel-collapse collapse">
+									<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    </div>
+				<!-- ========================== TAB INVITATIONS ===================== -->
+		    <div role="tabpanel" class="tab-pane" id="profile">
+					<div class="container col-md-12" style="margin-top:20px;">
+						<div class="panel-group" id="accordionInvit">
+
+							<div class="panel panel-default" ng-repeat="event in events">
+								<div class="panel-heading" data-toggle="collapse" data-parent="#accordionInvit" data-target="#collapseInvit{{$index}}" style="cursor: pointer">
+									<h4 class="panel-title">
+										<p>{{event.crEnameForm}}<span style="float: right">{{event.crEdateForm}}</span></p>
+									</h4>
+								</div>
+								<div id="collapseInvit{{$index}}" class="panel-collapse collapse">
+									<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
 		</div>
 	</div>
 </div>

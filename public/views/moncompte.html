@@ -5,13 +5,20 @@
         <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Mes informations</h2>
       </div>
       <div class="container col-md-12">
-              <h2>{{user.prenom}} {{user.name}}</h2>
+              <h2 ng-hide="adresseUserName" class="info">{{user.prenom}} {{user.name}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseUserName = true"></h2>
+              <div ng-show="adresseUserName">
+                  <p><label for="prenom">Prénom </label><input type="text" ng-model="user.prenom" name="prenom" value=""></p>
+                  <p><label for="nom">Nom </label><input type="text" ng-model="user.name" name="nom" value=""></p>
+                  <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresseUserName')">
+                    Valider
+                  </button>
+              </div>
         <div class="info" ng-hide="adresseEmail">
           {{user.email}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseEmail = true"></span>
         </div>
         <div ng-show="adresseEmail">
             <p><label for="email">Email </label><input type="text" ng-model="user.email" name="email" value=""></p>
-            <button id="" class="btn btn-warning btn-lg" ng-click="updateEmail(user)">
+            <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresseEmail')">
               Valider
             </button>
         </div>
@@ -32,7 +39,7 @@
           <p><label for="Code Postal">Code Postal </label><input type="text" ng-model="user.adresse.cp" name="Code Postal" value=""></p>
           <p><label for="Ville">Ville </label><input type="text" ng-model="user.adresse.ville" name="Ville" value=""></p>
           <p><label for="Pays">Pays </label><input type="text" ng-model="user.adresse.pays" name="Pays" value=""></p>
-          <button id="" class="btn btn-warning btn-lg" ng-click="update(user)">
+          <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresse')">
             Valider
           </button>
         </div>

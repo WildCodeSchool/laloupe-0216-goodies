@@ -26,15 +26,20 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 		// ================= END Hover pencil case =============
 
 
-			$scope.update = function(user){
-						userService.update($rootScope.userId, user).then(function(res){
-							$scope.adresse = false;
-					load();
-				});
-			}
-			$scope.updateEmail = function(user){
-						userService.update($rootScope.userId, user).then(function(res){
-							$scope.adresseEmail = false;
+			$scope.update = function(user, element){
+
+				userService.update($rootScope.userId, user).then(function(res){
+						switch (element){
+							case 'adresse':
+								$scope.adresse = false;
+								break;
+							case 'adresseEmail':
+								$scope.adresseEmail = false;
+								break;
+							case 'adresseUserName':
+								$scope.adresseUserName = false;
+								break;
+						}
 					load();
 				});
 			}

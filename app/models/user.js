@@ -22,6 +22,7 @@ var User = {
 
     connect: function(req, res) {
         User.model.findOne(req.body, {password: 0}, function(err, user){
+          console.log(user);
             if(err || !user)
                 res.sendStatus(403);
             else{

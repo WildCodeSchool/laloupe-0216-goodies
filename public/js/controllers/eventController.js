@@ -97,7 +97,6 @@ $scope.addFriends = function(){
 	load()
 }
 
-
 // ===================  END Ajout des amis dans la BD =============
 
 }

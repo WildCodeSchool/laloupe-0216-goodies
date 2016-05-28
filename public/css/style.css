@@ -505,7 +505,13 @@ html { height: 100%;}
   margin-bottom: 10px;
   height: 55px;
 }
-
+.headingEvent, label{
+  font-size: 1.2em;
+}
+input {
+  color: black;
+  font-family: 'arial';
+}
 .content {
   margin-top: 15px;
   margin-left: auto;
