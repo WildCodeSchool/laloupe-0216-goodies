@@ -21,7 +21,7 @@
 					<div class="container col-md-12" style="margin-top:20px;">
 						<div class="panel-group" id="accordion">
 
-							<div class="panel panel-default" ng-repeat="event in events">
+							<div class="panel panel-default" ng-repeat="event in events | filter : {userId: userId}">
 								<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
 									<h4 class="panel-title">
 										<p>{{event.crEnameForm}}<span style="float: right">{{event.crEdateForm}}</span></p>

@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-md-12">
 
-			<div class="container col-md-offset-3 col-md-6 ctf1">
+			<div class="container col-md-offset-2 col-md-8 ctf1">
 				<h3 class="page-header" style="font-family: 'yesteryear', cursive; font-size: 2.7em; border-bottom: 1px solid black;">
 				Détails de l'événement</h3>
 					<div class="col-md-offset-1 col-md-10">
@@ -114,10 +114,10 @@
 					</div>
 				</div>
 			</div>
-					
+
 			<div class="col-md-9">
-				<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette}">
-		         <div class="clearfix foodbox center-block" ng-click="addRecette(recette._id, $index)" style="cursor: pointer">		                       
+				<div class="col-md-3" ng-repeat="recette in recettes | filter : {type: showRecette, userId: userId}">
+		         <div class="clearfix foodbox center-block" ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
 	               <div class="thumbnail">
                      <img src="{{recette.img}}" alt="" style="width:245px; height: 165px;">
 	                     <div class="caption">
@@ -127,12 +127,12 @@
                                              <h4 class="pull-left">{{recette.titre}}</h4>
                                        </div>
                                        <span id="gly{{$index}}" class="glyphicon glyphicon-ok gly" style="float:right" aria-hidden="true"></span>
-                                 </div>                                 
+                                 </div>
                            </div>
 	                     </div>
-	               </div>		               
+	               </div>
 		         </div>
-				</div>                        
+				</div>
 			</div>
 
 		</div><!-- / end row -->
@@ -150,11 +150,11 @@
 	<div class="col-md-12 contentfriend">
 			<div class="col-md-4">
 						<h5>Rechercher des amis :</h5>
-						
-			     	<div class="form-group">			         
+
+			     	<div class="form-group">
 			           <input type="search" class="form-control" id="search" autocomplete="on" placeholder="Recherche des amis" autosave/>
 	            </div>
-			
+
 					<h5 style="margin-top:45px;">Ajouter des amis :</h5>
 
 					<div class="form-group">
@@ -164,14 +164,14 @@
 						<button type="submit" class="btn btn-default pull-right" ng-click="addFriends()">Ajouter</button>
 					</div>
 			</div>
-		   
 
-			
+
+
 				<h5 style="text-align: center;">Sélectionner des amis :</h5>
 			<div class="col-md-8 boxfriend">
 				<div class="form-group">
 			      	<div class="searchable-container">
-			             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends">
+			             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends | filter : {userId: userId}">
 			                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend._id)">
 			                     <div class="square-box pull-left">
 			                         <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
@@ -181,7 +181,7 @@
 			                             <div class="bizcontent">
 			                                 <input type="checkbox" name="var_id[]" autocomplete="off" value="">
 			                                 <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-			                                 <h5>{{friend.friendfirstname}} {{friend.friendlastname}}</h5>
+			                                 <h5>{{friend.nom}} {{friend.prenom}}</h5>
 			                             </div>
 			                         </label>
 			                     </div>
@@ -200,4 +200,3 @@
 		</div><!-- / end row -->
 	</div><!-- / end container -->
 </div><!-- / end creform3 -->
-

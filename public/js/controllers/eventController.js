@@ -21,7 +21,9 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	function load(){
 		eventService.get().then(function(res){
 			$scope.events = res.data;
-			$scope.nbEvents = $scope.events.length;
+			var countEvent = 0;
+			$scope.events.map(function(e){console.log(e.userId);if(e.userId == $rootScope.userId){countEvent++}});
+			$scope.nbEvents = countEvent;
 			$scope.nbInvit = $scope.events.length;
 		});
 		recetteService.get().then(function(res){
