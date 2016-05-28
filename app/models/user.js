@@ -22,7 +22,6 @@ var User = {
 
     connect: function(req, res) {
         User.model.findOne(req.body, {password: 0}, function(err, user){
-          console.log(user);
             if(err || !user)
                 res.sendStatus(403);
             else{
@@ -68,7 +67,6 @@ var User = {
 
 	update: function(req, res) {
 		User.model.update({_id: req.params.id}, {$set: req.body}, function(err, user) {
-            console.log(user);
             if (err)
                 res.status(500).send(err.message);
             res.json(user);

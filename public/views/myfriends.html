@@ -19,7 +19,17 @@
 			</div>
       <div>
         <div ng-repeat='friend in friends'>
-            {{friend.nom}}  {{friend.prenom}}
+          <div class="col-md-3">
+            <div class="card">
+              <div class="RecetteTitle">{{friend.nom}}  {{friend.prenom}}</div>
+              <div class="row">
+                <div class="RecetteDescription"></div>
+                <div class="RecettePreparation"></div>
+                <div class="RecetteCuisson"></div>
+                <!-- <div class="RecettenbPersonne col-md-4">{{recette.nbrPersonne}}</div> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 	</div>

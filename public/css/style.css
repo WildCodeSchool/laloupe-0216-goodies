@@ -1054,6 +1054,13 @@ input {
     height: 300px;
     margin-top: 30px;
   }
+  .card{
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+    margin: 10px;
+    cursor: pointer;
+  }
 
   /*==========================================================
                       END  CARD CSS
