@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
   crEnameForm: String,
-  crEdateForm: Date,
+  crEdateForm: String,
   crEtimeForm: String,
   crEnumberForm: Number,
   crEwayForm: String,
@@ -16,11 +16,12 @@ var eventSchema = new mongoose.Schema({
   friendmail: String,
   tabRecetteEvent: Array,
   tabFriendEvent: Array,
+  userId: String
 });
 var Event = {
-    
+
     model: mongoose.model('Event', eventSchema),
-    
+
     create: function(req, res) {
 		Event.model.create({
 			crEnameForm: req.body.crEnameForm,
@@ -36,6 +37,7 @@ var Event = {
 			friendmail: req.body.friendmail,
 			tabRecetteEvent: req.body.tabRecetteEvent,
 			tabFriendEvent: req.body.tabFriendEvent,
+      userId: req.body.userId,
 		}, function(){
 			res.sendStatus(200);
 		})
@@ -66,6 +68,6 @@ var Event = {
 		Event.model.findByIdAndRemove(req.params.id, function(){
 			res.sendStatus(200);
 		})
-	} 
+	}
 }
 module.exports = Event;

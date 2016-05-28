@@ -8,6 +8,9 @@ function userService($http){
 		},
 		create : function(user){
 			return $http.post('/api/users', user);
-		}
+		},
+		update : function(id, data){
+            return $http.put('/api/users/' + id, data);
+    },
 	}
 }

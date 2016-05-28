@@ -1,6 +1,7 @@
 //createEventController ======================>
 
-function createEventController($scope, $http, eventService, friendService, $location, recetteService) {
+function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
+	load();
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
 	$scope.dataFriends = {};
 	$scope.form = 1;
@@ -10,16 +11,11 @@ function createEventController($scope, $http, eventService, friendService, $loca
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
 		if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché
-			angular.element($('#crEnumberForm')).val('18');
-			angular.element($('#crEwayForm')).val('rue de la gare');
-			angular.element($('#crEcityForm')).val('La Loupe');
-			angular.element($('#crEpostalcodeForm')).val('28240');
-			angular.element($('#crEcountryForm')).val('France');
-			$scope.crEnumberForm = '18';
-			$scope.crEwayForm = 'rue de la gare';
-			$scope.crEcityForm = 'La Loupe';
-			$scope.crEpostalcodeForm = '28240';
-			$scope.crEcountryForm = 'France';
+			angular.element($('#crEnumberForm')).val($scope.user.adresse.num);
+			angular.element($('#crEwayForm')).val($scope.user.adresse.rue);
+			angular.element($('#crEcityForm')).val($scope.user.adresse.ville);
+			angular.element($('#crEpostalcodeForm')).val($scope.user.adresse.cp);
+			angular.element($('#crEcountryForm')).val($scope.user.adresse.pays);
 		}
 		else {
 			angular.element($('#crEnumberForm')).val('');
@@ -47,6 +43,10 @@ function createEventController($scope, $http, eventService, friendService, $loca
     recetteService.get().then(function(res){
 			$scope.recettes = res.data;
 		});
+		userService.findOne($rootScope.userId).then(function (res) {
+			$scope.user = res.data;
+			$scope.user.adresse.num
+		});
 
 	};
 
@@ -57,13 +57,11 @@ $scope.tabRecetteEvent = [];
 $scope.addRecette = function (idRecette,index) {
 	if ($scope.tabRecetteEvent.indexOf(idRecette) == -1){
 	$scope.tabRecetteEvent.push(idRecette);
-	console.log($scope.tabRecetteEvent);
 	$('#gly'+index).addClass('gly-checked');
 	}
 	else
 	{
 	$scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette),1);
-	console.log($scope.tabRecetteEvent);
 	$('#gly'+index).removeClass('gly-checked');
 	}
 }
@@ -86,7 +84,7 @@ $scope.addRecette = function (idRecette,index) {
 		$scope.form = 1;
 		var data = {};
 		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm;
+		data.crEdateForm = $scope.crEdateForm.getDate()+' / '+($scope.crEdateForm.getMonth()+1)+' / '+$scope.crEdateForm.getFullYear();
 		data.crEtimeForm = $scope.crEtimeForm;
 		data.crEnumberForm = $scope.crEnumberForm;
 		data.crEwayForm = $scope.crEwayForm;
@@ -95,6 +93,7 @@ $scope.addRecette = function (idRecette,index) {
 		data.crEcountryForm = $scope.crEcountryForm;
 		data.tabRecetteEvent = $scope.tabRecetteEvent;
 		data.tabFriendEvent = $scope.tabFriendEvent;
+		data.userId = $rootScope.userId;
 
 		eventService.create(data).then(function(res){
 			load();
@@ -142,16 +141,12 @@ $scope.addFriends = function(){
 	$scope.addFriendEvent = function (id){
 		if ($scope.tabFriendEvent.indexOf(id) == -1){
 			$scope.tabFriendEvent.push(id)
-			console.log($scope.tabFriendEvent);
 		}
 		else {
 			$scope.tabFriendEvent.splice($scope.tabFriendEvent.indexOf(id),1)
-			console.log($scope.tabFriendEvent);
-
 		}
 	}
 
 // ===================  END Ajout des amis dans la BD =============
 
-	load();
 }
