@@ -59,13 +59,11 @@ $scope.tabRecetteEvent = [];
 $scope.addRecette = function (idRecette,index) {
 	if ($scope.tabRecetteEvent.indexOf(idRecette) == -1){
 	$scope.tabRecetteEvent.push(idRecette);
-	console.log($scope.tabRecetteEvent);
 	$('#gly'+index).addClass('gly-checked');
 	}
 	else
 	{
 	$scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette),1);
-	console.log($scope.tabRecetteEvent);
 	$('#gly'+index).removeClass('gly-checked');
 	}
 }
@@ -89,7 +87,6 @@ $scope.addRecette = function (idRecette,index) {
 		var data = {};
 		data.crEnameForm = $scope.crEnameForm;
 		data.crEdateForm = $scope.crEdateForm.getDate()+' / '+($scope.crEdateForm.getMonth()+1)+' / '+$scope.crEdateForm.getFullYear();
-		console.log(data.crEdateForm);
 		data.crEtimeForm = $scope.crEtimeForm;
 		data.crEnumberForm = $scope.crEnumberForm;
 		data.crEwayForm = $scope.crEwayForm;
@@ -98,6 +95,7 @@ $scope.addRecette = function (idRecette,index) {
 		data.crEcountryForm = $scope.crEcountryForm;
 		data.tabRecetteEvent = $scope.tabRecetteEvent;
 		data.tabFriendEvent = $scope.tabFriendEvent;
+		data.userId = $rootScope.userId;
 
 		eventService.create(data).then(function(res){
 			load();
@@ -145,12 +143,9 @@ $scope.addFriends = function(){
 	$scope.addFriendEvent = function (id){
 		if ($scope.tabFriendEvent.indexOf(id) == -1){
 			$scope.tabFriendEvent.push(id)
-			console.log($scope.tabFriendEvent);
 		}
 		else {
 			$scope.tabFriendEvent.splice($scope.tabFriendEvent.indexOf(id),1)
-			console.log($scope.tabFriendEvent);
-
 		}
 	}
 

@@ -11,11 +11,11 @@ function myfriendsController(userService, friendService, $scope, $rootScope, con
     $scope.addNewFriend = function(userName) {
       var datas = {};
       var user = userName.split(' ');
-      connectService.connect({name: user[0],prenom: user[1]}).then(function(res){ // ===== Récupération de l'ID du Friend
+      connectService.connect({name: user[1],prenom: user[0]}).then(function(res){ // ===== Récupération de l'ID du Friend
     	    $scope.userFriendId = res.data.id;
-          if ($rootScope.userId != $scope.userFriendId && $scope.friends.map(function (e){if(e.nom == user[0] && e.prenom == user[1])return false;}) == false){
-            datas.nom = user[0];
-            datas.prenom = user[1];
+          if ($rootScope.userId != $scope.userFriendId && $scope.friends.map(function (e){if(e.nom == user[1] && e.prenom == user[0] && e.userId == $rootScope.userId)return true;}).indexOf(true) == -1){
+            datas.nom = user[1];
+            datas.prenom = user[0];
             datas.userId = $rootScope.userId;
             datas.friendId = $scope.userFriendId;
 
