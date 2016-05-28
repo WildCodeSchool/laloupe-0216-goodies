@@ -20,7 +20,7 @@
   line-height: 0px;
 }
 .page{
-  margin-top: 90px;
+  margin-top: 70px;
 }
 .fa-3 {
   font-size: 1.8em;
@@ -28,11 +28,12 @@
   margin-right: 15px;
 }
 .fa-1{
+  font-size: 1.2em;
   color: white;
   margin-left: 15px;
 }
-.fa-1:hover{
-  color: red;
+.fa-12{
+  color: #F8AC37;
   cursor: pointer;
 }
 /* ===========================================*\
@@ -504,7 +505,13 @@ html { height: 100%;}
   margin-bottom: 10px;
   height: 55px;
 }
-
+.headingEvent, label{
+  font-size: 1.2em;
+}
+input {
+  color: black;
+  font-family: 'arial';
+}
 .content {
   margin-top: 15px;
   margin-left: auto;

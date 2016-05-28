@@ -1,7 +1,8 @@
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService, friendService, $location, recetteService) {
+function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
+	load();
 	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
 	$scope.nbEvents = 0;
 	$scope.nbInvit = 0;
@@ -16,22 +17,6 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	}
 
 	// checkbox autocomplete (at home)
-	$scope.adress = function () {
-		if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché
-			angular.element($('#crEnumberForm')).val('18');
-			angular.element($('#crEwayForm')).val('rue de la gare');
-			angular.element($('#crEcityForm')).val('La Loupe');
-			angular.element($('#crEpostalcodeForm')).val('28240');
-			angular.element($('#crEcountryForm')).val('France');
-		}
-		else {
-			angular.element($('#crEnumberForm')).val('');
-			angular.element($('#crEwayForm')).val('');
-			angular.element($('#crEcityForm')).val('');
-			angular.element($('#crEpostalcodeForm')).val('');
-			angular.element($('#crEcountryForm')).val('');
-		}
-	}
 
 	function load(){
 		eventService.get().then(function(res){
@@ -50,7 +35,7 @@ function eventController($scope, $http, eventService, friendService, $location, 
 
 // =================== END tous les Amis dans friends =============
 
-	
+
 
 	$(function() {
     $('#search').on('keyup', function() {
@@ -112,9 +97,6 @@ $scope.addFriends = function(){
 	load()
 }
 
-
 // ===================  END Ajout des amis dans la BD =============
-
-	load();
 
 }

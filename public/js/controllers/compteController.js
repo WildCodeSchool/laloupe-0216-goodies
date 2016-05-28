@@ -13,18 +13,36 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 	}
 	load();
 
+	// ==================  Hover pencil case =============
+
 	$(document).ready(function () {
         $('.info').hover(function () {
-            $('.fa-1').addClass('topNavActive');
+            $('.fa-1').addClass('fa-12');
         }, function () {
-            $(this).removeClass('topNavActive');
+            $('.fa-1').removeClass('fa-12');
         });
     });
 
-		// $(document).ready(function () {
-    //     $('#topNav a').hover(function () {
-    //         $(this).siblings().removeClass('topNavActive');
-    //         $(this).addClass('topNavActive');
-    //     }
-    // });
+		// ================= END Hover pencil case =============
+
+
+			$scope.update = function(user, element){
+
+				userService.update($rootScope.userId, user).then(function(res){
+						switch (element){
+							case 'adresse':
+								$scope.adresse = false;
+								break;
+							case 'adresseEmail':
+								$scope.adresseEmail = false;
+								break;
+							case 'adresseUserName':
+								$scope.adresseUserName = false;
+								break;
+						}
+					load();
+				});
+			}
+
+
 }
