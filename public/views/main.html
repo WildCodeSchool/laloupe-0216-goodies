@@ -1,61 +1,91 @@
-<div class="backhome col-md-12">
-  <center>
-    <p>La meilleur méthode pour inviter</p>
-    <p>
-      ses proches à diner
-    </p>
-  </center>
-  <div class="col-md-6 dessins">
-    <center>
-      <p>Proposition de Plats</p>
-      <img src="./assets/food.png" alt=""/>
+
+<div class="container-fluid">
+  <div class="row">
+  <section id="hero"> 
+      
+    <div class="row hero-content">
+
+      <div class="twelve columns flex-container">
+
+         <div id="hero-slider" class="flexslider">
+
+           <ul class="slides">
+
+             <!-- Slide -->
+             <li>
+               <div class="flex-caption">
+                <h1>La meilleure méthode pour inviter ses proches à dîner</h1>                                    
+              </div>            
+             </li>
+
+             <!-- Slide -->
+             <li>           
+              <div class="flex-caption">
+                <h1>Créez vos propres événements</h1>                       
+              </div>          
+             </li>
+
+             <!-- Slide -->
+             <li>
+               <div class="flex-caption">
+                <h1>Ajoutez vos recettes</h1>                   
+              </div>
+             </li>                        
+
+           </ul>
+
+         </div> <!-- .flexslider -->           
+
+        </div> <!-- .flex-container -->      
+
+    </div> <!-- .hero-content -->    
+
+   </section> <!-- #hero -->
+  </div><!-- row -->
+</div><!-- End container col-md-12 -->
+
+<div class="container-fluid containerBas">
+<div class="row">
+  <div class="homeCenter">
+    <center class="homeCenterTitle">
+      <p>Les Menus du mois</p>
     </center>
-  </div>
-  <div class="col-md-6 dessins">
-    <center>
-      <p>Créer vos propres Evènements</p>
-      <img src="./assets/champagne.png" style="width=2px; heigth:auto;">
-    </center>
+    <div class="col-md-4">
+      <center><img src="./assets/entre.jpg" alt=""></center>
+    </div>
+    <div class="col-md-4">
+      <center><img src="./assets/plat.jpg" alt=""></center>
+    </div>
+    <div class="col-md-4">
+      <center><img src="./assets/dessert.jpg" alt=""></center>
+    </div>
   </div>
 </div>
-<div class="homeCenter">
-  <center class="homeCenterTitle">
-    <p>Les Menus du mois</p>
-  </center>
-  <div class="col-md-4">
-    <center><img src="./assets/entre.jpg" alt=""></center>
-  </div>
-  <div class="col-md-4">
-    <center><img src="./assets/plat.jpg" alt=""></center>
-  </div>
-  <div class="col-md-4">
-    <center><img src="./assets/dessert.jpg" alt=""></center>
-  </div>
-</div>
-<div class="backsecond col-md-12">
-  <div>
-    <center>
-      <p class="botTitle">Des idées " So Goodies "</center>
-    </p>
-  </div>
-  <div class="boutonRecette">
-    <div class="col-md-4 boutonRecette">
+  <div class="backsecond col-md-12">
+    <div>
       <center>
-        <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
-      </center>
+        <p class="botTitle">Des idées " So Goodies "</p>
+      </center> 
     </div>
-    <div class="col-md-4 boutonRecette">
-      <center>
-        <p ng-click="menuShow('plat')" id="plat">Plats</p>
-      </center>
-    </div>
-    <div class="col-md-4 boutonRecette">
-      <center>
-        <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
-      </center>
+    <div class="boutonRecette">
+      <div class="col-md-4 boutonRecette">
+        <center>
+          <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
+        </center>
+      </div>
+      <div class="col-md-4 boutonRecette">
+        <center>
+          <p ng-click="menuShow('plat')" id="plat">Plats</p>
+        </center>
+      </div>
+      <div class="col-md-4 boutonRecette">
+        <center>
+          <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
+        </center>
+      </div>
     </div>
   </div>
-  <div>
+  
     <!-- =============== DEBUT PHOTO RECETTE ================ -->
     <div class="flip-menu">
       <div ng-repeat="recette in recettes">
@@ -65,10 +95,10 @@
           <input type="checkbox" class="flipper" id="a">
           <label for="a" class="flip-item">
             <figure class="front">
-              <img src={{recette.img}}></img>
+              <img src={{recette.img}}>
             </figure>
             <figure class="back">
-              <img src={{recette.img}} alt=""></img>
+              <img src={{recette.img}} alt="">
               <div class="flip-item-desc">
                 <h4 class="flip-item-title">{{recette.titre}}</h4>
                 <p>{{recette.description}}</p>
@@ -78,6 +108,4 @@
         </section>
       </div>
     </div>
-    <!-- =============== DEBUT PHOTO RECETTE ================ -->
-  </div>
-</div>
+</div><!-- End container-fluid -->

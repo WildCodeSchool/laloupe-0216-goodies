@@ -2,15 +2,14 @@
 ============================================= -->
 
 
-			<!-- formulaire 1 ============================================================= -->
-			<div ng-show="creform == 1">
-<div class="container crE-container">
-	<div class="row">
-		<div class="col-md-12">
+<!-- formulaire 1 ============================================================= -->
+<div ng-show="creform == 1">
+	<div class="container mainContainerEvent">
+		<div class="contaienr contEv">
+			<div class="col-md-12">
 
-			<div class="container col-md-offset-3 col-md-6 ctf1">
-				<h3 class="page-header" style="font-family: 'yesteryear', cursive; font-size: 2.7em; border-bottom: 1px solid black;">
-				Détails de l'événement</h3>
+				<div class="container col-md-offset-3 col-md-6 ctf1">
+					<h3 class="page-header" style="font-family: 'yesteryear', cursive; font-size: 2.7em; border-bottom: 1px solid black;">Détails de l'événement</h3>
 					<div class="col-md-offset-1 col-md-10">
 						<!-- formulaire: nom -->
 		            <div class="form-group">
@@ -27,7 +26,7 @@
 		            </div>
 	            </div>
 
-	            <div class="col-md-5">
+	            <div class="col-md-3">
 		            <!-- formulaire: heure -->
 		            <div class="form-group">
 		                <label><span class="glyphicon glyphicon-time"></span> Heure : </label>
@@ -87,11 +86,11 @@
 						<a href="#/events" class="btn btn-danger" role="button">Annuler</a>
 						<button type="button" class="btn btn-default pull-right" ng-click="creform = creform+1">Suivant</button>
 					</div>
-			</div><!-- / container -->
-			</div><!-- / formulaire 1 -->
-		</div><!-- / col-md-12 -->
-	</div><!-- / row -->
-</div><!-- / container -->
+				</div><!-- / container -->
+			</div><!-- / End col-md-12 -->
+		</div><!-- / End row -->
+	</div><!-- / End crE-container -->
+</div><!-- / End formulaire 1 -->
 
 <!-- formulaire 2 ========================================================== -->
 <div ng-show="creform == 2">

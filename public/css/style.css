@@ -20,7 +20,7 @@
   line-height: 0px;
 }
 .page{
-  margin-top: 90px;
+  margin-top: 60px;
 }
 .fa-3 {
   font-size: 1.8em;
@@ -481,7 +481,6 @@ html { height: 100%;}
     padding-left: 0;
     padding-right: 0;
     border-radius: 5px;
-
 }
 
 .ntev {
@@ -846,28 +845,24 @@ html { height: 100%;}
 /*==========================================================
                         HOME CSS
 ==========================================================*/
-.backhome{
-  background: url('/assets/backhome.jpg');
+#hero {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
+}
+#hero h1{ 
   font-family: 'Yesteryear', Pacifico, cursive;
   color : white;
-  padding: 150px;
+  font-size: 4em;
   margin-bottom: 50px;
-  font-size: 50px;
 }
-.backhome img{
-  width: 100px;
-  height: auto;
-}
+
+
 .dessins {
   margin-top: 120px;
 }
-.backsecond{
-  background: url('/assets/floor.jpg');
-  background-size: cover;
-  padding: 90px;
-  margin-top: 100px;
-  color: white;
+.containerBas {
+  background-color: #fff;
 }
 .botTitle{
   margin-bottom: 90px;

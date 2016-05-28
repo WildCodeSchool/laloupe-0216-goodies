@@ -1,6 +1,4 @@
-createEventController
-
-// eventController ==============================
+//createEventController ======================>
 
 function createEventController($scope, $http, eventService, friendService, $location, recetteService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
