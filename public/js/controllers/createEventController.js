@@ -88,7 +88,8 @@ $scope.addRecette = function (idRecette,index) {
 		$scope.form = 1;
 		var data = {};
 		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm;
+		data.crEdateForm = $scope.crEdateForm.getDate()+' / '+($scope.crEdateForm.getMonth()+1)+' / '+$scope.crEdateForm.getFullYear();
+		console.log(data.crEdateForm);
 		data.crEtimeForm = $scope.crEtimeForm;
 		data.crEnumberForm = $scope.crEnumberForm;
 		data.crEwayForm = $scope.crEwayForm;

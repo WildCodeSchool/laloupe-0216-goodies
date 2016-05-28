@@ -1,11 +1,26 @@
-<h1>work</h1>
-<form>
-  <label>Rechercher un nouvel utilisateur</label>
-    <input list="friend" autocomplete="off" name="friend" ng-model="userName">
-      <datalist id="friend">
-        <div ng-repeat="user in users">
-          <option value={{user.name}}>
+
+<div class="container">
+
+	<div class="container col-md-12 contEv">
+			<div class="headingEvent">
+        <div class="row">
+  				<h2 class="page-header col-md-6" style="margin-top:0; padding-bottom: 0px;"> Mes amis</h2>
+          <form class="pull-right col-md-6">
+            <label>Rechercher un nouvel utilisateur</label>
+              <input list="friend" autocomplete="off" type="color: black" name="friend" ng-model="userName">
+                <datalist id="friend">
+                  <div ng-repeat="user in users">
+                    <option value='{{user.name}} {{user.prenom}}'></option>
+                  </div>
+              </datalist>
+              <button type="submit" class="btn btn-info" ng-click="addNewFriend(userName)"><i class="fa fa-user-plus fa-3" aria-hidden="true"></i></button>
+          </form>
         </div>
-    </datalist>
-    <input type="submit" class="btn btn-info" value="Add a friend" ng-click="addNewFriend()" />
-</form>
+			</div>
+      <div>
+        <div ng-repeat='friend in friends'>
+            {{friend.nom}}  {{friend.prenom}}
+        </div>
+      </div>
+	</div>
+</div>

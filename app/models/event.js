@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
   crEnameForm: String,
-  crEdateForm: Date,
+  crEdateForm: String,
   crEtimeForm: String,
   crEnumberForm: Number,
   crEwayForm: String,
@@ -18,9 +18,9 @@ var eventSchema = new mongoose.Schema({
   tabFriendEvent: Array,
 });
 var Event = {
-    
+
     model: mongoose.model('Event', eventSchema),
-    
+
     create: function(req, res) {
 		Event.model.create({
 			crEnameForm: req.body.crEnameForm,
@@ -66,6 +66,6 @@ var Event = {
 		Event.model.findByIdAndRemove(req.params.id, function(){
 			res.sendStatus(200);
 		})
-	} 
+	}
 }
 module.exports = Event;
