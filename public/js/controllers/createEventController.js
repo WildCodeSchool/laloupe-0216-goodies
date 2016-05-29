@@ -18,6 +18,11 @@ function createEventController($scope, $http, eventService, friendService, $loca
 			angular.element($('#crEcityForm')).val($scope.user.adresse.ville);
 			angular.element($('#crEpostalcodeForm')).val($scope.user.adresse.cp);
 			angular.element($('#crEcountryForm')).val($scope.user.adresse.pays);
+			$scope.crEnumberForm = $scope.user.adresse.num;
+			$scope.crEwayForm = $scope.user.adresse.rue;
+			$scope.crEcityForm = $scope.user.adresse.ville;
+			$scope.crEpostalcodeForm = $scope.user.adresse.cp;
+			$scope.crEcountryForm = $scope.user.adresse.pays;
 		}
 		else {
 			angular.element($('#crEnumberForm')).val('');
@@ -128,8 +133,8 @@ $scope.addRecette = function (idRecette,index) {
 $scope.addFriends = function(){
 	friendService.create($scope.dataFriends).then(function(res){
 		load();
-		$scope.dataFriends.friendfirstname = "";
-		$scope.dataFriends.friendlastname = "";
+		$scope.dataFriends.prenom = "";
+		$scope.dataFriends.nom = "";
 		$scope.dataFriends.friendmail = "";
 	});
 	load()
