@@ -66,8 +66,10 @@ function config($routeProvider, $httpProvider) {
         return config;
       },
       'responseError': function(response) {
-        if (response.status === 401 || response.status === 403) {
-          $location.path('/login');
+        if (!response.config.data.prenom){
+          if (response.status === 401 || response.status === 403) {
+            $location.path('/login');
+          }
         }
         return $q.reject(response);
       }
@@ -92,35 +94,7 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 
 
 function run($rootScope, $location, connectService) {
-  if (sessionStorage.getItem('token')) {// Replace with cookies
-    $rootScope.token = sessionStorage.getItem('token');
-    $rootScope.userId = sessionStorage.getItem('userId');
-  }
 
-  $rootScope.loginMessage = {};
-  $rootScope.loginMessage.title = '';
-  $rootScope.loginMessage.message = '';
-
-  // Watch path
-  var path = function() {
-    return $location.path();
-  };
-  $rootScope.$watch(path, function(newVal, oldVal) {
-    $rootScope.activetab = newVal;
-  });
-
-  // Logout
-  $rootScope.logout = function() {
-    sessionStorage.setItem('token', ''); // Replace with cookies
-    sessionStorage.setItem('userId', ''); // Replace with cookies
-    $rootScope.loginMessage.title = '';
-    $rootScope.loginMessage.message = '';
-    $rootScope.token = '';
-    $rootScope.userId = '';
-    connectService.disconnect().then(function() {
-      $location.url('/login');
-    })
-  }
 
 }
 
@@ -139,7 +113,7 @@ function checkPassword() {
   }
 }
 
-angular.module('app', ['ngRoute','flow'])
+angular.module('app', ['ngRoute','flow', 'ngMap'])
   .config(config)
   .directive('checkPassword', checkPassword)
   .controller('connectController', connectController)
@@ -169,4 +143,37 @@ angular.module('app', ['ngRoute','flow'])
     // Can be used with different implementations of Flow.js
     // flowFactoryProvider.factory = fustyFlowFactory;
   }])
-.run(run);
+.run(function($rootScope, NgMap, $location, connectService) {
+    NgMap.getMap().then(function(map) {
+      $rootScope.map = map;
+    });
+    if (sessionStorage.getItem('token')) {// Replace with cookies
+      $rootScope.token = sessionStorage.getItem('token');
+      $rootScope.userId = sessionStorage.getItem('userId');
+    }
+
+    $rootScope.loginMessage = {};
+    $rootScope.loginMessage.title = '';
+    $rootScope.loginMessage.message = '';
+
+    // Watch path
+    var path = function() {
+      return $location.path();
+    };
+    $rootScope.$watch(path, function(newVal, oldVal) {
+      $rootScope.activetab = newVal;
+    });
+
+    // Logout
+    $rootScope.logout = function() {
+      sessionStorage.setItem('token', ''); // Replace with cookies
+      sessionStorage.setItem('userId', ''); // Replace with cookies
+      $rootScope.loginMessage.title = '';
+      $rootScope.loginMessage.message = '';
+      $rootScope.token = '';
+      $rootScope.userId = '';
+      connectService.disconnect().then(function() {
+        $location.url('/login');
+      })
+    }
+});
