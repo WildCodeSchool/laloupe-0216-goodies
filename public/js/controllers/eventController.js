@@ -3,6 +3,11 @@
 
 function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
 	load();
+
+	$scope.geocodeAddress = function (address) {
+				$scope.position = [address.position[0],address.position[1]];
+      }
+
 	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
 	$scope.nbEvents = 0;
 	$scope.nbInvit = 0;
@@ -22,7 +27,7 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		eventService.get().then(function(res){
 			$scope.events = res.data;
 			var countEvent = 0;
-			$scope.events.map(function(e){console.log(e.userId);if(e.userId == $rootScope.userId){countEvent++}});
+			$scope.events.map(function(e){if(e.userId == $rootScope.userId){countEvent++}});
 			$scope.nbEvents = countEvent;
 			$scope.nbInvit = $scope.events.length;
 		});

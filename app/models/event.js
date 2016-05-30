@@ -16,7 +16,8 @@ var eventSchema = new mongoose.Schema({
   friendmail: String,
   tabRecetteEvent: Array,
   tabFriendEvent: Array,
-  userId: String
+  userId: String,
+  position: Array
 });
 var Event = {
 
@@ -38,6 +39,7 @@ var Event = {
 			tabRecetteEvent: req.body.tabRecetteEvent,
 			tabFriendEvent: req.body.tabFriendEvent,
       userId: req.body.userId,
+      position: req.body.position,
 		}, function(){
 			res.sendStatus(200);
 		})
