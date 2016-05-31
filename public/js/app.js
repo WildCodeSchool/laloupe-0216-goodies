@@ -143,10 +143,8 @@ angular.module('app', ['ngRoute','flow', 'ngMap'])
     // Can be used with different implementations of Flow.js
     // flowFactoryProvider.factory = fustyFlowFactory;
   }])
-.run(function($rootScope, NgMap, $location, connectService) {
-    NgMap.getMap().then(function(map) {
-      $rootScope.map = map;
-    });
+.run(function($rootScope, $location, connectService) {
+
     if (sessionStorage.getItem('token')) {// Replace with cookies
       $rootScope.token = sessionStorage.getItem('token');
       $rootScope.userId = sessionStorage.getItem('userId');
