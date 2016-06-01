@@ -1,6 +1,4 @@
-createEventController
-
-// eventController ==============================
+//createEventController ======================>
 
 function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
 	load();
@@ -102,7 +100,6 @@ $scope.addRecette = function (idRecette,index) {
 		data.tabFriendEvent = $scope.tabFriendEvent;
 		data.userId = $rootScope.userId;
 		data.position = $scope.position;
-		console.log($scope.position);
 		eventService.create(data).then(function(res){
 			load();
 		});
@@ -157,11 +154,11 @@ $scope.addFriends = function(){
 
 // ===================  END Ajout des amis dans la BD =============
 
-$scope.test = function (){
-	console.log("llk");
+$scope.geoloc = function (){
 	address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
-	$scope.form = 1;$.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M', function(res) {
-		$scope.position = [res.results[0].geometry.location.lat,res.results[0].geometry.location.lng];
+	$scope.creform += 1;
+	$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
+		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
 	})
 }
 }
