@@ -5,8 +5,8 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	load();
 
 	$scope.geocodeAddress = function (address) {
-				$scope.position = [address.position[0],address.position[1]];
-      }
+		$scope.position = [address.position[0],address.position[1]];
+  }
 
 	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
 	$scope.nbEvents = 0;
