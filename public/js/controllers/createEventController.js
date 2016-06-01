@@ -1,6 +1,4 @@
-createEventController
-
-// eventController ==============================
+//createEventController ======================>
 
 function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
 	load();
