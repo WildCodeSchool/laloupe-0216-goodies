@@ -20,7 +20,9 @@
 		    <div role="tabpanel" class="tab-pane active" id="home">
 					<div class="container col-md-12" style="margin-top:20px;">
 						<div class="panel-group" id="accordion">
-
+							<ng-map center="{{position}}" zoom="16" style="heigth:200px; margin-bottom: 20px;">
+								<marker position="{{position}}" title=""></marker>
+							</ng-map>
 							<div class="panel panel-default" ng-repeat="event in events | filter : {userId: userId}">
 								<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
 									<h4 class="panel-title">
@@ -66,9 +68,7 @@
 					</div>
 		    </div>
 		  </div>
-			<ng-map center="{{position}}" zoom="17" style="heigth:200px">
-				<marker position="{{position}}" title=""></marker>
-			</ng-map>
+
 		</div>
 	</div>
 </div>

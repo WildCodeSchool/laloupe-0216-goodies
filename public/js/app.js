@@ -66,11 +66,11 @@ function config($routeProvider, $httpProvider) {
         return config;
       },
       'responseError': function(response) {
-        if (!response.config.data.prenom){
+        // if (!response.config.data.prenom){
           if (response.status === 401 || response.status === 403) {
             $location.path('/login');
           }
-        }
+        // }
         return $q.reject(response);
       }
     };
