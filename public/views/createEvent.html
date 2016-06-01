@@ -12,18 +12,18 @@
 		<div class="col-md-12">
 			<div class="row">
 				<div class="sidebarLeft1 col-md-3">
-					<div class="sidebarLeft1-1 col-md-12">	
+					<div class="sidebarLeft1-1 col-md-12">
 						<p style="text-align:center;font-weight:bold;">Etape 1</p>
 						<h5 style="font-weight:bold;font-size:2.5rem;border-bottom:1px solid #e2e0e0;text-align:center">Détails</h5>
 						<a href="#/events" class="btn btn-danger btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à ma liste d'événements">Annuler</a>
-						<button type="button" class="btn btn-link btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Passer à l'étape 2 / Repas" ng-click="creform = creform+1">		Suivant<span class="glyphicon glyphicon-chevron-right chevron" aria-hidden="true"></span></button>
+						<button type="button" class="btn btn-link btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Passer à l'étape 2 / Repas" ng-click="geoloc()">		Suivant<span class="glyphicon glyphicon-chevron-right chevron" aria-hidden="true"></span></button>
 					</div><!-- End sidebarLeft2-1 -->
 					<div class="triangle1"></div>
 				</div>
-				
+
 				<div class="container col-md-offset-1 col-md-7" style="border: 1px dotted #333; border-radius: 5px; margin-top: 60px; padding: 15px; margin-bottom: 25px;">
 				<p class="pull-right" style="font-size:1rem;">Tous les champs sont requis</p>
-					
+
 					<div class="col-md-offset-1 col-md-10">
 						<!-- formulaire: nom -->
 		            <div class="form-group">
@@ -110,14 +110,14 @@
 		<div class="col-md-12">
 			<div class="row">
 				<div class="sidebarLeft2 col-md-3">
-					<div class="sidebarLeft2-1 col-md-12">	
+					<div class="sidebarLeft2-1 col-md-12">
 						<p style="text-align:center;font-weight:bold;">Etape 2</p>
 						<h5 style="font-weight:bold;font-size:2.5rem;border-bottom:1px solid #e2e0e0;text-align:center">Repas</h5>
 						<button type="button" class="btn btn-link btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à l'étape 2 / Repas"ng-click="creform = creform-1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Retour</button>
 						<button type="button" class="btn btn-link btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Passer à l'étape 3 / Invitation" ng-click="creform = creform+1">Suivant<span class="glyphicon glyphicon-chevron-right chevron" aria-hidden="true"></span></button>
 					</div><!-- End sidebarLeft2-1 -->
 					<div class="triangle2"></div>
-					
+
 					<div class="sidebarLeft2-2 col-md-12">
 						<div class="sidebarLeft2-2-Title">
 							<h5 class="btn btn-link btnMenuSidebar col-md-12" ng-click="showRecette=''">Menu</h5>
@@ -141,7 +141,7 @@
 									    <li><a href="#">Cakes Salé</a></li>
 									    <li role="separator" class="divider"></li>
 									    <li><a href="#">Végétarien</a></li>
-									    
+
 									  </ul>
 									</div>
 								</li>
@@ -161,7 +161,7 @@
 									    <li><a href="#">Poissons et Fruits de Mer</a></li>
 									    <li role="separator" class="divider"></li>
 									    <li><a href="#">Végétarien</a></li>
-									    
+
 									  </ul>
 									</div>
 								</li>
@@ -180,21 +180,21 @@
 									    <li role="separator" class="divider"></li>
 									    <li><a href="#">Desserts aux Fruits</a></li>
 									    <li><a href="#">Desserts Divers</a></li>
-									    
+
 									  </ul>
 									</div>
 								</li>
 							</ul>
 						</div><!-- End sidebarLeft2-2 -->
 					</div><!-- End sidebarLeft2 -->
-			
-				
-				
+
+
+
 				<div class="container col-md-9">
 					<!-- <div class="box">
-						<div id="test" class="box imgPresentationMenu"></div>	
+						<div id="test" class="box imgPresentationMenu"></div>
 					</div> -->
-					
+
 					<div class="contentMenu">
 						<div class="col-md-3" style="padding-top:15px;" ng-repeat="recette in recettes | orderBy : 'titre' | filter : {type: showRecette, userId: userId}">
 				         	<div class="clearfix foodbox center-block" ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
@@ -214,12 +214,12 @@
 				         	</div>
 						</div>
 					</div>
-				
+
 				</div><!-- End col-md-9 -->
 				</div><!-- End row -->
 			</div><!-- End col-md-12 -->
 
-		
+
 	</div><!-- End container -->
 </div><!-- / end creform 2 -->
 
@@ -234,7 +234,7 @@
 		<div class="col-md-12">
 			<div class="row">
 				<div class="sidebarLeft1 col-md-3">
-					<div class="sidebarLeft1-1 col-md-12">	
+					<div class="sidebarLeft1-1 col-md-12">
 						<p style="text-align:center;font-weight:bold;">Etape 3</p>
 						<h5 style="font-weight:bold;font-size:2.5rem;border-bottom:1px solid #e2e0e0;text-align:center">Invitation</h5>
 						<button type="button" class="btn btn-link btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à l'étape 2 / Repas" ng-click="creform = creform-1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Retour</button>
@@ -260,7 +260,7 @@
 								<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
 								<button type="submit" class="btn btn-default pull-right" ng-click="addFriends()">Ajouter</button>
 							</div>
-						</div>					
+						</div>
 					</div>
 				</div><!-- End col-md-offset-1 col-md-7 -->
 			</div><!-- End row -->
@@ -268,8 +268,8 @@
 
 		<label class="col-md-12" style="text-align: center;">Sélectionner des amis :</label>
 		<div class="col-md-offset-1 col-md-10 boxfriend">
-			<div class="row">	
-						
+			<div class="row">
+
 							<div class="form-group">
 					      	<div class="searchable-container">
 					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends | filter : {userId: userId}">
@@ -290,12 +290,11 @@
 					             </div>
 					      	</div><!-- / end searchable-container -->
 						  	</div><!-- / End form groupe -->
-						
+
 				</div>
 			</div>
-				
 
-			
+
+
 	</div><!-- End container -->
 </div><!-- / end creform3 -->
-		
