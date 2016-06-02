@@ -50,7 +50,6 @@ function createEventController($scope, $http, eventService, friendService, $loca
 		});
 		userService.findOne($rootScope.userId).then(function (res) {
 			$scope.user = res.data;
-			$scope.user.adresse.num
 		});
 
 	};
@@ -163,6 +162,4 @@ $scope.geoloc = function (){
 		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
 	})
 }
-}	
-
-
+}

@@ -6,6 +6,9 @@ function userService($http){
 		findOne : function(id){
 			return $http.get('/api/users/' + id);
 		},
+		findByNameSurname : function(name,surname){
+			return $http.get('/api/users/' + name +'/'+ surname);
+		},
 		create : function(user){
 			return $http.post('/api/users', user);
 		},

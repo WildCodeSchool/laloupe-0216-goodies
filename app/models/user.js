@@ -49,6 +49,12 @@ var User = {
 			 res.json(user);
 		});
 	},
+	findByNameSurname: function(req, res) {
+    console.log(req.params);
+		User.model.findOne(req.params, {password: 0, __v: 0, isAdmin: 0}, function (err, user) {
+			 res.json(user);
+		});
+	},
 
 	create: function(req, res) {
 		User.model.create(req.body,
