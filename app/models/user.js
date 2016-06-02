@@ -19,6 +19,8 @@ var userSchema = new mongoose.Schema({
 
 var User = {
     model: mongoose.model('User', userSchema),
+    /*
+    */
 
     connect: function(req, res) {
         User.model.findOne(req.body, {password: 0}, function(err, user){
@@ -47,7 +49,14 @@ var User = {
 
 	findById: function(req, res) {
 		User.model.findById(req.params.id, {password: 0, _id: 0, __v: 0, isAdmin: 0}, function (err, user) {
-			 res.json(user);
+      if (!user){
+        User.model.findOne({email: req.params.id}, {password: 0, _id: 0, __v: 0, isAdmin: 0}, function (err, user) {
+            res.json(user);
+          })
+        }
+      else {
+        res.json(user);
+      }
 		});
 	},
 	findByNameSurname: function(req, res) {

@@ -130,25 +130,31 @@ $scope.addRecette = function (idRecette,index) {
 $scope.addFriends = function(){
 		$scope.dataFriends.userId = $rootScope.userId;
 		console.log($scope.dataFriends.userId);
-
 		userService.findOne($scope.dataFriends.friendmail).then(function(res){
-				console.log(res);
-				$scope.dataFriends.prenom = res.data.prenom;
-				$scope.dataFriends.nom = res.data.nom;
-				friendService.create($scope.dataFriends).then(function(res){
-				load();
-				$scope.dataFriends.prenom = "";
-				$scope.dataFriends.nom = "";
-				$scope.dataFriends.friendmail = "";
+				console.log(res.data);
+				if(res.data != null){
+					console.log('ffffff');
+					$scope.dataFriends.prenom = res.data.prenom;
+					$scope.dataFriends.nom = res.data.name;
+					$scope.dataFriends.img = res.data.img;
+					friendService.create($scope.dataFriends).then(function(res){
+					load();
+					$scope.dataFriends.img = "";
+					$scope.dataFriends.prenom = "";
+					$scope.dataFriends.nom = "";
+					$scope.dataFriends.friendmail = "";
+				});
+			}
+				else {
+					friendService.create($scope.dataFriends).then(function(res){
+					load();
+					$scope.dataFriends.prenom = "";
+					$scope.dataFriends.nom = "";
+					$scope.dataFriends.friendmail = "";
+					});
+				}
 			});
-		}).catch(function(){
-				friendService.create($scope.dataFriends).then(function(res){
-				load();
-				$scope.dataFriends.prenom = "";
-				$scope.dataFriends.nom = "";
-				$scope.dataFriends.friendmail = "";
-			});
-		});
+
 
 
 	load()
