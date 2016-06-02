@@ -26,9 +26,7 @@
     </div>
 
   </div>
-    <div class="col-md-12" style="margin-bottom:25px;">
-    <button class="btn btn-link nextDown col-md-offset-5 col-md-2"><img src="../assets/down-chevron.png" class="down-chevron"></button>
-    </div>
+    
   </div>
   <div class='col-md-2'></div>
 
@@ -38,48 +36,84 @@
   </div><!-- row -->
 </div><!-- End container col-md-12 -->
 
-<div class="container-fluid containerMiddle">
-<div class="row">
-  <div class="homeCenter">
-    <center class="homeCenterTitle">
-      <p>Le Menu du mois</p>
-    </center>
-    <div class="col-md-4">
-      <center><img src="./assets/entre.jpg" class="thumbnail curve" alt=""></center>
-    </div>
-    <div class="col-md-4">
-      <center><img src="./assets/plat.jpg" class="thumbnail curve" alt=""></center>
-    </div>
-    <div class="col-md-4">
-      <center><img src="./assets/dessert.jpg" class="thumbnail curve" alt=""></center>
+<div class="container-fluid containerMid">
+  <div class="row">
+    <div class="container">
+      <div class="col-md-3">
+      
+      </div>
+
+        <div class="col-md-offset-1 col-md-4 boxMiddleSoGoodies">
+          <div class="MiddleBox col-md-12">
+            <div class="circlefontblue">
+              <span class="fa fa-cutlery testlogo" aria-hidden="true"></span>
+            </div>
+              <h3>Découvrez</h3>
+              <p>des idées</p>
+              <h2>Recettes</h2>
+            <a href="#" class="btn btn-link btn-lg col-md-offset-2 col-md-8 btnSoGoodies">" So Goodies "</a>
+          </div>
+        </div>
+
+      <div class="col-md-offset-1 col-md-3">
+        
+      </div>
     </div>
   </div>
 </div>
-  <div class="backsecond col-md-12">
-    <div>
-      <center>
-        <p class="botTitle">Des idées " So Goodies "</p>
-      </center> 
-    </div>
-    <div class="boutonRecette">
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
+
+<div class="container-fluid containerMiddle">
+  <div class="row">
+
+    <div class="container">
+      <div class="homeCenter">
+        <center class="homeCenterTitle">
+          <p>Le Menu du mois</p>
         </center>
-      </div>
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('plat')" id="plat">Plats</p>
-        </center>
-      </div>
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
-        </center>
+        <div class="col-md-4">
+          <center><img src="./assets/entre.jpg" class="thumbnail curve" alt=""></center>
+        </div>
+        <div class="col-md-4">
+          <center><img src="./assets/plat.jpg" class="thumbnail curve" alt=""></center>
+        </div>
+        <div class="col-md-4">
+          <center><img src="./assets/dessert.jpg" class="thumbnail curve" alt=""></center>
+        </div>
       </div>
     </div>
-  </div>
-  
+  </div><!-- End row -->
+</div><!-- End container-fluid containerMiddle -->
+
+
+<div class="container-fluid containerDown">
+  <div class="row"> 
+      <div class="backsecond col-md-12">
+        <div>
+          <center>
+            <p class="botTitle">Des idées " So Goodies "</p>
+          </center> 
+        </div>
+        <div class="boutonRecette">
+          <div class="col-md-4 boutonRecette">
+            <center>
+              <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
+            </center>
+          </div>
+          <div class="col-md-4 boutonRecette">
+            <center>
+              <p ng-click="menuShow('plat')" id="plat">Plats</p>
+            </center>
+          </div>
+          <div class="col-md-4 boutonRecette">
+            <center>
+              <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
+            </center>
+          </div>
+        </div>
+      </div>
+    
+
+
     <!-- =============== DEBUT PHOTO RECETTE ================ -->
     <div class="flip-menu">
       <div ng-repeat="recette in recettes">
@@ -102,5 +136,6 @@
         </section>
       </div>
     </div>
-</div><!-- End container-fluid -->
+  </div><!-- End row -->
+</div><!-- End container-fluid  containerDown-->
 
