@@ -161,4 +161,6 @@ $scope.geoloc = function (){
 		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
 	})
 }
-}
+}	
+
+
