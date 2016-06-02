@@ -24,19 +24,22 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	// checkbox autocomplete (at home)
 
 	function load(){
-		eventService.get().then(function(res){
-			$scope.events = res.data;
-			var countEvent = 0;
-			$scope.events.map(function(e){if(e.userId == $rootScope.userId){countEvent++}});
-			$scope.nbEvents = countEvent;
-			$scope.nbInvit = $scope.events.length;
-		});
-		recetteService.get().then(function(res){
-			$scope.recettes = res.data;
-		});
-		friendService.get().then(function(res){
-			$scope.friends = res.data;
-		});
+		userService.findOne($rootScope.userId).then(function(res){
+			console.log(res.data.events);
+		})
+		// eventService.get().then(function(res){
+		// 	$scope.events = res.data;
+		// 	var countEvent = 0;
+		// 	$scope.events.map(function(e){if(e.userId == $rootScope.userId){countEvent++}});
+		// 	$scope.nbEvents = countEvent;
+		// 	$scope.nbInvit = $scope.events.length;
+		// });
+		// recetteService.get().then(function(res){
+		// 	$scope.recettes = res.data;
+		// });
+		// friendService.get().then(function(res){
+		// 	$scope.friends = res.data;
+		// });
 	};
 
 
@@ -66,10 +69,12 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		data.crEcityForm = $scope.crEcityForm;
 		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
 		data.crEcountryForm = $scope.crEcountryForm;
-
-
+		data.userId = $rootScope.userId;
 		eventService.create(data).then(function(res){
-			load();
+			// load();
+			userService.findOne(data.userId).then(function(res){
+				console.log(res.data);
+			});
 		});
 		$scope.crEnameForm = "";
 		$scope.crEdateForm = "";
@@ -96,12 +101,12 @@ function eventController($scope, $http, eventService, friendService, $location, 
 
 $scope.addFriends = function(){
 	friendService.create($scope.dataFriends).then(function(res){
-		load();
+		// load();
 		$scope.dataFriends.friendfirstname = "";
 		$scope.dataFriends.friendlastname = "";
 		$scope.dataFriends.friendmail = "";
 	});
-	load()
+	// load()
 }
 
 $scope.formatDate = function (date){

@@ -14,6 +14,18 @@ var userSchema = new mongoose.Schema({
     ville: String,
     pays: String,
   },
+  friends: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'friends',
+  }],
+  events: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Event',
+  }],
+  recettes:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Recette',
+  }],
   isAdmin : { type: Boolean, default: false}
 });
 
@@ -46,23 +58,29 @@ var User = {
 			res.json(users);
 		});
 	},
-
 	findById: function(req, res) {
-		User.model.findById(req.params.id, {password: 0, _id: 0, __v: 0, isAdmin: 0}, function (err, user) {
-      if (!user){
-        User.model.findOne({email: req.params.id}, {password: 0, _id: 0, __v: 0, isAdmin: 0}, function (err, user) {
-            res.json(user);
-          })
+		User.model.findById(req.params.id)
+      .populate('events')
+      .exec(function (err, user) {
+        if (err) {
+          res.sendStatus(400);
         }
-      else {
         res.json(user);
-      }
 		});
 	},
 	findByNameSurname: function(req, res) {
     console.log(req.params);
 		User.model.findOne(req.params, {password: 0, __v: 0, isAdmin: 0}, function (err, user) {
 			 res.json(user);
+		});
+	},
+	addEvent: function(userId, eventId, res) {
+		User.model.findByIdAndUpdate(userId, {
+        $push: {
+          events: eventId
+        }
+      }, function (err) {
+        res.sendStatus(200);
 		});
 	},
 

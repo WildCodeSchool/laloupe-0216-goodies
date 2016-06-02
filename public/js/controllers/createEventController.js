@@ -87,31 +87,27 @@ $scope.addRecette = function (idRecette,index) {
 	$scope.add = function(){
 
 		var data = {};
-		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm;
-		data.crEtimeForm = $scope.crEtimeForm;
-		data.crEnumberForm = $scope.crEnumberForm;
-		data.crEwayForm = $scope.crEwayForm;
-		data.crEcityForm = $scope.crEcityForm;
-		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
-		data.crEcountryForm = $scope.crEcountryForm;
-		data.tabRecetteEvent = $scope.tabRecetteEvent;
-		data.tabFriendEvent = $scope.tabFriendEvent;
 		data.userId = $rootScope.userId;
 		data.position = $scope.position;
-		eventService.create(data).then(function(res){
+		console.log('data: ')
+		console.log(data);
+		eventService.create(data).then(function(){
+			userService.findOne(data.userId).then(function(res){
+				console.log('res: ' )
+				console.log(res.data);
 			load();
 		});
-		$scope.crEnameForm = "";
-		$scope.crEdateForm = "";
-		$scope.crEtimeForm = "";
-		$scope.crEnumberForm = "";
-		$scope.crEwayForm = "";
-		$scope.crEcityForm = "";
-		$scope.crEpostalcodeForm = "";
-		$scope.crEcountryForm = "";
-		$scope.tabRecetteEvent = [];
-		$scope.tabFriendEvent = [];
+		});
+		data.crEnameForm = "";
+		data.crEdateForm = "";
+		data.crEtimeForm = "";
+		data.crEnumberForm = "";
+		data.crEwayForm = "";
+		data.crEcityForm = "";
+		data.crEpostalcodeForm = "";
+		data.crEcountryForm = "";
+		data.tabRecetteEvent = [];
+		data.tabFriendEvent = [];
 		$location.path('/events');
 	}
 	$scope.update = function(event){
