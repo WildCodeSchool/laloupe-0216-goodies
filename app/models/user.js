@@ -26,7 +26,7 @@ var User = {
                 res.sendStatus(403);
             else{
                 var token = jwt.sign(user, 'tokenSecret', {
-                  expiresInMinutes: 1440 // expires in 24 hours
+                  expiresIn: "24h" // expires in 24 hours
                 });
 
                 // return the information including token as JSON
