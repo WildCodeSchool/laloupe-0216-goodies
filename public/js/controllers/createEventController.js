@@ -129,7 +129,9 @@ $scope.addRecette = function (idRecette,index) {
 // ========================= Ajout des amis dans la BD ==============
 
 $scope.addFriends = function(){
-	friendService.create($scope.dataFriends).then(function(res){
+		$scope.dataFriends.userId = $rootScope.userId;
+		console.log($scope.dataFriends.userId);
+		friendService.create($scope.dataFriends).then(function(res){
 		load();
 		$scope.dataFriends.prenom = "";
 		$scope.dataFriends.nom = "";
@@ -161,4 +163,6 @@ $scope.geoloc = function (){
 		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
 	})
 }
-}
+}	
+
+

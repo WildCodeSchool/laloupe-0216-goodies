@@ -69,9 +69,12 @@ function config($routeProvider, $httpProvider) {
         return config;
       },
       'responseError': function(response) {
-        if (response.status === 401 || response.status === 403) {
-          $location.path('/login');
-        }
+
+        // if (!response.config.data.prenom){
+          if (response.status === 401 || response.status === 403) {
+            $location.path('/login');
+          }
+        // }
         return $q.reject(response);
       }
     };
@@ -172,4 +175,5 @@ angular.module('app', ['ngRoute','flow'])
     // Can be used with different implementations of Flow.js
     // flowFactoryProvider.factory = fustyFlowFactory;
   }])
-.run(run);
+
+.run(run)
