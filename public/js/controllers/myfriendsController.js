@@ -1,4 +1,4 @@
-function myfriendsController(userService, friendService, $scope, $rootScope, connectService) {
+function myfriendsController(userService, friendService, $scope, $rootScope) {
 
     $scope.userId = $rootScope.userId;
 
@@ -15,7 +15,8 @@ function myfriendsController(userService, friendService, $scope, $rootScope, con
       var datas = {};
       var user = userName.split(' ');
 
-      connectService.connect({name: user[1],prenom: user[0]}).then(function(res){ // ===== Récupération de l'ID du Friend
+      userService.findByNameSurname(user[1],user[0]).then(function(res){ // ===== Récupération de l'ID du Friend
+      console.log(res);
     	    $scope.userFriendId = res.data.id;
 
           if ($rootScope.userId != $scope.userFriendId && $scope.friends.map(function (e)

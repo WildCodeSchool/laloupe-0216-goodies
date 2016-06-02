@@ -50,7 +50,6 @@ function createEventController($scope, $http, eventService, friendService, $loca
 		});
 		userService.findOne($rootScope.userId).then(function (res) {
 			$scope.user = res.data;
-			$scope.user.adresse.num
 		});
 
 	};
