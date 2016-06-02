@@ -21,12 +21,14 @@
       </div>
 
       <div class="item">
-        <h1>Goodies</h1>
+        <h1><i class="fa fa-quote-left" aria-hidden="true"></i>
+         Goodies <i class="fa fa-quote-right" aria-hidden="true"></i>
+</h1>
       </div>    
     </div>
 
   </div>
-    
+
   </div>
   <div class='col-md-2'></div>
 
@@ -37,32 +39,39 @@
 </div><!-- End container col-md-12 -->
 
 <div class="container-fluid containerMid">
+  <div class="saw"></div>
   <div class="row">
     <div class="container">
-      <div class="col-md-3">
-      
+      <div class="col-md-3 col-sm-2 col-xs-6 vcenterL">
+          <img src="../assets/icons/arabesque-left.png" class="img-responsive">
+          
       </div>
 
-        <div class="col-md-offset-1 col-md-4 boxMiddleSoGoodies">
+        <div class="col-md-offset-1 col-md-4 col-sm-4 col-sx-4 boxMiddleSoGoodies">
           <div class="MiddleBox col-md-12">
             <div class="circlefontblue">
               <span class="fa fa-cutlery testlogo" aria-hidden="true"></span>
             </div>
+            <div class="scrollable">
+            <div class="items">
               <h3>Découvrez</h3>
               <p>des idées</p>
               <h2>Recettes</h2>
+            </div>
+            </div>
             <a href="#" class="btn btn-link btn-lg col-md-offset-2 col-md-8 btnSoGoodies">" So Goodies "</a>
           </div>
         </div>
 
-      <div class="col-md-offset-1 col-md-3">
-        
+      <div class="col-md-offset-1 col-md-3 col-xs-6 vcenterR">
+        <img src="../assets/icons/arabesque-right.png" class="img-responsive">
       </div>
     </div>
   </div>
 </div>
 
 <div class="container-fluid containerMiddle">
+  <div class="wave"></div>
   <div class="row">
 
     <div class="container">
@@ -70,14 +79,17 @@
         <center class="homeCenterTitle">
           <p>Le Menu du mois</p>
         </center>
-        <div class="col-md-4">
-          <center><img src="./assets/entre.jpg" class="thumbnail curve" alt=""></center>
+        <div class="col-md-4 best">
+          <img src="./assets/entre.jpg" class="thumbnail" alt="">
+          <h5>Entrée</h5>
         </div>
-        <div class="col-md-4">
-          <center><img src="./assets/plat.jpg" class="thumbnail curve" alt=""></center>
+        <div class="col-md-4 best">
+          <img src="./assets/plat.jpg" class="thumbnail" alt="">
+          <h5>Plat</h5>
         </div>
-        <div class="col-md-4">
-          <center><img src="./assets/dessert.jpg" class="thumbnail curve" alt=""></center>
+        <div class="col-md-4 best">
+          <img src="./assets/dessert.jpg" class="thumbnail" alt="">
+          <h5>Dessert</h5>
         </div>
       </div>
     </div>
@@ -85,57 +97,5 @@
 </div><!-- End container-fluid containerMiddle -->
 
 
-<div class="container-fluid containerDown">
-  <div class="row"> 
-      <div class="backsecond col-md-12">
-        <div>
-          <center>
-            <p class="botTitle">Des idées " So Goodies "</p>
-          </center> 
-        </div>
-        <div class="boutonRecette">
-          <div class="col-md-4 boutonRecette">
-            <center>
-              <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
-            </center>
-          </div>
-          <div class="col-md-4 boutonRecette">
-            <center>
-              <p ng-click="menuShow('plat')" id="plat">Plats</p>
-            </center>
-          </div>
-          <div class="col-md-4 boutonRecette">
-            <center>
-              <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
-            </center>
-          </div>
-        </div>
-      </div>
-    
 
-
-    <!-- =============== DEBUT PHOTO RECETTE ================ -->
-    <div class="flip-menu">
-      <div ng-repeat="recette in recettes">
-        <section class="flip-item-wrap">
-          <img class="fake-image" src={{recette.img}} alt="">
-          <!-- this image will add height to parent element -->
-          <input type="checkbox" class="flipper" id="a">
-          <label for="a" class="flip-item">
-            <figure class="front">
-              <img src={{recette.img}}>
-            </figure>
-            <figure class="back">
-              <img src={{recette.img}} alt="">
-              <div class="flip-item-desc">
-                <h4 class="flip-item-title">{{recette.titre}}</h4>
-                <p>{{recette.description}}</p>
-              </div>
-            </figure>
-          </label>
-        </section>
-      </div>
-    </div>
-  </div><!-- End row -->
-</div><!-- End container-fluid  containerDown-->
 
