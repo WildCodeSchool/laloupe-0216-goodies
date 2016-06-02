@@ -162,4 +162,6 @@ $scope.test = function (){
 		$scope.position = [res.results[0].geometry.location.lat,res.results[0].geometry.location.lng];
 	})
 }
-}
+}	
+
+

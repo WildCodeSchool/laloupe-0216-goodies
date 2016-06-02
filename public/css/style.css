@@ -30,7 +30,7 @@
   line-height: 0px;
 }
 .page{
-  margin-top: 70px;
+  margin-top: 60px;
 }
 .fa-3 {
   font-size: 1.8em;
@@ -482,12 +482,12 @@ html { height: 100%;}
   margin-bottom: 50px;
 }
 
-
 .dessins {
   margin-top: 120px;
 }
-.containerBas {
-  background-color: #fff;
+.containerMiddle {
+  background-color: #e2e0e0;
+  padding: 50px;
 }
 .botTitle{
   margin-bottom: 90px;
@@ -506,6 +506,21 @@ html { height: 100%;}
   font-size: 50px;
 }
 
+
+.cuver:before {
+  top: 52px;
+  left: 5px;
+
+  transform: rotate(-5deg);
+  box-shadow: 7px 6px 15px #333;
+}
+.cuver:after {
+  top: 52px;
+  right: 5px;
+  
+  transform: rotate(5deg);
+  box-shadow: -7px 6px 15px #333;
+}
 /*---------------------------------------------------------
                       END HOME CSS
 ==========================================================*/
@@ -798,8 +813,72 @@ input {
   left: 9px;
 }
 
+/*************************************************************************************************************
+ZONE DE TEST 
+------------- */
 
+.carousel-fade {
+  height: 570px;
+}
+.carousel-inner .item {
+  text-align: center !important;
+}
+@media (max-width: 570px) {
+  .carousel-control.left {
+    left: 0;
+  }
+  .carousel-control.right {
+    right: 0;
+  }
+}
 
+.carousel-inner h1 {
+  text-align: center;
+  color: #fff; 
+  font-family: 'yesteryear'; 
+  font-size: 8rem; 
+  margin-top:156px;
+}
+
+.carousel.carousel-fade .item {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity:0;
+}
+
+.carousel.carousel-fade .active.item {
+  opacity:1;
+}
+
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.carousel.carousel-fade .next,
+.carousel.carousel-fade .prev {
+  left: 0;
+  z-index: 1;
+}
+
+.nextDown {
+  text-align: center;
+}
+.nextDown:hover {
+  border: 6px solid #F8AC37;
+  border-radius: 2em;
+}
+
+.down-chevron {
+  width: 100px;
+}
+/***************************************************************************************************************/
 .foodbox{
     h4 {
         margin-top: 6px !important;
