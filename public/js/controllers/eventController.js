@@ -1,13 +1,9 @@
 
 // eventController ==============================
 
-function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, NgMap) {
+function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
 	load();
-	$scope.position = 'current-location';
-  NgMap.getMap().then(function(map) {
-    $scope.map = map;
-  });
-	
+
 	$scope.geocodeAddress = function (address) {
 		$scope.position = [address.position[0],address.position[1]];
   }
