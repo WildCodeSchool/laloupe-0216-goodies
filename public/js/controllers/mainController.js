@@ -1,7 +1,7 @@
 function mainController($scope, $rootScope, $http,recetteService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
-	$scope.showRecette = 'entree';	
-	};
+	$scope.showRecette = 'entree';
+
 
 	function load() {
 		recetteService.get().then(function (res) {
@@ -15,3 +15,4 @@ function mainController($scope, $rootScope, $http,recetteService) {
     angular.element($('#'+n)).addClass( "boutonActive" );
     $scope.showRecette = n;
   };
+}
