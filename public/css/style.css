@@ -46,6 +46,18 @@
   color: #F8AC37;
   cursor: pointer;
 }
+.imgProfile{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 150px;
+  height: auto;
+}
+.imageProfileSmall{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 80px;
+  height: auto;
+}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
@@ -475,7 +487,7 @@ html { height: 100%;}
   background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
 }
-#hero h1{ 
+#hero h1{
   font-family: 'Yesteryear', Pacifico, cursive;
   color : white;
   font-size: 4em;
@@ -517,7 +529,7 @@ html { height: 100%;}
 .cuver:after {
   top: 52px;
   right: 5px;
-  
+
   transform: rotate(5deg);
   box-shadow: -7px 6px 15px #333;
 }
@@ -670,7 +682,7 @@ input {
     background-image: url("../assets/backhome.jpg");
 }*/
 
-/* Create Event - form 2 
+/* Create Event - form 2
 --------------------------*/
 /* sidebar */
 .sidebarLeft2 {
@@ -814,7 +826,7 @@ input {
 }
 
 /*************************************************************************************************************
-ZONE DE TEST 
+ZONE DE TEST
 ------------- */
 
 .carousel-fade {
@@ -834,9 +846,9 @@ ZONE DE TEST
 
 .carousel-inner h1 {
   text-align: center;
-  color: #fff; 
-  font-family: 'yesteryear'; 
-  font-size: 8rem; 
+  color: #fff;
+  font-family: 'yesteryear';
+  font-size: 8rem;
   margin-top:156px;
 }
 

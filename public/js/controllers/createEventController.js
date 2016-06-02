@@ -130,12 +130,27 @@ $scope.addRecette = function (idRecette,index) {
 $scope.addFriends = function(){
 		$scope.dataFriends.userId = $rootScope.userId;
 		console.log($scope.dataFriends.userId);
-		friendService.create($scope.dataFriends).then(function(res){
-		load();
-		$scope.dataFriends.prenom = "";
-		$scope.dataFriends.nom = "";
-		$scope.dataFriends.friendmail = "";
-	});
+
+		userService.findOne($scope.dataFriends.friendmail).then(function(res){
+				console.log(res);
+				$scope.dataFriends.prenom = res.data.prenom;
+				$scope.dataFriends.nom = res.data.nom;
+				friendService.create($scope.dataFriends).then(function(res){
+				load();
+				$scope.dataFriends.prenom = "";
+				$scope.dataFriends.nom = "";
+				$scope.dataFriends.friendmail = "";
+			});
+		}).catch(function(){
+				friendService.create($scope.dataFriends).then(function(res){
+				load();
+				$scope.dataFriends.prenom = "";
+				$scope.dataFriends.nom = "";
+				$scope.dataFriends.friendmail = "";
+			});
+		});
+
+
 	load()
 }
 
@@ -156,10 +171,10 @@ $scope.addFriends = function(){
 // ===================  END Ajout des amis dans la BD =============
 
 $scope.geoloc = function (){
-	address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
-	$scope.creform += 1;
-	$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
-		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
-	})
-}
+		address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
+		$scope.creform += 1;
+		$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
+			$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
+		})
+	}
 }

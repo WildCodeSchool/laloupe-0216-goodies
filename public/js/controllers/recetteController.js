@@ -100,7 +100,6 @@ function recetteController($scope, recetteService, $rootScope, userService) {
       var fileReader = new FileReader();
       fileReader.onload = function(event) {
         var uri = event.target.result;
-        console.log($scope.imageStrings[i]);
         $scope.imageStrings[i] = uri;
         $scope.y = 1;
       };
