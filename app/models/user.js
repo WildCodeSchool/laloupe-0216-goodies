@@ -60,6 +60,7 @@ var User = {
 	},
 	findById: function(req, res) {
 		User.model.findById(req.params.id)
+      .populate('friends')
       .populate('events')
       .exec(function (err, user) {
         if (err) {
@@ -78,6 +79,24 @@ var User = {
 		User.model.findByIdAndUpdate(userId, {
         $push: {
           events: eventId
+        }
+      }, function (err) {
+        res.sendStatus(200);
+		});
+	},
+	addFriends: function(userId, eventId, res) {
+		User.model.findByIdAndUpdate(userId, {
+        $push: {
+          friends: eventId
+        }
+      }, function (err) {
+        res.sendStatus(200);
+		});
+	},
+	addRecettes: function(userId, eventId, res) {
+		User.model.findByIdAndUpdate(userId, {
+        $push: {
+          friends: eventId
         }
       }, function (err) {
         res.sendStatus(200);

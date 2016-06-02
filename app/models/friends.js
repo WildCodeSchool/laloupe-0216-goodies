@@ -1,6 +1,7 @@
 
 //	MODEL friends
 
+var User = require('../models/user.js');
 var mongoose = require('mongoose');
 var friendsSchema = new mongoose.Schema({
   nom: String,
@@ -15,10 +16,11 @@ var friends = {
     model: mongoose.model('friends', friendsSchema),
 
     create: function(req, res) {
+      console.log('body: ' + req.body);
 		friends.model.create(
-			req.body
-		, function(){
-			res.sendStatus(200);
+      req.body
+		, function(err, data){
+			User.addFriends(req.body.userId, data._id, res);
 		})
 	},
 	findAll: function(req, res) {
