@@ -12,6 +12,9 @@ function userService($http){
 		create : function(user){
 			return $http.post('/api/users', user);
 		},
+		createFriend : function(data){
+			return $http.post('/api/users/friends', data);
+		},
 		update : function(id, data){
             return $http.put('/api/users/' + id, data);
     },

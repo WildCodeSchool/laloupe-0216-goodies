@@ -16,7 +16,7 @@ var userSchema = new mongoose.Schema({
   },
   friends: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'friends',
+    ref: 'User',
   }],
   events: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -62,6 +62,7 @@ var User = {
 		User.model.findById(req.params.id)
       .populate('friends')
       .populate('events')
+      .populate('recettes')
       .exec(function (err, user) {
         if (err) {
           res.sendStatus(400);
@@ -84,19 +85,21 @@ var User = {
         res.sendStatus(200);
 		});
 	},
-	addFriends: function(userId, eventId, res) {
-		User.model.findByIdAndUpdate(userId, {
+	addFriends: function(req, res) {
+    console.log(req.body);
+    // var friendId = mongoose.Types.ObjectId(req.body.friendId);
+		User.model.findByIdAndUpdate(req.body.userId, {
         $push: {
-          friends: eventId
+          friends: req.body.friendId
         }
       }, function (err) {
         res.sendStatus(200);
 		});
 	},
-	addRecettes: function(userId, eventId, res) {
+	addRecettes: function(userId, recetteId, res) {
 		User.model.findByIdAndUpdate(userId, {
         $push: {
-          friends: eventId
+          recettes: recetteId
         }
       }, function (err) {
         res.sendStatus(200);

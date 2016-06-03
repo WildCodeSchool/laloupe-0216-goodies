@@ -17,9 +17,7 @@ var friends = {
 
     create: function(req, res) {
       console.log('body: ' + req.body);
-		friends.model.create(
-      req.body
-		, function(err, data){
+		friends.model.create(req.body, function(err, data){
 			User.addFriends(req.body.userId, data._id, res);
 		})
 	},

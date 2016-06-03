@@ -26,9 +26,7 @@ var Event = {
 
     create: function(req, res) {
       console.log('body: ' + req.body);
-		Event.model.create(
-      req.body
-		, function(err, data){
+		Event.model.create(req.body, function(err, data){
 			User.addEvent(req.body.userId, data._id, res);
 		})
 	},
