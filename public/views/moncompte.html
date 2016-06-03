@@ -5,6 +5,8 @@
         <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Mes informations</h2>
       </div>
       <div class="container col-md-12">
+        <div class="row">
+        <div class="col-md-offset-1 col-md-6">
               <h2 ng-hide="adresseUserName" class="info">{{user.prenom}} {{user.name}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseUserName = true"></h2>
               <div ng-show="adresseUserName">
                   <p><label for="prenom">Prénom </label><input type="text" ng-model="user.prenom" name="prenom" value=""></p>
@@ -44,6 +46,17 @@
           </button>
         </div>
       </div>
+      <div class="col-md-4">
+        <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+
+            <div ng-hide="user.img"><img class="imgProfile" src="./assets/user-default.png" alt="" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></div>
+            <div ng-show="user.img"><img class="imgProfile" src="{{user.img}}" alt="" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
   <div class="col-md-offset-1 col-md-4 contEv">
     <div class="headingEvent">

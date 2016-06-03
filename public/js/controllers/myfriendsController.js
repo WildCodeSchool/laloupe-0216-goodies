@@ -16,8 +16,8 @@ function myfriendsController(userService, friendService, $scope, $rootScope) {
       var user = userName.split(' ');
 
       userService.findByNameSurname(user[1],user[0]).then(function(res){ // ===== Récupération de l'ID du Friend
-      console.log(res);
-    	    $scope.userFriendId = res.data.id;
+    	    datas.friendId = res.data.id;
+          datas.img = res.data.img;
 
           if ($rootScope.userId != $scope.userFriendId && $scope.friends.map(function (e)
           {if(e.nom == user[1] && e.prenom == user[0] && e.userId == $rootScope.userId)
@@ -26,7 +26,6 @@ function myfriendsController(userService, friendService, $scope, $rootScope) {
             datas.nom = user[1];
             datas.prenom = user[0];
             datas.userId = $rootScope.userId;
-            datas.friendId = $scope.userFriendId;
             friendService.create(datas).then(function(res) {
               load();
             });
@@ -39,4 +38,5 @@ function myfriendsController(userService, friendService, $scope, $rootScope) {
         load();
       });
     };
+
 }
