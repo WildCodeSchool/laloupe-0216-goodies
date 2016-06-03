@@ -46,18 +46,6 @@
   color: #F8AC37;
   cursor: pointer;
 }
-.imgProfile{
-  border-radius: 100px;
-  border: 1px solid black;
-  width: 150px;
-  height: auto;
-}
-.imageProfileSmall{
-  border-radius: 100px;
-  border: 1px solid black;
-  width: 80px;
-  height: auto;
-}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
@@ -482,24 +470,9 @@ html { height: 100%;}
 /*==========================================================
                         HOME CSS
 -------------------------------------------------------------*/
-#hero {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  background-size: cover;
-}
-#hero h1{
-  font-family: 'Yesteryear', Pacifico, cursive;
-  color : white;
-  font-size: 4em;
-  margin-bottom: 50px;
-}
 
 .dessins {
   margin-top: 120px;
-}
-.containerMiddle {
-  background-color: #e2e0e0;
-  padding: 50px;
 }
 .botTitle{
   margin-bottom: 90px;
@@ -518,8 +491,76 @@ html { height: 100%;}
   font-size: 50px;
 }
 
+/* Container Middle - Home page */
+.containerMiddle {
+  background-color: rgba(31, 165, 151,1);
+  padding: 50px;
+  height: 600px;
+}
 
-.cuver:before {
+.carousel-fade {
+  height: 570px;
+}
+.carousel-inner .item {
+  text-align: center !important;
+}
+@media (max-width: 570px) {
+  .carousel-control.left {
+    left: 0;
+  }
+  .carousel-control.right {
+    right: 0;
+  }
+}
+
+.carousel-inner h1 {
+  text-align: center;
+  color: #fff;
+  font-family: 'yesteryear';
+  font-size: 8rem;
+  margin-top:156px;
+}
+
+.carousel.carousel-fade .item {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity:0;
+}
+
+.carousel.carousel-fade .active.item {
+  opacity:1;
+}
+
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.carousel.carousel-fade .next,
+.carousel.carousel-fade .prev {
+  left: 0;
+  z-index: 1;
+}
+
+.nextDown {
+  text-align: center;
+}
+.nextDown:hover {
+  border: 6px solid #F8AC37;
+  border-radius: 2em;
+}
+
+.down-chevron {
+  width: 100px;
+}
+
+/*.cuver:before {
   top: 52px;
   left: 5px;
 
@@ -532,7 +573,149 @@ html { height: 100%;}
 
   transform: rotate(5deg);
   box-shadow: -7px 6px 15px #333;
+}*/
+
+/* Container Down - Home page */
+.containerDown {
+  background-image: url('../assets/floor-2.jpg');
+  background-size: cover;
 }
+
+.containerMid {
+  background-color:#fff;
+  padding: 100px;
+  font-family: 'Oswald', sans-serif;
+}
+.containerMid h3 {
+  text-align: center;
+  color:#1fa597;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.containerMid p {
+  text-align: center;
+  color:#1fa597;
+}
+.MiddleBox {
+  color: #1fa597;
+  text-align: center;
+}
+.testlogo {
+  font-size: 2em;
+  border: 2px solid #1fa597;
+  border-radius: 50%;
+  padding: 25px;
+
+
+}
+.boxMiddleSoGoodies {
+  border-radius: 4em;
+  border-left: 2px solid #1fa597;
+  border-right: 2px solid #1fa597;
+}
+.btnSoGoodies {
+  text-align: center;
+  font-weight:bold;
+  color:#1fa597;
+  border: 2px solid #1fa597;
+  position: relative;
+  top: 20px;
+}
+.btnSoGoodies:hover {
+  text-align: center;
+  font-weight:bold;
+  color:#fff;
+  background-color: #1fa597;
+  border: 2px solid #333;
+  position: relative;
+  top: 20px;
+}
+.circlefontblue {
+  position: relative;
+  top: -15px;
+}
+.saw{
+  background:
+    vertical-gradient(to top, #fff, #1fa597);
+  height: 50px;
+  position: relative;
+  bottom: 150px;
+}
+.saw::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 10px;
+  background-size: 20px 20px;
+  background-image:
+    radial-gradient(circle at 10px -5px, transparent 12px, #fff 13px);
+}
+.saw::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 15px;
+  background-size: 40px 20px;
+  background-image:
+    radial-gradient(circle at 10px 15px, #fff 12px, transparent 13px);
+}
+.wave{
+  background:
+    vertical-gradient(to top, #fff, #1fa597);
+  height: 50px;
+  position: relative;
+  bottom: 99px;
+}
+.wave::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 10px;
+  background-size: 20px 20px;
+  background-image:
+    radial-gradient(circle at 10px -5px, transparent 12px, #1fa597 13px);
+}
+.wave::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 15px;
+  background-size: 40px 20px;
+  background-image:
+    radial-gradient(circle at 10px 15px, #1fa597 12px, transparent 13px);
+}
+.vcenterL {
+   margin-top: 60px;
+}
+.vcenterR {
+   margin-top: 60px;
+}
+@media (max-device-width: 375px) {
+  .vcenterR {
+    position: relative;
+    left: 50%;
+  }
+  .vcenterL {
+    position: relative;
+    top:249px;
+  }
+}
+
+
+
+
 /*---------------------------------------------------------
                       END HOME CSS
 ==========================================================*/
@@ -829,67 +1012,8 @@ input {
 ZONE DE TEST
 ------------- */
 
-.carousel-fade {
-  height: 570px;
-}
-.carousel-inner .item {
-  text-align: center !important;
-}
-@media (max-width: 570px) {
-  .carousel-control.left {
-    left: 0;
-  }
-  .carousel-control.right {
-    right: 0;
-  }
-}
 
-.carousel-inner h1 {
-  text-align: center;
-  color: #fff;
-  font-family: 'yesteryear';
-  font-size: 8rem;
-  margin-top:156px;
-}
 
-.carousel.carousel-fade .item {
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
-  opacity:0;
-}
-
-.carousel.carousel-fade .active.item {
-  opacity:1;
-}
-
-.carousel.carousel-fade .active.left,
-.carousel.carousel-fade .active.right {
-  left: 0;
-  z-index: 2;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-.carousel.carousel-fade .next,
-.carousel.carousel-fade .prev {
-  left: 0;
-  z-index: 1;
-}
-
-.nextDown {
-  text-align: center;
-}
-.nextDown:hover {
-  border: 6px solid #F8AC37;
-  border-radius: 2em;
-}
-
-.down-chevron {
-  width: 100px;
-}
 /***************************************************************************************************************/
 .foodbox{
     h4 {
