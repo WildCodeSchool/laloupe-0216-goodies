@@ -21,10 +21,10 @@
 					<div class="container col-md-12" style="margin-top:20px;">
 						<div class="panel-group" id="accordion">
 
-							<div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm' : moment().format('LL')">
+							<div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
 								<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
 									<h3 class="panel-title" style="font-size: 1.5em;">
-										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{event.crEdateForm}}</span>
+										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
 									</h3>
 								</div>
 								<div id="collapse{{$index}}" class="panel-collapse collapse">

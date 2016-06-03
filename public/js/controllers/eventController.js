@@ -104,6 +104,10 @@ $scope.addFriends = function(){
 	load()
 }
 
+$scope.formatDate = function (date){
+	var eventDate = new Date(date);
+	return eventDate.getDate()+' / '+(eventDate.getMonth()+1)+' / '+eventDate.getFullYear();
+}
 // ===================  END Ajout des amis dans la BD =============
 
 }
