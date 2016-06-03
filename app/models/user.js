@@ -35,7 +35,11 @@ var User = {
     */
 
     connect: function(req, res) {
-        User.model.findOne(req.body, {password: 0}, function(err, user){
+        User.model.findOne(req.body, {password: 0, isAdmin: 0, __v: 0})
+        .populate('events',{isAdmin: 0, __v: 0})
+        .populate('friends',{isAdmin: 0, __v: 0})
+        .populate('recettes',{isAdmin: 0, __v: 0})
+        .exec(function(err, user){
             if(err || !user)
                 res.sendStatus(403);
             else{
@@ -47,7 +51,8 @@ var User = {
                 res.json({
                   success: true,
                   token: token,
-                  id : user._id
+                  id : user._id,
+                  user: user
                 });
             }
         });

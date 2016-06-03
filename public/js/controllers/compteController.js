@@ -56,7 +56,6 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 	          var uri = event.target.result;
 	          $scope.imageStrings[i] = uri;
 						$scope.user.img = $scope.imageStrings[0];
-						console.log($scope.user.img);
 						$scope.update($scope.user,'img');
 	        };
 	        fileReader.readAsDataURL(flowFile.file);
