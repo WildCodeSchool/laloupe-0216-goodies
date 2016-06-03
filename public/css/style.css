@@ -497,17 +497,27 @@ html { height: 100%;}
   font-size: 40px;
   cursor:pointer;
 }
-.homeCenterTitle {
-  margin-bottom: 50px;
+.homeCenterTitle h2 {
   font-family: 'Yesteryear', Pacifico, cursive;
-  font-size: 50px;
+  font-size: 5rem;
+  margin-bottom: 0;
+}
+.homeCenterTitle p {
+
 }
 
 /* Container Middle - Home page */
 .containerMiddle {
   background-color: rgba(31, 165, 151,1);
   padding: 50px;
-  height: 600px;
+  height: 100vh;
+}
+.footer {
+  background-color: #f8f8f8;
+  border-top: 2px solid #F8AC37;
+  position: relative;
+  top: 145px;
+  height: 100px;
 }
 
 .carousel-fade {
@@ -595,7 +605,8 @@ html { height: 100%;}
 
 .containerMid {
   background-color:#fff;
-  padding: 100px;
+  padding-top: 100px;
+  padding-bottom: 158px;
   font-family: 'Oswald', sans-serif;
 }
 .containerMid h3 {
@@ -725,7 +736,133 @@ html { height: 100%;}
   }
 }
 
+.best {
+  background-color: #fff;
+  width: 356px;
+  height: 270px;
+  margin: 17px;
+}
 
+.bestMeal {
+  height: 250px;
+  background: cover;
+}
+
+/******** ZONE TEST HOME PAGE *****************************************************/
+
+.ContainerCar{
+  width:401px;
+  margin:0 auto;
+  position:relative;
+  top:0;
+  left: 0;
+}
+.Items{
+  position:absolute;
+  
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.Carouseltest{
+  margin: 0;
+  padding: 0;
+}
+
+.Carouseltest li{
+  list-style:none;
+  width:400px;
+  height:300px;
+  background:#333;
+  border-radius:8px;
+  border:1px solid #000;
+  padding: 20px;
+}
+
+/*Let the users know there is something to click.*/
+.Carouseltest li:hover{
+  cursor:pointer;
+}
+
+/*The front image.*/
+.Front{
+  z-index:3000;
+}
+
+/*The left image.*/
+.Left{
+  left:-200px;
+  z-index:1000;
+  opacity:0.6;
+  -webkit-transform: scale(.75);
+  -moz-transform: scale(.75);
+  transform: scale(.75);
+}
+
+/*The left image.*/
+.Left2{
+  left:-400px;
+  z-index:1000;
+  opacity:0.4;
+  -webkit-transform: scale(.50);
+  -moz-transform: scale(.50);
+  transform: scale(.50);
+}
+
+/*The right image.*/
+.Right{
+  left:200px;
+  z-index:1000;
+  opacity:0.6;
+  -webkit-transform: scale(.75);
+  -moz-transform: scale(.75);
+  transform: scale(.75);
+}
+
+/*The right image.*/
+.Right2{
+  left:400px;
+  z-index:1000;
+  opacity:0.4;
+  -webkit-transform: scale(.50);
+  -moz-transform: scale(.50);
+  transform: scale(.50);
+}
+
+
+.Scale{
+  z-index:1000;
+  -webkit-transform: scale(.75);
+  -moz-transform: scale(.75);
+  transform: scale(.75);
+}
+
+.Scale2{
+  z-index:3000;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+
+.Items{
+  font-family:oswald;
+  font-size:2rem;
+  text-align:center;
+  color:#FFF;
+  text-shadow:#000 0px 1px;
+}
+
+.thBestMeal {
+  height: 257px;
+  width: 350px;
+  background-size: cover;
+}
+
+
+
+/**************************************************************************/
 
 
 /*---------------------------------------------------------
