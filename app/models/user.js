@@ -87,10 +87,10 @@ var User = {
 	},
 	addFriends: function(req, res) {
     console.log(req.body);
-    var friendId = mongoose.Types.ObjectId(req.body.friendId);
+    // var friendId = mongoose.Types.ObjectId(req.body.friendId);
 		User.model.findByIdAndUpdate(req.body.userId, {
         $push: {
-          friends: friendId
+          friends: req.body.friendId
         }
       }, function (err) {
         res.sendStatus(200);
