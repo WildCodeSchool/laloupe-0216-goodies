@@ -18,7 +18,7 @@
     <link href='https://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/yoan.css">
-    
+
     <script src="https://cdn.jsdelivr.net/momentjs/2.13.0/moment.min.js"></script>
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="js/libs/jquery-1.11.3.min.js"></script>
@@ -26,6 +26,7 @@
 
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
+    <script src="js/factories/userFactory.js"></script>
     <script src="js/libs/angular-route.min.js"></script>
     <script src="js/libs/ng-map.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M"></script>
@@ -120,7 +121,7 @@
               <a href="#/menu" ng-show="token" class="links">Les recettes</a>
             </li>
             <li>
-              <a href="#/events" ng-show="token" onclick="location.reload();" class="links">Les évènements</a>
+              <a href="#/events" ng-show="token" class="links">Les évènements</a>
             </li>
           </ul>
         </nav>

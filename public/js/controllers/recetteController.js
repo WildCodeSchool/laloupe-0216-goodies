@@ -5,13 +5,6 @@ function recetteController($scope, recetteService, $rootScope, userService) {
   $scope.recetteTab = [];
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
-  function load() {
-    recetteService.get().then(function (res) {
-      $scope.recettes = res.data;
-    });
-  }
-  load();
-
   /*===================  Fonction bouton Recette  ========================= */
 
   $scope.bouton = function (n){
@@ -69,7 +62,7 @@ function recetteController($scope, recetteService, $rootScope, userService) {
       datas.recette = $scope.recette;
       datas.type = type;
       recetteService.create(datas).then(function(res) {
-        load();
+
       });
       $scope.img = "";
       $scope.titre = "";
@@ -84,13 +77,12 @@ function recetteController($scope, recetteService, $rootScope, userService) {
 
   $scope.update = function(recette) {
     recette.service.update(recette._id, recette).then(function(res) {
-      load();
     });
   }
 
   $scope.delete = function(recette) {
       recette.service.delete(recette._id, recette).then(function(res) {
-        load();
+
       });
     },
     //  ------------   FLOW   -----------

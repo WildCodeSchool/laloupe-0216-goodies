@@ -272,7 +272,7 @@
 
 							<div class="form-group">
 					      	<div class="searchable-container">
-					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends | filter : {userId: userId}">
+					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends">
 					                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend.friendId)">
 					                     <div data-toggle="buttons" class="btn-group bizmoduleselect">
 					                         <label class="btn btn-default">
@@ -281,7 +281,7 @@
 																					<img ng-hide="friend.img" class="imageProfileSmall" src="./assets/user-default.png" alt="" />
 																					<img ng-show="friend.img" class="imageProfileSmall" src="{{friend.img}}" alt="" />
 					                                <h5>{{friend.prenom}}</h5>
-																					<h5>{{friend.nom}}</h5>
+																					<h5>{{friend.name}}</h5>
 																					<p><span class="glyphicon glyphicon-ok glyphicon-lg"></span></p>
 					                             </div>
 					                         </label>

@@ -25,7 +25,8 @@ var Event = {
     model: mongoose.model('Event', eventSchema),
 
     create: function(req, res) {
-      console.log('body: ' + req.body);
+      console.log('body: ')
+      console.log(req.body);
 		Event.model.create(req.body, function(err, data){
 			User.addEvent(req.body.userId, data._id, res);
 		})

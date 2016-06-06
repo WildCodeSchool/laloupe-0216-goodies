@@ -35,7 +35,11 @@ var User = {
     */
 
     connect: function(req, res) {
-        User.model.findOne(req.body, {password: 0}, function(err, user){
+        User.model.findOne(req.body,{__v: 0, isAdmin: 0})
+        .populate('events',{__v: 0})
+        .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
+        .populate('recettes',{__v: 0})
+        .exec(function(err, user){
             if(err || !user)
                 res.sendStatus(403);
             else{
@@ -47,7 +51,8 @@ var User = {
                 res.json({
                   success: true,
                   token: token,
-                  id : user._id
+                  id : user._id,
+                  user: user
                 });
             }
         });
@@ -59,10 +64,12 @@ var User = {
 		});
 	},
 	findById: function(req, res) {
-		User.model.findById(req.params.id)
-      .populate('friends')
-      .populate('events')
-      .populate('recettes')
+    console.log('findById');
+    console.log(req.params);
+		User.model.findOne(req.params.id)
+      .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
+      .populate('events',{__v: 0})
+      .populate('recettes',{__v: 0})
       .exec(function (err, user) {
         if (err) {
           res.sendStatus(400);
@@ -76,6 +83,19 @@ var User = {
 			 res.json(user);
 		});
 	},
+	findMail: function(req, res) {
+    console.log('findMail');
+    console.log(req.params);
+		User.model.findOne(req.params, {password: 0, __v: 0, isAdmin: 0, adresse: 0}, function (err, user) {
+      console.log(user);
+      if (!user.name) {
+        res.sendStatus(400);
+      }
+      else {
+        res.json(user);
+      }
+		});
+	},
 	addEvent: function(userId, eventId, res) {
 		User.model.findByIdAndUpdate(userId, {
         $push: {
@@ -86,11 +106,12 @@ var User = {
 		});
 	},
 	addFriends: function(req, res) {
+    console.log('addFriends');
     console.log(req.body);
-    // var friendId = mongoose.Types.ObjectId(req.body.friendId);
+    var friendId = mongoose.Types.ObjectId(req.body.friendId);
 		User.model.findByIdAndUpdate(req.body.userId, {
         $push: {
-          friends: req.body.friendId
+          friends: friendId
         }
       }, function (err) {
         res.sendStatus(200);
@@ -127,8 +148,14 @@ var User = {
             res.json(user);
 	    });
 	},
-
 	delete: function(req, res){
+		User.model.findByIdAndRemove(req.params.id, function(err){
+            if (err)
+                res.status(500).send(err.message);
+			res.sendStatus(200);
+		})
+	},
+	deleteFriend: function(req, res){
 		User.model.findByIdAndRemove(req.params.id, function(err){
             if (err)
                 res.status(500).send(err.message);
