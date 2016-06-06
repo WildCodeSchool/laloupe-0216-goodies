@@ -16,7 +16,8 @@ var friends = {
     model: mongoose.model('friends', friendsSchema),
 
     create: function(req, res) {
-      console.log('body: ' + req.body);
+      console.log('body: ')
+      console.log(req.body);
 		friends.model.create(req.body, function(err, data){
 			User.addFriends(req.body.userId, data._id, res);
 		})

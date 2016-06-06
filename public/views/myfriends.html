@@ -18,14 +18,14 @@
         </div>
 			</div>
       <div>
-        <div ng-repeat='friend in friends | filter : {userId: userId}'>
+        <div ng-repeat='friend in friends'>
           <div class="col-md-3">
             <div class="card">
 							<span class="glyphicon glyphicon-remove" ng-click="removeFriend(friend)"></span>
 							<img ng-hide="friend.img" class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
 							<img ng-show="friend.img" class="imageProfileSmall center-block" src="{{friend.img}}" alt="" />
               <div class="RecetteTitle">{{friend.prenom}}</div>
-							<div class="RecetteTitle"> {{friend.nom}}</div>
+							<div class="RecetteTitle"> {{friend.name}}</div>
               <div class="row">
                 <div class="RecetteDescription"></div>
                 <div class="RecettePreparation"></div>
