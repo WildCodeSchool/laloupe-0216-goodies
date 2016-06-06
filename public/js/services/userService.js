@@ -21,8 +21,8 @@ function userService($http){
 		update : function(id, data){
             return $http.put('/api/users/' + id, data);
     },
-		delete : function(id) {
-				return $http.delete('/api/users/friend/' + id);
+		deleteFriend : function(userId,friendId) {
+				return $http.delete('/api/users/friends/' +userId+'/'+friendId);
 		},
 	}
 }
