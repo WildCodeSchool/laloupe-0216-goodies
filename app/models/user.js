@@ -156,11 +156,18 @@ var User = {
 		})
 	},
 	deleteFriend: function(req, res){
-		User.model.findByIdAndRemove(req.params.id, function(err){
-            if (err)
-                res.status(500).send(err.message);
-			res.sendStatus(200);
-		})
+    console.log('deleteFriend');
+    console.log(req.params);
+    console.log(req.params.userId);
+    User.model.findByIdAndUpdate(req.params.userId, {
+        $pull: {
+          friends: req.params.friendId
+        }
+      }, function (err) {
+        if (err)
+            res.status(500).send(err.message);
+  res.sendStatus(200);
+		});
 	}
 }
 
