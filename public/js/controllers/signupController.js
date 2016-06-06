@@ -1,4 +1,5 @@
 function signupController($scope, $location, $timeout, userService) {
+    $('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
 
     $scope.username = "";
     $scope.signupMessage = {};

@@ -1,5 +1,5 @@
 
-//	ROUTES EVENTS
+//	ROUTES FRIENDS
 
 var friends = require('../models/friends.js');
 module.exports 	= function(app) {
