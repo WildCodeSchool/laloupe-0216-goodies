@@ -1,8 +1,9 @@
-function recetteController($scope, recetteService, $rootScope, userService) {
+function recetteController($scope, recetteService, $rootScope, $location, userService) {
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
+  $scope.eat = $rootScope.eat; //type entre plat ou dessert
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
 
   function load() {
@@ -21,7 +22,7 @@ function recetteController($scope, recetteService, $rootScope, userService) {
     $scope.recetteTab = [];
     }
     $scope.showRecette = n;
-  }
+  };
   $scope.menuShow = function (n) {
     $scope.bouton(n);
     if (n == 'entree'){
@@ -33,8 +34,7 @@ function recetteController($scope, recetteService, $rootScope, userService) {
     if (n == 'dessert'){
       $('body').css('background-image', 'none').css('background-image','url("./assets/dessertmenu.jpg")');
     }
-  }
-
+  };
   /*==================  Fin Fonction bouton Recette  ===================== */
 
 
@@ -42,7 +42,7 @@ function recetteController($scope, recetteService, $rootScope, userService) {
 
   $scope.id = function(recette){
     $scope.recetteAffiche = recette;
-  }
+  };
 
   /*==================  End Stockage de l'ID  ===================== */
 
@@ -51,12 +51,13 @@ function recetteController($scope, recetteService, $rootScope, userService) {
   $scope.pushtab = function (menu){
     $scope.recetteTab.push(menu);
     $scope.recetteAffiche = $scope.recetteTab[0];
-  }
+  };
 
   /*==================  end Add first menu  ===================== */
 
   $scope.i = 0;
   $scope.y = 0;
+
     $scope.add = function(type) {
       var datas = {};
       datas.userId = $scope.userId;
@@ -71,6 +72,7 @@ function recetteController($scope, recetteService, $rootScope, userService) {
       recetteService.create(datas).then(function(res) {
         load();
       });
+      $location.path("/success");
       $scope.img = "";
       $scope.titre = "";
       $scope.description = "";
@@ -79,20 +81,38 @@ function recetteController($scope, recetteService, $rootScope, userService) {
       $scope.ingredient = "";
       $scope.recette = "";
       $scope.type = "";
+      $scope.imageStrings[0] = [];
+      $rootScope.eat = type;
+      console.log($rootScope.eat);
+      console.log($scope.eat);
       $scope.i ++;
+
     };
 
   $scope.update = function(recette) {
     recette.service.update(recette._id, recette).then(function(res) {
       load();
     });
-  }
+  };
 
   $scope.delete = function(recette) {
       recette.service.delete(recette._id, recette).then(function(res) {
         load();
       });
     },
+
+    // Redirection vers page de création
+  $scope.locateEntre = function(){
+    $location.path("/createEntree");
+  };
+
+  $scope.locatePlat = function(){
+    $location.path("/createPlat");
+  };
+
+  $scope.locateDessert = function(){
+    $location.path("/createDessert");
+  };
     //  ------------   FLOW   -----------
   $scope.imageStrings = [];
   $scope.processFiles = function(files) {
@@ -100,7 +120,6 @@ function recetteController($scope, recetteService, $rootScope, userService) {
       var fileReader = new FileReader();
       fileReader.onload = function(event) {
         var uri = event.target.result;
-        console.log($scope.imageStrings[i]);
         $scope.imageStrings[i] = uri;
         $scope.y = 1;
       };
@@ -110,5 +129,5 @@ function recetteController($scope, recetteService, $rootScope, userService) {
   $scope.cancel = function(image) {
     image.cancel();
     $scope.y = 0;
-  }
+  };
 }

@@ -1,0 +1,38 @@
+<!-- Upload image -->
+<div class="container contEv">
+  <div class="headingEvent">
+    <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">
+      Créer votre entrée</h2>
+  </div>
+  <div class="col-md-5">
+    <input type="text" class="form-control col-md-2" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
+    <input type="text" class="form-control col-md-2" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
+    <p>Temp de préparation</p>
+    <input type="number" value="0" min="0" class="form-control" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
+    <p>Temp de cuisson</p>
+    <input type="number" value="0" min="0" class="form-control" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
+  </div>
+  <div class="col-md-6">
+    <p>Les ingredient
+    </p>
+    <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
+    <p>La recette</p>
+    <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
+  </div>
+    <div class="col-md-5">
+      <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+    <div ng-hide="y == 1">
+      <button type="button" class="btn btn-default" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"><img class="placeholder" src="./assets/desserts/placeholder.png" alt="addimage"/></button>
+    </div>
+      <div ng-repeat="image in uploader.flow.files track by $index">
+        <img ng-show="out" class="preview" flow-img="image"/>
+        <img class="preview" ng-src="{{imageStrings[$index]}}"/>
+        <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10">
+      <a href="#/menu"><button type="submit" class="btn btn-success btn-lg valid" data-dismiss="modal">Retour au recette</button></a>
+      <button type="submit" class="btn btn-success btn-lg valid" data-dismiss="modal" ng-click="add('entree')">Valider</button>
+  </div>
+</div>

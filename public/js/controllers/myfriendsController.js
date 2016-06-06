@@ -21,7 +21,6 @@ function myfriendsController(userService, friendService, $scope, $rootScope, con
           if ($rootScope.userId != $scope.userFriendId && $scope.friends.map(function (e)
           {if(e.nom == user[1] && e.prenom == user[0] && e.userId == $rootScope.userId)
             return true;}).indexOf(true) == -1){
-
             datas.nom = user[1];
             datas.prenom = user[0];
             datas.userId = $rootScope.userId;
