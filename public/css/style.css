@@ -1575,6 +1575,28 @@ input::-webkit-calendar-picker-indicator {
 /**********************************************************
                      ALLRECIPES CSS
 ***********************************************************/
+.allRecipescontainerNav {
+  height: 105px;
+  position: fixed;
+  left: 298px;
+  z-index: 999;
+  background-color: #fff;
+}
+.allRecipesNav {
+  font-family: 'oswald', pacifico, sans-serif;
+  border-bottom: 1px solid #e2e0e0;
+}
+.allRecipesNav .btn-link {
+  font-size: 2.5rem;
+  color: #333;  
+}
+.allRecipesNav .btn-link:hover {
+  color: #333;
+  background-color: #ffdea5;
+}
+.allRecipesNav li:hover {
+  background-color: #ffdea5;
+}
 @media screen and (max-width: 375px){
 
 }
@@ -1602,7 +1624,6 @@ input::-webkit-calendar-picker-indicator {
 
 .g_boxSignIn {
   background-color:#333;
-  border-radius: 5px;
   padding:15px;
   width: 294px;
   height: 392px;
@@ -1611,7 +1632,7 @@ input::-webkit-calendar-picker-indicator {
   font-family:'yesteryear';
   font-size: 7rem;
   color:#f8ac37;
-
+  margin-top: 28px;
 }
 .g_boxSignIn h5 {
   font-family:'oswald', sans-serif;
@@ -1639,8 +1660,6 @@ input::-webkit-calendar-picker-indicator {
 
 .search {
   width: 100%;
-  position: relative;
-  left:265px;
 }
 
 .searchTerm {
@@ -1648,10 +1667,10 @@ input::-webkit-calendar-picker-indicator {
   width: 100%;
   border: 2px solid #f8ac37 !important;
   padding: 5px;
-  height: 36px;
-  border-radius: 5px;
+  height: 40px;
   outline: none;
   color: #9DBFAF;
+  text-align: center;
 }
 
 .searchTerm:focus{
@@ -1674,10 +1693,8 @@ input::-webkit-calendar-picker-indicator {
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
-  width: 60%;
   position: relative;
   top: 12px;
-  transform: translate(-50%, -50%);
 }
 
 

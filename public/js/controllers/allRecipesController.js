@@ -6,11 +6,11 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 
 	$scope.test = function(){
 		$scope.presentation = false;
-		$scope.searchRecipesText.titre = 'bonjour';
+		$scope.searchRecipesText.titre = 'Trouver une Recette';
     };
 
 	function load() {
-		recetteService.get().then(function (res) {
+		recetteService.get().then(function(res){
 			$scope.recettes = res.data;
 		});
 	}

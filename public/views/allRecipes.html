@@ -1,45 +1,71 @@
-<div class="container">
+
+<div class="container allRecipescontainerNav">
   <div class="row">
-    <div class="col-md-6 col-sm-4 col-xs-4">  
-      <button class="btn btn-link" ng-click="test();" style="font-family:oswald; font-size: 2.5rem;">Les Recettes</button>
+    
+    <div class="col-md-12 allRecipesNav">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''">Les Recettes</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrées <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='entree'">Toutes</button></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Entrées Froides</a></li>
+            <li class="disabled"><a href="">Entrées Chaudes</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Potages, Soupes</a></li>
+            <li class="disabled"><a href="">Salades</a></li>
+            <li class="disabled"><a href="">Terrines, pâtés</a></li>
+            <li class="disabled"><a href="">Cakes Salé</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Végétarien</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plats <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='plat'">Tous</button></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Plats Froids</a></li>
+            <li class="disabled"><a href="">Plats Chauds</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Viandes</a></li>
+            <li class="disabled"><a href="">Poissons et Fruits de Mer</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Végétarien</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Desserts <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='dessert'">Tous</button></li>
+            <li role="seperator" class="divider"></li>
+            <li class="disabled"><a href="">Gateaux</a></li>
+            <li class="disabled"><a href="">Cakes sucré</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="disabled"><a href="">Tout Chocolat</a></li>
+            <li class="disabled"><a href="">Desserts aux Fruits</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
+    
+    <div class="col-md-12">
       <div class="wrap">
           <div class="search pull-right">
               <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" ng-click="presentation = true"
-               placeholder="Trouver une Recette">
-              
+               placeholder="* Trouver une Recette *">
           </div>
       </div>
     </div>
-  </div>
-</div>
-  
-<div class="container">
-  <div class="row"> 
-
-        <ul class="nav nav-tabs col-xs-6 col-md-6">
-          <li><button type="button" class="btn btn-link" ng-click="showRecette='entree'">Entrées</button></li>
-          <li><button type="button" class="btn btn-link" ng-click="showRecette='plat'">Plats</button></li>
-          <li><button type="button" class="btn btn-link" ng-click="showRecette='desserts"> Desserts</button></li>
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="" class="btn btn-link" role="button" aria-haspopup="true" aria-expanded="false">
-              Autres Catégories <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li role="presentation"><a href="#">Apéritifs</a></li>
-              <li role="separator" class="divider"></li>
-              <li role="presentation"><a href="#">Viandes</a></li>
-              <li role="presentation"><a href="#">Poissons et Fruits de mer</a></li>
-            </ul>
-          </li>    
-        </ul>
     
   </div><!-- /.row -->
 </div><!-- /.container -->
 
  
-<div class="container" style="position:relative; top:30px;">
+<div class="container" style="position:relative; top:115px;">
     <div class="row" ng-hide="presentation">
   
 
@@ -89,7 +115,7 @@
 
 
 <!-- Affichage des recettes =================================================== --> 
-<div class="container" style="position:relative; top:50px;">
+<div class="container" style="position:relative; top:130px;">
   <div class="row">
        
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
