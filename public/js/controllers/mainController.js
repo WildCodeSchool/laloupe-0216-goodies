@@ -2,10 +2,12 @@ function mainController($scope, $rootScope, $http,recetteService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
 	$scope.showRecette = 'entree';
 
-	$(function(){
+	
+  $('.carousel-fade').carousel({
+          interval: 3000
+        });
   var front = $('.Front'),
       others = ['Left2', 'Left', 'Right', 'Right2'];
-  
   $('.Carouseltest').on('click', '.Items', function() {
     var $this = $(this);
     
@@ -17,7 +19,7 @@ function mainController($scope, $rootScope, $http,recetteService) {
       }
     });
   });
-});
+
 
 	function load() {
 		recetteService.get().then(function (res) {
