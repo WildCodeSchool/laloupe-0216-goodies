@@ -1604,7 +1604,8 @@ input::-webkit-calendar-picker-indicator {
   background-color:#333;
   border-radius: 5px;
   padding:15px;
-  margin-top: 20px;
+  width: 294px;
+  height: 392px;
 }
 .g_boxSignIn h2 {
   font-family:'yesteryear';
@@ -1626,6 +1627,8 @@ input::-webkit-calendar-picker-indicator {
   border: 1px solid #f8ac37;
   border-radius: 2px;
   font-family: 'oswald', sans-serif;
+  position: relative;
+  top: 30px;
 }
 .btnSignIn:hover {
   color: #333;
