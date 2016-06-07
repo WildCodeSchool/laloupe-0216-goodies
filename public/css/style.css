@@ -46,6 +46,18 @@
   color: #F8AC37;
   cursor: pointer;
 }
+.imgProfile{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 150px;
+  height: auto;
+}
+.imageProfileSmall{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 80px;
+  height: auto;
+}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
@@ -525,9 +537,9 @@ html { height: 100%;}
 
 .carousel-inner h1 {
   text-align: center;
-  color: #fff; 
-  font-family: 'yesteryear'; 
-  font-size: 8rem; 
+  color: #fff;
+  font-family: 'yesteryear';
+  font-size: 8rem;
   margin-top:156px;
 }
 
@@ -570,7 +582,6 @@ html { height: 100%;}
   width: 100px;
 }
 
-
 /* Container Down - Home page */
 .containerDown {
   background-image: url('../assets/floor-2.jpg');
@@ -584,13 +595,14 @@ html { height: 100%;}
   font-family: 'Oswald', sans-serif;
 }
 .containerMid h3 {
-  text-align: center; 
+
+  text-align: center;
   color:#f8ac37;
   margin-bottom: 5px;
   margin-top: 5px;
 }
 .containerMid p {
-  text-align: center;  
+  text-align: center;
   color:#f8ac37;
 }
 .MiddleBox {
@@ -602,7 +614,7 @@ html { height: 100%;}
   border: 2px solid #f8ac37;
   border-radius: 50%;
   padding: 25px;
-  
+
 
 }
 .boxMiddleSoGoodies {
@@ -611,19 +623,21 @@ html { height: 100%;}
   border-right: 2px solid #f8ac37;
 }
 .btnSoGoodies {
-  text-align: center; 
-  font-weight:bold; 
-  color:#f8ac37; 
-  border: 2px solid #f8ac37; 
+
+  text-align: center;
+  font-weight:bold;
+  color:#f8ac37;
+  border: 2px solid #f8ac37;
   position: relative;
   top: 20px;
 }
 .btnSoGoodies:hover {
-  text-align: center; 
-  font-weight:bold; 
-  color:#fff; 
+
+  text-align: center;
+  font-weight:bold;
+  color:#fff;
   background-color: #f8ac37;
-  border: 2px solid #333; 
+  border: 2px solid #333;
   position: relative;
   top: 20px;
 }
@@ -733,7 +747,7 @@ html { height: 100%;}
 }
 .Items{
   position:absolute;
-  
+
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -988,7 +1002,7 @@ input {
     background-image: url("../assets/backhome.jpg");
 }*/
 
-/* Create Event - form 2 
+/* Create Event - form 2
 --------------------------*/
 /* sidebar */
 .sidebarLeft2 {
@@ -1132,7 +1146,7 @@ input {
 }
 
 /*************************************************************************************************************
-ZONE DE TEST 
+ZONE DE TEST
 ------------- */
 
 
@@ -1559,7 +1573,7 @@ input::-webkit-calendar-picker-indicator {
 
 
 /**********************************************************
-                     ALLRECIPES CSS                         
+                     ALLRECIPES CSS
 ***********************************************************/
 @media screen and (max-width: 375px){
 
@@ -1587,21 +1601,21 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .g_boxSignIn {
-  background-color:#333; 
-  border-radius: 5px; 
+  background-color:#333;
+  border-radius: 5px;
   padding:15px;
   margin-top: 20px;
 }
 .g_boxSignIn h2 {
-  font-family:'yesteryear'; 
+  font-family:'yesteryear';
   font-size: 7rem;
   color:#f8ac37;
 
 }
 .g_boxSignIn h5 {
-  font-family:'oswald', sans-serif; 
-  font-size:2rem; 
-  line-height:30px; 
+  font-family:'oswald', sans-serif;
+  font-size:2rem;
+  line-height:30px;
   color:#fff;
 }
 .g_boxSignIn span {
@@ -1611,7 +1625,7 @@ input::-webkit-calendar-picker-indicator {
   color: #F8AC37;
   border: 1px solid #f8ac37;
   border-radius: 2px;
-  font-family: 'oswald', sans-serif;  
+  font-family: 'oswald', sans-serif;
 }
 .btnSignIn:hover {
   color: #333;
@@ -1642,7 +1656,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .searchButton {
-  position: absolute;  
+  position: absolute;
   right: -50px;
   width: 40px;
   height: 36px;
@@ -1739,10 +1753,3 @@ input::-webkit-calendar-picker-indicator {
   }
 
 }
-
-
-
-
-
-
-

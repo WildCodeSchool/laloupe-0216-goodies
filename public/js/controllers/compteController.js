@@ -39,10 +39,28 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 							case 'adresseUserName':
 								$scope.adresseUserName = false;
 								break;
+							case 'img':
+								$scope.img = false;
 						}
 					load();
 				});
 			}
 
+	    // ===================== FLOW IMG ======================
+
+	    $scope.imageStrings = [];
+	    $scope.processFiles = function(files) {
+	      angular.forEach(files, function(flowFile, i) {
+	        var fileReader = new FileReader();
+	        fileReader.onload = function(event) {
+	          var uri = event.target.result;
+	          $scope.imageStrings[i] = uri;
+						$scope.user.img = $scope.imageStrings[0];
+						console.log($scope.user.img);
+						$scope.update($scope.user,'img');
+	        };
+	        fileReader.readAsDataURL(flowFile.file);
+	      });
+	    };
 
 }
