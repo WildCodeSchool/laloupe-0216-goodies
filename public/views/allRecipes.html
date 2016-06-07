@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-4 col-xs-4">  
+      <button class="btn btn-link" ng-click="test();" style="font-family:oswald; font-size: 2.5rem;">Les Recettes</button>
+    </div>
+    <div class="col-md-6">
+      <div class="wrap">
+          <div class="search pull-right">
+              <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" ng-click="presentation = true"
+               placeholder="Trouver une Recette">
+              
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="container">
+  <div class="row"> 
+
+        <ul class="nav nav-tabs col-xs-6 col-md-6">
+          <li><button type="button" class="btn btn-link" ng-click="showRecette='entree'">Entrées</button></li>
+          <li><button type="button" class="btn btn-link" ng-click="showRecette='plat'">Plats</button></li>
+          <li><button type="button" class="btn btn-link" ng-click="showRecette='desserts"> Desserts</button></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+              Autres Catégories <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li role="presentation"><a href="#">Apéritifs</a></li>
+              <li role="separator" class="divider"></li>
+              <li role="presentation"><a href="#">Viandes</a></li>
+              <li role="presentation"><a href="#">Poissons et Fruits de mer</a></li>
+            </ul>
+          </li>    
+        </ul>
+    
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+ 
+<div class="container" style="position:relative; top:30px;">
+    <div class="row" ng-hide="presentation">
+  
+
+    <div id="carousel-recipes-generic" class="carousel slide col-md-8" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-recipes-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-recipes-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-recipes-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active carItem">
+          <img src="../assets/entrees/salad.jpg" alt="...">
+          <div class="carousel-caption">
+            <h2>Voilà l'été, voilà l'été ...</h2>
+            <p>Les salades ! Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
+          </div>
+        </div>
+        <div class="item carItem">
+          <img src="../assets/plats/brochette.jpg" alt="...">
+          <div class="carousel-caption">
+            <h2>L'instant grillade</h2>
+            <p>Un moment a partager en famille et entre amis</p>
+          </div>
+        </div>
+        <div class="item carItem">
+          <img src="../assets/desserts/cookies.jpg" alt="...">
+          <div class="carousel-caption">
+            <h2>Biscuits "So Goodies"</h2>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.carousel slide -->
+
+    <div class="col-md-4 g_boxSignIn">
+      <center>
+        <h2>Goodies</h2>
+        <h5>La meilleur méthode<br>pour inviter<br> ses amis<br>à dîner</h5>
+        <a href="#/signup" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
+      </center>
+    </div>
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+
+
+<!-- Affichage des recettes =================================================== --> 
+<div class="container" style="position:relative; top:50px;">
+  <div class="row">
+       
+      <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
+        <div class="col-md-3 g_boxImg">
+          <img class="g_imgRec col-md-12" src={{recette.img}} alt="" ng-click="id(recette)"/>
+          <div class="g_titreRec col-md-10">{{recette.titre}}</div>
+        </div>
+      </div>
+    
+  </div><!-- /.row -->
+</div><!-- /.container -->
