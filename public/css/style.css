@@ -1575,7 +1575,7 @@ input::-webkit-calendar-picker-indicator {
 /**********************************************************
                      ALLRECIPES CSS
 ***********************************************************/
-.allRecipescontainerNav {
+.allRecipesContainerNav {
   height: 105px;
   position: fixed;
   left: 298px;
@@ -1597,8 +1597,33 @@ input::-webkit-calendar-picker-indicator {
 .allRecipesNav li:hover {
   background-color: #ffdea5;
 }
-@media screen and (max-width: 375px){
 
+.allRecipesPresentation {
+  position: relative;
+  top: 115px;
+}
+
+/* Media - allRecipes */
+@media screen and (max-width: 375px){
+  .allRecipesContainerNav {
+    position: fixed;
+    left: 0px;
+    top: 125px;
+  }
+  .allRecipesNav {
+    display: block;
+  }
+  .allRecipesNav .btn-link {
+    font-size: 1.3rem;
+  }
+  .g_boxSignIn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+  }
+  .allRecipesPresentation {
+    margin-top: 55px;
+  }
 }
 .g_imgRec {
   width: 100%;
