@@ -1578,6 +1578,7 @@ input::-webkit-calendar-picker-indicator {
 .allRecipesContainerNav {
   height: 105px;
   position: fixed;
+  top: 54px;
   left: 298px;
   z-index: 999;
   background-color: #fff;
@@ -1797,4 +1798,14 @@ input::-webkit-calendar-picker-indicator {
     max-width: 930px;
   }
 
+}
+
+
+/* seeRecipeContainer */
+.seeRecipeContainer {
+  border: 1px solid #333;
+}
+.g_imgRecipe {
+  width: 300px;
+  height: 200px;
 }

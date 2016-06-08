@@ -49,14 +49,14 @@
             <li class="disabled"><a href="">Desserts aux Fruits</a></li>
           </ul>
         </div>
-      </div>
-    </div>
+      </div><!-- /.button-group-justified -->
+    </div><!-- /.allRecipesNav -->
     
+
     <div class="col-md-12">
       <div class="wrap">
-          <div class="search pull-right">
-              <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" ng-click="presentation = true"
-               placeholder="* Trouver une Recette *">
+          <div class="search"> <a class="js-scrollTo" href="#showAllRecipes">
+              <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *"></a>
           </div>
       </div>
     </div>
@@ -65,8 +65,8 @@
 </div><!-- /.container -->
 
  
-<div class="container allRecipesPresentation" style="position:relative; top:115px;">
-    <div class="row" ng-hide="presentation">
+<div class="container allRecipesPresentation">
+    <div class="row">
   
 
     <div id="carousel-recipes-generic" class="carousel slide col-md-8" data-ride="carousel">
@@ -82,21 +82,21 @@
         <div class="item active carItem">
           <img src="../assets/entrees/salad.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>Voilà l'été, voilà l'été ...</h2>
-            <p>Les salades ! Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
+            <h2>Voilà l'été, avec ses salades ! ...</h2>
+            <p>Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
           </div>
         </div>
         <div class="item carItem">
           <img src="../assets/plats/brochette.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>L'instant grillade</h2>
+            <h2>Les Grillades</h2>
             <p>Un moment a partager en famille et entre amis</p>
           </div>
         </div>
         <div class="item carItem">
           <img src="../assets/desserts/cookies.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>Biscuits "So Goodies"</h2>
+            <h2>Les Cookies "So Goodies"</h2>
           </div>
         </div>
       </div>
@@ -114,16 +114,31 @@
 
 
 
-<!-- Affichage des recettes =================================================== --> 
-<div class="container" style="position:relative; top:130px;">
-  <div class="row">
+<!-- Display of mini recipes =================================================== -->
+
+<div class="container"  style="position:relative; top:130px;">
+  <div class="row" >
        
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
-        <div class="col-md-3 g_boxImg">
-          <img class="g_imgRec col-md-12" src={{recette.img}} alt="" ng-click="id(recette)"/>
+        <div class="col-md-3 g_boxImg" ng-click="id(recette)">
+          <img class="g_imgRec col-md-12" src={{recette.img}} alt="">
           <div class="g_titreRec col-md-10">{{recette.titre}}</div>
         </div>
       </div>
     
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+
+<!-- See recipe at the click of mini ============================================ -->
+<div class="container seeRecipeContainer">
+  <div class="row">
+    
+    <div class="col-md-12">
+      <div>
+        <img src="{{clickRecipe.img}}" alt="" class="g_imgRecipe">
+      </div>
+    </div>
+
   </div><!-- /.row -->
 </div><!-- /.container -->
