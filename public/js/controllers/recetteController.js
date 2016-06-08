@@ -1,11 +1,11 @@
-function recetteController($scope, recetteService, $rootScope, $location, userService) {
+function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService) {
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
+  $scope.data = {};
   $scope.eat = $rootScope.eat; //type entre plat ou dessert
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
-
   function load() {
     recetteService.get().then(function (res) {
       $scope.recettes = res.data;
@@ -83,8 +83,6 @@ function recetteController($scope, recetteService, $rootScope, $location, userSe
       $scope.type = "";
       $scope.imageStrings[0] = [];
       $rootScope.eat = type;
-      console.log($rootScope.eat);
-      console.log($scope.eat);
       $scope.i ++;
 
     };
@@ -130,4 +128,49 @@ function recetteController($scope, recetteService, $rootScope, $location, userSe
     image.cancel();
     $scope.y = 0;
   };
+
+  $scope.test = function (){
+    marmitonService.create($scope.data).then(function(res){
+      $scope.recetteMarmiton = res.data;
+      console.log($scope.recetteMarmiton);
+      angular.element($('#inputTitre')).val($scope.recetteMarmiton.titre);
+      angular.element($('#inputCuisson')).val($scope.recetteMarmiton.cuisson);
+      angular.element($('#inputPreparation')).val($scope.recetteMarmiton.preparation.replace(' ', ''));
+      angular.element($('#inputIngredient')).val($scope.recetteMarmiton.ingredients.split('-').join('\r\n-'));
+      angular.element($('#inputRecette')).val($scope.recetteMarmiton.recette);
+
+      $scope.titre = $scope.recetteMarmiton.titre;
+      $scope.preparation = $scope.recetteMarmiton.preparation;
+      $scope.cuisson = $scope.recetteMarmiton.cuisson;
+      $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
+      $scope.recette = $scope.recetteMarmiton.recette;
+
+    });
+  };
+
+  // $scope.adress = function () {
+  //     angular.element($('#crEnumberForm')).val($scope.user.adresse.num);
+  //     angular.element($('#crEwayForm')).val($scope.user.adresse.rue);
+  //     angular.element($('#crEcityForm')).val($scope.user.adresse.ville);
+  //     angular.element($('#crEpostalcodeForm')).val($scope.user.adresse.cp);
+  //     angular.element($('#crEcountryForm')).val($scope.user.adresse.pays);
+  //     $scope.crEnumberForm = $scope.user.adresse.num;
+  //     $scope.crEwayForm = $scope.user.adresse.rue;
+  //     $scope.crEcityForm = $scope.user.adresse.ville;
+  //     $scope.crEpostalcodeForm = $scope.user.adresse.cp;
+  //     $scope.crEcountryForm = $scope.user.adresse.pays;
+  //   else {
+  //     angular.element($('#crEnumberForm')).val('');
+  //     angular.element($('#crEwayForm')).val('');
+  //     angular.element($('#crEcityForm')).val('');
+  //     angular.element($('#crEpostalcodeForm')).val('');
+  //     angular.element($('#crEcountryForm')).val('');
+  //     $scope.crEnumberForm = '';
+  //     $scope.crEwayForm = '';
+  //     $scope.crEcityForm = '';
+  //     $scope.crEpostalcodeForm = '';
+  //     $scope.crEcountryForm = '';
+  //   }
+  // }
+
 }

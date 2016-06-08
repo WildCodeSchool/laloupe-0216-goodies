@@ -3,7 +3,6 @@
     <h2 class="titleMenu">Mes recettes</h2>
   </center>
 </div>
-
 <div class="col-md-8 col-md-offset-2 boutonMenu">
   <!-- creation de la partie entree -->
   <div class="col-md-4">
@@ -11,8 +10,8 @@
       <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')">
         ENTREES
       </button>
-      <button type="button" class="btn btn-default btn-default">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="locateEntre()"></span>
+      <button type="button" class="btn btn-default btn-default" ng-click="locateEntre()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>
     </center>
   </div>
@@ -21,8 +20,8 @@
       <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
         PLATS
       </button>
-      <button type="button" class="btn btn-default btn-default">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="locatePlat()"></span>
+      <button type="button" class="btn btn-default btn-default" ng-click="locatePlat()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>
     </center>
   </div>
@@ -31,8 +30,8 @@
       <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
         DESSERTS
       </button>
-      <button type="button" class="btn btn-default btn-default">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="locateDessert()"></span>
+      <button type="button" class="btn btn-default btn-default" ng-click="locateDessert()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>
     </center>
   </div>
@@ -67,7 +66,8 @@
           <div class="scroll-box-show " ng-show="recetteTab.length != 0">
             <div class="RecetteTitreA">{{recetteAffiche.titre}}</div>
             <div class="col-md-8">
-              <img class="RecetteImgA" src={{recetteAffiche.img}} alt=""/>
+              <img class="RecetteImgA" src={{recetteAffiche.img}} alt="image"/>
+              <img class="RecetteImgA" src="{{recetteMarmiton.image}}" alt="image" />
             </div>
             <div class="col-md-4">
               <div class="preparationA">

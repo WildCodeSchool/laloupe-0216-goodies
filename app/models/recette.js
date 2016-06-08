@@ -15,7 +15,6 @@ var recetteSchema = new mongoose.Schema({
 var Recette = {
   model: mongoose.model('Recette', recetteSchema),
   create: function(req, res) {
-    console.log(req.body);
     Recette.model.create(req.body, function() {
       res.sendStatus(200);
     })
