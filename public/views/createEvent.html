@@ -4,7 +4,7 @@
 
 <!-- formulaire 1 ============================================================= -->
 <div ng-show="creform == 1">
-	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px;">
+	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px; margin-top:75px;">
 		<div class="headingEvent">
 			<h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Créer mon événement</h2>
 		</div>
@@ -31,7 +31,7 @@
 		                <input name="crEnameForm" type="text" id="crEnameForm" class="form-control"  placeholder="Nom" ng-model="crEnameForm" required>
 		            </div>
 		         </div>
-		       
+
 					<div class="col-md-offset-1 col-md-5">
 						<!-- formulaire: date -->
 		            <div class="form-group">
@@ -102,7 +102,7 @@
 
 <!-- formulaire 2 ========================================================== -->
 <div ng-show="creform == 2">
-	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px;">
+	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px; margin-top:75px;">
 		<div class="headingEvent">
 			<h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Créer mon événement</h2>
 		</div>
@@ -226,7 +226,7 @@
 
 <!-- formulaire 3 ============================================================ -->
 <div ng-show="creform == 3">
-	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px;">
+	<div class="container" style="background-color:#f8f8f8; padding-left:0; padding-right:0; border-radius:5px; margin-top:75px;">
 		<div class="headingEvent">
 			<h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Créer mon événement</h2>
 		</div>
@@ -255,8 +255,8 @@
 						<div class="col-md-6">
 							<label>Ajouter des amis :</label>
 							<div class="form-group">
-								<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.nom" placeholder="Nom" minlength="3"  maxlength="10" required />
 								<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.prenom" placeholder="Prénom" minlength="3"  maxlength="10" required />
+								<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.nom" placeholder="Nom" minlength="3"  maxlength="10" required />
 								<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
 								<button type="submit" class="btn btn-default pull-right" ng-click="addFriends()">Ajouter</button>
 							</div>
@@ -274,15 +274,15 @@
 					      	<div class="searchable-container">
 					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends | filter : {userId: userId}">
 					                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend.friendId)">
-					                     <div class="square-box pull-left">
-					                         <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-					                     </div>
 					                     <div data-toggle="buttons" class="btn-group bizmoduleselect">
 					                         <label class="btn btn-default">
 					                             <div class="bizcontent">
-					                                 <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-					                                 <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-					                                 <h5>{{friend.nom}} {{friend.prenom}}</h5>
+					                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+																					<img ng-hide="friend.img" class="imageProfileSmall" src="./assets/user-default.png" alt="" />
+																					<img ng-show="friend.img" class="imageProfileSmall" src="{{friend.img}}" alt="" />
+					                                <h5>{{friend.prenom}}</h5>
+																					<h5>{{friend.nom}}</h5>
+																					<p><span class="glyphicon glyphicon-ok glyphicon-lg"></span></p>
 					                             </div>
 					                         </label>
 					                     </div>

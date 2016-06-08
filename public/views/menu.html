@@ -39,7 +39,7 @@
 <div>
   <div class="description">
     <div class="container">
-      <div class="col-md-6">
+      <div class="col-md-6 col-md-pull-2">
         <div class="scroll-bar-wrap">
           <div ng-class="{'scroll-box' : recettes.length > 4}">
             <div ng-repeat="recette in recettes | filter : {userId: userId} | filter : {type: showRecette}" ng-show="userId">
@@ -51,7 +51,6 @@
                     <div class="RecetteDescription">{{recette.description}}</div>
                     <div class="RecettePreparation">{{recette.preparation}}</div>
                     <div class="RecetteCuisson">{{recette.cuisson}}</div>
-                    <!-- <div class="RecettenbPersonne col-md-4">{{recette.nbrPersonne}}</div> -->
                   </div>
                   <button type="button" class="btn btn-success glyphicon glyphicon-cutlery col-md-push-9" ng-click="id(recette)"></button>
                 </div>
@@ -90,6 +89,4 @@
       </div>
     </div>
   </div>
-  <div class="changepage" ng-show="recetteTab.length != 0"></div>
-</div>
 </div>

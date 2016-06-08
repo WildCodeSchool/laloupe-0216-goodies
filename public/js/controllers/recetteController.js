@@ -144,33 +144,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.cuisson = $scope.recetteMarmiton.cuisson;
       $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
       $scope.recette = $scope.recetteMarmiton.recette;
-
+      $scope.imageStrings[0] = $scope.recetteMarmiton.imghttp;
     });
   };
-
-  // $scope.adress = function () {
-  //     angular.element($('#crEnumberForm')).val($scope.user.adresse.num);
-  //     angular.element($('#crEwayForm')).val($scope.user.adresse.rue);
-  //     angular.element($('#crEcityForm')).val($scope.user.adresse.ville);
-  //     angular.element($('#crEpostalcodeForm')).val($scope.user.adresse.cp);
-  //     angular.element($('#crEcountryForm')).val($scope.user.adresse.pays);
-  //     $scope.crEnumberForm = $scope.user.adresse.num;
-  //     $scope.crEwayForm = $scope.user.adresse.rue;
-  //     $scope.crEcityForm = $scope.user.adresse.ville;
-  //     $scope.crEpostalcodeForm = $scope.user.adresse.cp;
-  //     $scope.crEcountryForm = $scope.user.adresse.pays;
-  //   else {
-  //     angular.element($('#crEnumberForm')).val('');
-  //     angular.element($('#crEwayForm')).val('');
-  //     angular.element($('#crEcityForm')).val('');
-  //     angular.element($('#crEpostalcodeForm')).val('');
-  //     angular.element($('#crEcountryForm')).val('');
-  //     $scope.crEnumberForm = '';
-  //     $scope.crEwayForm = '';
-  //     $scope.crEcityForm = '';
-  //     $scope.crEpostalcodeForm = '';
-  //     $scope.crEcountryForm = '';
-  //   }
-  // }
-
 }

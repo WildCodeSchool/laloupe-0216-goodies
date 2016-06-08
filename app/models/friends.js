@@ -7,7 +7,8 @@ var friendsSchema = new mongoose.Schema({
   prenom: String,
   friendmail: String,
   friendId: String,
-  userId: String
+  userId: String,
+  img: String
 });
 var friends = {
 

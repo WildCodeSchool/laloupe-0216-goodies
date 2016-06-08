@@ -9,6 +9,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/connect.html',
             controller: 'connectController'
         })
+        .when('/allRecipes', {
+            templateUrl: 'views/allRecipes.html',
+            controller: 'allRecipesController'
+        })
         .when('/events', {
             templateUrl: 'views/events.html',
             controller: 'eventController',
@@ -177,6 +181,7 @@ angular.module('app', ['ngRoute','flow'])
   .directive('checkPassword', checkPassword)
   .controller('connectController', connectController)
   .controller('signupController', signupController)
+  .controller('allRecipesController', allRecipesController)
   .controller('mainController', mainController)
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)

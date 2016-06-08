@@ -50,7 +50,6 @@ function createEventController($scope, $http, eventService, friendService, $loca
 		});
 		userService.findOne($rootScope.userId).then(function (res) {
 			$scope.user = res.data;
-			$scope.user.adresse.num
 		});
 
 	};
@@ -89,7 +88,7 @@ $scope.addRecette = function (idRecette,index) {
 
 		var data = {};
 		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm.getDate()+' / '+($scope.crEdateForm.getMonth()+1)+' / '+$scope.crEdateForm.getFullYear();
+		data.crEdateForm = $scope.crEdateForm;
 		data.crEtimeForm = $scope.crEtimeForm;
 		data.crEnumberForm = $scope.crEnumberForm;
 		data.crEwayForm = $scope.crEwayForm;
@@ -130,12 +129,34 @@ $scope.addRecette = function (idRecette,index) {
 
 $scope.addFriends = function(){
 		$scope.dataFriends.userId = $rootScope.userId;
-		friendService.create($scope.dataFriends).then(function(res){
-		load();
-		$scope.dataFriends.prenom = "";
-		$scope.dataFriends.nom = "";
-		$scope.dataFriends.friendmail = "";
-	});
+		console.log($scope.dataFriends.userId);
+		userService.findOne($scope.dataFriends.friendmail).then(function(res){
+				console.log(res.data);
+				if(res.data != null){
+					console.log('ffffff');
+					$scope.dataFriends.prenom = res.data.prenom;
+					$scope.dataFriends.nom = res.data.name;
+					$scope.dataFriends.img = res.data.img;
+					friendService.create($scope.dataFriends).then(function(res){
+					load();
+					$scope.dataFriends.img = "";
+					$scope.dataFriends.prenom = "";
+					$scope.dataFriends.nom = "";
+					$scope.dataFriends.friendmail = "";
+				});
+			}
+				else {
+					friendService.create($scope.dataFriends).then(function(res){
+					load();
+					$scope.dataFriends.prenom = "";
+					$scope.dataFriends.nom = "";
+					$scope.dataFriends.friendmail = "";
+					});
+				}
+			});
+
+
+
 	load()
 }
 
@@ -156,10 +177,10 @@ $scope.addFriends = function(){
 // ===================  END Ajout des amis dans la BD =============
 
 $scope.geoloc = function (){
-	address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
-	$scope.creform += 1;
-	$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
-		$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
-	})
-}
+		address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
+		$scope.creform += 1;
+		$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
+			$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
+		})
+	}
 }

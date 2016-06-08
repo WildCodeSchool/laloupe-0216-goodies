@@ -78,11 +78,6 @@
   font-size: 1.7em;
 }
 
-.changepage{
-  text-align: center;
-  font-size: 2em;
-}
-
 .boutonActive{
   color: Red;
 }
@@ -121,7 +116,6 @@
   margin: 2em auto;
 }
 .scroll-box-show {
-  /*width: 100%;*/
   background: white;
   height: 600px;
   overflow-y: scroll;

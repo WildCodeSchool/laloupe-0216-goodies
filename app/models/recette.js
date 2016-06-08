@@ -11,13 +11,13 @@ var recetteSchema = new mongoose.Schema({
   recette: String,
   type: String,
   userId: String
-})
+});
 var Recette = {
   model: mongoose.model('Recette', recetteSchema),
   create: function(req, res) {
     Recette.model.create(req.body, function() {
       res.sendStatus(200);
-    })
+    });
   },
   findAll: function(req, res) {
     Recette.model.find(function(err, data) {
@@ -36,7 +36,7 @@ var Recette = {
   delete: function(req, res) {
     Recette.model.findByIdAndRemove(req.params.id, function() {
       res.sendStatus(200);
-    })
+    });
   }
-}
+};
 module.exports = Recette;
