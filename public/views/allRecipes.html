@@ -116,13 +116,13 @@
 
 <!-- Display of mini recipes =================================================== -->
 
-<div class="container"  style="position:relative; top:130px;">
+<div class="container" id="showAllRecipes" style="position:relative; top:130px;">
   <div class="row" >
        
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
-        <div class="col-md-3 g_boxImg" ng-click="id(recette)">
-          <img class="g_imgRec col-md-12" src={{recette.img}} alt="">
-          <div class="g_titreRec col-md-10">{{recette.titre}}</div>
+        <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+          <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
+          <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
         </div>
       </div>
     
@@ -135,8 +135,84 @@
   <div class="row">
     
     <div class="col-md-12">
-      <div>
-        <img src="{{clickRecipe.img}}" alt="" class="g_imgRecipe">
+        <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
+      <div class="col-md-6">
+        
+        <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
+          <div class="infoLineRecipe col-md-12">
+
+            <div class="g_nbPeoplesRecipe"><center>
+              <button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: 4 Prs.">
+                <img src="../assets/icons/multiple-users.png" alt="image"><p> 4 Prs.</p>
+              </button></center>
+            </div>
+            <div class="g_preparationRecipe">
+              <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de préparation: {{clickRecipe.preparation}} Min.">
+                <img src="../assets/icons/time-check.png" alt="image"><p> {{clickRecipe.preparation}} Min.</p>
+              </button>
+            </div>
+            <div class="g_cooktimeRecipe">
+              <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de cuisson: {{clickRecipe.cuisson}} Min.">
+                <img src="../assets/icons/icon-casserole.png" alt="image"><p> {{clickRecipe.cuisson}} Min.</p>
+              </button>
+            </div>
+            <div class="g_levelRecipe">
+              <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Niveau de difficulté: Facile">
+                <img src="../assets/icons/chef.png" alt="image"><p> Facile </p>
+              </button>
+            </div>
+            <div class="g_priceRecipe">
+              <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Prix">
+                <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.cuisson}} € </p>
+              </button>
+            </div>
+
+          </div><!-- /.infoLineRecipe -->
+      
+      </div><!-- /.col-md-6 -->
+
+      <div class="col-md-6">
+          <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+
+        <div class="row col-md-12">          
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
+              </button>
+            </div>
+            
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires
+              </button>
+            </div>
+
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes"><i class="fa fa-star" aria-hidden="true"></i> Favoris
+              </button>
+            </div>
+          </div>
+
+
+        <div class="row lineVote col-md-12">
+          <button type="button" class="btn btn-link col-md-offset-3 col-md-2"> + 8 </button>
+          <h4 class="col-md-4"> Nb de Votes </h4>
+          <button type="button" class="btn btn-link col-md-2"> - 2 </button>
+        </div>
+
+
+      </div>
+
+    </div><!-- /.col-md-12 -->
+
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <h3>Ingrédients</h3>
+        <div>{{clickRecipe.ingredient}}</div>
+      </div>
+
+      <div class="col-md-9">
+         <h3>Recette</h3>
+         <div>{{clickRecipe.recette}}</div> 
       </div>
     </div>
 
