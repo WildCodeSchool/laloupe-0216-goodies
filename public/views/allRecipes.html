@@ -1,7 +1,7 @@
 
 <div class="container allRecipesContainerNav">
   <div class="row">
-    
+
     <div class="col-md-12 allRecipesNav">
       <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
@@ -51,7 +51,7 @@
         </div>
       </div><!-- /.button-group-justified -->
     </div><!-- /.allRecipesNav -->
-    
+
 
     <div class="col-md-12">
       <div class="wrap">
@@ -60,14 +60,15 @@
           </div>
       </div>
     </div>
-    
+
   </div><!-- /.row -->
 </div><!-- /.container -->
 
- 
+
+
 <div class="container allRecipesPresentation">
     <div class="row">
-  
+
 
     <div id="carousel-recipes-generic" class="carousel slide col-md-8" data-ride="carousel">
       <!-- Indicators -->
@@ -118,14 +119,14 @@
 
 <div class="container" id="showAllRecipes" style="position:relative; top:130px;">
   <div class="row" >
-       
+
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
         <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
           <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
           <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
         </div>
       </div>
-    
+
   </div><!-- /.row -->
 </div><!-- /.container -->
 
@@ -133,11 +134,11 @@
 <!-- See recipe at the click of mini ============================================ -->
 <div class="container seeRecipeContainer">
   <div class="row">
-    
+
     <div class="col-md-12">
         <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
       <div class="col-md-6">
-        
+
         <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
           <div class="infoLineRecipe col-md-12">
 
@@ -168,19 +169,19 @@
             </div>
 
           </div><!-- /.infoLineRecipe -->
-      
+
       </div><!-- /.col-md-6 -->
 
       <div class="col-md-6">
           <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
 
-        <div class="row col-md-12">          
+        <div class="row col-md-12">
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
               <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
               </button>
             </div>
-            
+
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires
               </button>
@@ -215,7 +216,7 @@
         <div style="border-left: 1px solid #e2e0e0; padding-left:15px;">
          <h3>Recette</h3>
          <div>{{clickRecipe.recette}}</div>
-        </div> 
+        </div>
       </div>
 
     </div>
