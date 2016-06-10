@@ -3,11 +3,13 @@
 function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
 	$scope.dataFriends = {};
+	$scope.user = {}
 	$scope.form = 1;
 	$scope.creform = 1;
 	$scope.required = true;
 	$scope.data = {};
 
+		$scope.user.adresse = userFactory.user.adresse;
 		$scope.recettes = userFactory.user.recettes;
 		$scope.friends = userFactory.user.friends;
 	// checkbox autocomplete (at home)
