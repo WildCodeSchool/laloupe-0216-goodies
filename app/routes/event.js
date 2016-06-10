@@ -8,4 +8,4 @@ module.exports 	= function(app) {
 	app.put('/events/:id', Event.update);
 	app.delete('/events/:id', Event.delete);
 
-}
+};

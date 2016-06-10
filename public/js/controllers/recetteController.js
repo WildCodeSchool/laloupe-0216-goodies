@@ -144,7 +144,8 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.cuisson = $scope.recetteMarmiton.cuisson;
       $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
       $scope.recette = $scope.recetteMarmiton.recette;
-      $scope.imageStrings[0] = $scope.recetteMarmiton.imghttp;
+      $scope.imageStrings[0] = $scope.recetteMarmiton.image;
+      console.log($scope.imageStrings);
     });
   };
 }
