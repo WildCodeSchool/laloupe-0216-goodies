@@ -9,7 +9,7 @@
   <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-          <h1>La meilleur méthode pour inviter<br> ses amis à dîner.</h1>       
+          <h1>La meilleure méthode pour inviter<br> ses amis à dîner.</h1>       
       </div>
 
       <div class="item">
@@ -21,14 +21,14 @@
       </div>
 
       <div class="item">
-        <h1>Goodies</h1>
+        <h1><i class="fa fa-quote-left" aria-hidden="true"></i>
+         Goodies <i class="fa fa-quote-right" aria-hidden="true"></i>
+</h1>
       </div>    
     </div>
 
   </div>
-    <div class="col-md-12" style="margin-bottom:25px;">
-    <button class="btn btn-link nextDown col-md-offset-5 col-md-2"><img src="../assets/down-chevron.png" class="down-chevron"></button>
-    </div>
+
   </div>
   <div class='col-md-2'></div>
 
@@ -38,69 +38,63 @@
   </div><!-- row -->
 </div><!-- End container col-md-12 -->
 
-<div class="container-fluid containerMiddle">
-<div class="row">
-  <div class="homeCenter">
-    <center class="homeCenterTitle">
-      <p>Le Menu du mois</p>
-    </center>
-    <div class="col-md-4">
-      <center><img src="./assets/entre.jpg" class="thumbnail curve" alt=""></center>
-    </div>
-    <div class="col-md-4">
-      <center><img src="./assets/plat.jpg" class="thumbnail curve" alt=""></center>
-    </div>
-    <div class="col-md-4">
-      <center><img src="./assets/dessert.jpg" class="thumbnail curve" alt=""></center>
+<div class="container-fluid containerMid">
+  <div class="saw"></div>
+  <div class="row">
+    <div class="container">
+      <div class="col-md-3 col-sm-2 col-xs-6 vcenterL">
+          <img src="../assets/icons/arabesque-left.png" class="img-responsive">
+          
+      </div>
+
+        <div class="col-md-offset-1 col-md-4 col-sm-4 col-sx-4 boxMiddleSoGoodies">
+          <div class="MiddleBox col-md-12">
+            <div class="circlefontblue">
+              <span class="fa fa-cutlery testlogo" aria-hidden="true"></span>
+            </div>
+            <div class="scrollable">
+            <div class="items">
+              <h3>Découvrez</h3>
+              <p>toutes les idées</p>
+              <h2>Recettes</h2>
+            </div>
+            </div>
+            <a href="#/allRecipes" class="btn btn-link btn-lg col-md-offset-2 col-md-8 btnSoGoodies">" Goodies "</a>
+          </div>
+        </div>
+
+      <div class="col-md-offset-1 col-md-3 col-xs-6 vcenterR">
+        <img src="../assets/icons/arabesque-right.png" class="img-responsive">
+      </div>
     </div>
   </div>
 </div>
-  <div class="backsecond col-md-12">
-    <div>
-      <center>
-        <p class="botTitle">Des idées " So Goodies "</p>
-      </center> 
-    </div>
-    <div class="boutonRecette">
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('entree')" id="entree" class="boutonActive">Entrées</p>
-        </center>
-      </div>
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('plat')" id="plat">Plats</p>
-        </center>
-      </div>
-      <div class="col-md-4 boutonRecette">
-        <center>
-          <p ng-click="menuShow('dessert')" id="dessert">Desserts</p>
-        </center>
-      </div>
-    </div>
-  </div>
+
+<div class="container-fluid containerMiddle">
+      <img src="../assets/icons/corner-left.png" class="pull-left" style="width:200px; margin-left: 80px;">
+      <img src="../assets/icons/corner-right.png" class="pull-right" style="width:200px; margin-right: 80px;">
   
-    <!-- =============== DEBUT PHOTO RECETTE ================ -->
-    <div class="flip-menu">
-      <div ng-repeat="recette in recettes">
-        <section class="flip-item-wrap">
-          <img class="fake-image" src={{recette.img}} alt="">
-          <!-- this image will add height to parent element -->
-          <input type="checkbox" class="flipper" id="a">
-          <label for="a" class="flip-item">
-            <figure class="front">
-              <img src={{recette.img}}>
-            </figure>
-            <figure class="back">
-              <img src={{recette.img}} alt="">
-              <div class="flip-item-desc">
-                <h4 class="flip-item-title">{{recette.titre}}</h4>
-                <p>{{recette.description}}</p>
-              </div>
-            </figure>
-          </label>
-        </section>
+  <div class="wave"></div>
+   
+      <div class="ContainerCar">
+        <center class="homeCenterTitle">
+          <div class="page-header">
+            <h2 style="color: #fff;">Un menu "So Goodies"</h2>
+          </div>
+            <p style="font-family:'oswald',Sans-serif; font-size: 2rem;">Sélectionné par vos votes.</p>
+        </center>
+          <ul class="Carouseltest">
+            <li class="Items Front"><center><img src="../assets/entre.jpg" class="thumbnail thBestMeal"><div class="">St Jacques</div></center></li>
+            <li class="Items Left"><center><img src="./assets/plat.jpg" class="thumbnail thBestMeal" alt="">Pasta Di Napoli</center>
+            </li>
+            <li class="Items Right"><center><img src="./assets/dessert.jpg" class="thumbnail thBestMeal" alt="">Fondant Chocolat</center></li> 
+            <!--  <li class="Items Right">4</li>
+            <li class="Items Right2">5</li> -->  
+          </ul>
       </div>
-    </div>
-</div><!-- End container-fluid -->
+     
+</div><!-- End container-fluid containerMiddle -->
+
+
+
 

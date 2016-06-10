@@ -9,6 +9,10 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/connect.html',
             controller: 'connectController'
         })
+        .when('/allRecipes', {
+            templateUrl: 'views/allRecipes.html',
+            controller: 'allRecipesController'
+        })
         .when('/events', {
             templateUrl: 'views/events.html',
             controller: 'eventController',
@@ -37,6 +41,33 @@ function config($routeProvider, $httpProvider) {
         .when('/menu', {
           templateUrl: 'views/menu.html',
           controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/createEntree', {
+          templateUrl: 'views/createEntree.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/createPlat', {
+          templateUrl: 'views/createPlat.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/createDessert', {
+          templateUrl: 'views/createDessert.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/success', {
+          templateUrl: 'views/success.html',
           resolve: {
               connected: checkIsConnected
           }
@@ -97,10 +128,15 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 };
 
 
-function run($rootScope, $location, connectService) {
+function run($rootScope, $location, connectService, userFactory, userService) {
   if (sessionStorage.getItem('token')) {// Replace with cookies
     $rootScope.token = sessionStorage.getItem('token');
     $rootScope.userId = sessionStorage.getItem('userId');
+    userService.findOne($rootScope.userId).then(function(res){
+      userFactory.user = res.data;
+      console.log('userFactory.user');
+      console.log(userFactory.user);
+    });
   }
 
   $rootScope.loginMessage = {};
@@ -150,6 +186,7 @@ angular.module('app', ['ngRoute','flow'])
   .directive('checkPassword', checkPassword)
   .controller('connectController', connectController)
   .controller('signupController', signupController)
+  .controller('allRecipesController', allRecipesController)
   .controller('mainController', mainController)
   .controller('adminController', adminController)
   .controller('recetteController', recetteController)
@@ -158,10 +195,12 @@ angular.module('app', ['ngRoute','flow'])
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
+  .service('marmitonService', marmitonService)
   .service('friendService', friendService)
   .service('recetteService', recetteService)
   .service('connectService', connectService)
   .service('userService', userService)
+  .factory('userFactory', userFactory)
   /*.factory('', )*/
   .config(['flowFactoryProvider', function(flowFactoryProvider) {
     flowFactoryProvider.defaults = {

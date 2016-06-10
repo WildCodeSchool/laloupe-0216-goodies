@@ -1,13 +1,17 @@
 //createEventController ======================>
 
-function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService) {
-	load();
+function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
 	$scope.dataFriends = {};
+	$scope.user = {}
 	$scope.form = 1;
 	$scope.creform = 1;
 	$scope.required = true;
+	$scope.data = {};
 
+		$scope.user.adresse = userFactory.user.adresse;
+		$scope.recettes = userFactory.user.recettes;
+		$scope.friends = userFactory.user.friends;
 	// checkbox autocomplete (at home)
 	$scope.adress = function () {
 		if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché
@@ -16,11 +20,11 @@ function createEventController($scope, $http, eventService, friendService, $loca
 			angular.element($('#crEcityForm')).val($scope.user.adresse.ville);
 			angular.element($('#crEpostalcodeForm')).val($scope.user.adresse.cp);
 			angular.element($('#crEcountryForm')).val($scope.user.adresse.pays);
-			$scope.crEnumberForm = $scope.user.adresse.num;
-			$scope.crEwayForm = $scope.user.adresse.rue;
-			$scope.crEcityForm = $scope.user.adresse.ville;
-			$scope.crEpostalcodeForm = $scope.user.adresse.cp;
-			$scope.crEcountryForm = $scope.user.adresse.pays;
+			$scope.data.crEnumberForm = $scope.user.adresse.num;
+			$scope.data.crEwayForm = $scope.user.adresse.rue;
+			$scope.data.crEcityForm = $scope.user.adresse.ville;
+			$scope.data.crEpostalcodeForm = $scope.user.adresse.cp;
+			$scope.data.crEcountryForm = $scope.user.adresse.pays;
 		}
 		else {
 			angular.element($('#crEnumberForm')).val('');
@@ -28,33 +32,13 @@ function createEventController($scope, $http, eventService, friendService, $loca
 			angular.element($('#crEcityForm')).val('');
 			angular.element($('#crEpostalcodeForm')).val('');
 			angular.element($('#crEcountryForm')).val('');
-			$scope.crEnumberForm = '';
-			$scope.crEwayForm = '';
-			$scope.crEcityForm = '';
-			$scope.crEpostalcodeForm = '';
-			$scope.crEcountryForm = '';
+			$scope.data.crEnumberForm = '';
+			$scope.data.crEwayForm = '';
+			$scope.data.crEcityForm = '';
+			$scope.data.crEpostalcodeForm = '';
+			$scope.data.crEcountryForm = '';
 		}
 	}
-
-  // =================== Charge tous les Amis dans friends =============
-
-	function load(){
-		eventService.get().then(function(res){
-			$scope.events = res.data;
-		});
-    friendService.get().then(function(res){
-			$scope.friends = res.data;
-		});
-    recetteService.get().then(function(res){
-			$scope.recettes = res.data;
-		});
-		userService.findOne($rootScope.userId).then(function (res) {
-			$scope.user = res.data;
-		});
-
-	};
-
-// =================== END tous les Amis dans friends =============
 
 // =================== Ajout recettes à un évènement =============
 $scope.tabRecetteEvent = [];
@@ -72,7 +56,6 @@ $scope.addRecette = function (idRecette,index) {
 
 // =================== END Ajout recettes à un évènement =============
 
-
 	$(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -83,83 +66,53 @@ $scope.addRecette = function (idRecette,index) {
 		    });
 		});
 
-
 	$scope.add = function(){
+		$scope.data.userId = $rootScope.userId;
+		$scope.data.position = $scope.position;
+		eventService.create($scope.data).then(function(){
+			userService.findOne($rootScope.userId).then(function(res){
+				userFactory.user = res.data;
+				$location.path('/events');
+			});
+			$scope.data.crEnameForm = "";
+			$scope.data.crEdateForm = "";
+			$scope.data.crEtimeForm = "";
+			$scope.data.crEnumberForm = "";
+			$scope.data.crEwayForm = "";
+			$scope.data.crEcityForm = "";
+			$scope.data.crEpostalcodeForm = "";
+			$scope.data.crEcountryForm = "";
+			$scope.data.tabRecetteEvent = [];
+			$scope.data.tabFriendEvent = [];
+		});
 
-		var data = {};
-		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm;
-		data.crEtimeForm = $scope.crEtimeForm;
-		data.crEnumberForm = $scope.crEnumberForm;
-		data.crEwayForm = $scope.crEwayForm;
-		data.crEcityForm = $scope.crEcityForm;
-		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
-		data.crEcountryForm = $scope.crEcountryForm;
-		data.tabRecetteEvent = $scope.tabRecetteEvent;
-		data.tabFriendEvent = $scope.tabFriendEvent;
-		data.userId = $rootScope.userId;
-		data.position = $scope.position;
-		eventService.create(data).then(function(res){
-			load();
-		});
-		$scope.crEnameForm = "";
-		$scope.crEdateForm = "";
-		$scope.crEtimeForm = "";
-		$scope.crEnumberForm = "";
-		$scope.crEwayForm = "";
-		$scope.crEcityForm = "";
-		$scope.crEpostalcodeForm = "";
-		$scope.crEcountryForm = "";
-		$scope.tabRecetteEvent = [];
-		$scope.tabFriendEvent = [];
-		$location.path('/events');
-	}
-	$scope.update = function(event){
-		eventService.update(event._id, event).then(function(res){
-			load();
-		});
-	}
-	$scope.delete = function(event){
-		eventService.delete(event._id).then(function(res){
-			load();
-		});
 	}
 
 // ========================= Ajout des amis dans la BD ==============
 
 $scope.addFriends = function(){
 		$scope.dataFriends.userId = $rootScope.userId;
-		console.log($scope.dataFriends.userId);
-		userService.findOne($scope.dataFriends.friendmail).then(function(res){
-				console.log(res.data);
-				if(res.data != null){
-					console.log('ffffff');
-					$scope.dataFriends.prenom = res.data.prenom;
-					$scope.dataFriends.nom = res.data.name;
-					$scope.dataFriends.img = res.data.img;
-					friendService.create($scope.dataFriends).then(function(res){
-					load();
-					$scope.dataFriends.img = "";
-					$scope.dataFriends.prenom = "";
-					$scope.dataFriends.nom = "";
-					$scope.dataFriends.friendmail = "";
+		userService.findMail($scope.dataFriends.friendmail).then(function(res){
+					$scope.dataFriends.friendId = res.data._id
+					userService.createFriend($scope.dataFriends).then(function(){
+						userService.findOne($rootScope.userId).then(function(r){
+							userFactory.user = r.data;
+						});
+						$scope.dataFriends.prenom = "";
+						$scope.dataFriends.nom = "";
+						$scope.dataFriends.friendmail = "";
 				});
-			}
-				else {
-					friendService.create($scope.dataFriends).then(function(res){
-					load();
-					$scope.dataFriends.prenom = "";
-					$scope.dataFriends.nom = "";
-					$scope.dataFriends.friendmail = "";
+			},function(err){
+				userService.createFriend($scope.dataFriends).then(function(){
+					userService.findOne($rootScope.userId).then(function(res){
+						userFactory.user = res.data;
 					});
-				}
+						$scope.dataFriends.prenom = "";
+						$scope.dataFriends.nom = "";
+						$scope.dataFriends.friendmail = "";
+				});
 			});
-
-
-
-	load()
 }
-
 
 // ===================  END Ajout des amis dans la BD =============
 
@@ -177,7 +130,7 @@ $scope.addFriends = function(){
 // ===================  END Ajout des amis dans la BD =============
 
 $scope.geoloc = function (){
-		address = $scope.crEnumberForm+' '+$scope.crEwayForm+' '+$scope.crEpostalcodeForm+' '+$scope.crEcityForm;
+		address = $scope.data.crEnumberForm+' '+$scope.data.crEwayForm+' '+$scope.data.crEpostalcodeForm+' '+$scope.data.crEcityForm;
 		$scope.creform += 1;
 		$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
 			$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];

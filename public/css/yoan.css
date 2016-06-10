@@ -9,8 +9,9 @@
   padding-bottom: 20px;
 }
 .preview {
-    width: 100%;
-    height: auto;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
 }
 
 .addpic{
@@ -33,7 +34,7 @@
 .demo{
   background: white;
   margin: auto;
-  overflow: hidden;
+  overflow-y: scroll;
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
   height: 600px;
   margin-top: 30px;
@@ -69,20 +70,12 @@
   text-align: center;
   font-size: 2em;
 }
-.RecetteRecetteA{
-}
-
 .RecetteIngredientA{
   padding-bottom: 30px;
 }
 
 .textIngredient{
   font-size: 1.7em;
-}
-
-.changepage{
-  text-align: center;
-  font-size: 2em;
 }
 
 .boutonActive{
@@ -96,3 +89,92 @@
   font-family: 'Pacifico', cursive;
 }
 
+.placeholder{
+  width: 100px;
+  height: 100px;
+}
+
+.valid{
+  margin-bottom: 20px;
+  margin-left: 65px;
+}
+.success-text{
+  font-size: 1.2em;
+}
+.top{
+  margin-top: 20px;
+}
+
+.bottom{
+  margin-bottom: 40px;
+}
+/*scroll afficahge des recettes*/
+
+.scroll-bar-wrap-show {
+  width: 540px;
+  position: relative;
+  margin: 2em auto;
+}
+.scroll-box-show {
+  background: white;
+  height: 600px;
+  overflow-y: scroll;
+  margin: auto;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+}
+.scroll-box-show::-webkit-scrollbar {
+  width: .6em;
+}
+.scroll-box-show::-webkit-scrollbar,
+.scroll-box-show::-webkit-scrollbar-thumb {
+  overflow:visible;
+  border-radius: 4px;
+}
+.scroll-box-show::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.6);
+}
+.cover-bar-show {
+  position: absolute;
+  background: #fff;
+  height: 100%;
+  top: 0;
+  right: 0;
+  width: .6em;
+  -webkit-transition: all .5s;
+  opacity: 1;
+}
+/* MAGIC HAPPENS HERE */
+.scroll-bar-wrap-show:hover .cover-bar-show {
+   opacity: 0;
+  -webkit-transition: all .5s;
+}
+
+
+/*scroll repeat des recettes*/
+
+.scroll-bar-wrap {
+  width: 540px;
+  position: relative;
+  margin: 2em auto;
+}
+.scroll-box {
+  width: 540px;
+  height: 600px;
+  overflow-y: scroll;
+}
+.scroll-box::-webkit-scrollbar {
+  width: .6em;
+}
+.scroll-box::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar-thumb {
+  overflow:visible;
+  border-radius: 4px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.6);
+}
+/* MAGIC HAPPENS HERE */
+.scroll-bar-wrap:hover .cover-bar {
+   opacity: 0;
+  -webkit-transition: all .5s;
+}
