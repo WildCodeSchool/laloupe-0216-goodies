@@ -1,17 +1,18 @@
-function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService) {
+function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
+  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
+  function load() {
+      $scope.recettes = userFactory.user.recettes;
+  }
+  load();
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $scope.userId = $rootScope.userId;
   $scope.recetteTab = [];
   $scope.data = {};
   $scope.eat = $rootScope.eat; //type entre plat ou dessert
-  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
-  function load() {
-    recetteService.get().then(function (res) {
-      $scope.recettes = res.data;
-    });
-  }
-  load();
+
+
+
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -70,7 +71,10 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       datas.recette = $scope.recette;
       datas.type = type;
       recetteService.create(datas).then(function(res) {
-        load();
+        userService.findOne($rootScope.userId).then(function(res){
+          userFactory.user = res.data;
+          $scope.recettes = userFactory.user.recettes;
+        });
       });
       $location.path("/success");
       $scope.img = "";
@@ -89,13 +93,12 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
   $scope.update = function(recette) {
     recette.service.update(recette._id, recette).then(function(res) {
-      load();
     });
   };
 
   $scope.delete = function(recette) {
       recette.service.delete(recette._id, recette).then(function(res) {
-        load();
+
       });
     },
 
@@ -132,7 +135,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
   $scope.test = function (){
     marmitonService.create($scope.data).then(function(res){
       $scope.recetteMarmiton = res.data;
-      console.log($scope.recetteMarmiton);
       angular.element($('#inputTitre')).val($scope.recetteMarmiton.titre);
       angular.element($('#inputCuisson')).val($scope.recetteMarmiton.cuisson);
       angular.element($('#inputPreparation')).val($scope.recetteMarmiton.preparation.replace(' ', ''));
@@ -145,7 +147,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
       $scope.recette = $scope.recetteMarmiton.recette;
       $scope.imageStrings[0] = $scope.recetteMarmiton.image;
-      console.log($scope.imageStrings);
     });
   };
 }

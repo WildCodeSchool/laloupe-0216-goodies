@@ -128,10 +128,15 @@ function checkIsConnected($q, $http, $rootScope, $location) {
 };
 
 
-function run($rootScope, $location, connectService) {
+function run($rootScope, $location, connectService, userFactory, userService) {
   if (sessionStorage.getItem('token')) {// Replace with cookies
     $rootScope.token = sessionStorage.getItem('token');
     $rootScope.userId = sessionStorage.getItem('userId');
+    userService.findOne($rootScope.userId).then(function(res){
+      userFactory.user = res.data;
+      console.log('userFactory.user');
+      console.log(userFactory.user);
+    });
   }
 
   $rootScope.loginMessage = {};
@@ -195,6 +200,7 @@ angular.module('app', ['ngRoute','flow'])
   .service('recetteService', recetteService)
   .service('connectService', connectService)
   .service('userService', userService)
+  .factory('userFactory', userFactory)
   /*.factory('', )*/
   .config(['flowFactoryProvider', function(flowFactoryProvider) {
     flowFactoryProvider.defaults = {
