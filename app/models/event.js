@@ -1,6 +1,5 @@
 
 //	MODEL EVENT
-
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
   crEnameForm: String,

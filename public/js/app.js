@@ -45,6 +45,33 @@ function config($routeProvider, $httpProvider) {
               connected: checkIsConnected
           }
         })
+        .when('/createEntree', {
+          templateUrl: 'views/createEntree.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/createPlat', {
+          templateUrl: 'views/createPlat.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/createDessert', {
+          templateUrl: 'views/createDessert.html',
+          controller: 'recetteController',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
+        .when('/success', {
+          templateUrl: 'views/success.html',
+          resolve: {
+              connected: checkIsConnected
+          }
+        })
         .when('/moncompte', {
           templateUrl: 'views/moncompte.html',
           controller: 'compteController',
@@ -163,6 +190,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
   .service('eventService', eventService)
+  .service('marmitonService', marmitonService)
   .service('friendService', friendService)
   .service('recetteService', recetteService)
   .service('connectService', connectService)
