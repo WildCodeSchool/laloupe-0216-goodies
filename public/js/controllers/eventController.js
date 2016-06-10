@@ -12,7 +12,6 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	$scope.events = userFactory.user.events;
 	$scope.nbEvents = $scope.events.length;
 	$scope.required = true;
-	console.log(userFactory.user.friends);
 
 	$(function() {
     $('#search').on('keyup', function() {

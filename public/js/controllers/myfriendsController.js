@@ -2,7 +2,6 @@ function myfriendsController(userService, friendService, $scope, $rootScope, use
     function load () {
       userService.get().then(function(res){
         $scope.users = res.data;
-        console.log($scope.users);
         $scope.friends = userFactory.user.friends;
         $scope.userId = $rootScope.userId;
       });
@@ -29,8 +28,6 @@ function myfriendsController(userService, friendService, $scope, $rootScope, use
       $scope.newFriend = "";
     };
     $scope.removeFriend = function(friend){
-      console.log($scope.userId);
-      console.log(friend._id);
       userService.deleteFriend($rootScope.userId,friend._id).then(function(res){
         userService.findOne($rootScope.userId).then(function(res){
           userFactory.user = res.data;

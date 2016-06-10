@@ -103,6 +103,8 @@ function run($rootScope, $location, connectService, userFactory, userService) {
     $rootScope.userId = sessionStorage.getItem('userId');
     userService.findOne($rootScope.userId).then(function(res){
       userFactory.user = res.data;
+      console.log('userFactory.user');
+      console.log(userFactory.user);
     });
   }
 

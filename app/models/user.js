@@ -66,7 +66,7 @@ var User = {
 	findById: function(req, res) {
     console.log('findById');
     console.log(req.params);
-		User.model.findOne(req.params.id)
+		User.model.findOne({_id:req.params.id})
       .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
       .populate('events',{__v: 0})
       .populate('recettes',{__v: 0})
