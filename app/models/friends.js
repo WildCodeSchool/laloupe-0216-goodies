@@ -19,7 +19,7 @@ var friends = {
 			req.body
 		, function(){
 			res.sendStatus(200);
-		})
+		});
 	},
 	findAll: function(req, res) {
 		friends.model.find(function (err, data) {
