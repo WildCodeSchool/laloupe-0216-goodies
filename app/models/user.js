@@ -26,6 +26,10 @@ var userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Recette',
   }],
+  notifications:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Notifications',
+  }],
   isAdmin : { type: Boolean, default: false}
 });
 
@@ -39,6 +43,7 @@ var User = {
         .populate('events',{__v: 0})
         .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
         .populate('recettes',{__v: 0})
+        .populate('notifications',{__v: 0})
         .exec(function(err, user){
             if(err || !user)
                 res.sendStatus(403);
@@ -70,6 +75,7 @@ var User = {
       .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
       .populate('events',{__v: 0})
       .populate('recettes',{__v: 0})
+      .populate('notifications',{__v: 0})
       .exec(function (err, user) {
         if (err) {
           res.sendStatus(400);
