@@ -5,6 +5,7 @@ var User = require('../models/user.js');
 var mongoose = require('mongoose');
 var notificationSchema = new mongoose.Schema({
   events:{
+    userId: String,
     eventUserId: String,
     eventUserName: String,
     eventUserSurname: String,
@@ -12,11 +13,13 @@ var notificationSchema = new mongoose.Schema({
     date: Date,
   },
   friends:{
+    userId: String,
     friendsUserId: String,
     friendUserName: String,
     friendUserSurname: String
   },
   addfriends:{
+    userId: String,
     friendUserName: String,
     friendUserSurname: String
   }
