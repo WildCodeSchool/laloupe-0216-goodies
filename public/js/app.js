@@ -199,6 +199,7 @@ angular.module('app', ['ngRoute','flow'])
   .service('friendService', friendService)
   .service('recetteService', recetteService)
   .service('connectService', connectService)
+  .service('notificationService', notificationService)
   .service('userService', userService)
   .factory('userFactory', userFactory)
   /*.factory('', )*/
