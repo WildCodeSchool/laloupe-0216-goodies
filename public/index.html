@@ -35,6 +35,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
 
     <!-- ============================= CONTROLLERS ============================== -->
+    <script src="js/notifications.js"></script>
+
     <script src="js/controllers/eventController.js"></script>
     <script src="js/controllers/connectController.js"></script>
     <script src="js/controllers/signupController.js"></script>
@@ -90,7 +92,7 @@
             <ul class="nav navbar-nav pull-right">
               <li class="dropdown" ng-show="token">
                 <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Notifications">
-                  <i class="fa fa-bell-o fa-3" aria-hidden="true"><span class="badge" style="margin: -10px; background-color: #F8AC37">{{nbNotifications}}</span></i>
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
                 </a>
                 <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
                   <i class="fa fa-user fa-3" aria-hidden="true"></i>
