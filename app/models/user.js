@@ -132,6 +132,17 @@ var User = {
         res.sendStatus(200);
 		});
 	},
+	addNotifications: function(userId, notificationId, res) {
+    console.log('addNotifications');
+    console.log(userId);
+		User.model.findByIdAndUpdate(userId, {
+        $push: {
+          notifications: notificationId
+        }
+      }, function (err) {
+        res.sendStatus(200);
+		});
+	},
 
 	create: function(req, res) {
 		User.model.create(req.body,
