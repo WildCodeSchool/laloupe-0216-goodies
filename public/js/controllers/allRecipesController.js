@@ -4,6 +4,8 @@
 function allRecipesController($scope, $rootScope, $http, recetteService) {
 	$('body').css('background-image', 'none');
 
+	$scope.seeRecipe=1;
+
 	$(document).ready(function() {
 		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
 			var page = $(this).attr('href'); // Page cible
@@ -15,6 +17,11 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 
 	$scope.id = function(recette){
 		$scope.clickRecipe = recette;
+		$scope.seeRecipe=2;
+
+	}
+	$scope.close = function(){
+		$scope.seeRecipe=1;
 	}
 
 	function load() {
