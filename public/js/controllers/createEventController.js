@@ -1,6 +1,6 @@
 //createEventController ======================>
 
-function createEventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
+function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
 	$scope.dataFriends = {};
 	$scope.user = {}
@@ -69,22 +69,29 @@ $scope.addRecette = function (idRecette,index) {
 	$scope.add = function(){
 		$scope.data.userId = $rootScope.userId;
 		$scope.data.position = $scope.position;
-		eventService.create($scope.data).then(function(){
-			userService.findOne($rootScope.userId).then(function(res){
-				userFactory.user = res.data;
+		eventService.create($scope.data).then(function(res){
+			console.log(res.data._id);
+			userService.findOne($rootScope.userId).then(function(r){
+				userFactory.user = r.data;
 				$location.path('/events');
 			});
-			$scope.data.crEnameForm = "";
-			$scope.data.crEdateForm = "";
-			$scope.data.crEtimeForm = "";
-			$scope.data.crEnumberForm = "";
-			$scope.data.crEwayForm = "";
-			$scope.data.crEcityForm = "";
-			$scope.data.crEpostalcodeForm = "";
-			$scope.data.crEcountryForm = "";
-			$scope.data.tabRecetteEvent = [];
-			$scope.data.tabFriendEvent = [];
-		});
+
+			//================== addNotifications events ==========
+			for ( var i = 0 ; i < $scope.data.tabFriendEvent.length ; i++){
+				console.log($scope.data.tabFriendEvent[i]);
+				var ev = {
+					events:{
+						eventUserId: $rootScope.userId,
+						userId: $scope.data.tabFriendEvent[i],
+						eventUserName: userFactory.user.name,
+						eventUserSurname: userFactory.user.prenom,
+						name: $scope.data.crEnameForm,
+						date: $scope.data.crEdateForm
+					}
+				};
+				notificationService.createEvents(ev).then(function(){});
+			}
+		}); // <----- End create event
 
 	}
 
@@ -98,18 +105,14 @@ $scope.addFriends = function(){
 						userService.findOne($rootScope.userId).then(function(r){
 							userFactory.user = r.data;
 						});
-						$scope.dataFriends.prenom = "";
-						$scope.dataFriends.nom = "";
-						$scope.dataFriends.friendmail = "";
+						$scope.dataFriends = {};
 				});
 			},function(err){
 				userService.createFriend($scope.dataFriends).then(function(){
 					userService.findOne($rootScope.userId).then(function(res){
 						userFactory.user = res.data;
 					});
-						$scope.dataFriends.prenom = "";
-						$scope.dataFriends.nom = "";
-						$scope.dataFriends.friendmail = "";
+						$scope.dataFriends = {};
 				});
 			});
 }
@@ -117,13 +120,13 @@ $scope.addFriends = function(){
 // ===================  END Ajout des amis dans la BD =============
 
 // ===================  Ajout amis event =============
-	$scope.tabFriendEvent = [];
+	$scope.data.tabFriendEvent = [];
 	$scope.addFriendEvent = function (id){
-		if ($scope.tabFriendEvent.indexOf(id) == -1){
-			$scope.tabFriendEvent.push(id)
+		if ($scope.data.tabFriendEvent.indexOf(id) == -1){
+			$scope.data.tabFriendEvent.push(id)
 		}
 		else {
-			$scope.tabFriendEvent.splice($scope.tabFriendEvent.indexOf(id),1)
+			$scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id),1)
 		}
 	}
 
