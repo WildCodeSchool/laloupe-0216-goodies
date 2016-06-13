@@ -28,7 +28,7 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
                 }
               };
               //================== addNotifications friends ==========
-              notificationService.create(friend).then(function(){
+              notificationService.createFriends(friend).then(function(){
                 userService.findOne($rootScope.userId).then(function(user){
                   userFactory.user = user.data;
                   $scope.friends = userFactory.user.friends;

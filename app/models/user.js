@@ -41,7 +41,7 @@ var User = {
     connect: function(req, res) {
         User.model.findOne(req.body,{__v: 0, isAdmin: 0})
         .populate('events',{__v: 0})
-        .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
+        .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0, notifications: 0})
         .populate('recettes',{__v: 0})
         .populate('notifications',{__v: 0})
         .exec(function(err, user){
