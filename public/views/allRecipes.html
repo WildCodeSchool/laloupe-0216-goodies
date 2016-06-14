@@ -1,4 +1,4 @@
-
+<div class="container mainContainerNav">
 <div class="container allRecipesContainerNav">
   <div class="row">
 
@@ -63,8 +63,7 @@
 
   </div><!-- /.row -->
 </div><!-- /.container -->
-
-
+</div>
 
 <div class="container allRecipesPresentation">
     <div class="row">
@@ -113,11 +112,9 @@
   </div><!-- /.row -->
 </div><!-- /.container -->
 
-
-
+<div ng-show="seeRecipe == 1">
 <!-- Display of mini recipes =================================================== -->
-
-<div class="container" id="showAllRecipes" style="position:relative; top:130px;">
+<div class="container showAllRecipesMini">
   <div class="row" >
 
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
@@ -129,12 +126,14 @@
 
   </div><!-- /.row -->
 </div><!-- /.container -->
+</div>
 
-
+<div ng-show="seeRecipe == 2">
 <!-- See recipe at the click of mini ============================================ -->
 <div class="container seeRecipeContainer">
   <div class="row">
 
+    <button type="button" class="btn btn-link pull-right btnClose" ng-click="close()"><span class="glyphicon glyphicon-remove"></span></button>
     <div class="col-md-12">
         <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
       <div class="col-md-6">
@@ -194,32 +193,32 @@
           </div>
 
 
-        <div class="row lineVote col-md-12">
-          <button type="button" class="btn btn-link col-md-offset-3 col-md-2"> + 8 </button>
-          <h4 class="col-md-4"> Nb de Votes </h4>
-          <button type="button" class="btn btn-link col-md-2"> - 2 </button>
+          <div class="row lineVote col-md-12">
+            <button type="button" class="btn btn-link col-md-offset-3 col-md-2"> + 8 </button>
+            <h4 class="col-md-4"> Votes </h4>
+            <button type="button" class="btn btn-link col-md-2"> - 2 </button>
+          </div>
+        </div><!-- /.col-md-12 -->
+
+      </div><!-- /.col-md-6 -->
+
+      <div class="col-md-12" style="border-top: 1px solid #f8ac37;">
+
+        <div class="col-md-4">
+          <h3>Ingrédients</h3>
+          <div>{{clickRecipe.ingredient}}</div>
         </div>
 
+        <div class="col-md-8">
+          <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
+           <h3>Recette</h3>
+           <div>{{clickRecipe.recette}}</div>
+          </div>
+        </div>
 
       </div>
 
     </div><!-- /.col-md-12 -->
-
-    <div class="col-md-12" style="border-top: 1px solid #e2e0e0;">
-
-      <div class="col-md-4">
-        <h3>Ingrédients</h3>
-        <div>{{clickRecipe.ingredient}}</div>
-      </div>
-
-      <div class="col-md-8">
-        <div style="border-left: 1px solid #e2e0e0; padding-left:15px;">
-         <h3>Recette</h3>
-         <div>{{clickRecipe.recette}}</div>
-        </div>
-      </div>
-
-    </div>
-
   </div><!-- /.row -->
 </div><!-- /.container -->
+</div>
