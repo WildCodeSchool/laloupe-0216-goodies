@@ -52,11 +52,13 @@
       </div><!-- /.button-group-justified -->
     </div><!-- /.allRecipesNav -->
     
-
+    <!-- Search Bar ================ -->
     <div class="col-md-12">
       <div class="wrap">
-          <div class="search"> <a class="js-scrollTo" href="#showAllRecipes">
-              <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *"></a>
+          <div class="search">
+           
+              <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
+            
           </div>
       </div>
     </div>
@@ -82,7 +84,7 @@
         <div class="item active carItem">
           <img src="../assets/entrees/salad.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>Voilà l'été, avec ses salades ! ...</h2>
+            <h2>Les salades ! ...</h2>
             <p>Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
           </div>
         </div>
@@ -96,7 +98,8 @@
         <div class="item carItem">
           <img src="../assets/desserts/cookies.jpg" alt="...">
           <div class="carousel-caption">
-            <h2>Les Cookies "So Goodies"</h2>
+            <h2>Les Cookies</h2>
+            <p>"So Goodies"</p>
           </div>
         </div>
       </div>
@@ -114,7 +117,7 @@
 
 <div ng-show="seeRecipe == 1">
 <!-- Display of mini recipes =================================================== -->
-<div class="container showAllRecipesMini">
+<div class="container showAllRecipesMini" id="showAllRecipes">
   <div class="row" >
        
       <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
@@ -128,8 +131,9 @@
 </div><!-- /.container -->
 </div>
 
+
+<!-- See recipe at the click of mini ===================== -->
 <div ng-show="seeRecipe == 2">
-<!-- See recipe at the click of mini ============================================ -->
 <div class="container seeRecipeContainer">
   <div class="row">
     
@@ -171,8 +175,8 @@
       
       </div><!-- /.col-md-6 -->
 
-      <div class="col-md-6">
-          <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+      <div class="col-md-6 infoAndMore">
+          <p>{{clickRecipe.type}}</p>
 
         <div class="row col-md-12">          
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -182,8 +186,8 @@
             </div>
             
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires
-              </button>
+              <a class="js-scrollTo" href="#commentary"><button  type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires </button>
+              </a>
             </div>
 
             <div class="btn-group" role="group">
@@ -221,4 +225,39 @@
     </div><!-- /.col-md-12 -->
   </div><!-- /.row -->
 </div><!-- /.container -->
-</div>
+
+    <div class="container" id="commentary" style="position: relative; top: 200px;">
+    <div class="page-header">
+        <h3 id="timeline">Commentaires</h3>
+    </div>
+      <button type="button" class="addComment btn btn-link">Ajouter un commentaire</button>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-edit"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Edité par : </h4>
+              
+            </div>
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-edit"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Edité par : </h4>
+            </div>
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
+            </div>
+          </div>
+        </li>
+        
+
+
+</div><!-- /ng-show = seeRecipe = 2 -->
+
