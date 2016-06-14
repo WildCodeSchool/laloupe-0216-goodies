@@ -42,7 +42,7 @@
       <div class="col-md-6 col-md-pull-2">
         <div class="scroll-bar-wrap">
           <div ng-class="{'scroll-box' : recettes.length > 4}">
-            <div ng-repeat="recette in recettes | filter : {userId: userId} | filter : {type: showRecette}" ng-show="userId">
+            <div ng-repeat="recette in recettes | filter : {type: showRecette}" ng-show="userId">
               <div class="col-md-6" ng-init="$index == 0 ? pushtab(recette) : $index">
                 <div class="cardtest">
                   <img class="RecetteImg" src={{recette.img}} alt=""/>
