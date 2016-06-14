@@ -5,7 +5,7 @@ function mainController($scope, $rootScope, $http,recetteService, userFactory) {
 	function load() {
 		recetteService.get().then(function (res) {
 			$scope.recettes = res.data;
-			notification(userFactory.user.notifications.length);
+			notification(userFactory.user.notifications);
 		});
 	}
 	load();

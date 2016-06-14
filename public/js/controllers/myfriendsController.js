@@ -23,8 +23,8 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
                 friends:{
                   userId: datas.friendId,
                   friendUserId: datas.userId,
-                  friendUserName: res.data.prenom,
-                  friendUserSurname: res.data.name
+                  friendUserName: userFactory.user.prenom,
+                  friendUserSurname: userFactory.user.name
                 }
               };
               //================== addNotifications friends ==========
