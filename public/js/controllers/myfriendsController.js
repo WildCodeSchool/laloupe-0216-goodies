@@ -1,44 +1,49 @@
-function myfriendsController(userService, friendService, $scope, $rootScope) {
-
-    $scope.userId = $rootScope.userId;
-
-    function load(){
+function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService) {
+    function load () {
       userService.get().then(function(res){
         $scope.users = res.data;
-      });
-      friendService.get().then(function(res){
-        $scope.friends = res.data;
-        console.log('fffff');
-        console.log($scope.friends);
+        $scope.friends = userFactory.user.friends;
+        $scope.userId = $rootScope.userId;
       });
     }
     load();
     $scope.addNewFriend = function(userName) {
       var datas = {};
       var user = userName.split(' ');
-
       userService.findByNameSurname(user[1],user[0]).then(function(res){ // ===== Récupération de l'ID du Friend
-    	    datas.friendId = res.data.id;
-          console.log(datas.friendId);
-          console.log(res.data.id);
-          datas.img = res.data.img;
+    	    datas.friendId = res.data._id;
+          datas.userId = $scope.userId;
+          var tabFriends = [];
+          userFactory.user.friends.forEach(function(e){tabFriends.push(e.name+' '+e.prenom)});
+          if ($rootScope.userId != datas.friendId && tabFriends.indexOf(user[1]+' '+user[0]) == -1){
 
-          if ($rootScope.userId != datas.friendId && $scope.friends.map(function (e)
-          {if(e.nom == user[1] && e.prenom == user[0] && e.userId == $rootScope.userId)
-            return true;}).indexOf(true) == -1){
-            datas.nom = user[1];
-            datas.prenom = user[0];
-            datas.userId = $rootScope.userId;
-            friendService.create(datas).then(function(res) {
-              load();
-            });
+              // ================ ADD friends =========================
+              userService.createFriend(datas).then(function() {});
+              var friend = {
+                friends:{
+                  userId: datas.friendId,
+                  friendUserId: datas.userId,
+                  friendUserName: userFactory.user.prenom,
+                  friendUserSurname: userFactory.user.name
+                }
+              };
+              //================== addNotifications friends ==========
+              notificationService.createFriends(friend).then(function(){
+                userService.findOne($rootScope.userId).then(function(user){
+                  userFactory.user = user.data;
+                  $scope.friends = userFactory.user.friends;
+                });
+              });
           }
   		});
       $scope.newFriend = "";
     };
     $scope.removeFriend = function(friend){
-      friendService.delete(friend._id).then(function(res){
-        load();
+      userService.deleteFriend($rootScope.userId,friend._id).then(function(res){
+        userService.findOne($rootScope.userId).then(function(res){
+          userFactory.user = res.data;
+          $scope.friends = userFactory.user.friends;
+        });
       });
     };
 
