@@ -33,12 +33,12 @@ var friends = {
 			friendmail: req.body.friendmail,
 		}, function(){
 			res.sendStatus(200);
-		})
+		});
 	},
 	delete: function(req, res){
 		friends.model.findByIdAndRemove(req.params.id, function(){
 			res.sendStatus(200);
-		})
+		});
 	}
-}
+};
 module.exports = friends;

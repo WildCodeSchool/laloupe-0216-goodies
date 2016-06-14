@@ -19,7 +19,7 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	$scope.required = true;
 	$scope.showMoreDesc = function (id) {
       $('#' + id).toggle(400)
-	}
+	};
 
 	// checkbox autocomplete (at home)
 
@@ -80,17 +80,17 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		$scope.crEpostalcodeForm = "";
 		$scope.crEcountryForm = "";
 		$location.path('/events');
-	}
+	};
 	$scope.update = function(event){
 		eventService.update(event._id, event).then(function(res){
 			load();
 		});
-	}
+	};
 	$scope.delete = function(event){
 		eventService.delete(event._id).then(function(res){
 			load();
 		});
-	}
+	};
 
 // ========================= Ajout des amis dans la BD ==============
 
@@ -101,13 +101,13 @@ $scope.addFriends = function(){
 		$scope.dataFriends.friendlastname = "";
 		$scope.dataFriends.friendmail = "";
 	});
-	load()
-}
+	load();
+};
 
 $scope.formatDate = function (date){
 	var eventDate = new Date(date);
 	return eventDate.getDate()+' / '+(eventDate.getMonth()+1)+' / '+eventDate.getFullYear();
-}
+};
 // ===================  END Ajout des amis dans la BD =============
 
 }

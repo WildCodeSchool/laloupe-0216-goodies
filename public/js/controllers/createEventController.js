@@ -34,7 +34,7 @@ function createEventController($scope, $http, eventService, friendService, $loca
 			$scope.crEpostalcodeForm = '';
 			$scope.crEcountryForm = '';
 		}
-	}
+	};
 
   // =================== Charge tous les Amis dans friends =============
 
@@ -68,7 +68,7 @@ $scope.addRecette = function (idRecette,index) {
 	$scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette),1);
 	$('#gly'+index).removeClass('gly-checked');
 	}
-}
+};
 
 // =================== END Ajout recettes à un évènement =============
 
@@ -113,12 +113,12 @@ $scope.addRecette = function (idRecette,index) {
 		$scope.tabRecetteEvent = [];
 		$scope.tabFriendEvent = [];
 		$location.path('/events');
-	}
+	};
 	$scope.update = function(event){
 		eventService.update(event._id, event).then(function(res){
 			load();
 		});
-	}
+	};
 	$scope.delete = function(event){
 		eventService.delete(event._id).then(function(res){
 			load();
@@ -154,11 +154,8 @@ $scope.addFriends = function(){
 					});
 				}
 			});
-
-
-
-	load()
-}
+	load();
+};
 
 
 // ===================  END Ajout des amis dans la BD =============
