@@ -1,8 +1,15 @@
-function mainController($scope, $rootScope, $http,recetteService) {
+function mainController($scope, $rootScope, $http,recetteService, userFactory) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
 	$scope.showRecette = 'entree';
 
-	
+	function load() {
+		recetteService.get().then(function (res) {
+			$scope.recettes = res.data;
+			notification(userFactory.user.notifications);
+		});
+	}
+	load();
+
   $('.carousel-fade').carousel({
           interval: 3000
         });
@@ -10,7 +17,7 @@ function mainController($scope, $rootScope, $http,recetteService) {
       others = ['Left2', 'Left', 'Right', 'Right2'];
   $('.Carouseltest').on('click', '.Items', function() {
     var $this = $(this);
-    
+
     $.each(others, function(i, cl) {
       if ($this.hasClass(cl)) {
         front.removeClass('Front').addClass(cl);
@@ -20,17 +27,4 @@ function mainController($scope, $rootScope, $http,recetteService) {
     });
   });
 
-
-	function load() {
-		recetteService.get().then(function (res) {
-			$scope.recettes = res.data;
-		});
-	}
-	load();
-
-	$scope.menuShow = function (n) {
-		angular.element($('#'+$scope.showRecette)).removeClass( "boutonActive" );
-    angular.element($('#'+n)).addClass( "boutonActive" );
-    $scope.showRecette = n;
-  };
 }
