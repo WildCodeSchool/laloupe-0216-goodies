@@ -91,8 +91,19 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav pull-right">
               <li class="dropdown" ng-show="token">
-                <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Notifications">
-                  <i class="fa fa-bell-o fa-3" aria-hidden="true"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
+                <div class="btn-group">
+  <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu" id="dropdown">
+
+  </div>
+</div> -->
+                <a href="" class="col-md-3 btn-group">
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
+                  <div class="dropdown-menu" id="dropdown">
+
+                  </div>
                 </a>
                 <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
                   <i class="fa fa-user fa-3" aria-hidden="true"></i>

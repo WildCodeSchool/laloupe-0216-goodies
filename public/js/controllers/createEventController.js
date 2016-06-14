@@ -66,10 +66,12 @@ $scope.addRecette = function (idRecette,index) {
 		    });
 		});
 
+		//================== Ajout d'events ==========
+
 	$scope.add = function(){
 		$scope.data.userId = $rootScope.userId;
 		$scope.data.position = $scope.position;
-		eventService.create($scope.data).then(function(res){
+		eventService.create($scope.data).then(function(res){ // <------ create event
 			console.log(res.data._id);
 			userService.findOne($rootScope.userId).then(function(r){
 				userFactory.user = r.data;
