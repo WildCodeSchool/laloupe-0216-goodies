@@ -74,21 +74,20 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         userService.findOne($rootScope.userId).then(function(res){
           userFactory.user = res.data;
           $scope.recettes = userFactory.user.recettes;
+          $location.path("/success");
         });
+        $scope.img = "";
+        $scope.titre = "";
+        $scope.description = "";
+        $scope.preparation = "";
+        $scope.cuisson = "";
+        $scope.ingredient = "";
+        $scope.recette = "";
+        $scope.type = "";
+        $scope.imageStrings[0] = [];
+        $rootScope.eat = type;
+        $scope.i ++;
       });
-      $location.path("/success");
-      $scope.img = "";
-      $scope.titre = "";
-      $scope.description = "";
-      $scope.preparation = "";
-      $scope.cuisson = "";
-      $scope.ingredient = "";
-      $scope.recette = "";
-      $scope.type = "";
-      $scope.imageStrings[0] = [];
-      $rootScope.eat = type;
-      $scope.i ++;
-
     };
 
   $scope.update = function(recette) {

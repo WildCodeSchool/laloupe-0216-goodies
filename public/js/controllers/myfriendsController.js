@@ -1,4 +1,4 @@
-function myfriendsController(userService, friendService, $scope, $rootScope, userFactory) {
+function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService) {
     function load () {
       userService.get().then(function(res){
         $scope.users = res.data;
@@ -13,13 +13,24 @@ function myfriendsController(userService, friendService, $scope, $rootScope, use
       userService.findByNameSurname(user[1],user[0]).then(function(res){ // ===== Récupération de l'ID du Friend
     	    datas.friendId = res.data._id;
           datas.userId = $scope.userId;
-          var friends = [];
-          userFactory.user.friends.forEach(function(e){friends.push(e.name+' '+e.prenom)});
-          if ($rootScope.userId != datas.friendId && friends.indexOf(user[1]+' '+user[0]) == -1){
+          var tabFriends = [];
+          userFactory.user.friends.forEach(function(e){tabFriends.push(e.name+' '+e.prenom)});
+          if ($rootScope.userId != datas.friendId && tabFriends.indexOf(user[1]+' '+user[0]) == -1){
 
-              userService.createFriend(datas).then(function(res) {
-                userService.findOne($rootScope.userId).then(function(res){
-                  userFactory.user = res.data;
+              // ================ ADD friends =========================
+              userService.createFriend(datas).then(function() {});
+              var friend = {
+                friends:{
+                  userId: datas.friendId,
+                  friendUserId: datas.userId,
+                  friendUserName: userFactory.user.prenom,
+                  friendUserSurname: userFactory.user.name
+                }
+              };
+              //================== addNotifications friends ==========
+              notificationService.createFriends(friend).then(function(){
+                userService.findOne($rootScope.userId).then(function(user){
+                  userFactory.user = user.data;
                   $scope.friends = userFactory.user.friends;
                 });
               });

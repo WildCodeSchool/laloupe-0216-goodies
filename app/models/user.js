@@ -26,6 +26,10 @@ var userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Recette',
   }],
+  notifications:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Notifications',
+  }],
   isAdmin : { type: Boolean, default: false}
 });
 
@@ -37,8 +41,9 @@ var User = {
     connect: function(req, res) {
         User.model.findOne(req.body,{__v: 0, isAdmin: 0})
         .populate('events',{__v: 0})
-        .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
+        .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0, notifications: 0})
         .populate('recettes',{__v: 0})
+        .populate('notifications',{__v: 0})
         .exec(function(err, user){
             if(err || !user)
                 res.sendStatus(403);
@@ -70,6 +75,7 @@ var User = {
       .populate('friends',{password: 0, events: 0, adresse: 0, recettes: 0, friends: 0, isAdmin: 0,__v: 0})
       .populate('events',{__v: 0})
       .populate('recettes',{__v: 0})
+      .populate('notifications',{__v: 0})
       .exec(function (err, user) {
         if (err) {
           res.sendStatus(400);
@@ -121,6 +127,17 @@ var User = {
 		User.model.findByIdAndUpdate(userId, {
         $push: {
           recettes: recetteId
+        }
+      }, function (err) {
+        res.sendStatus(200);
+		});
+	},
+	addNotifications: function(userId, notificationId, res) {
+    console.log('addNotifications');
+    console.log(userId);
+		User.model.findByIdAndUpdate(userId, {
+        $push: {
+          notifications: notificationId
         }
       }, function (err) {
         res.sendStatus(200);
