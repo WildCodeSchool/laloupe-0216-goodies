@@ -3,7 +3,8 @@
 
 function allRecipesController($scope, $rootScope, $http, recetteService) {
 	$('body').css('background-image', 'none');
-
+	$scope.moreVote = 0;
+	$scope.lessVote = 0;
 	$scope.seeRecipe=1;
 
 	$(document).ready(function() {
@@ -14,6 +15,14 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 			return false;
 		});
 	});
+
+	$scope.plus = function(){
+		$scope.moreVote += 1;
+	}
+
+	$scope.moins = function(){
+		$scope.lessVote += 1;
+	}
 
 	$scope.id = function(recette){
 		$scope.clickRecipe = recette;
