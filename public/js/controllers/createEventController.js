@@ -75,7 +75,6 @@ $scope.addRecette = function (idRecette,index) {
 			console.log(res.data._id);
 			userService.findOne($rootScope.userId).then(function(r){
 				userFactory.user = r.data;
-				$location.path('/events');
 			});
 
 			//================== addNotifications events ==========
@@ -93,6 +92,7 @@ $scope.addRecette = function (idRecette,index) {
 				};
 				notificationService.createEvents(ev).then(function(){});
 			}
+			$location.path('/events');
 		}); // <----- End create event
 
 	}

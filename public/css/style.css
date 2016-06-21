@@ -9,12 +9,20 @@
 /* ----------------------------------------------
 *         Connexion
 *         Left Menu
-*         Home Css
 *         Event Css
+*         Home Css
 *
 *
 --------------------------------------------------*/
-
+.padding {
+  padding: 5px;
+}
+.notif {
+  border-bottom: 1px solid rgba(189, 195, 199,0.5);
+}
+.notif:hover {
+  background-color: rgba(189, 195, 199,0.2);
+}
 .hamburger{
   margin-left: 50px;
 }
@@ -1591,7 +1599,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .showAllRecipesMini {
-  position:relative; 
+  position:relative;
   top:195px;
 }
 
