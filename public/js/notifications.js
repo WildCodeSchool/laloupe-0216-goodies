@@ -6,10 +6,10 @@ function notification(notifications) {
       var dropdownMenu = [];
       for ( var i = 0 ; i < nbNotifications ; i++){
         if (notifications[i].friends){
-          dropdownMenu.push('<div class="dropdown-item">'+notifications[i].friends.friendUserName+' '+notifications[i].friends.friendUserSurname+' demande d\' ami </div>')
+          dropdownMenu.push('<div class="dropdown-item notif padding">'+notifications[i].friends.friendUserName+' '+notifications[i].friends.friendUserSurname+' demande d\' ami </div>')
         }
         if(notifications[i].events){
-          dropdownMenu.push('<div class="dropdown-item">'+notifications[i].events.eventUserName+' '+notifications[i].events.eventUserSurname+' vous à inviter un évènement </div>')
+          dropdownMenu.push('<div class="dropdown-item notif padding">'+notifications[i].events.eventUserName+' '+notifications[i].events.eventUserSurname+' vous à inviter un évènement </div>')
         }
       }
       document.getElementById('dropdown').innerHTML = dropdownMenu.join('');
