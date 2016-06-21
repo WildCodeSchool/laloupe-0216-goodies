@@ -148,7 +148,10 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.recette = $scope.recetteMarmiton.recette;
       $scope.NbrPersonne = $scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g)[18];
       $scope.difficulte = $scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,'');
+<<<<<<< HEAD
       console.log($scope.difficulte);
+=======
+>>>>>>> b9537aca3f2dbb5ec33f2e324693015561edf15e
       $scope.prix = $scope.recetteMarmiton.prix;
       $scope.imageStrings[0] = $scope.recetteMarmiton.image;
     });
