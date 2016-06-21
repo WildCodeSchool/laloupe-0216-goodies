@@ -1,6 +1,7 @@
 
 //	MODEL EVENT
 
+var User = require('../models/user.js');
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
   crEnameForm: String,
@@ -24,31 +25,17 @@ var Event = {
     model: mongoose.model('Event', eventSchema),
 
     create: function(req, res) {
-		Event.model.create({
-			crEnameForm: req.body.crEnameForm,
-			crEdateForm: req.body.crEdateForm,
-			crEtimeForm: req.body.crEtimeForm,
-			crEnumberForm: req.body.crEnumberForm,
-			crEwayForm: req.body.crEwayForm,
-			crEcityForm: req.body.crEcityForm,
-			crEpostalcodeForm: req.body.crEpostalcodeForm,
-			crEcountryForm: req.body.crEcountryForm,
-			friendlastname: req.body.friendlastname,
-			friendfirstname: req.body.friendfirstname,
-			friendmail: req.body.friendmail,
-			tabRecetteEvent: req.body.tabRecetteEvent,
-			tabFriendEvent: req.body.tabFriendEvent,
-      userId: req.body.userId,
-      position: req.body.position,
-		}, function(){
-			res.sendStatus(200);
+      console.log('body: ')
+      console.log(req.body);
+		Event.model.create(req.body, function(err, data){
+			User.addEvent(req.body.userId, data._id, res);
 		})
 	},
 	findAll: function(req, res) {
-		Event.model.find(function (err, data) {
-			res.send(data);
-		});
-	},
+    Event.model.find(function(err, data) {
+      res.send(data);
+    });
+  },
 	update: function(req, res){
 		Event.model.findByIdAndUpdate(req.params.id, {
 			crEnameForm: req.body.crEnameForm,

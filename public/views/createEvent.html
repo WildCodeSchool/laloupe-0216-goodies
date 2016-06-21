@@ -28,7 +28,7 @@
 						<!-- formulaire: nom -->
 		            <div class="form-group">
 		                <label>Nommer mon événement :</label>
-		                <input name="crEnameForm" type="text" id="crEnameForm" class="form-control"  placeholder="Nom" ng-model="crEnameForm" required>
+		                <input name="crEnameForm" type="text" id="crEnameForm" class="form-control"  placeholder="Nom" ng-model="data.crEnameForm" required>
 		            </div>
 		         </div>
 
@@ -36,7 +36,7 @@
 						<!-- formulaire: date -->
 		            <div class="form-group">
 		                <label><span class="glyphicon glyphicon-calendar"></span> Date :</label>
-		                <input name="date" type="date" id="crEdateForm" class="form-control" ng-model="crEdateForm" required/>
+		                <input name="date" type="date" id="crEdateForm" class="form-control" ng-model="data.crEdateForm" required/>
 		            </div>
 	            </div>
 
@@ -44,7 +44,7 @@
 		            <!-- formulaire: heure -->
 		            <div class="form-group">
 		                <label><span class="glyphicon glyphicon-time"></span> Heure : </label>
-		                <input name="time" type="time" id="crEtimeForm" class="form-control" ng-model="crEtimeForm">
+		                <input name="time" type="time" id="crEtimeForm" class="form-control" ng-model="data.crEtimeForm">
 		            </div>
 		         </div>
 
@@ -58,7 +58,7 @@
 						<!-- formulaire: N° de rue -->
 		            <div class="form-group">
 		                <label> N° : </label>
-		                <input name="number" type="number" min="1" max="9999" id="crEnumberForm" class="form-control" ng-model="crEnumberForm" required/>
+		                <input name="number" type="number" min="1" max="9999" id="crEnumberForm" class="form-control" ng-model="data.crEnumberForm" required/>
 		            </div>
 		         </div>
 
@@ -66,7 +66,7 @@
 						<!-- formulaire: rue -->
 		            <div class="form-group">
 		            	<label><span class="glyphicon glyphicon-road"></span> Rue : </label>
-		            	<input name="way" type="text" id="crEwayForm" class="form-control" placeholder="Adresse" ng-model="crEwayForm" required/>
+		            	<input name="way" type="text" id="crEwayForm" class="form-control" placeholder="Adresse" ng-model="data.crEwayForm" required/>
 		        		</div>
 		        	</div>
 
@@ -74,7 +74,7 @@
 		            <!-- formulaire: ville -->
 		            <div class="form-group">
 		               <label>Ville : </label>
-		               <input name="city" type="text" id="crEcityForm" class="form-control" placeholder="Ville" ng-model="crEcityForm" required/>
+		               <input name="city" type="text" id="crEcityForm" class="form-control" placeholder="Ville" ng-model="data.crEcityForm" required/>
 		            </div>
 		         </div>
 
@@ -82,7 +82,7 @@
 					   <!-- formulaire: code postal -->
 					  	<div class="form-group">
 					    	<label>Code postal : </label>
-		          		<input name="postalcode" type="text" id="crEpostalcodeForm" class="form-control" placeholder="Code postal" ng-model="crEpostalcodeForm" required/>
+		          		<input name="postalcode" type="text" id="crEpostalcodeForm" class="form-control" placeholder="Code postal" ng-model="data.crEpostalcodeForm" required/>
 		        		</div>
 		        	</div>
 
@@ -90,7 +90,7 @@
 		          	<!-- formulaire: pays -->
 		          	<div class="form-group">
 				         <label><span class="glyphicon glyphicon-globe"></span> Pays : </label>
-				         <input name="country" type="text" id="crEcountryForm" class="form-control" placeholder="Pays" ng-model="crEcountryForm" required/>
+				         <input name="country" type="text" id="crEcountryForm" class="form-control" placeholder="Pays" ng-model="data.crEcountryForm" required/>
 						</div>
 					</div>
 
@@ -269,8 +269,8 @@
 
 							<div class="form-group">
 					      	<div class="searchable-container">
-					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends | filter : {userId: userId}">
-					                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend.friendId)">
+					             <div class="items col-xs-5 col-sm-5 col-md-6 col-lg-3" style="width:245px;" ng-repeat="friend in friends">
+					                 <div class="info-block block-info clearfix" ng-click="addFriendEvent(friend._id)">
 					                     <div data-toggle="buttons" class="btn-group bizmoduleselect">
 					                         <label class="btn btn-default">
 					                             <div class="bizcontent">
@@ -278,7 +278,7 @@
 																					<img ng-hide="friend.img" class="imageProfileSmall" src="./assets/user-default.png" alt="" />
 																					<img ng-show="friend.img" class="imageProfileSmall" src="{{friend.img}}" alt="" />
 					                                <h5>{{friend.prenom}}</h5>
-																					<h5>{{friend.nom}}</h5>
+																					<h5>{{friend.name}}</h5>
 																					<p><span class="glyphicon glyphicon-ok glyphicon-lg"></span></p>
 					                             </div>
 					                         </label>

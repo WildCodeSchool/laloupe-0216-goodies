@@ -19,7 +19,8 @@
     <link href='https://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/yoan.css">
-    
+
+    <!-- ============================ LIBS ============================== -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.13.0/moment.min.js"></script>
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="js/libs/jquery-1.11.3.min.js"></script>
@@ -27,10 +28,14 @@
 
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
+    <script src="js/factories/userFactory.js"></script>
     <script src="js/libs/angular-route.min.js"></script>
     <script src="js/libs/ng-map.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
+
+    <!-- ============================= CONTROLLERS ============================== -->
+    <script src="js/notifications.js"></script>
 
     <script src="js/controllers/eventController.js"></script>
     <script src="js/controllers/connectController.js"></script>
@@ -43,10 +48,13 @@
     <script src="js/controllers/myfriendsController.js"></script>
     <script src="js/controllers/compteController.js"></script>
 
+    <!-- ============================ SERVICES ===================================== -->
     <script src="js/services/eventService.js"></script>
+    <script src="js/services/marmitonService.js"></script>
     <script src="js/services/friendService.js"></script>
     <script src="js/services/recetteService.js"></script>
     <script src="js/services/connectService.js"></script>
+    <script src="js/services/notificationService.js"></script>
     <script src="js/services/userService.js"></script>
 
     <!-- FLOW JS -->
@@ -83,8 +91,19 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav pull-right">
               <li class="dropdown" ng-show="token">
-                <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Notifications">
-                  <i class="fa fa-bell-o fa-3" aria-hidden="true"><span class="badge" style="margin: -10px; background-color: #F8AC37">4</span></i>
+                <div class="btn-group">
+  <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu" id="dropdown">
+
+  </div>
+</div> -->
+                <a href="" class="col-md-3 btn-group">
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
+                  <div class="dropdown-menu" id="dropdown">
+
+                  </div>
                 </a>
                 <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mon compte">
                   <i class="fa fa-user fa-3" aria-hidden="true"></i>
@@ -122,12 +141,11 @@
               <a href="#/menu" ng-show="token" class="links">Les recettes</a>
             </li>
             <li>
-              <a href="#/events" ng-show="token" onclick="location.reload();" class="links">Les évènements</a>
+              <a href="#/events" ng-show="token" class="links">Les évènements</a>
             </li>
           </ul>
         </nav>
       </div>
-
       <div class="container-fluid page">
         <ng-view></ng-view>
       </div>
@@ -139,9 +157,9 @@
 
        function imprimer_page(){
           window.print();
-        } 
-        
-        
+        }
+
+
     </script>
   </body>
 </html>
