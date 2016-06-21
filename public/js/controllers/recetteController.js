@@ -141,18 +141,16 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       angular.element($('#inputIngredient')).val($scope.recetteMarmiton.ingredients.split('-').join('\r\n-'));
       angular.element($('#inputRecette')).val($scope.recetteMarmiton.recette);
       angular.element($('#inputNbrPersonne')).val($scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g)[18]);
-      // var testValue = $scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,'');
-      // angular.element($('#selectDifficulte')).val($scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,''));
       $scope.titre = $scope.recetteMarmiton.titre;
       $scope.preparation = $scope.recetteMarmiton.preparation;
       $scope.cuisson = $scope.recetteMarmiton.cuisson;
       $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
       $scope.recette = $scope.recetteMarmiton.recette;
-      $scope.NbrPersonne = $scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g);
-      $scope.difficulte = $scope.recetteMarmiton.difficulte;
+      $scope.NbrPersonne = $scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g)[18];
+      $scope.difficulte = $scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,'');
+      console.log($scope.difficulte);
       $scope.prix = $scope.recetteMarmiton.prix;
       $scope.imageStrings[0] = $scope.recetteMarmiton.image;
     });
-    angular.element($('#selectDifficulte')).val(2);
   };
 }
