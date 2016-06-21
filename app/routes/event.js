@@ -1,4 +1,3 @@
-
 //	ROUTES EVENTS
 
 var Event = require('../models/event.js');

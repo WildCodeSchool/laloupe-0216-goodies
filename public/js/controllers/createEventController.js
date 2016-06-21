@@ -38,7 +38,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
 			$scope.data.crEpostalcodeForm = '';
 			$scope.data.crEcountryForm = '';
 		}
-	};
+	}
 
 // =================== Ajout recettes à un évènement =============
 $scope.tabRecetteEvent = [];
@@ -52,7 +52,7 @@ $scope.addRecette = function (idRecette,index) {
 	$scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette),1);
 	$('#gly'+index).removeClass('gly-checked');
 	}
-};
+}
 
 // =================== END Ajout recettes à un évènement =============
 
@@ -95,46 +95,6 @@ $scope.addRecette = function (idRecette,index) {
 			}
 		}); // <----- End create event
 
-<<<<<<< HEAD
-		var data = {};
-		data.crEnameForm = $scope.crEnameForm;
-		data.crEdateForm = $scope.crEdateForm;
-		data.crEtimeForm = $scope.crEtimeForm;
-		data.crEnumberForm = $scope.crEnumberForm;
-		data.crEwayForm = $scope.crEwayForm;
-		data.crEcityForm = $scope.crEcityForm;
-		data.crEpostalcodeForm = $scope.crEpostalcodeForm;
-		data.crEcountryForm = $scope.crEcountryForm;
-		data.tabRecetteEvent = $scope.tabRecetteEvent;
-		data.tabFriendEvent = $scope.tabFriendEvent;
-		data.userId = $rootScope.userId;
-		data.position = $scope.position;
-		eventService.create(data).then(function(res){
-			load();
-		});
-		$scope.crEnameForm = "";
-		$scope.crEdateForm = "";
-		$scope.crEtimeForm = "";
-		$scope.crEnumberForm = "";
-		$scope.crEwayForm = "";
-		$scope.crEcityForm = "";
-		$scope.crEpostalcodeForm = "";
-		$scope.crEcountryForm = "";
-		$scope.tabRecetteEvent = [];
-		$scope.tabFriendEvent = [];
-		$location.path('/events');
-	};
-	$scope.update = function(event){
-		eventService.update(event._id, event).then(function(res){
-			load();
-		});
-	};
-	$scope.delete = function(event){
-		eventService.delete(event._id).then(function(res){
-			load();
-		});
-=======
->>>>>>> 17505dd797af6a4458eddd10d19d24a63a906ee7
 	}
 
 // ========================= Ajout des amis dans la BD ==============
@@ -157,25 +117,21 @@ $scope.addFriends = function(){
 						$scope.dataFriends = {};
 				});
 			});
-<<<<<<< HEAD
-	load();
 };
-=======
-}
->>>>>>> 17505dd797af6a4458eddd10d19d24a63a906ee7
 
 // ===================  END Ajout des amis dans la BD =============
 
 // ===================  Ajout amis event =============
 	$scope.data.tabFriendEvent = [];
 	$scope.addFriendEvent = function (id){
+
 		if ($scope.data.tabFriendEvent.indexOf(id) == -1){
-			$scope.data.tabFriendEvent.push(id)
+			$scope.data.tabFriendEvent.push(id);
 		}
 		else {
-			$scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id),1)
+			$scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id),1);
 		}
-	}
+	};
 
 // ===================  END Ajout des amis dans la BD =============
 

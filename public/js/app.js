@@ -83,6 +83,10 @@ function config($routeProvider, $httpProvider) {
           templateUrl: 'views/myfriends.html',
           controller: 'myfriendsController'
         })
+        .when('/test', {
+          templateUrl: 'views/test.html',
+          controller: 'testController'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -95,12 +99,10 @@ function config($routeProvider, $httpProvider) {
           if (sessionStorage.getItem('token')) {// Replace with cookies
             config.headers.authorization = sessionStorage.getItem('token');
           }
-
         }
         return config;
       },
       'responseError': function(response) {
-
         // if (!response.config.data.prenom){
           if (response.status === 401 || response.status === 403) {
             $location.path('/login');
@@ -111,10 +113,8 @@ function config($routeProvider, $httpProvider) {
     };
   });
 }
-
 function checkIsConnected($q, $http, $rootScope, $location) {
   var deferred = $q.defer();
-
   $http.get('/api/loggedin').success(function() {
     // Authenticated
     deferred.resolve();
@@ -127,15 +127,12 @@ function checkIsConnected($q, $http, $rootScope, $location) {
   return deferred.promise;
 };
 
-
 function run($rootScope, $location, connectService, userFactory, userService) {
   if (sessionStorage.getItem('token')) {// Replace with cookies
     $rootScope.token = sessionStorage.getItem('token');
     $rootScope.userId = sessionStorage.getItem('userId');
     userService.findOne($rootScope.userId).then(function(res){
       userFactory.user = res.data;
-      console.log('userFactory.user');
-      console.log(userFactory.user);
     });
   }
 
@@ -161,8 +158,8 @@ function run($rootScope, $location, connectService, userFactory, userService) {
     $rootScope.userId = '';
     connectService.disconnect().then(function() {
       $location.url('/login');
-    })
-  }
+    });
+  };
 
 }
 
@@ -178,7 +175,7 @@ function checkPassword() {
         });
       });
     }
-  }
+  };
 }
 
 angular.module('app', ['ngRoute','flow'])
@@ -194,6 +191,8 @@ angular.module('app', ['ngRoute','flow'])
   .controller('compteController', compteController)
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
+  .controller('testController', testController)
+
   .service('eventService', eventService)
   .service('marmitonService', marmitonService)
   .service('friendService', friendService)
