@@ -109,7 +109,7 @@ $scope.addFriends = function(){
 						});
 						$scope.dataFriends = {};
 				});
-			},function(err){
+			},function(err){ // ============== si l'ami n'est pas dans la BDD ================
 				userService.createFriend($scope.dataFriends).then(function(){
 					userService.findOne($rootScope.userId).then(function(res){
 						userFactory.user = res.data;

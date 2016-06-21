@@ -12,7 +12,6 @@ function notification(notifications) {
           dropdownMenu.push('<div class="dropdown-item">'+notifications[i].events.eventUserName+' '+notifications[i].events.eventUserSurname+' vous à inviter un évènement </div>')
         }
       }
-      console.log(dropdownMenu);
       document.getElementById('dropdown').innerHTML = dropdownMenu.join('');
     }
     else {
