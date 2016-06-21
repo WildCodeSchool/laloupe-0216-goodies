@@ -1,4 +1,5 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
+
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
   function load() {
       $scope.recettes = userFactory.user.recettes;
@@ -10,9 +11,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
   $scope.recetteTab = [];
   $scope.data = {};
   $scope.eat = $rootScope.eat; //type entre plat ou dessert
-
-
-
 
   /*===================  Fonction bouton Recette  ========================= */
 
@@ -69,6 +67,9 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       datas.cuisson = $scope.cuisson;
       datas.ingredient = $scope.ingredient;
       datas.recette = $scope.recette;
+      datas.NbrPersonne = $scope.NbrPersonne;
+      datas.difficulte = $scope.difficulte;
+      datas.prix = $scope.prix;
       datas.type = type;
       recetteService.create(datas).then(function(res) {
         userService.findOne($rootScope.userId).then(function(res){
@@ -139,13 +140,19 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       angular.element($('#inputPreparation')).val($scope.recetteMarmiton.preparation.replace(' ', ''));
       angular.element($('#inputIngredient')).val($scope.recetteMarmiton.ingredients.split('-').join('\r\n-'));
       angular.element($('#inputRecette')).val($scope.recetteMarmiton.recette);
-
+      angular.element($('#inputNbrPersonne')).val($scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g)[18]);
+      // var testValue = $scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,'');
+      // angular.element($('#selectDifficulte')).val($scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,''));
       $scope.titre = $scope.recetteMarmiton.titre;
       $scope.preparation = $scope.recetteMarmiton.preparation;
       $scope.cuisson = $scope.recetteMarmiton.cuisson;
       $scope.ingredient = $scope.recetteMarmiton.ingredients.split('-').join('\r\n-');
       $scope.recette = $scope.recetteMarmiton.recette;
+      $scope.NbrPersonne = $scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g);
+      $scope.difficulte = $scope.recetteMarmiton.difficulte;
+      $scope.prix = $scope.recetteMarmiton.prix;
       $scope.imageStrings[0] = $scope.recetteMarmiton.image;
     });
+    angular.element($('#selectDifficulte')).val(2);
   };
 }

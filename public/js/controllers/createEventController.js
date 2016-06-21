@@ -117,20 +117,21 @@ $scope.addFriends = function(){
 						$scope.dataFriends = {};
 				});
 			});
-}
+};
 
 // ===================  END Ajout des amis dans la BD =============
 
 // ===================  Ajout amis event =============
 	$scope.data.tabFriendEvent = [];
 	$scope.addFriendEvent = function (id){
+
 		if ($scope.data.tabFriendEvent.indexOf(id) == -1){
-			$scope.data.tabFriendEvent.push(id)
+			$scope.data.tabFriendEvent.push(id);
 		}
 		else {
-			$scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id),1)
+			$scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id),1);
 		}
-	}
+	};
 
 // ===================  END Ajout des amis dans la BD =============
 

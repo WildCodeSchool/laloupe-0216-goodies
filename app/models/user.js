@@ -94,7 +94,10 @@ var User = {
     console.log(req.params);
 		User.model.findOne(req.params, {password: 0, __v: 0, isAdmin: 0, adresse: 0}, function (err, user) {
       console.log(user);
-      if (!user) {
+      if (err) {
+        console.log(err);
+      }
+      else if (!user) {
         res.sendStatus(400);
       }
       else {

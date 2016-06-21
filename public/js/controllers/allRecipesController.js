@@ -10,7 +10,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
 			var page = $(this).attr('href'); // Page cible
 			var speed = 750; // Durée de l'animation (en ms)
-			$('html, body').animate( { scrollTop: $(page).offset().top - 170 }, speed ); // Go
+			$('html, body').animate( { scrollTop: $(page).offset().top - 200 }, speed ); // Go
 			return false;
 		});
 	});

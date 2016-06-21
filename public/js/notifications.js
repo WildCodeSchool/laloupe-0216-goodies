@@ -15,7 +15,9 @@ function notification(notifications) {
       console.log(dropdownMenu);
       document.getElementById('dropdown').innerHTML = dropdownMenu.join('');
     }
-
+    else {
+      document.getElementById('dropdown').innerHTML = 'Vous n\'avez pas de notifications';
+    }
 }
 
 function removeRow() {

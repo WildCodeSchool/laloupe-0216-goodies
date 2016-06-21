@@ -25,6 +25,12 @@ module.exports = function(app) {
       var recette = $('.m_content_recette_todo');
       var recetteText = recette.text();
 
+      var NbrPersonne = $('.m_content_recette_ingredients span');
+      var NbrPersonneText = NbrPersonne.text();
+
+      var difficulte = $('.m_content_recette_breadcrumb');
+      var difficulteText = difficulte.text();
+
       var src = $('.photo').attr("src");
 
       var Recette = {
@@ -33,10 +39,11 @@ module.exports = function(app) {
         cuisson: cuissonText,
         ingredients: ingredientsText,
         recette: recetteText,
-        image: src
+        NbrPersonne: NbrPersonneText,
+        difficulte: difficulteText,
+        image: src,
       };
       res.json(Recette);
-      console.log(Recette);
     });
   });
 };
