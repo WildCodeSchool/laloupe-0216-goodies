@@ -1796,7 +1796,7 @@ input::-webkit-calendar-picker-indicator {
 .seeRecipeContainer {
   border: 1px solid #e2e0e0;
   border-radius: 4px;
-  box-shadow: 3px 3px 19px;
+  box-shadow: 3px 3px 16px -3px;
   position: relative;
   top: 190px;
   padding: 15px;

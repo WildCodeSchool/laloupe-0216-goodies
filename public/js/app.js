@@ -83,10 +83,6 @@ function config($routeProvider, $httpProvider) {
           templateUrl: 'views/myfriends.html',
           controller: 'myfriendsController'
         })
-        .when('/test', {
-          templateUrl: 'views/test.html',
-          controller: 'testController'
-        })
         .otherwise({
             redirectTo: '/'
         });
@@ -191,7 +187,6 @@ angular.module('app', ['ngRoute','flow'])
   .controller('compteController', compteController)
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
-  .controller('testController', testController)
 
   .service('eventService', eventService)
   .service('marmitonService', marmitonService)
