@@ -1,0 +1,49 @@
+body {
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+.mainContainerNav {
+	display: none;
+}
+.showAllRecipesMini {
+	display: none;
+}
+.allRecipesPresentation {
+	display: none;
+}
+.g_imgRecipe {
+	display: none;
+}
+
+.lineVote {
+	display: none;
+}
+
+.infoLineRecipe {
+	display: inline-flex;
+	position: relative;
+	bottom: 5cm;
+}
+.btnClose {
+	display: none;
+}
+.btnMoreInfo {
+	display: none;
+}
+.seeRecipeContainer {
+	border:none;
+}
+.g_titleRecipe {
+	position: relative;
+	bottom: 5cm;
+}
+.g_typeRecette {
+	position: relative;
+	bottom: 6cm;
+}
+.box55 {
+	position: relative;
+	bottom: 50mm;
+}

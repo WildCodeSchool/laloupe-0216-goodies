@@ -146,8 +146,8 @@
           <div class="col-md-6">
 
           <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
+            
             <div class="infoLineRecipe col-md-12">
-
               <div class="g_nbPeoplesRecipe">
                 <center>
                   <button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: {{clickRecipe.NbrPersonne}} Prs.">
@@ -175,13 +175,12 @@
                   <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.prix}} € </p>
                 </button>
               </div>
-
             </div><!-- /.infoLineRecipe -->
 
         </div><!-- /.col-md-6 -->
 
         <div class="col-md-6">
-          <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+          <p class="g_typeRecette" style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
 
           <div class="row">
             <div class="lineVote col-md-12">
@@ -196,7 +195,7 @@
               </div>
             </div>
 
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group btn-group-justified btnMoreInfo" role="group" aria-label="...">
               <div class="btn-group" role="group">
                 <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
                 </button>
@@ -218,13 +217,13 @@
 
         </div><!-- /.col-md-6 -->
 
-        <div class="col-md-12" style="border-top: 1px solid #f8ac37;">
-          <div class="col-md-4">
+        <div class="col-md-12 box55">
+          <div class="col-md-4 g_ingredientsRecipe">
             <h3>Ingrédients</h3>
             <div>{{clickRecipe.ingredient}}</div>
           </div>
 
-          <div class="col-md-8">
+          <div class="col-md-8 g_recipe">
             <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
              <h3>Recette</h3>
              <div>{{clickRecipe.recette}}</div>

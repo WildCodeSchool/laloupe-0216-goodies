@@ -1796,6 +1796,7 @@ input::-webkit-calendar-picker-indicator {
 .seeRecipeContainer {
   border: 1px solid #e2e0e0;
   border-radius: 4px;
+  background-color: #fff;
   box-shadow: 3px 3px 16px -3px;
   position: relative;
   top: 190px;
@@ -1874,4 +1875,7 @@ input::-webkit-calendar-picker-indicator {
 .lineVote .btn-success, .btn-danger {
   font-weight: bold;
   font-size: 2rem;
+}
+.box55 {
+  border-top: 1px solid #f8ac37;"
 }
