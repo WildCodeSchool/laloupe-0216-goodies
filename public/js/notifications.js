@@ -1,6 +1,6 @@
 function notification(notifications) {
     removeRow();
-    if (notifications){
+    if (notifications && notifications.length != 0){
       var nbNotifications = notifications.length;
        document.getElementById('notification').innerHTML = nbNotifications;
       var dropdownMenu = [];
@@ -12,10 +12,11 @@ function notification(notifications) {
           dropdownMenu.push('<div class="dropdown-item">'+notifications[i].events.eventUserName+' '+notifications[i].events.eventUserSurname+' vous à inviter un évènement </div>')
         }
       }
-      console.log(dropdownMenu);
       document.getElementById('dropdown').innerHTML = dropdownMenu.join('');
     }
-
+    else {
+      document.getElementById('dropdown').innerHTML = 'Vous n\'avez pas de notifications';
+    }
 }
 
 function removeRow() {

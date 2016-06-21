@@ -11,6 +11,9 @@ var recetteSchema = new mongoose.Schema({
   ingredient: String,
   recette: String,
   type: String,
+  NbrPersonne: String,
+  prix: String,
+  difficulte: String,
   userId: String
 });
 var Recette = {
@@ -20,7 +23,7 @@ var Recette = {
     console.log('body: ' + req.body);
     Recette.model.create(req.body, function(err, data){
       User.addRecettes(req.body.userId, data._id, res);
-  })
+  });
 },
   findAll: function(req, res) {
     Recette.model.find({},function(err, data) {

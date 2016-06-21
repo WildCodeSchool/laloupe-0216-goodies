@@ -5,12 +5,22 @@ function eventController($scope, $http, eventService, friendService, $location, 
 	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
 	$scope.nbEvents = 0;
 	$scope.nbInvit = 0;
+	$scope.invit = {};
 	$scope.dataFriends = {};
 	$scope.form = 1;
 	$scope.creform = 1;
 	$scope.showRecette = 'entree';
 	$scope.events = userFactory.user.events;
-	$scope.nbEvents = $scope.events.length;
+	if (userFactory.user.events){
+		$scope.events = userFactory.user.events;
+		$scope.nbEvents = $scope.events.length;
+	}
+	for (var i = 0 ; i < userFactory.user.notifications.length ; i++){
+		if (userFactory.user.notifications[i].events){
+			$scope.nbInvit += 1;
+			$scope.invit['events'+i] = userFactory.user.notifications[i].events;
+		}
+	}
 	$scope.required = true;
 
 	$(function() {

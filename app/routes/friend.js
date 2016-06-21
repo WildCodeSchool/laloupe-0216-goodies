@@ -8,4 +8,4 @@ module.exports 	= function(app) {
 	app.put('/friends/:id', friends.update);
 	app.delete('/friends/:id', friends.delete);
 
-}
+};
