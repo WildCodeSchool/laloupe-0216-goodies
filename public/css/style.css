@@ -1920,6 +1920,7 @@ input::-webkit-calendar-picker-indicator {
 .timeline > li > .timeline-panel {
   width: 50%;
   float: left;
+  background-color: #fff;
   border: 1px solid #d4d4d4;
   border-radius: 2px;
   padding: 20px;
