@@ -1,5 +1,7 @@
 function mainController($scope, $rootScope, $http,recetteService, userFactory) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
+	$rootScope.$on('userFactoryUpdate', function () {
+
 	$scope.showRecette = 'entree';
 
 	function load() {
@@ -26,5 +28,5 @@ function mainController($scope, $rootScope, $http,recetteService, userFactory) {
       }
     });
   });
-
+	}
 }

@@ -3,6 +3,7 @@
 
 function allRecipesController($scope, $rootScope, $http, recetteService) {
 	$('body').css('background-image', 'none');
+	$rootScope.$on('userFactoryUpdate', function () {
 	$scope.moreVote = 0;
 	$scope.lessVote = 0;
 	$scope.seeRecipe=1;
@@ -39,5 +40,5 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 		});
 	}
 	load();
-
+	}
 }

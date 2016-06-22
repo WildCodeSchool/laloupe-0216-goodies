@@ -1,4 +1,6 @@
 function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService) {
+  $rootScope.$on('userFactoryUpdate', function () {
+
     function load () {
       userService.get().then(function(res){
         $scope.users = res.data;
@@ -46,5 +48,5 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
         });
       });
     };
-
+  }
 }

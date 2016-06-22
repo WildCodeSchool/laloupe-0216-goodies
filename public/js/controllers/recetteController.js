@@ -1,6 +1,8 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
 
   $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
+  $rootScope.$on('userFactoryUpdate', function () {
+
   function load() {
       $scope.recettes = userFactory.user.recettes;
   }
@@ -155,4 +157,5 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
     });
     angular.element($('#selectDifficulte')).val(2);
   };
+  }
 }
