@@ -14,7 +14,9 @@ var recetteSchema = new mongoose.Schema({
   NbrPersonne: String,
   prix: String,
   difficulte: String,
-  userId: String
+  userId: String,
+  moreVote: Number,
+  lessVote: Number
 });
 var Recette = {
   model: mongoose.model('Recette', recetteSchema),
@@ -31,6 +33,7 @@ var Recette = {
     });
   },
   update: function(req, res) {
+    console.log(req.body);
     Recette.model.findByIdAndUpdate(req.params.id, req.body, function(err) {
       if (err) {
         res.send(err);

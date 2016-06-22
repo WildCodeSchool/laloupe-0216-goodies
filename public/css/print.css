@@ -24,7 +24,8 @@ body {
 .infoLineRecipe {
 	display: inline-flex;
 	position: relative;
-	bottom: 5cm;
+	bottom: 4cm;
+	left: 4.5cm;
 }
 .btnClose {
 	display: none;
@@ -39,11 +40,18 @@ body {
 	position: relative;
 	bottom: 5cm;
 }
+.g_titleRecipe{
+	font-size: 12pt;
+}
 .g_typeRecette {
 	position: relative;
-	bottom: 6cm;
+	bottom: 9cm;
 }
 .box55 {
 	position: relative;
 	bottom: 50mm;
+}
+
+#commentary {
+	display: none;
 }
