@@ -11,20 +11,25 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/allRecipes', {
             templateUrl: 'views/allRecipes.html',
-            controller: 'allRecipesController'
+            controller: 'allRecipesController',
+            resolve: {
+                userUpdate: userFactoryUpdate
+            }
         })
         .when('/events', {
             templateUrl: 'views/events.html',
             controller: 'eventController',
             resolve: {
-                connected: checkIsConnected
+                connected: checkIsConnected,
+                userUpdate: userFactoryUpdate
             }
         })
         .when('/createEvent', {
             templateUrl: 'views/createEvent.html',
             controller: 'createEventController',
             resolve: {
-                connected: checkIsConnected
+                connected: checkIsConnected,
+                userUpdate: userFactoryUpdate
             }
         })
         .when('/signup', {
@@ -35,35 +40,40 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/admin.html',
             controller: 'adminController',
             resolve: {
-                connected: checkIsConnected
+                connected: checkIsConnected,
+                userUpdate: userFactoryUpdate
             }
         })
         .when('/menu', {
           templateUrl: 'views/menu.html',
           controller: 'recetteController',
           resolve: {
-              connected: checkIsConnected
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
           }
         })
         .when('/createEntree', {
           templateUrl: 'views/createEntree.html',
           controller: 'recetteController',
           resolve: {
-              connected: checkIsConnected
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
           }
         })
         .when('/createPlat', {
           templateUrl: 'views/createPlat.html',
           controller: 'recetteController',
           resolve: {
-              connected: checkIsConnected
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
           }
         })
         .when('/createDessert', {
           templateUrl: 'views/createDessert.html',
           controller: 'recetteController',
           resolve: {
-              connected: checkIsConnected
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
           }
         })
         .when('/success', {
@@ -76,12 +86,17 @@ function config($routeProvider, $httpProvider) {
           templateUrl: 'views/moncompte.html',
           controller: 'compteController',
           resolve: {
-              connected: checkIsConnected
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
           }
         })
         .when('/myfriends', {
           templateUrl: 'views/myfriends.html',
-          controller: 'myfriendsController'
+          controller: 'myfriendsController',
+          resolve: {
+              connected: checkIsConnected,
+              userUpdate: userFactoryUpdate
+          }
         })
         .otherwise({
             redirectTo: '/'
@@ -109,6 +124,13 @@ function config($routeProvider, $httpProvider) {
     };
   });
 }
+function userFactoryUpdate ($rootScope, userService) {
+  userService.findOne($rootScope.userId).then(function(res){
+    userFactory.user = res.data;
+    console.log('???');
+    $rootScope.$emit('userFactoryUpdate')
+  });
+}
 function checkIsConnected($q, $http, $rootScope, $location) {
   var deferred = $q.defer();
   $http.get('/api/loggedin').success(function() {
@@ -129,6 +151,8 @@ function run($rootScope, $location, connectService, userFactory, userService) {
     $rootScope.userId = sessionStorage.getItem('userId');
     userService.findOne($rootScope.userId).then(function(res){
       userFactory.user = res.data;
+      console.log('???');
+      $rootScope.$emit('userFactoryUpdate')
     });
   }
 
@@ -176,6 +200,15 @@ function checkPassword() {
 
 angular.module('app', ['ngRoute','flow'])
   .config(config)
+  .service('eventService', eventService)
+  .service('marmitonService', marmitonService)
+  .service('friendService', friendService)
+  .service('recetteService', recetteService)
+  .service('connectService', connectService)
+  .service('notificationService', notificationService)
+  .service('userService', userService)
+  .factory('userFactory', userFactory)
+
   .directive('checkPassword', checkPassword)
   .controller('connectController', connectController)
   .controller('signupController', signupController)
@@ -188,14 +221,7 @@ angular.module('app', ['ngRoute','flow'])
   .controller('createEventController', createEventController)
   .controller('myfriendsController', myfriendsController)
 
-  .service('eventService', eventService)
-  .service('marmitonService', marmitonService)
-  .service('friendService', friendService)
-  .service('recetteService', recetteService)
-  .service('connectService', connectService)
-  .service('notificationService', notificationService)
-  .service('userService', userService)
-  .factory('userFactory', userFactory)
+
   /*.factory('', )*/
   .config(['flowFactoryProvider', function(flowFactoryProvider) {
     flowFactoryProvider.defaults = {

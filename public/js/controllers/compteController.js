@@ -1,5 +1,7 @@
 function compteController($scope, $rootScope, $location, eventService, friendService, userService, userFactory){
 	$('body').css('background-image', 'none').css('background-image','url("./assets/pasta.jpg")');
+	$rootScope.$on('userFactoryUpdate', function () {
+
 	$scope.user = userFactory.user;
 	// ==================  Hover pencil case =============
 
@@ -47,5 +49,5 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 	        fileReader.readAsDataURL(flowFile.file);
 	      });
 	    };
-
+		}
 }

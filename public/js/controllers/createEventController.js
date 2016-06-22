@@ -2,6 +2,8 @@
 
 function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
 	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
+	$rootScope.$on('userFactoryUpdate', function () {
+
 	$scope.dataFriends = {};
 	$scope.user = {}
 	$scope.form = 1;
@@ -141,5 +143,6 @@ $scope.geoloc = function (){
 		$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAOq8Pa8bDZCg5wbgRmcqkoP8JibZt5j1M').then(function(res) {
 			$scope.position = [res.data.results[0].geometry.location.lat,res.data.results[0].geometry.location.lng];
 		})
+	}
 	}
 }
