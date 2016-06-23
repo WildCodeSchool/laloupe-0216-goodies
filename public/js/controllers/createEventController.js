@@ -90,7 +90,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
 
         $scope.addFriends = function() {
             $scope.dataFriends.userId = $rootScope.userId;
-            userService.findMail($scope.dataFriends.friendmail).then(function(res) {
+            userService.findMail($scope.dataFriends.email).then(function(res) {
                 $scope.dataFriends.friendId = res.data._id
                 userService.createFriend($scope.dataFriends).then(function() {
                     var notif = {};
@@ -105,14 +105,28 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                     $scope.dataFriends = {};
                 });
             }, function(err) { // ============== si l'ami n'est pas dans la BDD ================
-                userService.createFriend($scope.dataFriends).then(function() {
-                    userService.findOne($rootScope.userId).then(function(res) {
-                        userFactory.user = res.data;
-                        load();
+                userService.create($scope.dataFriends).then(function(res) {
+                    console.log(res.data._id);
+                    function password (){
+                      var nbCaractère
+                    }
+                    $scope.dataFriends.friendId = res.data._id;
+                    $scope.dataFriends.password = password();
+                    userService.createFriend($scope.dataFriends).then(function() {
+                        var notif = {};
+                        notif.userId = $scope.dataFriends.friendId;
+                        notif.friends = $scope.dataFriends.userId;
+                        notificationService.createFriends(notif).then(function() {
+                            userService.findOne($rootScope.userId).then(function(r) {
+                                userFactory.user = r.data;
+                                load();
+                            })
+                        });
+                        $scope.dataFriends = {};
                     });
-                    $scope.dataFriends = {};
                 });
-            });
+
+            })
         };
 
         // ===================  END Ajout des amis dans la BD =============

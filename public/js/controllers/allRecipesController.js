@@ -1,14 +1,27 @@
 // allRecipesController
 
-function allRecipesController($scope, $rootScope, $http, recetteService) {
+
 
   
-$('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
+
+function allRecipesController($scope, $rootScope, $http, recetteService, userService) {
+	$('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
+    
     $rootScope.$on('userFactoryUpdate', function() {
 			$scope.moreVote = 0;
 			$scope.lessVote = 0;
 			$scope.seeRecipe=1;
 
+      $scope.favoris = function (recette,idFav){
+        recette.userId = $rootScope.userId;
+        recetteService.create(recette).then(function(res) {
+            $('#'+idFav).addClass('favoris');
+            userService.findOne($rootScope.userId).then(function(res) {
+                userFactory.user = res.data;
+            });
+          });
+
+      }
 			// Scroll pour le bouton commentaire -->
 			$(document).ready(function() {
 				$('.js-scrollTo').on('click', function() { // Au clic sur un élément

@@ -23,6 +23,4 @@ var mail = function() {
     console.log('Message sent: ' + info.response);
   });
 };
-
 module.exports = mail;
-
