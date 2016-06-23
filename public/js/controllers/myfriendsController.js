@@ -1,3 +1,4 @@
+
 function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService) {
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
@@ -30,6 +31,12 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
                     //================== addNotifications friends ==========
                     data.userId = datas.friendId;
                     data.friends = datas.userId;
+                    var mailInvitAmi = {
+                        email: res.data.email,
+                        user: userFactory.user.prenom + ' ' + userFactory.user.name
+                    };
+                    console.log(mailInvitAmi);
+                    userService.mailInvitAmi(mailInvitAmi);
                     notificationService.createFriends(data).then(function() {
                         userService.findOne($rootScope.userId).then(function(user) {
                             userFactory.user = user.data;

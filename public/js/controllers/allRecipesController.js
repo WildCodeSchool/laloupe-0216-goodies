@@ -52,4 +52,5 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 
 
     });
+
 }

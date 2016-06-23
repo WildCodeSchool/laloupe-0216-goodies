@@ -46,5 +46,4 @@ function eventController($scope, $http, eventService, friendService, $location, 
             return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
         }
     });
-
 }

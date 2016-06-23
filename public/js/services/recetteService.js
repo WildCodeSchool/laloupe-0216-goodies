@@ -9,8 +9,14 @@ function recetteService($http) {
         create : function(datas) {
             return $http.post('/recettes', datas);
         },
+        mailConfirmAmi : function(datas) {
+            return $http.post('/mail', datas);
+        },
+        mailIvitNewUser : function(datas) {
+            return $http.post('/mail', datas);
+        },
         delete : function(id) {
             return $http.delete('/recettes/' + id);
         }
-    }
+    };
 };
