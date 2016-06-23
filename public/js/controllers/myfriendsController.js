@@ -17,7 +17,7 @@ function myfriendsController(userService, $scope, $rootScope, $http, userFactory
       var mailInvitAmi = {email:res.data.email,
                           user: userFactory.user.prenom + ' ' + userFactory.user.name};
                           console.log(mailInvitAmi);
-      userService.mailInvitAmi(mailInvitAmi);
+        userService.mailInvitAmi(mailInvitAmi);
 
       var tabFriends = [];
       userFactory.user.friends.forEach(function(e) {
