@@ -26,6 +26,7 @@
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="js/libs/jquery-1.11.3.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
+    <script src="http://mfzy.co/imagesloaded.pkgd.js"></script>
 
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
@@ -94,16 +95,10 @@
             <ul class="nav navbar-nav pull-right">
               <li class="dropdown" ng-show="token">
                 <div class="btn-group">
-  <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu" id="dropdown">
 
-  </div>
-</div> -->
                 <a href="" class="col-md-3 btn-group">
                   <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
-                  <div class="dropdown-menu" id="dropdown">
+                  <div class="dropdown-menu padding" id="dropdown">
 
                   </div>
                 </a>
@@ -151,7 +146,7 @@
           </ul>
         </nav>
       </div>
-      <div class="container-fluid page">
+      <div class="container-fluid page ng-cloak">
         <ng-view></ng-view>
       </div>
     </div>

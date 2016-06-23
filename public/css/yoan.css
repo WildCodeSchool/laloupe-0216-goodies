@@ -178,3 +178,16 @@
    opacity: 0;
   -webkit-transition: all .5s;
 }
+
+
+
+
+
+
+.box {
+  width: 420px;
+  height: 280px;
+  display: inline-block;
+  border: 1px solid;
+  background-size: cover;
+}

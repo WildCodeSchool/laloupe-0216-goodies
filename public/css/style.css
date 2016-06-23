@@ -9,12 +9,20 @@
 /* ----------------------------------------------
 *         Connexion
 *         Left Menu
-*         Home Css
 *         Event Css
+*         Home Css
 *
 *
 --------------------------------------------------*/
-
+.padding {
+  padding: 5px;
+}
+.notif {
+  border-bottom: 1px solid rgba(189, 195, 199,0.5);
+}
+.notif:hover {
+  background-color: rgba(189, 195, 199,0.2);
+}
 .hamburger{
   margin-left: 50px;
 }
@@ -1561,7 +1569,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .showAllRecipesMini {
-  position:relative; 
+  position:relative;
   top:195px;
 }
 
@@ -1806,11 +1814,16 @@ input::-webkit-calendar-picker-indicator {
   margin-left: 16px;
   height: 53px;
 }
+
 .g_imgRecipe {
-  background-size: cover;
+	width: 420px;
+	height: 280px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.g_imgRecipe img {
   width: 100%;
-  height: 280px;
-  border: 1px solid #333;
 }
 .infoLineRecipe {
   padding: 0;

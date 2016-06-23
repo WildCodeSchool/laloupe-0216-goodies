@@ -24,5 +24,8 @@ function userService($http){
 		deleteFriend : function(userId,friendId) {
 				return $http.delete('/api/users/friends/' +userId+'/'+friendId);
 		},
-	}
+		mailInvitAmi : function(datas) {
+				return $http.post('/mail', datas);
+		},
+	};
 }
