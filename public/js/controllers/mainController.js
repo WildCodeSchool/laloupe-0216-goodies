@@ -5,9 +5,9 @@ function mainController($scope, $rootScope, $http, recetteService, userFactory) 
         $scope.showRecette = 'entree';
 
         function load() {
+            notification(userFactory.user);
             recetteService.get().then(function(res) {
                 $scope.recettes = res.data;
-                notification(userFactory.user.notifications);
             });
         }
         load();

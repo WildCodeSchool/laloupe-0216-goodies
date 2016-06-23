@@ -18,7 +18,9 @@ var eventSchema = new mongoose.Schema({
     tabRecetteEvent: Array,
     tabFriendEvent: Array,
     userId: String,
-    position: Array
+    position: Array,
+    name: String,
+    prenom: String
 });
 var Event = {
 

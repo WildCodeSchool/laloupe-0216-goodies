@@ -11,14 +11,6 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.form = 1;
         $scope.creform = 1;
         $scope.showRecette = 'entree';
-        console.log('yeah');
-        console.log(userFactory.user);
-        // for (var i = 0; i < userFactory.user.notifications.length; i++) {
-        //     if (userFactory.user.notifications[i].events) {
-        //         $scope.nbInvit += 1;
-        //         $scope.invit['events' + i] = userFactory.user.notifications[i].events;
-        //     }
-        // }
         if (userFactory.user.events) {
             $scope.events = userFactory.user.events;
             $scope.nbEvents = $scope.events.length;
