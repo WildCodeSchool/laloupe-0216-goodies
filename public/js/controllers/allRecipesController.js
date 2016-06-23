@@ -5,7 +5,8 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 	$('body').css('background-image', 'none').css('background-color', '#f1f1f1');
 	$scope.moreVote = 0;
 	$scope.lessVote = 0;
-	$scope.seeRecipe=1;
+	$scope.seeRecipe = 1;
+	$scope.Comm = 0;
 
 	// Scroll pour le bouton commentaire -->
 	$(document).ready(function() {
@@ -16,6 +17,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 			return false;
 		});
 	});
+
 
 	// Bouton de vote -->
 	$scope.plus = function(id,vote){
@@ -31,6 +33,14 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 		});
 	}
 
+	$scope.addComm = function(id){
+		var com = {};
+		com.commentaires = [];
+		com.commentaires[0].date = new Date();
+		com.commentaires[0].edite = $scope.edite;
+		com.commentaires[0].commentaire = $scope.commentaire;
+		recetteService.update(id,com);
+	}
 
 	$scope.id = function(recette){
 		$scope.clickRecipe = recette;

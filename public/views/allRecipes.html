@@ -53,7 +53,7 @@
       </div><!-- /.allRecipesNav -->
 
       <!-- Search bar -->
-      <div class="col-md-12">
+      <div class="col-md-12 lineSearch">
         <div class="wrap">
             <div class="search">
                 <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
@@ -184,6 +184,7 @@
           <p class="g_typeRecette" style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
 
           <div class="row">
+            <!-- Affichage des votes -->
             <div class="lineVote col-md-12">
               <div class="btn-group">
                 <button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
@@ -196,12 +197,14 @@
               </div>
             </div><!-- /.lineVote -->
 
+            <!-- bouton imprimer -->
             <div class="btn-group btn-justified btnMoreInfo" role="group" aria-label="...">
               <div class="btn-group" role="group">
                 <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
                 </button>
               </div>
 
+              <!-- bouton commentaires -->
               <div class="btn-group" role="group">
                 <a class="js-scrollTo" href="#commentary">
                   <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
@@ -210,15 +213,15 @@
                 </a>
               </div>
 
+              <!-- bouton favoris -->
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes"><i class="fa fa-star" aria-hidden="true"></i> Favoris
                 </button>
               </div>           
-              </div>
+            </div><!-- /.btn-group btn-justified btnMoreInfo -->
           </div><!-- /.row -->
         </div><!-- /.col-md-6 -->
-
-        </div><!-- /.col-md-12 -->
+      </div><!-- /.col-md-12 -->
 
         <div class="col-md-12 box55">
           <div class="col-md-4 g_ingredientsRecipe">
@@ -241,7 +244,47 @@
       <div class="page-header">
         <h3 id="timeline">Commentaires</h3>
       </div>
-        <button type="button" class="addComment btn btn-link">Ajouter un commentaire</button>
+        <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>
+          
+          <div ng-show="Comm == 1">
+            <form class="form-horizontal">
+              <fieldset>
+                <!-- Input edité-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">Edité par :</label>  
+                  <div class="col-md-5">
+                  <input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="edite" class="form-control input-md" required="">               
+                  </div>
+                </div>
+
+                <!-- Input date-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">Date :</label>  
+                  <div class="col-md-5">
+                  <input id="dateinput" name="date" type="date" placeholder="ex: Jean" ng-model="date" class="form-control input-md" required="">               
+                  </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textarea"> Commentaire :</label>
+                  <div class="col-md-7">                     
+                    <textarea class="form-control" id="commentaire" name="commentaire" ng-model="commentaire" placeholder="Taper votre texte ici"></textarea>
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="singlebutton"></label>
+                  <div class="col-md-6">
+                    <button id="singlebutton" name="singlebutton" class="btn btn-success pull-right"  ng-click="addComm()">Ajouter</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+
           <ul class="timeline">
             <li>
               <div class="timeline-badge"><i class="glyphicon glyphicon-edit"></i></div>

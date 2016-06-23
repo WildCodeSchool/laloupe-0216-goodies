@@ -1565,6 +1565,7 @@ input::-webkit-calendar-picker-indicator {
 }
 .allRecipesContainerNav {
   position: fixed;
+  top: 54px;
   z-index: 999;
   background-color: #fff;
 }
@@ -1595,6 +1596,9 @@ input::-webkit-calendar-picker-indicator {
   top:195px;
 }
 
+.lineSearch {
+  height: 70px;
+}
 /* Media - allRecipes */
 @media screen and (max-width: 375px){
   .allRecipesContainerNav {
@@ -1879,9 +1883,16 @@ input::-webkit-calendar-picker-indicator {
   border-top: 1px solid #f8ac37;"
 }
 
-/* ----------------------- */
-/*      Commentary         */
-/* ----------------------- */
+/* --------------------------------------------------- */
+/*      Affichage des commentaires par recette         */
+/* --------------------------------------------------- */
+#commentary .page-header {
+  font-family: 'oswald', sans-serif;
+}
+#commentary fieldset {
+  background-color: #fff;
+  padding: 20px;
+}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
