@@ -18,20 +18,20 @@ function allRecipesController($scope, $rootScope, $http, recetteService) {
 
 	$scope.plus = function(){
 		$scope.moreVote += 1;
-	}
+	};
 
 	$scope.moins = function(){
 		$scope.lessVote += 1;
-	}
+	};
 
 	$scope.id = function(recette){
 		$scope.clickRecipe = recette;
 		$scope.seeRecipe=2;
 
-	}
+	};
 	$scope.close = function(){
 		$scope.seeRecipe=1;
-	}
+	};
 
 	function load() {
 		recetteService.get().then(function(res){

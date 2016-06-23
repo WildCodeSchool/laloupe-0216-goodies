@@ -1,7 +1,6 @@
 //	MODEL EVENT
 
 var User = require('../models/user.js');
-var mail = require('./mail/confmail.js');
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
   crEnameForm: String,

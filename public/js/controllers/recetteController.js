@@ -1,10 +1,31 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
 
-  $('body').css('background-image', 'none').css('background-image','url("./assets/testbg.jpg")');
+
+  var $status = $('.status');
+
+  $('.box').imagesLoaded({
+      background: true
+    }, function( imgLoad ) {
+      $status.text( imgLoad.images.length + ' images loaded checking backgrounds' );
+    }
+  );
+  $(document).ready(function() {
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+      var page = $(this).attr('href'); // Page cible
+      var speed = 750; // Durée de l'animation (en ms)
+      $('html, body').animate( { scrollTop: $(page).offset().top - 200 }, speed ); // Go
+      return false;
+    });
+  });
+  $('body').css('background-image', 'none');
   function load() {
       $scope.recettes = userFactory.user.recettes;
   }
   load();
+
+  $scope.moreVote = 0;
+  $scope.lessVote = 0;
+  $scope.seeRecipe=1;
   $scope.showRecette = 'entree';
   $scope.closeBtnTab = [];
   $scope.userId = $rootScope.userId;
@@ -106,7 +127,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
   $scope.locateEntre = function(){
     $location.path("/createEntree");
   };
-
   $scope.locatePlat = function(){
     $location.path("/createPlat");
   };
@@ -148,12 +168,21 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.recette = $scope.recetteMarmiton.recette;
       $scope.NbrPersonne = $scope.recetteMarmiton.NbrPersonne.match(/[0-9]*/g)[18];
       $scope.difficulte = $scope.recetteMarmiton.difficulte.split('-')[1].replace(/ /g,'');
-<<<<<<< HEAD
-      console.log($scope.difficulte);
-=======
->>>>>>> b9537aca3f2dbb5ec33f2e324693015561edf15e
       $scope.prix = $scope.recetteMarmiton.prix;
       $scope.imageStrings[0] = $scope.recetteMarmiton.image;
     });
+  };
+  $scope.plus = function(){
+    $scope.moreVote += 1;
+  };
+  $scope.moins = function(){
+    $scope.lessVote += 1;
+  };
+  $scope.id = function(recette){
+    $scope.clickRecipe = recette;
+    $scope.seeRecipe=2;
+  };
+  $scope.close = function(){
+    $scope.seeRecipe=1;
   };
 }

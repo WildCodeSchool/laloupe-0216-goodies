@@ -27,16 +27,14 @@ function eventController($scope, $http, eventService, friendService, $location, 
 		eventService.update(event._id, event).then(function(res){
 
 		});
-	}
+	};
 	$scope.delete = function(event){
 		eventService.delete(event._id).then(function(res){
-
 		});
-	}
+	};
 
 	$scope.formatDate = function (date){
 		var eventDate = new Date(date);
 		return eventDate.getDate()+' / '+(eventDate.getMonth()+1)+' / '+eventDate.getFullYear();
-	}
-
+	};
 }
