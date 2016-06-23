@@ -1,27 +1,46 @@
-
 // allRecipesController
 
 function allRecipesController($scope, $rootScope, $http, recetteService) {
-	$('body').css('background-image', 'none');
+    $('body').css('background-image', 'none');
+    $rootScope.$on('userFactoryUpdate', function() {
+        $scope.moreVote = 0;
+        $scope.lessVote = 0;
+        $scope.seeRecipe = 1;
 
-	$(document).ready(function() {
-		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
-			var page = $(this).attr('href'); // Page cible
-			var speed = 750; // Durée de l'animation (en ms)
-			$('html, body').animate( { scrollTop: $(page).offset().top - 170 }, speed ); // Go
-			return false;
-		});
-	});
+        function load() {
+            recetteService.get().then(function(res) {
+                $scope.recettes = res.data;
+            });
+        }
+        load();
+        $(document).ready(function() {
+            $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+                var page = $(this).attr('href'); // Page cible
+                var speed = 750; // Durée de l'animation (en ms)
+                $('html, body').animate({
+                    scrollTop: $(page).offset().top - 200
+                }, speed); // Go
+                return false;
+            });
+        });
 
-	$scope.id = function(recette){
-		$scope.clickRecipe = recette;
-	}
+        $scope.plus = function() {
+            $scope.moreVote += 1;
+        }
 
-	function load() {
-		recetteService.get().then(function(res){
-			$scope.recettes = res.data;
-		});
-	}
-	load();
+        $scope.moins = function() {
+            $scope.lessVote += 1;
+        }
 
+        $scope.id = function(recette) {
+            $scope.clickRecipe = recette;
+            $scope.seeRecipe = 2;
+
+        }
+        $scope.close = function() {
+            $scope.seeRecipe = 1;
+        }
+
+
+    });
 }
