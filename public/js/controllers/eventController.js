@@ -2,7 +2,6 @@
 
 function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
   $('body').css('background-image', 'none').css('background-image', 'url("./assets/dessertbg.png")');
-
   $rootScope.$on('userFactoryUpdate', function() {
     $scope.nbEvents = 0;
     $scope.nbInvit = 0;
@@ -15,11 +14,13 @@ function eventController($scope, $http, eventService, friendService, $location, 
       $scope.events = userFactory.user.events;
       $scope.nbEvents = $scope.events.length;
     }
+    if (userFactory.user.eventInvit) {
+      $scope.invitEvents = userFactory.user.eventInvit;
+      $scope.nbInvit = userFactory.user.eventInvit.length;
+      console.log($scope.nbInvit);
+    }
     $scope.events = userFactory.user.events;
-
-
     $scope.required = true;
-
     $(function() {
       $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -29,18 +30,14 @@ function eventController($scope, $http, eventService, friendService, $location, 
         }).show();
       });
     });
-
     $scope.update = function(event) {
       eventService.update(event._id, event).then(function(res) {
-
       });
     };
     $scope.delete = function(event) {
       eventService.delete(event._id).then(function(res) {
-
       });
     };
-
     $scope.formatDate = function(date) {
       var eventDate = new Date(date);
       return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();

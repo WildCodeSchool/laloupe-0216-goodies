@@ -44,7 +44,6 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         $scope.data.crEcountryForm = '';
       }
     };
-
     // =================== Ajout recettes à un évènement =============
     $scope.tabRecetteEvent = [];
     $scope.addRecette = function(idRecette, index) {
@@ -56,9 +55,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         $('#gly' + index).removeClass('gly-checked');
       }
     };
-
     // =================== END Ajout recettes à un évènement =============
-
     $(function() {
       $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -68,7 +65,6 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         }).show();
       });
     });
-
     //================== Ajout d'events ==========
 
     $scope.add = function() {
@@ -76,13 +72,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
       $scope.data.position = $scope.position;
       $scope.data.name = userFactory.user.name;
       $scope.data.prenom = userFactory.user.prenom;
-      var mailInvitAmi = {
-        email: $scope.tabFriendEmail,
-        user: userFactory.user.prenom + ' ' + userFactory.user.name
-      };
-      userService.mailInvitEvent(mailInvitAmi);
-      console.log(mailInvitAmi);
-
+      console.log($scope.data.prenom);
       eventService.create($scope.data).then(function(res) { // <------ create event
         userService.findOne($rootScope.userId).then(function(r) {
           userFactory.user = r.data;
@@ -93,30 +83,38 @@ function createEventController($scope, $http, eventService, $location, $rootScop
     };
 
     // ========================= Ajout des amis dans la BD ==============
-
     $scope.addFriends = function() {
       $scope.dataFriends.userId = $rootScope.userId;
       userService.findMail($scope.dataFriends.email).then(function(res) {
         $scope.dataFriends.friendId = res.data._id;
-        userService.createFriend($scope.dataFriends).then(function() {
-          var notif = {};
-          notif.userId = $scope.dataFriends.friendId;
-          notif.friends = $scope.dataFriends.userId;
-          notificationService.createFriends(notif).then(function() {
-            userService.findOne($rootScope.userId).then(function(r) {
-              userFactory.user = r.data;
-              load();
+        if ($rootScope.userId != $scope.dataFriends.friendId) {
+          userService.createFriend($scope.dataFriends).then(function() {
+            var notif = {};
+            notif.userId = $scope.dataFriends.friendId;
+            notif.friends = $scope.dataFriends.userId;
+            notificationService.createFriends(notif).then(function() {
+              userService.findOne($rootScope.userId).then(function(r) {
+                userFactory.user = r.data;
+                load();
+              });
             });
+            $scope.dataFriends = {};
           });
-          $scope.dataFriends = {};
-        });
+        }
       }, function(err) { // ============== si l'ami n'est pas dans la BDD ================
-        userService.create($scope.dataFriends).then(function(res) {
-          function password() {
-            var nbCaractère;
+        function password() {
+          var nbCaractere = 10;
+          var chaine = 'azertyuiopqsdfghjklmwxcvbn123456789';
+          var generatePassword = [];
+          for (var i = 0; i < nbCaractere; i++) {
+            generatePassword.push(chaine[Math.floor(Math.random() * (chaine.length + 1))]);
           }
+          return generatePassword.join('');
+        }
+        $scope.dataFriends.password = password();
+        console.log($scope.dataFriends.password);
+        userService.create($scope.dataFriends).then(function(res) {
           $scope.dataFriends.friendId = res.data._id;
-          $scope.dataFriends.password = password();
           userService.createFriend($scope.dataFriends).then(function() {
             var notif = {};
             notif.userId = $scope.dataFriends.friendId;
@@ -130,27 +128,19 @@ function createEventController($scope, $http, eventService, $location, $rootScop
             $scope.dataFriends = {};
           });
         });
+
       });
     };
     // ===================  END Ajout des amis dans la BD =============
-
     // ===================  Ajout amis event =============
     $scope.data.tabFriendEvent = [];
-    $scope.tabFriendEmail = [];
-
-    $scope.addFriendEvent = function(id, email) {
+    $scope.addFriendEvent = function(id) {
 
       if ($scope.data.tabFriendEvent.indexOf(id) == -1) {
         $scope.data.tabFriendEvent.push(id);
       } else {
         $scope.data.tabFriendEvent.splice($scope.data.tabFriendEvent.indexOf(id), 1);
       }
-      if ($scope.tabFriendEmail.indexOf(email) == -1) {
-        $scope.tabFriendEmail.push(email);
-      } else {
-        $scope.tabFriendEmail.splice($scope.tabFriendEmail.indexOf(email), 1);
-      }
-      console.log($scope.tabFriendEmail);
     };
     // ===================  END Ajout des amis dans la BD =============
     $scope.geoloc = function() {

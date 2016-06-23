@@ -50,16 +50,25 @@
 					<div class="container col-md-12" style="margin-top:20px;">
 						<div class="panel-group" id="accordionInvit">
 
-							<div class="panel panel-default" ng-repeat="event in events">
+							<div class="panel panel-default" ng-repeat="event in invitEvents">
 								<div class="panel-heading" ng-click="geocodeAddress('hhjfd')" data-toggle="collapse" data-parent="#accordionInvit" data-target="#collapseInvit{{$index}}" style="cursor: pointer">
 									<h4 class="panel-title">
 										<p>{{event.crEnameForm}}<span style="float: right">{{event.crEdateForm}}</span></p>
 									</h4>
 								</div>
 								<div id="collapseInvit{{$index}}" class="panel-collapse collapse">
-									<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-6">
+												<h4>Adresse évènements</h4>
+												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+											</div>
+											<div class="col-md-6" style="height: 100%;">
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
