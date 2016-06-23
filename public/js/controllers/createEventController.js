@@ -1,7 +1,8 @@
 //createEventController ======================>
 
 function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
-    $('body').css('background-image', 'none').css('background-image', 'url("./assets/floor-1.jpg")');
+
+    $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
 
         $scope.dataFriends = {};

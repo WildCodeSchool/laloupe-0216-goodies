@@ -16,7 +16,12 @@ var recetteSchema = new mongoose.Schema({
   difficulte: String,
   userId: String,
   moreVote: Number,
-  lessVote: Number
+  lessVote: Number,
+  commentaires:[{
+    date: Date,
+    edite: String,
+    commentaire: String
+  }]
 });
 var Recette = {
     model: mongoose.model('Recette', recetteSchema),
