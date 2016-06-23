@@ -13,7 +13,10 @@ function createEventController($scope, $http, eventService, $location, $rootScop
 
         $scope.user.adresse = userFactory.user.adresse;
         $scope.recettes = userFactory.user.recettes;
-        $scope.friends = userFactory.user.friends;
+        function load () {
+          $scope.friends = userFactory.user.friends;
+        }
+        load();
         // checkbox autocomplete (at home)
         $scope.adress = function() {
             if (angular.element($('#crEhomeCheckbox')).is(':checked') == true) { // lorsque la checkbox est coché
@@ -71,26 +74,9 @@ function createEventController($scope, $http, eventService, $location, $rootScop
             $scope.data.userId = $rootScope.userId;
             $scope.data.position = $scope.position;
             eventService.create($scope.data).then(function(res) { // <------ create event
-                console.log(res.data._id);
                 userService.findOne($rootScope.userId).then(function(r) {
                     userFactory.user = r.data;
                 });
-
-                //================== addNotifications events ==========
-                for (var i = 0; i < $scope.data.tabFriendEvent.length; i++) {
-                    console.log($scope.data.tabFriendEvent[i]);
-                    var ev = {
-                        events: {
-                            eventUserId: $rootScope.userId,
-                            userId: $scope.data.tabFriendEvent[i],
-                            eventUserName: userFactory.user.name,
-                            eventUserSurname: userFactory.user.prenom,
-                            name: $scope.data.crEnameForm,
-                            date: $scope.data.crEdateForm
-                        }
-                    };
-                    notificationService.createEvents(ev).then(function() {});
-                }
                 $location.path('/events');
             }); // <----- End create event
 
@@ -103,8 +89,14 @@ function createEventController($scope, $http, eventService, $location, $rootScop
             userService.findMail($scope.dataFriends.friendmail).then(function(res) {
                 $scope.dataFriends.friendId = res.data._id
                 userService.createFriend($scope.dataFriends).then(function() {
-                    userService.findOne($rootScope.userId).then(function(r) {
-                        userFactory.user = r.data;
+                    var notif = {};
+                    notif.userId = $scope.dataFriends.friendId;
+                    notif.friends = $scope.dataFriends.userId;
+                    notificationService.createFriends(notif).then(function() {
+                        userService.findOne($rootScope.userId).then(function(r) {
+                            userFactory.user = r.data;
+                            load();
+                        })
                     });
                     $scope.dataFriends = {};
                 });
@@ -112,6 +104,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                 userService.createFriend($scope.dataFriends).then(function() {
                     userService.findOne($rootScope.userId).then(function(res) {
                         userFactory.user = res.data;
+                        load();
                     });
                     $scope.dataFriends = {};
                 });
