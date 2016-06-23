@@ -1,7 +1,8 @@
 // eventController ==============================
 
 function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
-    $('body').css('background-image', 'none').css('background-image', 'url("./assets/dessertbg.png")');
+
+    $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.nbEvents = 0;

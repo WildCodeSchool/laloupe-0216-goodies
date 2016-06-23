@@ -20,7 +20,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.userId = $rootScope.userId;
         $scope.recetteTab = [];
         $scope.data = {};
-        $scope.eat = $rootScope.eat; //type entre plat ou dessert
+        $scope.eat = $rootScope.eat; //type: entrée, plat ou dessert
 
         /*===================  Fonction bouton Recette  ========================= */
 
@@ -55,6 +55,12 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
   			}
 
         /*==================  End Stockage de l'ID  ===================== */
+
+        $scope.close = function(){
+                $scope.seeRecipe=1;
+            }
+
+
 
         /*==================  Add first menu  ===================== */
 
