@@ -2,9 +2,9 @@
 
 function allRecipesController($scope, $rootScope, $http, recetteService) {
 
-    $('body').css('background-image', 'none');
+  
+$('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
-			$('body').css('background-image', 'none').css('background-color', '#f1f1f1');
 			$scope.moreVote = 0;
 			$scope.lessVote = 0;
 			$scope.seeRecipe=1;

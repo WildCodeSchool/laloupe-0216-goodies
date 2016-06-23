@@ -892,6 +892,10 @@ html { height: 100%;}
     position: relative;
     top: 100px;
 }
+.contEv .page-header{
+  margin-top:0; 
+  padding-bottom: 0px;
+}
 
 .ntev {
   padding-left: 20px;
