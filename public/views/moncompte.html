@@ -63,7 +63,27 @@
       <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Evènements</h2>
     </div>
     <div class="container col-md-12">
-      <h2>Aucune invitation</h2>
+      <div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
+        <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+          <h3 class="panel-title" style="font-size: 1.5em;">
+            {{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+          </h3>
+        </div>
+        <div id="collapse{{$index}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Adresse évènements</h4>
+                <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+                <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+              </div>
+              <div class="col-md-6" style="height: 100%;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
