@@ -1,5 +1,5 @@
-function userFactory (userService) {
+function userFactory(userService) {
     return {
-      user:{}
+        user: {}
     };
 }
