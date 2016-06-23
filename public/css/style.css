@@ -41,7 +41,7 @@
   line-height: 0px;
 }
 .page{
-  margin-top: 60px;
+  margin-top: 54px;
 }
 .fa-3 {
   font-size: 1.8em;
@@ -868,6 +868,24 @@ html { height: 100%;}
                       END HOME CSS
 ==========================================================*/
 
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #bdc3c7; 
+}
+
 /* =========================================================
          EVENT CSS
 ---------------------------------------------------------- */
@@ -1543,6 +1561,9 @@ input::-webkit-calendar-picker-indicator {
 /**********************************************************
                      ALLRECIPES CSS
 ***********************************************************/
+.allR1{
+  background-color: rgba(255,255,255,0.7);
+}
 .mainContainerNav {
   padding-right: 0;
   padding-left: 0;
