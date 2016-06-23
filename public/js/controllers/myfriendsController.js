@@ -11,6 +11,8 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
         load();
         $scope.addNewFriend = function(userName) {
             var datas = {};
+            var data = {};
+            data.friends = [];
             var user = userName.split(' ');
             userService.findByNameSurname(user[1], user[0]).then(function(res) { // ===== Récupération de l'ID du Friend
                 datas.friendId = res.data._id;
@@ -23,16 +25,11 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
 
                     // ================ ADD friends =========================
                     userService.createFriend(datas).then(function() {});
-                    var friend = {
-                        friends: {
-                            userId: datas.friendId,
-                            friendUserId: datas.userId,
-                            friendUserName: userFactory.user.prenom,
-                            friendUserSurname: userFactory.user.name
-                        }
-                    };
+
                     //================== addNotifications friends ==========
-                    notificationService.createFriends(friend).then(function() {
+                    data.userId = datas.friendId;
+                    data.friends = datas.userId;
+                    notificationService.createFriends(data).then(function() {
                         userService.findOne($rootScope.userId).then(function(user) {
                             userFactory.user = user.data;
                             $scope.friends = userFactory.user.friends;

@@ -128,7 +128,7 @@ function config($routeProvider, $httpProvider) {
 function userFactoryUpdate($rootScope, userService) {
     userService.findOne($rootScope.userId).then(function(res) {
         userFactory.user = res.data;
-        console.log('???');
+        console.log(userFactory.user);
         $rootScope.$emit('userFactoryUpdate')
     });
 }
@@ -153,7 +153,7 @@ function run($rootScope, $location, connectService, userFactory, userService) {
         $rootScope.userId = sessionStorage.getItem('userId');
         userService.findOne($rootScope.userId).then(function(res) {
             userFactory.user = res.data;
-            console.log('???');
+            console.log(userFactory.user);
             $rootScope.$emit('userFactoryUpdate')
         });
     }
