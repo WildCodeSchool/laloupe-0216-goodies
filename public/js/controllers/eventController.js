@@ -2,7 +2,7 @@
 // eventController ==============================
 
 function eventController($scope, $http, eventService, friendService, $location, recetteService, $rootScope, userService, userFactory) {
-	$('body').css('background-image', 'none').css('background-image','url("./assets/dessertbg.png")');
+	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
 	$scope.nbEvents = 0;
 	$scope.nbInvit = 0;
 	$scope.dataFriends = {};

@@ -881,6 +881,8 @@ html { height: 100%;}
     padding-left: 0;
     padding-right: 0;
     border-radius: 5px;
+    position: relative;
+    top: 100px;
 }
 
 .ntev {
@@ -951,9 +953,17 @@ input {
     opacity: 1;
 } /* End formulaire 3 - recherche d'amis */
 
+
+
 /************ create Event page ************/
 
-
+.contDetailsEvent {
+  background-color: #fff; 
+  padding-left:0; 
+  padding-right:0; 
+  border-radius:5px; 
+  margin-top:75px;
+}
 .form-control {
   margin-bottom: 10px;
 }
@@ -1004,23 +1014,8 @@ input {
 
 /* Create Event - form 2
 --------------------------*/
-/* sidebar */
-.sidebarLeft2 {
-  margin-top: 85px;
-}
-.sidebarLeft2-1 {
-  margin-top: 50px;
-  padding-top:10px;
-  background-color: #F8AC37;
-  height: 120px;
-  border-radius: 5px 5px 0 0;
-}
-.sidebarLeft2-2 {
-  margin-top: 15px;
-}
-.sidebarLeft2-2 li {
-  list-style-type: none;
-}
+
+
 
 
 /* button menu sidebar */
@@ -1087,39 +1082,21 @@ input {
   height: 600px;
   overflow-y: scroll;
 }
-.btn-link-back {
-  color: #333333;
-  text-decoration: none;
+.btnBackEvent {
+  color: #333;
 }
-.btn-link-back:hover {
-  color: #333333;
-  border: 2px solid #333333;
-  border-radius: 5px;
+.btnBackEvent:hover {
+  color: #f8ac37; 
 }
-.btn-link-next {
-  color: #333333;
-  text-decoration: none;
+.btnNextEvent {
+  color: #333; 
 }
-.btn-link-next:hover {
-  color: #333333;
-  border: 2px solid #333333;
-  border-radius: 5px;
-}
-
-.sidebarLeft1 {
-  margin-top: 85px;
-}
-.sidebarLeft1-1 {
-  margin-top: 50px;
-  padding-top:10px;
-  background-color: #F8AC37;
-  height: 120px;
-  border-radius: 5px 0 0 5px;
+.btnNextEvent:hover {
+  color: #f8ac37;
 }
 .contentFriend {
   margin-top: 28px;
 }
-
 .btnAddMenuEvent {
   border-radius: 50%;
   width: 38px;
@@ -1129,13 +1106,7 @@ input {
   left: 9px;
 }
 
-/*************************************************************************************************************
-ZONE DE TEST
-------------- */
-
-
-
-/***************************************************************************************************************/
+/* formulaire 2 - Affichage des recettes */
 .foodbox{
     h4 {
         margin-top: 6px !important;
@@ -1190,8 +1161,6 @@ ZONE DE TEST
         z-index: 99999;
     }
     .pricesection {
-        /*       width: 262px; */
-        /* background: rgba(0,0,0,0.4); */
         max-width: 262px;
         width: 90%;
     }
@@ -1288,7 +1257,6 @@ ZONE DE TEST
     }
     .clearfix{
         max-width: 262px;
-        /* max-height: 238px; */
     }
     .foodMoreDesc {
         display: none;
@@ -1333,6 +1301,7 @@ ZONE DE TEST
 }
 
 
+/* formulaire 3 - Invitations */
 .boxfriend {
     height: 400px;
     overflow-y: scroll;

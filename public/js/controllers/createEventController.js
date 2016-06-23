@@ -1,7 +1,7 @@
 //createEventController ======================>
 
 function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
-	$('body').css('background-image', 'none').css('background-image','url("./assets/floor-1.jpg")');
+	$('body').css('background-image', 'none').css('background-image','url("./assets/backhome.jpg")');
 	$scope.dataFriends = {};
 	$scope.user = {}
 	$scope.form = 1;
