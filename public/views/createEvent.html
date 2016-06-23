@@ -18,7 +18,7 @@
 						<a href="#/events" class="btn btn-danger btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à ma liste d'événements">Annuler</a>
 						<button type="button" class="btn btn-link btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Passer à l'étape 2 / Repas" ng-click="geoloc()">Suivant<span class="glyphicon glyphicon-chevron-right chevron" aria-hidden="true"></span></button>
 					</div><!-- End sidebarLeft2-1 -->
-					
+
 				</div>
 
 				<div class="container col-md-offset-1 col-md-7" style="border: 1px dotted #333; border-radius: 5px; margin-top: 60px; padding: 15px; margin-bottom: 25px;">
@@ -116,7 +116,7 @@
 						<button type="button" class="btn btn-link btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à l'étape 2 / Repas" ng-click="creform = creform-1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Retour</button>
 						<button type="button" class="btn btn-link btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Passer à l'étape 3 / Invitation" ng-click="creform = creform+1">Suivant<span class="glyphicon glyphicon-chevron-right chevron" aria-hidden="true"></span></button>
 					</div><!-- End sidebarLeft2-1 -->
-					
+
 
 					<div class="sidebarLeft2-2 col-md-12">
 						<div class="sidebarLeft2-2-Title">
@@ -237,7 +237,7 @@
 						<button type="button" class="btn btn-link btn-link-back pull-left" data-toggle="tooltip" data-placement="bottom" title="Retour à l'étape 2 / Repas" ng-click="creform = creform-1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Retour</button>
 						<button type="button" class="btn btn-success btn-link-next pull-right" data-toggle="tooltip" data-placement="bottom" title="Créer mon événement" ng-click="add()">Créer</button>
 					</div><!-- End sidebarLeft2-1 -->
-					
+
 				</div>
 
 				<div class="col-md-offset-1 col-md-7">
@@ -253,8 +253,8 @@
 							<label>Ajouter des amis :</label>
 							<div class="form-group">
 								<input type="text" id="friendfirstname" class="form-control" ng-model="dataFriends.prenom" placeholder="Prénom" minlength="3"  maxlength="10" required />
-								<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.nom" placeholder="Nom" minlength="3"  maxlength="10" required />
-								<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.friendmail" placeholder="Email" required/>
+								<input type="text" id="friendlastname" class="form-control" ng-model="dataFriends.name" placeholder="Nom" minlength="3"  maxlength="10" required />
+								<input name="email" type="email" id="friendmail" class="form-control" ng-model="dataFriends.email" placeholder="Email" required/>
 								<button type="submit" class="btn btn-default pull-right" ng-click="addFriends()">Ajouter</button>
 							</div>
 						</div>
