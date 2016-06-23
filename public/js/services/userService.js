@@ -25,7 +25,10 @@ function userService($http){
 				return $http.delete('/api/users/friends/' +userId+'/'+friendId);
 		},
 		mailInvitAmi : function(datas) {
-				return $http.post('/mail', datas);
+				return $http.post('/mail/invitAmi', datas);
+		},
+		mailInvitEvent : function(datas) {
+				return $http.post('/mail/invitEvent', datas);
 		},
 	};
 }

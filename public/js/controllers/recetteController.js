@@ -44,7 +44,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.id = function(recette){
   				$scope.clickRecipe = recette;
   				$scope.seeRecipe=2;
-  			}
+  			};
 
         /*==================  End Stockage de l'ID  ===================== */
 
