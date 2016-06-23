@@ -15,6 +15,11 @@ function eventController($scope, $http, eventService, friendService, $location, 
             $scope.events = userFactory.user.events;
             $scope.nbEvents = $scope.events.length;
         }
+        if (userFactory.user.eventInvit) {
+          $scope.invitEvents = userFactory.user.eventInvit;
+          $scope.nbInvit = userFactory.user.eventInvit.length;
+          console.log($scope.nbInvit);
+        }
         $scope.events = userFactory.user.events;
 
 
