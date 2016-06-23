@@ -1,12 +1,16 @@
 // allRecipesController
 
+
+
+
+
 function allRecipesController($scope, $rootScope, $http, recetteService, userService) {
-    $('body').css('background-image', 'none');
+	$('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
+
     $rootScope.$on('userFactoryUpdate', function() {
-        $('body').css('background-image', 'none').css('background-color', '#f1f1f1');
-        $scope.moreVote = 0;
-        $scope.lessVote = 0;
-        $scope.seeRecipe = 1;
+			$scope.moreVote = 0;
+			$scope.lessVote = 0;
+			$scope.seeRecipe=1;
 
         $scope.favoris = function(recette, idFav) {
                 var count = 0;
@@ -56,6 +60,14 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
             });
         }
 
+			$scope.addComm = function(id){
+				var com = {};
+				com.commentaires = [];
+				com.commentaires[0].date = new Date();
+				com.commentaires[0].edite = $scope.edite;
+				com.commentaires[0].commentaire = $scope.commentaire;
+				recetteService.update(id,com);
+			}
 
         $scope.id = function(recette) {
             $scope.clickRecipe = recette;
