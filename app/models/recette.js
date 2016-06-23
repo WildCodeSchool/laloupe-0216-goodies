@@ -3,23 +3,24 @@ var User = require('../models/user.js');
 var mongoose = require('mongoose');
 
 var recetteSchema = new mongoose.Schema({
-    img: String,
-    titre: String,
-    description: String,
-    preparation: String,
-    cuisson: String,
-    ingredient: String,
-    recette: String,
-    type: String,
-    NbrPersonne: String,
-    prix: String,
-    difficulte: String,
-    userId: String
+  img: String,
+  titre: String,
+  description: String,
+  preparation: String,
+  cuisson: String,
+  ingredient: String,
+  recette: String,
+  type: String,
+  NbrPersonne: String,
+  prix: String,
+  difficulte: String,
+  userId: String,
+  moreVote: Number,
+  lessVote: Number
 });
 var Recette = {
     model: mongoose.model('Recette', recetteSchema),
     create: function(req, res) {
-
         console.log('body: ' + req.body);
         Recette.model.create(req.body, function(err, data) {
             User.addRecettes(req.body.userId, data._id, res);

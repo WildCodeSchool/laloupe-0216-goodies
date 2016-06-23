@@ -15,5 +15,5 @@ function friendService($http) {
         delete : function(id) {
             return $http.delete('/friends/' + id);
         }
-    }
+    };
 };

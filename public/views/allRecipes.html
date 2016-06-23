@@ -115,8 +115,7 @@
 
 
 
-<!-- Display of mini recipes =================================================== -->
-
+<!-- Affichage des recettes miniatures =================================================== -->
   <div class="container showAllRecipesMini">
     <div class="row" >
 
@@ -132,7 +131,7 @@
 </div><!-- /ng-show -->
 
 
-<!-- See recipe at the click of mini ============================================ -->
+<!-- Affiche la recette au clic de la miniature ============================================ -->
 <div ng-show="seeRecipe == 2">
   <div class="container seeRecipeContainer">
     <div class="row">
@@ -145,9 +144,9 @@
         <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
           <div class="col-md-6">
 
-          <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
+            <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
+            
             <div class="infoLineRecipe col-md-12">
-
               <div class="g_nbPeoplesRecipe">
                 <center>
                   <button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: {{clickRecipe.NbrPersonne}} Prs.">
@@ -175,64 +174,97 @@
                   <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.prix}} € </p>
                 </button>
               </div>
-
             </div><!-- /.infoLineRecipe -->
 
         </div><!-- /.col-md-6 -->
 
         <div class="col-md-6">
-          <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+          <p class="g_typeRecette" style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
 
           <div class="row">
             <div class="lineVote col-md-12">
               <div class="btn-group">
-                <button type="button" ng-click="plus()" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
-                  <span class="glyphicon glyphicon-thumbs-up"> {{moreVote}}</span>
+                <button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
+                  <span class="glyphicon glyphicon-thumbs-up"> {{clickRecipe.moreVote}}</span>
                 </button>
                   <button class="btn btn-link">Vote(s)</button>
-                <button type="button" ng-click="moins()" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Je n'aime pas">
-                  <span class="glyphicon glyphicon-thumbs-down"> {{lessVote}}</span>
+                <button type="button" ng-click="moins(clickRecipe._id,clickRecipe.lessVote)" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Je n'aime pas">
+                  <span class="glyphicon glyphicon-thumbs-down"> {{clickRecipe.lessVote}}</span>
                 </button>
               </div>
-            </div>
+            </div><!-- /.lineVote -->
 
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group btn-justified btnMoreInfo" role="group" aria-label="...">
               <div class="btn-group" role="group">
                 <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
                 </button>
               </div>
 
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires
-                </button>
+                <a class="js-scrollTo" href="#commentary">
+                  <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
+                    <i class="fa fa-comment" aria-hidden="true"></i> Commentaires
+                  </button>
+                </a>
               </div>
 
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes"><i class="fa fa-star" aria-hidden="true"></i> Favoris
                 </button>
+              </div>           
               </div>
-            </div>
-
-
-          </div><!-- /.col-md-12 -->
-
+          </div><!-- /.row -->
         </div><!-- /.col-md-6 -->
 
-        <div class="col-md-12" style="border-top: 1px solid #f8ac37;">
-          <div class="col-md-4">
+        </div><!-- /.col-md-12 -->
+
+        <div class="col-md-12 box55">
+          <div class="col-md-4 g_ingredientsRecipe">
             <h3>Ingrédients</h3>
             <div>{{clickRecipe.ingredient}}</div>
           </div>
 
-          <div class="col-md-8">
+          <div class="col-md-8 g_recipe">
             <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
              <h3>Recette</h3>
              <div>{{clickRecipe.recette}}</div>
             </div>
           </div>
         </div> 
-      </div><!-- /.col-md-12 -->
-
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</div><!-- /ng-show -->
+    </div><!-- /.row-->
+  </div><!-- /.container seeRecipeContainer -->
+ 
+    <!-- Affichage des commentaires par recette =============================================== -->
+    <div class="container" id="commentary" style="position: relative; top: 200px;">
+      <div class="page-header">
+        <h3 id="timeline">Commentaires</h3>
+      </div>
+        <button type="button" class="addComment btn btn-link">Ajouter un commentaire</button>
+          <ul class="timeline">
+            <li>
+              <div class="timeline-badge"><i class="glyphicon glyphicon-edit"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Edité par : </h4>
+                  
+                </div>
+                <div class="timeline-body">
+                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-badge warning"><i class="glyphicon glyphicon-edit"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Edité par : </h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                  <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+    </div><!-- /.container #commentary -->
+</div><!-- /ng-show="seeRecipe == 2 -->

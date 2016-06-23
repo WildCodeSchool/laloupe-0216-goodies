@@ -2,9 +2,14 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
-
+        $scope.seeRecipe = 1;
+        $scope.ui = function (r){
+          console.log(r);
+        }
         function load() {
             $scope.recettes = userFactory.user.recettes;
+            console.log('mler;fmelr;f');
+            console.log($scope.recettes);
         }
         load();
         $scope.showRecette = 'entree';
@@ -41,9 +46,10 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
         /*==================  Stockage de l'ID  ===================== */
 
-        $scope.id = function(recette) {
-            $scope.recetteAffiche = recette;
-        };
+        $scope.id = function(recette){
+  				$scope.clickRecipe = recette;
+  				$scope.seeRecipe=2;
+  			}
 
         /*==================  End Stockage de l'ID  ===================== */
 
@@ -73,6 +79,8 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
             datas.difficulte = $scope.difficulte;
             datas.prix = $scope.prix;
             datas.type = type;
+            datas.moreVote = 0;
+            datas.lessVote = 0;
             recetteService.create(datas).then(function(res) {
                 userService.findOne($rootScope.userId).then(function(res) {
                     userFactory.user = res.data;
@@ -157,4 +165,5 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
             angular.element($('#selectDifficulte')).val(2);
         };
     });
+
 }

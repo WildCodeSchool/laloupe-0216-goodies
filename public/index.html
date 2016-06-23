@@ -17,6 +17,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/yoan.css">
 
@@ -25,6 +26,7 @@
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script src="js/libs/jquery-1.11.3.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
+    <script src="http://mfzy.co/imagesloaded.pkgd.js"></script>
 
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
@@ -132,10 +134,13 @@
               <a href="#/login" ng-show="!token" class="links">Connection / S'inscrire</a>
             </li>
             <li>
-              <a href="#/menu" ng-show="token" class="links">Les recettes</a>
+              <a href="#/menu" ng-show="token" class="links">Mes recettes</a>
             </li>
             <li>
-              <a href="#/events" ng-show="token" class="links">Les évènements</a>
+              <a href="#/events" ng-show="token" class="links">Mes évènements</a>
+            </li>
+            <li>
+              <a href="#/allRecipes" ng-show="token" class="links">Découvrir des recettes</a>
             </li>
           </ul>
         </nav>
