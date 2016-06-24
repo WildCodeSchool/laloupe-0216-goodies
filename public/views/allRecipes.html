@@ -132,7 +132,7 @@
 
   <!-- Affiche la recette au clic de la miniature ============================================ -->
   <div ng-show="seeRecipe == 2">
-    <div class="container seeRecipeContainer">
+    <div class="row seeRecipeContainer">
       <div class="row">
 
         <button type="button" class="btn btn-link pull-right btnClose" ng-click="close()">
@@ -182,7 +182,7 @@
 
             <div class="row">
               <!-- Affichage des votes -->
-              <div class="lineVote col-md-12">
+              <div class="lineVote col-md-offest-2 col-md-10">
                 <div class="btn-group">
                   <button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
                     <span class="glyphicon glyphicon-thumbs-up"> {{clickRecipe.moreVote}}</span>
@@ -210,9 +210,9 @@
                   </a>
                 </div>
 
-                <!-- bouton favoris -->
+                <!-- bouton Ajouter à mes recettes -->
                 <div class="btn-group" role="group">
-                  <button type="button" id='favoris{{$index}}' class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)"><i class="fa fa-star" aria-hidden="true"></i> Favoris
+                  <button type="button" id='favoris{{$index}}' class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)"><i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
                   </button>
 
                 </div>           
@@ -239,28 +239,21 @@
     </div><!-- /.container seeRecipeContainer -->
 
       <!-- Affichage des commentaires par recette =============================================== -->
-      <div class="container" id="commentary" style="position: relative; top: 200px;">
+      <div class="row" id="commentary">
         <div class="page-header">
-          <h3 id="timeline">Commentaires</h3>
+          <h3 id="linetitle">Commentaires</h3>
         </div>
           <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>
             
             <div ng-show="Comm == 1">
-              <form class="form-horizontal">
+            <div class="col-md-offset-1 col-md-10 boxCom">              
+            <form class="form-horizontal">
                 <fieldset>
                   <!-- Input edité-->
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Edité par :</label>  
                     <div class="col-md-5">
                     <input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="edite" class="form-control input-md" required="">               
-                    </div>
-                  </div>
-
-                  <!-- Input date-->
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput">Date :</label>  
-                    <div class="col-md-5">
-                    <input id="dateinput" name="date" type="date" placeholder="ex: Jean" ng-model="date" class="form-control input-md" required="">               
                     </div>
                   </div>
 
@@ -281,9 +274,11 @@
                   </div>
                 </fieldset>
               </form>
+              </div>
             </div>
 
-
+          <div class="col-md-offset-1 col-md-10">
+          <div class="row">
             <ul class="timeline">
               <li>
                 <div class="timeline-badge"><i class="glyphicon glyphicon-edit"></i></div>
@@ -310,6 +305,8 @@
                 </div>
               </li>
             </ul>
+          </div>
+          </div>
       </div><!-- /.container #commentary -->
   </div><!-- /ng-show="seeRecipe == 2 -->
 </div><!-- /.allR1 -->
