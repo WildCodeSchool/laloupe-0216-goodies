@@ -1,13 +1,83 @@
 
-<div class="container-fluid EvBody">
-	<div class="row">
 
-		<div class="container">
-			<div class="row">
-				<h2 class="page-header col-xs-12 Ev-PghH2"> Mes Evenements</h2>
+	<div class="container contEv">
+			<div class="headingEvent">
+				<h2 class="page-header"> Mes Evenements</h2>
 			</div>
-			<a href="#/createEvent" class="btn btn-default col-md-offset-2 col-sm-offset-2 col-xs-offset-3" role="button">Créer un événement</a>
-		</div>
 
-	</div><!-- / End row -->
-</div><!-- / End  Main container-fluid -->
+		<div>
+
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs container col-md-12" role="tablist">
+		    <li role="presentation" class="active" style="cursor: pointer"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">J'organise <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
+		    <li role="presentation" style="cursor: pointer"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Invitations <span class="badge" style="margin-left:10px;" ng-show="nbInvit != 0">{{nbInvit}}</span></a></li>
+				<a href="#/createEvent" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-plus"></span> Créer </a>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+				<!-- ========================== TAB EVENTS ===================== -->
+		    <div role="tabpanel" class="tab-pane active" id="home">
+					<div class="container col-md-12" style="margin-top:20px;">
+						<div class="panel-group" id="accordion">
+
+							<div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
+								<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+									<h3 class="panel-title" style="font-size: 1.5em;">
+										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+									</h3>
+								</div>
+								<div id="collapse{{$index}}" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-6">
+												<h4>Adresse évènements</h4>
+												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+											</div>
+											<div class="col-md-6" style="height: 100%;">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    </div>
+
+			<!-- ========================== TAB INVITATIONS =================================== -->
+		    <div role="tabpanel" class="tab-pane" id="profile">
+					<div class="container col-md-12" style="margin-top:20px;">
+						<div class="panel-group" id="accordionInvit">
+
+							<div class="panel panel-default" ng-repeat="event in invitEvents">
+								<div class="panel-heading" ng-click="geocodeAddress('hhjfd')" data-toggle="collapse" data-parent="#accordionInvit" data-target="#collapseInvit{{$index}}" style="cursor: pointer">
+									<h4 class="panel-title">
+										<p>{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span></p>
+									</h4>
+								</div>
+								<div id="collapseInvit{{$index}}" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-6">
+												<h4>Adresse évènements</h4>
+												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+											</div>
+											<div class="col-md-6" style="height: 100%;">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+			<ng-map center="{{position}}" zoom="17" style="heigth:200px">
+				<marker position="{{position}}" title=""></marker>
+			</ng-map>
+		</div>
+	</div>

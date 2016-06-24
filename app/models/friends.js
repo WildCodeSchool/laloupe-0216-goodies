@@ -1,22 +1,25 @@
 
 //	MODEL friends
 
+var User = require('../models/user.js');
 var mongoose = require('mongoose');
 var friendsSchema = new mongoose.Schema({
-  friendlastname: String,
-  friendfirstname: String,
+  nom: String,
+  prenom: String,
   friendmail: String,
-  userId: String
+  friendId: String,
+  userId: String,
+  img: String
 });
 var friends = {
 
     model: mongoose.model('friends', friendsSchema),
 
     create: function(req, res) {
-		friends.model.create(
-			req.body
-		, function(){
-			res.sendStatus(200);
+      console.log('body: ')
+      console.log(req.body);
+		friends.model.create(req.body, function(err, data){
+			User.addFriends(req.body.userId, data._id, res);
 		})
 	},
 	findAll: function(req, res) {
@@ -31,12 +34,12 @@ var friends = {
 			friendmail: req.body.friendmail,
 		}, function(){
 			res.sendStatus(200);
-		})
+		});
 	},
 	delete: function(req, res){
 		friends.model.findByIdAndRemove(req.params.id, function(){
 			res.sendStatus(200);
-		})
+		});
 	}
-}
+};
 module.exports = friends;

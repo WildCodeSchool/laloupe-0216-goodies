@@ -1,4 +1,3 @@
-
 //	ROUTES EVENTS
 
 var Event = require('../models/event.js');
@@ -8,4 +7,4 @@ module.exports 	= function(app) {
 	app.put('/events/:id', Event.update);
 	app.delete('/events/:id', Event.delete);
 
-}
+};

@@ -1,5 +1,5 @@
 
-//	ROUTES EVENTS
+//	ROUTES FRIENDS
 
 var friends = require('../models/friends.js');
 module.exports 	= function(app) {
@@ -8,4 +8,4 @@ module.exports 	= function(app) {
 	app.put('/friends/:id', friends.update);
 	app.delete('/friends/:id', friends.delete);
 
-}
+};

@@ -1,0 +1,89 @@
+
+<div class="row">
+  <div class="col-md-offset-1 col-md-5 contEv">
+      <div class="headingEvent">
+        <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Mes informations</h2>
+      </div>
+      <div class="container col-md-12">
+        <div class="row">
+        <div class="col-md-offset-1 col-md-6">
+              <h2 ng-hide="adresseUserName" class="info">{{user.prenom}} {{user.name}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseUserName = true"></h2>
+              <div ng-show="adresseUserName">
+                  <p><label for="prenom">Prénom </label><input type="text" ng-model="user.prenom" name="prenom" value=""></p>
+                  <p><label for="nom">Nom </label><input type="text" ng-model="user.name" name="nom" value=""></p>
+                  <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresseUserName')">
+                    Valider
+                  </button>
+              </div>
+        <div class="info" ng-hide="adresseEmail">
+          {{user.email}} <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresseEmail = true"></span>
+        </div>
+        <div ng-show="adresseEmail">
+            <p><label for="email">Email </label><input type="text" ng-model="user.email" name="email" value=""></p>
+            <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresseEmail')">
+              Valider
+            </button>
+        </div>
+        <div class="info">
+          <h2>Mon adresse <span class="glyphicon glyphicon-pencil fa-1" aria-hidden="true" ng-click="adresse = true"></span></h2>
+          <h3 ng-hide="user.adresse">Aucune adresse</h3>
+          <div ng-hide="adresse">
+              <p>N° {{user.adresse.num}}</p>
+              <p>Rue {{user.adresse.rue}}</p>
+              <p>Code Postal {{user.adresse.cp}}</p>
+              <p>Ville {{user.adresse.ville}}</p>
+              <p>Pays {{user.adresse.pays}}</p>
+          </div>
+        </div>
+        <div class="adresse" ng-show="adresse">
+          <p><label for="N°">N° </label><input type="text" ng-model="user.adresse.num" name="N°" value=""></p>
+          <p><label for="Rue">Rue </label><input type="text" ng-model="user.adresse.rue" name="Rue" value=""></p>
+          <p><label for="Code Postal">Code Postal </label><input type="text" ng-model="user.adresse.cp" name="Code Postal" value=""></p>
+          <p><label for="Ville">Ville </label><input type="text" ng-model="user.adresse.ville" name="Ville" value=""></p>
+          <p><label for="Pays">Pays </label><input type="text" ng-model="user.adresse.pays" name="Pays" value=""></p>
+          <button id="" class="btn btn-warning btn-lg" ng-click="update(user,'adresse')">
+            Valider
+          </button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+
+            <div ng-hide="user.img"><img class="imgProfile" src="./assets/user-default.png" alt="" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></div>
+            <div ng-show="user.img"><img class="imgProfile" src="{{user.img}}" alt="" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="col-md-offset-1 col-md-4 contEv">
+    <div class="headingEvent">
+      <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Evènements</h2>
+    </div>
+    <div class="container col-md-12">
+      <div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
+        <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+          <h3 class="panel-title" style="font-size: 1.5em;">
+            {{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+          </h3>
+        </div>
+        <div id="collapse{{$index}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Adresse évènements</h4>
+                <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+                <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+              </div>
+              <div class="col-md-6" style="height: 100%;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

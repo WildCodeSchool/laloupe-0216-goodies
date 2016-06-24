@@ -1,238 +1,172 @@
-<div class="col-md-12 menu">
-  <center>
-    <h2 class="titleMenu">Mes recettes</h2>
-  </center>
-</div>
+ <div class="container mainContainerNav">
+   <div class="container allRecipesContainerNav">
+     <div class="row">
 
-<div class="col-md-8 col-md-offset-2 boutonMenu">
-  <!-- creation de la partie entree -->
-  <div class="col-md-4">
-    <center>
-      <button id="entree" class="btn btn-info btn-lg" ng-click="menuShow('entree')">
-        ENTREES
-      </button>
-      <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target="#myModal0">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" ng-click="cancel(image)" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Créer votre goodies entrée</h4>
-            </div>
-            <div class="modal-body">
-              <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
-                <div class="addpic">
-                  <div ng-hide="y==1">
-                    <!-- Clique sur photo pour ajout d'image -->
-                    <p>Ajouter une photo</p>
-                    <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
-                  </div>
-                  <div ng-repeat="image in uploader.flow.files track by $index">
-                    <img ng-show="out" class="preview" flow-img="image"/>
-                    <img class="preview" ng-src="{{imageStrings[$index]}}"/>
-                    <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
-              </div>
-              <p>Temp de préparation</p>
-              <div class="form-group col-md-6">
-                <input type="number" value="0" min="0" class="form-control" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
-              </div>
-              <p>Temp de cuisson</p>
-              <div class="form-group col-md-6">
-                <input type="number" value="0" min="0" class="form-control" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
-              </div>
-              <button type="submit" class="btn btn-success btn-lg valid" data-dismiss="modal" ng-click="add('entree')">Valider</button>
-            </div>
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-    </center>
-  </div>
+       <div class="col-md-12 allRecipesNav">
+         <div class="btn-group btn-group-justified" role="group" aria-label="...">
+           <div class="btn-group" role="group">
+             <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''">Les Recettes</button>
+           </div>
+           <div class="btn-group" role="group">
+             <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrées <span class="caret"></span></button>
+             <ul class="dropdown-menu dropdown-menu-right">
+               <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='entree'">Toutes</button></li>
+               <li role="separator" class="divider"></li>
+               <li><a ng-click="locateEntre()">Ajouter une entrée</a></li>
+             </ul>
+           </div>
+           <div class="btn-group" role="group">
+             <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plats <span class="caret"></span></button>
+             <ul class="dropdown-menu dropdown-menu-right">
+               <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='plat'">Tous</button></li>
+               <li role="separator" class="divider"></li>
+               <li><a ng-click="locatePlat()">Ajouter un plat</a></li>
+             </ul>
+           </div>
+           <div class="btn-group" role="group">
+             <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Desserts <span class="caret"></span></button>
+             <ul class="dropdown-menu dropdown-menu-right">
+               <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='dessert'">Tous</button></li>
+               <li role="seperator" class="divider"></li>
+               <li><a ng-click="locateDessert()">Ajouter un dessert</a></li>
+             </ul>
+           </div>
+         </div><!-- /.button-group-justified -->
+       </div><!-- /.allRecipesNav -->
 
-  <div class="col-md-4">
-    <center>
-      <button id="plat" class="btn btn-warning btn-lg" ng-click="menuShow('plat')">
-        PLATS
-      </button>
-      <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target="#myModal1">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" ng-click="cancel(image)" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Créer votre goodies plat</h4>
-            </div>
-            <div class="modal-body">
-              <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
-                <div class="addpic">
-                  <div ng-hide="y==1">
-                    <!-- Clique sur photo pour ajout d'image -->
-                    <p>Ajouter une photo</p>
-                    <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
-                  </div>
-                  <div ng-repeat="image in uploader.flow.files track by $index">
-                    <img ng-show="out" class="preview" flow-img="image"/>
-                    <img class="preview" ng-src="{{imageStrings[$index]}}"/>
-                    <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
-              </div>
-              <p>Temp de préparation</p>
-              <div class="form-group col-md-6">
-                <input type="number" value="0" min="0" class="form-control" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
-              </div>
-              <p>Temp de cuisson</p>
-              <div class="form-group col-md-6">
-                <input type="number" value="0" min="0" class="form-control" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
-              </div>
-              <button type="submit" class="btn btn-success btn-lg valid" data-dismiss="modal" ng-click="add('plat')">Valider</button>
-            </div>
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-    </center>
-  </div>
+       <!-- Search bar -->
+       <div class="col-md-12">
+         <div class="wrap">
+             <div class="search">
+                 <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
+             </div>
+         </div>
+       </div>
+     </div><!-- /.row -->
+   </div><!-- /.container -->
+ </div><!-- /.mainContainerNav -->
 
-  <div class="col-md-4">
-    <center>
-      <button id="dessert" class="btn btn-warning btn-lg" ng-click="menuShow('dessert')">
-        DESSERTS
-      </button>
-      <button type="button" class="btn btn-default btn-default" data-toggle="modal" data-target="#myModal2">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" ng-click="cancel(image)" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Créer votre goodies dessert</h4>
-            </div>
-            <div class="modal-body">
-              <div flow-init="{target: '/upload', singleFile: true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-name="uploader.flow" flow-files-added="processFiles($files)">
-                <div class="addpic">
-                  <div ng-hide="y==1">
-                    <!-- Clique sur photo pour ajout d'image -->
-                    <p>Ajouter une photo</p>
-                    <button><img src="./assets/dessert/cam.png" alt="downloadicon" flow-btn flow-attrs="{accept:'image/*'}" type="file" id="btnImage"/></button>
-                  </div>
-                  <div ng-repeat="image in uploader.flow.files track by $index">
-                    <img ng-show="out" class="preview" flow-img="image"/>
-                    <img class="preview" ng-src="{{imageStrings[$index]}}"/>
-                    <span class="btn glyphicon glyphicon-trash trashColor" ng-show="$flow.files.length" ng-click="cancel(image)"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
-              </div>
-              <p>Temp de préparation</p>
-              <div class="form-group">
-                <input class="col-md-4" type="number" value="0" min="0" class="form-control" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
-              </div>
-              <i class="fa fa-fire" aria-hidden="true"></i><p>Temp de cuisson</p>
-              <div class="form-group">
-                <input class="col-md-4" type="number" value="0" min="0" class="form-control" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
-              </div>
-              <button type="submit" class="btn btn-success btn-lg valid" data-dismiss="modal" ng-click="add('dessert')">Valider</button>
-            </div>
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-    </center>
-  </div>
-</div>
-<div>
-  <div class="description">
-    <div class="container">
-      <div class="col-md-6">
-        <div ng-repeat="recette in recettes | filter : {userId: userId} | filter : {type: showRecette}" ng-show="userId">
-          <div class="col-md-6" ng-init="$index == 0 ? pushtab(recette) : $index">
-            <div class="cardtest">
-              <img class="RecetteImg"src={{recette.img}} alt=""/>
-              <div class="RecetteTitle">{{recette.titre}}</div>
-              <div class="row">
-                <div class="RecetteDescription">{{recette.description}}</div>
-                <div class="RecettePreparation">{{recette.preparation}}</div>
-                <div class="RecetteCuisson">{{recette.cuisson}}</div>
-                <!-- <div class="RecettenbPersonne col-md-4">{{recette.nbrPersonne}}</div> -->
-              </div>
-              <button type="button" class="btn btn-success glyphicon glyphicon-cutlery col-md-push-9" ng-click="id(recette)"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-        <!-- Zone d'affichage -->
-        <div class="col-md-6" ng-show="userId">
-          <div class="demo" ng-show="recetteTab.length != 0">
-            <div class="RecetteTitreA">{{recetteAffiche.titre}}</div>
-            <div class="col-md-8">
-              <img class="RecetteImgA"src={{recetteAffiche.img}} alt=""/>
-            </div>
-            <div class="col-md-4">
-              <div class="preparationA"><i class="fa fa-clock-o" aria-hidden="true"></i>
-                {{recetteAffiche.preparation}}</div>
-              <div class="preparationA"><i class="fa fa-fire" aria-hidden="true"></i> {{recetteAffiche.cuisson}}</div>
-            </div>
-            <div class="col-md-12">
-              <p class="textIngredient">Ingrédient:</p>
-              <div class="RecetteIngredientA">{{recetteAffiche.ingredient}}</div>
-              <p class="textIngredient">Recette:</p>
-              <div class="RecetteRecetteA">{{recetteAffiche.recette}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="changepage" ng-show="recetteTab.length != 0">
-    <a class="nul" ng-click(add)>1</a>
-    </div>
-  </div>
-</div>
+ <div ng-show="seeRecipe == 1">
+ <!-- Display of mini recipes =================================================== -->
+
+   <div class="container showAllRecipesMini">
+     <div class="row" >
+         <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
+           <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+             <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
+             <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+           </div>
+         </div>
+
+     </div><!-- /.row -->
+   </div><!-- /.container -->
+ </div><!-- /ng-show -->
+
+
+ <!-- See recipe at the click of mini ============================================ -->
+ <div ng-show="seeRecipe == 2">
+   <div class="container seeRecipeContainer">
+     <div class="row">
+
+       <button type="button" class="btn btn-link pull-right btnClose" ng-click="close()">
+         <span class="glyphicon glyphicon-remove"></span>
+       </button>
+
+       <div class="col-md-12">
+         <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
+           <div class="col-md-6">
+
+             <div class="g_imgRecipe">
+             <img src="{{clickRecipe.img}}" alt="image">
+           </div>
+
+
+             <div class="infoLineRecipe col-md-12">
+
+               <div class="g_nbPeoplesRecipe">
+                 <center>
+                   <button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: {{clickRecipe.NbrPersonne}} Prs.">
+                   <img src="../assets/icons/multiple-users.png" alt="image"><p> {{clickRecipe.NbrPersonne}} Prs.</p>
+                   </button>
+                 </center>
+               </div>
+               <div class="g_preparationRecipe">
+                 <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de préparation: {{clickRecipe.preparation}} Min.">
+                   <img src="../assets/icons/time-check.png" alt="image"><p> {{clickRecipe.preparation}} Min.</p>
+                 </button>
+               </div>
+               <div class="g_cooktimeRecipe">
+                 <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de cuisson: {{clickRecipe.cuisson}} Min.">
+                   <img src="../assets/icons/icon-casserole.png" alt="image"><p> {{clickRecipe.cuisson}} Min.</p>
+                 </button>
+               </div>
+               <div class="g_levelRecipe">
+                 <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Niveau de difficulté: {{clickRecipe.difficulte}}">
+                   <img src="../assets/icons/chef.png" alt="image"><p> {{clickRecipe.difficulte}} </p>
+                 </button>
+               </div>
+               <div class="g_priceRecipe">
+                 <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Prix: {{clickRecipe.prix}}">
+                   <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.prix}} € </p>
+                 </button>
+               </div>
+
+             </div><!-- /.infoLineRecipe -->
+
+         </div><!-- /.col-md-6 -->
+
+         <div class="col-md-6">
+           <p style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+
+           <div class="row">
+             <div class="lineVote col-md-12">
+               <div class="btn-group">
+                 <button type="button" ng-click="plus()" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
+                   <span class="glyphicon glyphicon-thumbs-up"> {{moreVote}}</span>
+                 </button>
+                   <button class="btn btn-link">Vote(s)</button>
+                 <button type="button" ng-click="moins()" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Je n'aime pas">
+                   <span class="glyphicon glyphicon-thumbs-down"> {{lessVote}}</span>
+                 </button>
+               </div>
+             </div>
+
+             <div class="btn-group btn-group-justified" role="group" aria-label="...">
+               <div class="btn-group" role="group">
+                 <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
+                 </button>
+               </div>
+
+               <div class="btn-group" role="group">
+                 <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires"><i class="fa fa-comment" aria-hidden="true"></i> Commentaires
+                 </button>
+               </div>
+
+               <div class="btn-group" role="group">
+                 <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes"><i class="fa fa-star" aria-hidden="true"></i> Favoris
+                 </button>
+               </div>
+             </div>
+
+
+           </div><!-- /.col-md-12 -->
+
+         </div><!-- /.col-md-6 -->
+
+         <div class="col-md-12" style="border-top: 1px solid #f8ac37;">
+           <div class="col-md-4">
+             <h3>Ingrédients</h3>
+             <div>{{clickRecipe.ingredient}}</div>
+           </div>
+           <div class="col-md-8">
+             <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
+              <h3>Recette</h3>
+              <div>{{clickRecipe.recette}}</div>
+             </div>
+           </div>
+         </div>
+       </div><!-- /.col-md-12 -->
+
+     </div><!-- /.row -->
+   </div><!-- /.container -->
+ </div><!-- /ng-show -->
