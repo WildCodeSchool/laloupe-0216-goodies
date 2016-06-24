@@ -118,6 +118,9 @@
 
   <!-- Affichage des recettes miniatures =================================================== -->
     <div class="row showAllRecipesMini">
+      <div class="page-header">
+          <h3>Des Recettes "So Goodies"</h3>
+        </div>
       <div class="col-md-12">
           <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
             <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
@@ -133,7 +136,7 @@
   <!-- Affiche la recette au clic de la miniature ============================================ -->
   <div ng-show="seeRecipe == 2">
     <div class="row seeRecipeContainer">
-      <div class="row">
+      
 
         <button type="button" class="btn btn-link pull-right btnClose" ng-click="close()">
           <span class="glyphicon glyphicon-remove"></span>
@@ -235,8 +238,8 @@
               </div>
             </div>
           </div>
-      </div><!-- /.row-->
-    </div><!-- /.container seeRecipeContainer -->
+      
+    </div><!-- /.row seeRecipeContainer -->
 
       <!-- Affichage des commentaires par recette =============================================== -->
       <div class="row" id="commentary">

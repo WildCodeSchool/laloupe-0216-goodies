@@ -1601,6 +1601,14 @@ input::-webkit-calendar-picker-indicator {
   background-color: rgba(255,255,255,1);
   padding-top: 25px;
 }
+.showAllRecipesMini .page-header {
+  background-color: #f8ac37;
+}
+.showAllRecipesMini h3 {
+  text-align: center;
+  font-family: 'oswald', sans-serif;
+  padding-top: 15px;
+}
 
 .lineSearch {
   height: 70px;
