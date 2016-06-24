@@ -32,7 +32,7 @@ var Mail = {
       to: req.body.email.join(), // list of receivers
       subject: 'Invitation', // Subject line
       text: 'Hello world 🐴', // plaintex t body
-      html: req.body.user + ' vous à inviter à son événement'
+      html: req.body.user + ' vous à inviter à son événement <a>http://localhost:8000/#/signup</a>'
     };
 
     // send mail with defined transport object
