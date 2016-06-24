@@ -1883,6 +1883,9 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* line vote */
+.lineVote {
+  margin-left: 47px;
+}
 .lineVote .btn {
   display: inline-block;
 }

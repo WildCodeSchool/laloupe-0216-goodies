@@ -183,9 +183,10 @@
           <div class="col-md-6">
             <p class="g_typeRecette" style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
 
+            <div class="col-md-offset-2 col-md-10">
             <div class="row">
               <!-- Affichage des votes -->
-              <div class="lineVote col-md-offest-2 col-md-10">
+              <div class="lineVote">
                 <div class="btn-group">
                   <button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
                     <span class="glyphicon glyphicon-thumbs-up"> {{clickRecipe.moreVote}}</span>
@@ -196,32 +197,34 @@
                   </button>
                 </div>
               </div><!-- /.lineVote -->
-
+            </div><!-- /.row -->
+            
+            <div class="row">
               <!-- bouton imprimer -->
-              <div class="btn-group btn-justified btnMoreInfo" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
+              <div class="btn-group btnMoreInfo" role="group" aria-label="...">
+                <div class="btn-group  btn-block" role="group">
+                  <button id="impression" name="impression" type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
                   </button>
                 </div>
 
                 <!-- bouton commentaires -->
-                <div class="btn-group" role="group">
+                <div class="btn-group btn-block" role="group">
                   <a class="js-scrollTo" href="#commentary">
-                    <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
+                    <button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
                       <i class="fa fa-comment" aria-hidden="true"></i> Commentaires
                     </button>
                   </a>
                 </div>
 
                 <!-- bouton Ajouter à mes recettes -->
-                <div class="btn-group" role="group">
-                  <button type="button" id='favoris{{$index}}' class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)"><i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
+                <div class="btn-group btn-block" role="group">
+                  <button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)"><i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
                   </button>
 
                 </div>           
               </div><!-- /.btn-group btn-justified btnMoreInfo -->
-
-            </div><!-- /.row -->
+            </div>
+            </div>
           </div><!-- /.col-md-6 -->
         </div><!-- /.col-md-12 -->
 
