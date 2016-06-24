@@ -90,6 +90,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         // ========================= Ajout des amis dans la BD ==============
 
         $scope.addFriends = function() {
+          console.log($scope.dataFriends);
             $scope.dataFriends.userId = $rootScope.userId;
             userService.findMail($scope.dataFriends.email).then(function(res) {
                 $scope.dataFriends.friendId = res.data._id
