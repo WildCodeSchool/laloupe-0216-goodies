@@ -13,7 +13,7 @@ body {
 .allRecipesPresentation {
 	display: none;
 }
-.g_imgRecipe {
+#imgN {
 	display: none;
 }
 
@@ -24,7 +24,7 @@ body {
 .infoLineRecipe {
 	display: inline-flex;
 	position: relative;
-	bottom: 4cm;
+	bottom: 9cm;
 	left: 4.5cm;
 }
 .btnClose {

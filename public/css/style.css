@@ -1862,6 +1862,10 @@ input::-webkit-calendar-picker-indicator {
 .g_imgRecipe img {
   width: 100%;
 }
+.g_typeRecette {
+  text-align:right; 
+  font-family: 'oswald', sans-serif;
+}
 .infoLineRecipe {
   padding: 0;
 }
