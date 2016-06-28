@@ -29,4 +29,9 @@ _Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivan
 ```sh
 git clone https://github.com/WildCodeSchool/laloupe_goodies.git
 ```
-
+**install**
+```sh
+npm install
+mongod
+node server.js
+```
