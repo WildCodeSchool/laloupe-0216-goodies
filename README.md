@@ -1,6 +1,6 @@
 # Goodies
 
-Projet réalisé dans le cade d'une formation de développeur à la . [Wild Code School](http://www.wildcodeschool.fr/)
+Projet réalisé dans le cadre d'une formation de développeur à la . [Wild Code School](http://www.wildcodeschool.fr/)
 
 ![Wild Code School logo](https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAASEAAAAJGI2Yzk2YTllLTU4YjQtNGEwYS1iZjlmLTUyYjg0YTY1ZDYxMw.png)
 
@@ -11,7 +11,9 @@ Projet réalisé dans le cade d'une formation de développeur à la . [Wild Code
 web gratuite offerte à tous. Pour ce faire, la Wild Code School a choisi un sujet universel et
 fédérateur : la cuisine.
 
-**Création du projet :**
+***
+
+##### Pré-requis pour l'installation de l'application sur votre environnement de travail :
 
 instalation de la **MEAN Stack**
 * MongoDB
@@ -19,6 +21,12 @@ instalation de la **MEAN Stack**
 * AngularJS
 * NodeJS
 
-**Cloner le projet :**
-[Goodies](https://github.com/WildCodeSchool/laloupe_goodies.git)
+Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivante.
+
+##### Installation de l'application :
+
+**Clonez** le dépôt GitHub sur votre PC
+-->https://github.com/WildCodeSchool/laloupe_goodies.git
+
+
 
