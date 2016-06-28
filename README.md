@@ -26,7 +26,7 @@ Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivant
 ##### Installation de l'application :
 
 **Clonez** le dépôt GitHub sur votre PC
--->https://github.com/WildCodeSchool/laloupe_goodies.git
-
-
+```sh
+https://github.com/WildCodeSchool/laloupe_goodies.git
+```
 
