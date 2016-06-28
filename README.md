@@ -11,7 +11,7 @@ Projet réalisé dans le cadre d'une formation de développeur à la . [Wild Cod
 web gratuite offerte à tous. Pour ce faire, la Wild Code School a choisi un sujet universel et
 fédérateur : la cuisine.
 
-***
+
 
 ##### Pré-requis pour l'installation de l'application sur votre environnement de travail :
 
@@ -21,7 +21,8 @@ instalation de la **MEAN Stack**
 * AngularJS
 * NodeJS
 
-Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivante.
+
+_Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivante._
 
 ##### Installation de l'application :
 
