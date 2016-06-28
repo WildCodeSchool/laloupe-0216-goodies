@@ -10,7 +10,7 @@ function connectController($scope, $rootScope, $location, connectService, userFa
             sessionStorage.setItem('userId', res.data.id); // Replace with cookies
             $rootScope.token = res.data.token;
             $rootScope.userId = res.data.id;
-
+            notification(userFactory.user);
             $location.path('/');
         }).catch(function() {
             $rootScope.loginMessage.title = "Connexion error";
