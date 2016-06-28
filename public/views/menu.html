@@ -47,19 +47,20 @@
  </div><!-- /.mainContainerNav -->
 
  <div ng-show="seeRecipe == 1">
- <!-- Display of mini recipes =================================================== -->
-
-   <div class="container showAllRecipesMini">
-     <div class="row" >
-         <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
-           <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
-             <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
-             <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
-           </div>
-         </div>
-
-     </div><!-- /.row -->
-   </div><!-- /.container -->
+ <!-- Affichage des recettes miniatures =================================================== -->
+    <div class="container showAllRecipesMini">
+      <div class="page-header">
+          <h3>Mes Recettes</h3>
+        </div>
+      <div class="col-md-12">
+          <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
+            <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+              <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
+              <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+            </div>
+          </div>
+      </div>
+    </div><!-- /.showAllRecipesMini -->
  </div><!-- /ng-show -->
 
 
@@ -77,7 +78,7 @@
            <div class="col-md-6">
 
              <div class="g_imgRecipe">
-             <img src="{{clickRecipe.img}}" alt="image">
+             <img src="{{clickRecipe.img}}" id="imgN" alt="image">
            </div>
 
 
