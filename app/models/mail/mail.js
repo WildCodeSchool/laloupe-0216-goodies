@@ -32,7 +32,7 @@ var Mail = {
       to: req.body.email.join(), // list of receivers
       subject: 'Invitation', // Subject line
       text: 'Hello world 🐴', // plaintex t body
-      html: req.body.user + ' vous à inviter à son événement <a>http://localhost:8000/#/signup</a>'
+      html: req.body.user + ' vous à inviter à son événement'
     };
 
     // send mail with defined transport object
@@ -45,15 +45,15 @@ var Mail = {
     transporter.close();
   },
 
-  mailIvitNewUser: function(req, res) {
+  mailNewUser: function(req, res) {
 
     // create reusable transporter object using the default SMTP transport
     var mailOptions = {
       from: '"Goodies" <yoan.ficadiere@gmail.com>', // sender address
       to: "yoan.ficadiere@gmail.com", // list of receivers
-      subject: 'Hello ✔', // Subject line
+      subject: req.body.user + 'Vous invite à rejoindre Goodies', // Subject line
       text: 'Hello world 🐴', // plaintex t body
-      html: 'test'
+      html: req.body.user + ' Vous invite à rejoindre Goodies ' + ' connectez vous vite avec votre mot de passe temporaire :' + req.body.password + '  <a href="192.168.3.186:8000/#/signup">Connecter Vous ici</a>'
     };
 
     // send mail with defined transport object

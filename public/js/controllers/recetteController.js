@@ -128,7 +128,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
     $scope.locatePlat = function() {
       $location.path("/createPlat");
     };
-
     $scope.locateDessert = function() {
       $location.path("/createDessert");
     };
@@ -170,7 +169,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.prix = $scope.recetteMarmiton.prix;
         $scope.imageStrings[0] = $scope.recetteMarmiton.image;
       });
-      angular.element($('#selectDifficulte')).val(2);
     };
   });
 }

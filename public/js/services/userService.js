@@ -30,5 +30,8 @@ function userService($http){
 		mailInvitEvent : function(datas) {
 				return $http.post('/mail/invitEvent', datas);
 		},
+		mailNewUser : function(datas) {
+				return $http.post('/mail/mailNewUser', datas);
+		},
 	};
 }
