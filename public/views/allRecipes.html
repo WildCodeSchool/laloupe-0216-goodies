@@ -98,7 +98,8 @@
 		        <center>
 		          <h2>Goodies</h2>
 		          <h5>La meilleure méthode<br>pour inviter<br> ses amis<br>à dîner <span>!!</span></h5>
-		          <a href="#/signup" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
+		          <a href="#/signup" ng-show="!token" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
+		          <a href="#/events" ng-show="token"  class="btn btn-link btn-lg btnSignIn"">Mes évènements</a>
 		        </center>
 		      </div>
 			</div>
