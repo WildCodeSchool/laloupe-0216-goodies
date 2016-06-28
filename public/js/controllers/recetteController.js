@@ -1,4 +1,4 @@
-function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
+function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory, recetteService) {
 
   $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
 
@@ -62,17 +62,13 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       $scope.seeRecipe = 1;
     };
 
-
-
     /*==================  Add first menu  ===================== */
 
     $scope.pushtab = function(menu) {
       $scope.recetteTab.push(menu);
       $scope.recetteAffiche = $scope.recetteTab[0];
     };
-
     /*==================  end Add first menu  ===================== */
-
     $scope.i = 0;
     $scope.y = 0;
 
@@ -109,16 +105,17 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.imageStrings[0] = [];
         $rootScope.eat = type;
         $scope.i++;
+        console.log(datas);
       });
     };
 
     $scope.update = function(recette) {
-      recette.service.update(recette._id, recette).then(function(res) {});
+      recetteService.update(recette._id, recette).then(function(res) {});
     };
 
     $scope.delete = function(recette) {
-        recette.service.delete(recette._id, recette).then(function(res) {
-
+      console.log(recette);
+        recetteService.delete(recette).then(function(res) {
         });
       },
       // Redirection vers page de création

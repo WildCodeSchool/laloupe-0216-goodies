@@ -26,7 +26,7 @@ var recetteSchema = new mongoose.Schema({
 var Recette = {
     model: mongoose.model('Recette', recetteSchema),
     create: function(req, res) {
-        console.log('body: ')
+        console.log('body: ');
         console.log(req.body);
         Recette.model.create(req.body, function(err, data) {
             if (req.body._id) {

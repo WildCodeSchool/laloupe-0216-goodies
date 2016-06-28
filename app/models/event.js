@@ -61,5 +61,5 @@ var Event = {
             res.sendStatus(200);
         });
     }
-}
+};
 module.exports = Event;
