@@ -1561,7 +1561,7 @@ input::-webkit-calendar-picker-indicator {
                      ALLRECIPES CSS
 ***********************************************************/
 .allR1{
-  background-color: rgba(255,255,255,1);
+  background-color: #fff;
 }
 .mainContainerNav {
   padding-right: 0;
@@ -1572,6 +1572,7 @@ input::-webkit-calendar-picker-indicator {
   top: 54px;
   z-index: 999;
   background-color: #fff;
+  height: 165px;
 }
 .allRecipesNav {
   font-family: 'oswald', pacifico, sans-serif;
@@ -1598,7 +1599,7 @@ input::-webkit-calendar-picker-indicator {
 .showAllRecipesMini {
   position:relative;
   top:195px;
-  background-color: rgba(255,255,255,1);
+
   padding-top: 25px;
 }
 .showAllRecipesMini .page-header {
@@ -1606,7 +1607,8 @@ input::-webkit-calendar-picker-indicator {
 }
 .showAllRecipesMini h3 {
   text-align: center;
-  font-family: 'oswald', sans-serif;
+  font-family: 'yesteryear',oswald, sans-serif;
+  font-size: 3rem;
   padding-top: 15px;
 }
 
@@ -1647,7 +1649,7 @@ input::-webkit-calendar-picker-indicator {
 }
 .g_titleMiniRecipes {
   position: absolute;
-    width: 87%;
+    width: 86%;
     bottom: 17%;
     font-family: 'oswald', sans-serif;
     color: #333;    padding: 10px;
@@ -1697,7 +1699,6 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .searchTerm {
-  float: left;
   width: 100%;
   border: 2px solid #f8ac37 !important;
   padding: 5px;
@@ -1705,6 +1706,7 @@ input::-webkit-calendar-picker-indicator {
   outline: none;
   color: #9DBFAF;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .searchTerm:focus{
@@ -1790,7 +1792,12 @@ input::-webkit-calendar-picker-indicator {
 .g_boxMiniRecipes {
   height: 225px;
 }
-
+.boxMini .page-header{
+  background-color: #f8ac37;
+  text-align: center;
+  font-family: 'oswald', sans-serif;
+  padding-top: 1px;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -1811,12 +1818,7 @@ input::-webkit-calendar-picker-indicator {
 
 /* seeRecipeContainer */
 .seeRecipeContainer {
-  border: 1px solid #e2e0e0;
-  border-radius: 4px;
   background-color: #fff;
-  box-shadow: 3px 3px 16px -3px;
-  position: relative;
-  top: 190px;
   padding: 15px;
   padding-bottom: 25px;
   margin-bottom: 25px;
@@ -1908,14 +1910,14 @@ input::-webkit-calendar-picker-indicator {
 .box55 {
   border-top: 1px solid #f8ac37;"
 }
-
+.recetteText {
+  text-align: justify;
+}
 /* --------------------------------------------------- */
 /*      Affichage des commentaires par recette         */
 /* --------------------------------------------------- */
 #commentary {
-  position: relative; 
-  top: 200px;
-  background-color: #fff
+  background-color: #f8f8f8;
 }
 #commentary .page-header {
   font-family: 'oswald', sans-serif;
