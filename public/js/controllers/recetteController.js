@@ -47,8 +47,6 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
       }
     };
     /*==================  Fin Fonction bouton Recette  ===================== */
-
-
     /*==================  Stockage de l'ID  ===================== */
 
     $scope.id = function(recette) {
@@ -114,9 +112,8 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
     };
 
     $scope.delete = function(recette) {
-      console.log(recette);
-        recetteService.delete(recette).then(function(res) {
-        });
+        console.log(recette);
+        recetteService.delete(recette).then(function(res) {});
       },
       // Redirection vers page de création
       $scope.locateEntre = function() {

@@ -1,315 +1,317 @@
 <div class="container allR1">
-  <div class="row mainContainerNav">
-    <div class="container allRecipesContainerNav">
-      <div class="row">
+	<div class="row" style="padding-bottom:10px;">
+		<nav>
+	      <div class="col-md-offset-1 col-md-10 allRecipesNav">
+	         <div class="btn-group btn-group-justified" role="group" aria-label="...">
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''">Les Recettes</button>
+	            </div>
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrées <span class="caret"></span></button>
+	              <ul class="dropdown-menu dropdown-menu-right">
+	                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='entree'">Toutes</button></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Entrées Froides</a></li>
+	                <li class="disabled"><a href="">Entrées Chaudes</a></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Potages, Soupes</a></li>
+	                <li class="disabled"><a href="">Salades</a></li>
+	                <li class="disabled"><a href="">Terrines, pâtés</a></li>
+	                <li class="disabled"><a href="">Cakes Salé</a></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Végétarien</a></li>
+	              </ul>
+	            </div>
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plats <span class="caret"></span></button>
+	              <ul class="dropdown-menu dropdown-menu-right">
+	                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='plat'">Tous</button></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Plats Froids</a></li>
+	                <li class="disabled"><a href="">Plats Chauds</a></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Viandes</a></li>
+	                <li class="disabled"><a href="">Poissons et Fruits de Mer</a></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Végétarien</a></li>
+	              </ul>
+	            </div>
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Desserts <span class="caret"></span></button>
+	              <ul class="dropdown-menu dropdown-menu-right">
+	                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='dessert'">Tous</button></li>
+	                <li role="seperator" class="divider"></li>
+	                <li class="disabled"><a href="">Gateaux</a></li>
+	                <li class="disabled"><a href="">Cakes sucré</a></li>
+	                <li role="separator" class="divider"></li>
+	                <li class="disabled"><a href="">Tout Chocolat</a></li>
+	                <li class="disabled"><a href="">Desserts aux Fruits</a></li>
+	              </ul>
+	            </div>
+	         </div><!-- /.button-group-justified -->
 
-        <div class="col-md-offset-1 col-md-10 allRecipesNav">
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''">Les Recettes</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrées <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='entree'">Toutes</button></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Entrées Froides</a></li>
-                <li class="disabled"><a href="">Entrées Chaudes</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Potages, Soupes</a></li>
-                <li class="disabled"><a href="">Salades</a></li>
-                <li class="disabled"><a href="">Terrines, pâtés</a></li>
-                <li class="disabled"><a href="">Cakes Salé</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Végétarien</a></li>
-              </ul>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plats <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='plat'">Tous</button></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Plats Froids</a></li>
-                <li class="disabled"><a href="">Plats Chauds</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Viandes</a></li>
-                <li class="disabled"><a href="">Poissons et Fruits de Mer</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Végétarien</a></li>
-              </ul>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Desserts <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><button type="button" class="btn btn-link" ng-click="searchRecipesText.type='dessert'">Tous</button></li>
-                <li role="seperator" class="divider"></li>
-                <li class="disabled"><a href="">Gateaux</a></li>
-                <li class="disabled"><a href="">Cakes sucré</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="disabled"><a href="">Tout Chocolat</a></li>
-                <li class="disabled"><a href="">Desserts aux Fruits</a></li>
-              </ul>
-            </div>
-          </div><!-- /.button-group-justified -->
-        </div><!-- /.allRecipesNav -->
+	         <!-- Search bar -->
+            <div class="search">
+               <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
+            </div>     
+	      </div>
+    	</nav>
 
-        <!-- Search bar -->
-        <div class="col-md-offset-1 col-md-10 lineSearch">
-          <div class="wrap">
-              <div class="search">
-                  <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
-              </div>
-          </div>
-        </div>
+	<div ng-show="seeRecipe == 1">
+		<div class="col-md-12" style="margin-top:10px;">
+			<div class="row">
 
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </div><!-- /.mainContainerNav -->
+		      <div class="carousel slide col-md-8" id="carousel-recipes-generic" data-ride="carousel">
+		        <!-- Indicators -->
+		        <ol class="carousel-indicators">
+		          <li data-target="#carousel-recipes-generic" data-slide-to="0" class="active"></li>
+		          <li data-target="#carousel-recipes-generic" data-slide-to="1"></li>
+		          <li data-target="#carousel-recipes-generic" data-slide-to="2"></li>
+		        </ol>
 
+		        <!-- Wrapper for slides -->
+		        <div class="carousel-inner">
+		          <div class="item active carItem">
+		            <img src="../assets/entrees/salad.jpg" alt="...">
+		            <div class="carousel-caption">
+		              <h2>Voilà l'été, avec ses salades ! ...</h2>
+		              <p>Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
+		            </div>
+		          </div>
+		          <div class="item carItem">
+		            <img src="../assets/plats/brochette.jpg" alt="...">
+		            <div class="carousel-caption">
+		              <h2>Les Grillades</h2>
+		              <p>Un moment a partager en famille et entre amis</p>
+		            </div>
+		          </div>
+		          <div class="item carItem">
+		            <img src="../assets/desserts/cookies.jpg" alt="...">
+		            <div class="carousel-caption">
+		              <h2>Les Cookies "So Goodies"</h2>
+		            </div>
+		          </div>
+		        </div>
+		      </div><!-- /.carousel slide -->
 
-  <!-- Affichage présentation - carousel & more ====================================== -->
-  <div ng-show="seeRecipe == 1">
-    <div class="row allRecipesPresentation">
+		      <div class="col-md-4 g_boxSignIn">
+		        <center>
+		          <h2>Goodies</h2>
+		          <h5>La meilleure méthode<br>pour inviter<br> ses amis<br>à dîner <span>!!</span></h5>
+		          <a href="#/signup" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
+		        </center>
+		      </div>
+			</div>
+		</div><!-- /.col-md-12 -->
+		
+		<!-- Affichage des miniatures ==========================================-->
+		<div class="col-md-12 boxMini">
+			<div class="row">
+		      <div class="page-header">
+		          <h3>Des Recettes "So Goodies"</h3>
+		      </div>
+		      <div class="col-md-12">
+		          <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
+		            <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+		              <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
+		              <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+		            </div>
+		          </div>
+		      </div>
+		   </div>
+		</div>
+	</div>
 
-      <div class="carousel slide col-md-8" id="carousel-recipes-generic" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-recipes-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-recipes-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-recipes-generic" data-slide-to="2"></li>
-        </ol>
+	<!-- Affichage des recettes ============================================== -->
+	<div ng-show="seeRecipe == 2">
+		<div class="col-md-12 seeRecipeContainer">
+			<div class="row">
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active carItem">
-            <img src="../assets/entrees/salad.jpg" alt="...">
-            <div class="carousel-caption">
-              <h2>Voilà l'été, avec ses salades ! ...</h2>
-              <p>Leurs couleurs et leurs saveurs vont ensoleiller vos assiettes</p>
-            </div>
-          </div>
-          <div class="item carItem">
-            <img src="../assets/plats/brochette.jpg" alt="...">
-            <div class="carousel-caption">
-              <h2>Les Grillades</h2>
-              <p>Un moment a partager en famille et entre amis</p>
-            </div>
-          </div>
-          <div class="item carItem">
-            <img src="../assets/desserts/cookies.jpg" alt="...">
-            <div class="carousel-caption">
-              <h2>Les Cookies "So Goodies"</h2>
-            </div>
-          </div>
-        </div>
-      </div><!-- /.carousel slide -->
+	        <button type="button" class="btn btn-link pull-right btnClose" title="Fermer et retourner aux recettes" ng-click="close()">
+	          <span class="glyphicon glyphicon-remove"></span>
+	        </button>
 
-      <div class="col-md-4 g_boxSignIn">
-        <center>
-          <h2>Goodies</h2>
-          <h5>La meilleure méthode<br>pour inviter<br> ses amis<br>à dîner <span>!!</span></h5>
-          <a href="#/signup" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
-        </center>
-      </div>
-  
-    </div><!-- /.allRecipesPresentation -->
+         	<div class="col-md-12">
+            	<div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
+            		<div class="col-md-6">
 
+              			<img src="{{clickRecipe.img}}" alt="image" id="imgN" class="g_imgRecipe">
 
+              			<div class="infoLineRecipe col-md-12">
+                			<div class="g_nbPeoplesRecipe">
+                  			<center>
+                    				<button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: {{clickRecipe.NbrPersonne}} Prs.">
+			                     	<img src="../assets/icons/multiple-users.png" alt="image"><p> {{clickRecipe.NbrPersonne}} Prs.</p>
+                    				</button>
+                  			</center>
+                			</div>
+                			<div class="g_preparationRecipe">
+			                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de préparation: {{clickRecipe.preparation}} Min.">
+			                     <img src="../assets/icons/time-check.png" alt="image"><p> {{clickRecipe.preparation}} Min.</p>
+			                  </button>
+			               </div>
+			               <div class="g_cooktimeRecipe">
+			                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de cuisson: {{clickRecipe.cuisson}} Min.">
+			                     <img src="../assets/icons/icon-casserole.png" alt="image"><p> {{clickRecipe.cuisson}} Min.</p>
+			                  </button>
+			               </div>
+			               <div class="g_levelRecipe">
+			                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Niveau de difficulté: {{clickRecipe.difficulte}}">
+			                     <img src="../assets/icons/chef.png" alt="image"><p> {{clickRecipe.difficulte}} </p>
+			                  </button>
+			               </div>
+			               <div class="g_priceRecipe">
+			                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Prix: {{clickRecipe.prix}}">
+			                     <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.prix}} € </p>
+			                  </button>
+			               </div>
+			            </div><!-- /.infoLineRecipe -->
 
-  <!-- Affichage des recettes miniatures =================================================== -->
-    <div class="row showAllRecipesMini">
-      <div class="col-md-12">
-          <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
-            <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
-              <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
-              <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
-            </div>
-          </div>
-      </div>
-    </div><!-- /.container -->
-  </div><!-- /ng-show -->
+			         </div><!-- /.col-md-6 -->
 
+		            <div class="col-md-6">
+		            	<p class="g_typeRecette">{{clickRecipe.type}}</p>
 
-  <!-- Affiche la recette au clic de la miniature ============================================ -->
-  <div ng-show="seeRecipe == 2">
-    <div class="container seeRecipeContainer">
-      <div class="row">
+		               <div class="col-md-offset-2 col-md-10">
+		               	<div class="row">
+		               		<!-- Affichage des votes -->
+		               		<div class="lineVote">
+		                  		<div class="btn-group">
+		                  			<button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
+		                        		<span class="glyphicon glyphicon-thumbs-up"> {{clickRecipe.moreVote}}</span>
+		                  			</button>
+		                    			<button class="btn btn-link">Vote(s)</button>
+		                  			<button type="button" ng-click="moins(clickRecipe._id,clickRecipe.lessVote)" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Je n'aime pas">
+		                    				<span class="glyphicon glyphicon-thumbs-down"> {{clickRecipe.lessVote}}</span>
+		                  			</button>
+		                			</div>
+		              			</div><!-- /.lineVote -->
+		            		</div><!-- /.row -->
+		            
+		            		<div class="row">
+		              			<!-- bouton imprimer -->
+		              			<div class="btn-group btnMoreInfo" role="group" aria-label="...">
+		                			<div class="btn-group  btn-block" role="group">
+		                  			<button id="impression" name="impression" type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
+		                  			</button>
+		                  		</div>
 
-        <button type="button" class="btn btn-link pull-right btnClose" ng-click="close()">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button>
+		                  		<!-- bouton commentaires -->
+		                  		<div class="btn-group btn-block" role="group">
+		                  			<a class="js-scrollTo" href="#commentary">
+		                    				<button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
+		                      				<i class="fa fa-comment" aria-hidden="true"></i> Commentaires
+		                    				</button>
+		                  			</a>
+		                			</div>
 
-        <div class="col-md-12">
-          <div class="page-header g_titleRecipe">{{clickRecipe.titre}}</div>
-            <div class="col-md-6">
+		                			<!-- bouton Ajouter à mes recettes -->
+		                			<div class="btn-group btn-block" role="group">
+		                  			<button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)">
+		                  				<i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
+		                  			</button>
 
-              <img src="{{clickRecipe.img}}" alt="image" class="g_imgRecipe">
+		                			</div>           
+		              			</div><!-- /.btnMoreInfo -->
+		            		</div>
+		            	</div>
+		          	</div><!-- /.col-md-6 -->
+	         </div><!-- /.col-md-12 -->
 
-              <div class="infoLineRecipe col-md-12">
-                <div class="g_nbPeoplesRecipe">
-                  <center>
-                    <button type="button" class="btn btn-link col-md-offset-1 col-md-2" data-toggle="tooltip" data-placement="top" title="Nombre de personnes: {{clickRecipe.NbrPersonne}} Prs.">
-                    <img src="../assets/icons/multiple-users.png" alt="image"><p> {{clickRecipe.NbrPersonne}} Prs.</p>
-                    </button>
-                  </center>
-                </div>
-                <div class="g_preparationRecipe">
-                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de préparation: {{clickRecipe.preparation}} Min.">
-                    <img src="../assets/icons/time-check.png" alt="image"><p> {{clickRecipe.preparation}} Min.</p>
-                  </button>
-                </div>
-                <div class="g_cooktimeRecipe">
-                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Temps de cuisson: {{clickRecipe.cuisson}} Min.">
-                    <img src="../assets/icons/icon-casserole.png" alt="image"><p> {{clickRecipe.cuisson}} Min.</p>
-                  </button>
-                </div>
-                <div class="g_levelRecipe">
-                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Niveau de difficulté: {{clickRecipe.difficulte}}">
-                    <img src="../assets/icons/chef.png" alt="image"><p> {{clickRecipe.difficulte}} </p>
-                  </button>
-                </div>
-                <div class="g_priceRecipe">
-                  <button type="button" class="btn btn-link col-md-2" data-toggle="tooltip" data-placement="top" title="Prix: {{clickRecipe.prix}}">
-                    <img src="../assets/icons/coin.png" alt="image"><p> {{clickRecipe.prix}} € </p>
-                  </button>
-                </div>
-              </div><!-- /.infoLineRecipe -->
+		          <div class="col-md-12 box55">
+		            <div class="col-md-4 g_ingredientsRecipe">
+		              <h3>Ingrédients</h3>
+		              <div>{{clickRecipe.ingredient}}</div>
+		            </div>
 
-          </div><!-- /.col-md-6 -->
+		            <div class="col-md-8 g_recipe">
+		              <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
+		               <h3>Recette</h3>
+		               <div class="RecetteText">{{clickRecipe.recette}}</div>
+		              </div>
+		            </div>
+		          </div>
+     
+    		</div><!-- /.row  -->
+		</div><!-- /.seeRecipeContainer -->
 
-          <div class="col-md-6">
-            <p class="g_typeRecette" style="text-align:right; font-family: 'oswald', sans-serif;">{{clickRecipe.type}}</p>
+		<!-- Affichage des commentaires par recette =============================================== -->
+		<div class="col-md-12">
+	      <div class="row" id="commentary">
+	         <div class="page-header">	
+		         <h3 id="linetitle">Commentaires</h3>
+		      </div>
+		         <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>   
+		            <div ng-show="Comm == 1">
+		            	<div class="col-md-offset-1 col-md-10 boxCom">              
+		            		<form class="form-horizontal">
+		                		<fieldset>
+		                  		<!-- Input edité-->
+		                  		<div class="form-group">
+		                    			<label class="col-md-4 control-label" for="textinput">Edité par :</label>  
+		                    			<div class="col-md-5">
+		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="edite" class="form-control input-md" required="">               
+		                    			</div>
+		                  		</div>
 
-            <div class="row">
-              <!-- Affichage des votes -->
-              <div class="lineVote col-md-12">
-                <div class="btn-group">
-                  <button type="button" ng-click="plus(clickRecipe._id,clickRecipe.moreVote)" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="J'aime">
-                    <span class="glyphicon glyphicon-thumbs-up"> {{clickRecipe.moreVote}}</span>
-                  </button>
-                    <button class="btn btn-link">Vote(s)</button>
-                  <button type="button" ng-click="moins(clickRecipe._id,clickRecipe.lessVote)" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Je n'aime pas">
-                    <span class="glyphicon glyphicon-thumbs-down"> {{clickRecipe.lessVote}}</span>
-                  </button>
-                </div>
-              </div><!-- /.lineVote -->
+		                  		<!-- Textarea -->
+		                  		<div class="form-group">
+		                    			<label class="col-md-4 control-label" for="textarea"> Commentaire :</label>
+		                    			<div class="col-md-7">                     
+		                      			<textarea class="form-control" id="commentaire" name="commentaire" ng-model="commentaire" placeholder="Taper votre texte ici"></textarea>
+		                    			</div>
+		                  		</div>
 
-              <!-- bouton imprimer -->
-              <div class="btn-group btn-justified btnMoreInfo" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <button id="impression" name="impression" type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
-                  </button>
-                </div>
+		                  		<!-- Button -->
+		                  		<div class="form-group">
+		                    			<label class="col-md-4 control-label" for="singlebutton"></label>
+		                    			<div class="col-md-6">
+		                      			<button id="singlebutton" name="singlebutton" class="btn btn-success pull-right"  ng-click="addComm()">Ajouter</button>
+		                    			</div>
+		                  		</div>
+		                		</fieldset>
+		              		</form>
+		               </div>
+		            </div><!-- ng-show Comm 1 -->
 
-                <!-- bouton commentaires -->
-                <div class="btn-group" role="group">
-                  <a class="js-scrollTo" href="#commentary">
-                    <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
-                      <i class="fa fa-comment" aria-hidden="true"></i> Commentaires
-                    </button>
-                  </a>
-                </div>
+		            <div class="col-md-offset-1 col-md-10">
+		            	<div class="row">
+				            <ul class="timeline">
+				              	<li>
+				                	<div class="timeline-badge">
+				                		<i class="glyphicon glyphicon-edit"></i>
+				                	</div>
+				                	<div class="timeline-panel">
+				                  	<div class="timeline-heading">
+				                    		<h4 class="timeline-title">Edité par : </h4>
 
-                <!-- bouton favoris -->
-                <div class="btn-group" role="group">
-                  <button type="button" id='favoris{{$index}}' class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)"><i class="fa fa-star" aria-hidden="true"></i> Favoris
-                  </button>
+				                  	</div>
+				                  	<div class="timeline-body">
+				                    		<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+				                  	</div>
+				                	</div>
+				               </li>
+				               <li class="timeline-inverted">
+				                	<div class="timeline-badge warning">
+				                		<i class="glyphicon glyphicon-edit"></i>
+				                	</div>
+			                		<div class="timeline-panel">
+				                  	<div class="timeline-heading">
+				                    		<h4 class="timeline-title">Edité par : </h4>
+				                  	</div>
+				                  	<div class="timeline-body">
+				                    		<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+				                    		<p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
+				                  	</div>
+				                	</div>
+				              	</li>
+				            </ul>
+		          		</div><!-- /.row -->
+		          	</div><!-- /.col-md-offset-1 col-md-10 -->
+		   </div><!-- #commentary -->
+		</div><!-- /.col-md-offest-1 col-md-10 -->
 
-                </div>           
-              </div><!-- /.btn-group btn-justified btnMoreInfo -->
+	</div><!-- ng-show - seeRecipes 2 -->
 
-            </div><!-- /.row -->
-          </div><!-- /.col-md-6 -->
-        </div><!-- /.col-md-12 -->
-
-          <div class="col-md-12 box55">
-            <div class="col-md-4 g_ingredientsRecipe">
-              <h3>Ingrédients</h3>
-              <div>{{clickRecipe.ingredient}}</div>
-            </div>
-
-            <div class="col-md-8 g_recipe">
-              <div style="border-left: 1px solid #f8ac37; padding-left:15px;">
-               <h3>Recette</h3>
-               <div>{{clickRecipe.recette}}</div>
-              </div>
-            </div>
-          </div>
-      </div><!-- /.row-->
-    </div><!-- /.container seeRecipeContainer -->
-
-      <!-- Affichage des commentaires par recette =============================================== -->
-      <div class="container" id="commentary" style="position: relative; top: 200px;">
-        <div class="page-header">
-          <h3 id="timeline">Commentaires</h3>
-        </div>
-          <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>
-            
-            <div ng-show="Comm == 1">
-              <form class="form-horizontal">
-                <fieldset>
-                  <!-- Input edité-->
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput">Edité par :</label>  
-                    <div class="col-md-5">
-                    <input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="edite" class="form-control input-md" required="">               
-                    </div>
-                  </div>
-
-                  <!-- Input date-->
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput">Date :</label>  
-                    <div class="col-md-5">
-                    <input id="dateinput" name="date" type="date" placeholder="ex: Jean" ng-model="date" class="form-control input-md" required="">               
-                    </div>
-                  </div>
-
-                  <!-- Textarea -->
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="textarea"> Commentaire :</label>
-                    <div class="col-md-7">                     
-                      <textarea class="form-control" id="commentaire" name="commentaire" ng-model="commentaire" placeholder="Taper votre texte ici"></textarea>
-                    </div>
-                  </div>
-
-                  <!-- Button -->
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="singlebutton"></label>
-                    <div class="col-md-6">
-                      <button id="singlebutton" name="singlebutton" class="btn btn-success pull-right"  ng-click="addComm()">Ajouter</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-
-
-            <ul class="timeline">
-              <li>
-                <div class="timeline-badge"><i class="glyphicon glyphicon-edit"></i></div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4 class="timeline-title">Edité par : </h4>
-
-                  </div>
-                  <div class="timeline-body">
-                    <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-badge warning"><i class="glyphicon glyphicon-edit"></i></div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4 class="timeline-title">Edité par : </h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-                    <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-      </div><!-- /.container #commentary -->
-  </div><!-- /ng-show="seeRecipe == 2 -->
-</div><!-- /.allR1 -->
+	</div><!-- /.row -->
+</div><!-- /.container allR1 -->
