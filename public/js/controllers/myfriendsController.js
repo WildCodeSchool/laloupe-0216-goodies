@@ -1,5 +1,5 @@
 
-function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService) {
+function myfriendsController(userService, $scope, $rootScope, userFactory, notificationService, $location) {
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
 
@@ -55,5 +55,9 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
                 });
             });
         };
+
+        $scope.friendhistory = function (id){
+          $location.path('/friendhistory/'+id);
+        }
     });
 }
