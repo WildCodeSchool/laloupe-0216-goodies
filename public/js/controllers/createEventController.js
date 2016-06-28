@@ -47,13 +47,13 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         }
 
         // =================== Ajout recettes à un évènement =============
-        $scope.tabRecetteEvent = [];
+        $scope.data.tabRecetteEvent = [];
         $scope.addRecette = function(idRecette, index) {
-            if ($scope.tabRecetteEvent.indexOf(idRecette) == -1) {
-                $scope.tabRecetteEvent.push(idRecette);
+            if ($scope.data.tabRecetteEvent.indexOf(idRecette) == -1) {
+                $scope.data.tabRecetteEvent.push(idRecette);
                 $scope['gly'+ index] = true;
             } else {
-                $scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette), 1);
+                $scope.data.tabRecetteEvent.splice($scope.data.tabRecetteEvent.indexOf(idRecette), 1);
                 $scope['gly'+ index] = false;
             }
         }

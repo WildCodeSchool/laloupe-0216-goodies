@@ -1,7 +1,7 @@
 <div class="row">
     <div class="contEv container">
         <div class="headingEvent">
-            <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;"> <img class="imageProfileXS center-block" src="{{info(amis,'image')}}" alt="" /> {{user.name}} {{user.prenom}} histoique</h2>
+            <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;"> <span ng-show="user.img"><img class="imageProfileXS" src="{{user.img}}" alt="" /></span><span ng-hide="user.img"><img class="imageProfileXS" src="./assets/user-default.png" alt="" /></span> {{user.name}} {{user.prenom}} histoique</h2>
         </div>
         <div class="col-md-offset-1 col-md-10">
             <div class="row">
