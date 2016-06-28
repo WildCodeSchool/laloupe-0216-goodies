@@ -27,6 +27,6 @@ _Si vous ne possédez pas tous ces pré-requis, ne passez pas à l'étape suivan
 
 **Clonez** le dépôt GitHub sur votre PC
 ```sh
-https://github.com/WildCodeSchool/laloupe_goodies.git
+git clone https://github.com/WildCodeSchool/laloupe_goodies.git
 ```
 
