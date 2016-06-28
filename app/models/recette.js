@@ -16,14 +16,26 @@ var recetteSchema = new mongoose.Schema({
   difficulte: String,
   userId: String,
   moreVote: Number,
-  lessVote: Number
+  lessVote: Number,
+  commentaires:[{
+    date: Date,
+    edite: String,
+    commentaire: String
+  }]
 });
 var Recette = {
     model: mongoose.model('Recette', recetteSchema),
     create: function(req, res) {
-        console.log('body: ' + req.body);
+        console.log('body: ')
+        console.log(req.body);
         Recette.model.create(req.body, function(err, data) {
-            User.addRecettes(req.body.userId, data._id, res);
+            if (req.body._id) {
+              dataid = req.body._id;
+            }
+            else {
+              dataid = data._id;
+            }
+            User.addRecettes(req.body.userId, dataid, res);
         });
     },
     findAll: function(req, res) {

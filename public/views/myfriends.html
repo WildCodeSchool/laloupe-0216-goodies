@@ -20,7 +20,7 @@
       <div>
         <div ng-repeat='friend in friends'>
           <div class="col-md-3">
-            <div class="card">
+            <div class="card" ng-click="friendhistory(friend._id)">
 							<span class="glyphicon glyphicon-remove" ng-click="removeFriend(friend)"></span>
 							<img ng-hide="friend.img" class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
 							<img ng-show="friend.img" class="imageProfileSmall center-block" src="{{friend.img}}" alt="" />

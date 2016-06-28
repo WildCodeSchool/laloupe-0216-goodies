@@ -14,6 +14,9 @@
 *
 *
 --------------------------------------------------*/
+.favoris {
+  color : green;
+}
 .padding {
   padding: 5px;
 }
@@ -38,7 +41,7 @@
   line-height: 0px;
 }
 .page{
-  margin-top: 60px;
+  margin-top: 54px;
 }
 .fa-3 {
   font-size: 1.8em;
@@ -865,6 +868,24 @@ html { height: 100%;}
                       END HOME CSS
 ==========================================================*/
 
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #bdc3c7; 
+}
+
 /* =========================================================
          EVENT CSS
 ---------------------------------------------------------- */
@@ -889,6 +910,12 @@ html { height: 100%;}
     padding-left: 0;
     padding-right: 0;
     border-radius: 5px;
+    position: relative;
+    top: 100px;
+}
+.contEv .page-header{
+  margin-top:0; 
+  padding-bottom: 0px;
 }
 
 .ntev {
@@ -959,9 +986,17 @@ input {
     opacity: 1;
 } /* End formulaire 3 - recherche d'amis */
 
+
+
 /************ create Event page ************/
 
-
+.contDetailsEvent {
+  background-color: #fff; 
+  padding-left:0; 
+  padding-right:0; 
+  border-radius:5px; 
+  margin-top:75px;
+}
 .form-control {
   margin-bottom: 10px;
 }
@@ -1012,23 +1047,8 @@ input {
 
 /* Create Event - form 2
 --------------------------*/
-/* sidebar */
-.sidebarLeft2 {
-  margin-top: 85px;
-}
-.sidebarLeft2-1 {
-  margin-top: 50px;
-  padding-top:10px;
-  background-color: #F8AC37;
-  height: 120px;
-  border-radius: 5px 5px 0 0;
-}
-.sidebarLeft2-2 {
-  margin-top: 15px;
-}
-.sidebarLeft2-2 li {
-  list-style-type: none;
-}
+
+
 
 
 /* button menu sidebar */
@@ -1095,39 +1115,21 @@ input {
   height: 600px;
   overflow-y: scroll;
 }
-.btn-link-back {
-  color: #333333;
-  text-decoration: none;
+.btnBackEvent {
+  color: #333;
 }
-.btn-link-back:hover {
-  color: #333333;
-  border: 2px solid #333333;
-  border-radius: 5px;
+.btnBackEvent:hover {
+  color: #f8ac37; 
 }
-.btn-link-next {
-  color: #333333;
-  text-decoration: none;
+.btnNextEvent {
+  color: #333; 
 }
-.btn-link-next:hover {
-  color: #333333;
-  border: 2px solid #333333;
-  border-radius: 5px;
-}
-
-.sidebarLeft1 {
-  margin-top: 85px;
-}
-.sidebarLeft1-1 {
-  margin-top: 50px;
-  padding-top:10px;
-  background-color: #F8AC37;
-  height: 120px;
-  border-radius: 5px 0 0 5px;
+.btnNextEvent:hover {
+  color: #f8ac37;
 }
 .contentFriend {
   margin-top: 28px;
 }
-
 .btnAddMenuEvent {
   border-radius: 50%;
   width: 38px;
@@ -1137,13 +1139,7 @@ input {
   left: 9px;
 }
 
-/*************************************************************************************************************
-ZONE DE TEST
-------------- */
-
-
-
-/***************************************************************************************************************/
+/* formulaire 2 - Affichage des recettes */
 .foodbox{
     h4 {
         margin-top: 6px !important;
@@ -1198,8 +1194,6 @@ ZONE DE TEST
         z-index: 99999;
     }
     .pricesection {
-        /*       width: 262px; */
-        /* background: rgba(0,0,0,0.4); */
         max-width: 262px;
         width: 90%;
     }
@@ -1296,7 +1290,6 @@ ZONE DE TEST
     }
     .clearfix{
         max-width: 262px;
-        /* max-height: 238px; */
     }
     .foodMoreDesc {
         display: none;
@@ -1341,6 +1334,7 @@ ZONE DE TEST
 }
 
 
+/* formulaire 3 - Invitations */
 .boxfriend {
     height: 400px;
     overflow-y: scroll;
@@ -1567,12 +1561,16 @@ input::-webkit-calendar-picker-indicator {
 /**********************************************************
                      ALLRECIPES CSS
 ***********************************************************/
+.allR1{
+  background-color: rgba(255,255,255,0.7);
+}
 .mainContainerNav {
   padding-right: 0;
   padding-left: 0;
 }
 .allRecipesContainerNav {
   position: fixed;
+  top: 54px;
   z-index: 999;
   background-color: #fff;
 }
@@ -1603,6 +1601,9 @@ input::-webkit-calendar-picker-indicator {
   top:195px;
 }
 
+.lineSearch {
+  height: 70px;
+}
 /* Media - allRecipes */
 @media screen and (max-width: 375px){
   .allRecipesContainerNav {
@@ -1892,9 +1893,16 @@ input::-webkit-calendar-picker-indicator {
   border-top: 1px solid #f8ac37;"
 }
 
-/* ----------------------- */
-/*      Commentary         */
-/* ----------------------- */
+/* --------------------------------------------------- */
+/*      Affichage des commentaires par recette         */
+/* --------------------------------------------------- */
+#commentary .page-header {
+  font-family: 'oswald', sans-serif;
+}
+#commentary fieldset {
+  background-color: #fff;
+  padding: 20px;
+}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;

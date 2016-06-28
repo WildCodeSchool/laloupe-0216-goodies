@@ -1,14 +1,17 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
 
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
+    function load() {
+        $scope.recettes = userFactory.user.recettes;
+        console.log('1');
+        console.log($scope.recettes);
+    }
+    load();
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
-        $scope.ui = function (r){
-          console.log(r);
-        }
         function load() {
             $scope.recettes = userFactory.user.recettes;
-            console.log('mler;fmelr;f');
+            console.log('2');
             console.log($scope.recettes);
         }
         load();
@@ -17,7 +20,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.userId = $rootScope.userId;
         $scope.recetteTab = [];
         $scope.data = {};
-        $scope.eat = $rootScope.eat; //type entre plat ou dessert
+        $scope.eat = $rootScope.eat; //type: entrée, plat ou dessert
 
         /*===================  Fonction bouton Recette  ========================= */
 
@@ -52,6 +55,12 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
   			}
 
         /*==================  End Stockage de l'ID  ===================== */
+
+        $scope.close = function(){
+                $scope.seeRecipe=1;
+            }
+
+
 
         /*==================  Add first menu  ===================== */
 

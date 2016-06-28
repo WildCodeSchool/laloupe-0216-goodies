@@ -1,7 +1,7 @@
 function compteController($scope, $rootScope, $location, eventService, friendService, userService, userFactory) {
     $('body').css('background-image', 'none').removeProp('background-color').css('background-image', 'url("./assets/pasta.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
-
+        $scope.events = userFactory.user.events;
         $scope.user = userFactory.user;
         // ==================  Hover pencil case =============
 

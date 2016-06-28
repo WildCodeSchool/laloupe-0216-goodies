@@ -1,7 +1,8 @@
 //createEventController ======================>
 
 function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
-    $('body').css('background-image', 'none').css('background-image', 'url("./assets/floor-1.jpg")');
+
+    $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
     $rootScope.$on('userFactoryUpdate', function() {
 
         $scope.dataFriends = {};
@@ -13,8 +14,9 @@ function createEventController($scope, $http, eventService, $location, $rootScop
 
         $scope.user.adresse = userFactory.user.adresse;
         $scope.recettes = userFactory.user.recettes;
-        function load () {
-          $scope.friends = userFactory.user.friends;
+
+        function load() {
+            $scope.friends = userFactory.user.friends;
         }
         load();
         // checkbox autocomplete (at home)
@@ -88,30 +90,53 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         // ========================= Ajout des amis dans la BD ==============
 
         $scope.addFriends = function() {
+          console.log($scope.dataFriends);
             $scope.dataFriends.userId = $rootScope.userId;
-            userService.findMail($scope.dataFriends.friendmail).then(function(res) {
+            userService.findMail($scope.dataFriends.email).then(function(res) {
                 $scope.dataFriends.friendId = res.data._id
-                userService.createFriend($scope.dataFriends).then(function() {
-                    var notif = {};
-                    notif.userId = $scope.dataFriends.friendId;
-                    notif.friends = $scope.dataFriends.userId;
-                    notificationService.createFriends(notif).then(function() {
-                        userService.findOne($rootScope.userId).then(function(r) {
-                            userFactory.user = r.data;
-                            load();
-                        })
-                    });
-                    $scope.dataFriends = {};
-                });
+                if ($rootScope.userId != $scope.dataFriends.friendId) {
+                  userService.createFriend($scope.dataFriends).then(function() {
+                      var notif = {};
+                      notif.userId = $scope.dataFriends.friendId;
+                      notif.friends = $scope.dataFriends.userId;
+                      notificationService.createFriends(notif).then(function() {
+                          userService.findOne($rootScope.userId).then(function(r) {
+                              userFactory.user = r.data;
+                              load();
+                          })
+                      });
+                      $scope.dataFriends = {};
+                  });
+                }
             }, function(err) { // ============== si l'ami n'est pas dans la BDD ================
-                userService.createFriend($scope.dataFriends).then(function() {
-                    userService.findOne($rootScope.userId).then(function(res) {
-                        userFactory.user = res.data;
-                        load();
+                function password() {
+                    var nbCaractere = 10;
+                    var chaine = 'azertyuiopqsdfghjklmwxcvbn123456789';
+                    var generatePassword = [];
+                    for (var i = 0; i < nbCaractere; i++) {
+                        generatePassword.push(chaine[Math.floor(Math.random() * (chaine.length + 1))]);
+                    }
+                    return generatePassword.join('');
+                }
+                $scope.dataFriends.password = password();
+                console.log($scope.dataFriends.password);
+                userService.create($scope.dataFriends).then(function(res) {
+                    $scope.dataFriends.friendId = res.data._id;
+                    userService.createFriend($scope.dataFriends).then(function() {
+                        var notif = {};
+                        notif.userId = $scope.dataFriends.friendId;
+                        notif.friends = $scope.dataFriends.userId;
+                        notificationService.createFriends(notif).then(function() {
+                            userService.findOne($rootScope.userId).then(function(r) {
+                                userFactory.user = r.data;
+                                load();
+                            })
+                        });
+                        $scope.dataFriends = {};
                     });
-                    $scope.dataFriends = {};
                 });
-            });
+
+            })
         };
 
         // ===================  END Ajout des amis dans la BD =============
