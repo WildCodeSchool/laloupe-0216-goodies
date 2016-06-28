@@ -4,7 +4,7 @@
 	      <div class="col-md-offset-1 col-md-10 allRecipesNav">
 	         <div class="btn-group btn-group-justified" role="group" aria-label="...">
 	            <div class="btn-group" role="group">
-	              <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''">Les Recettes</button>
+	              <button type="button" class="btn btn-link" ng-click="searchRecipesText.type=''" style="font-size:1.5rem;">Toutes<br/>Les Recettes</button>
 	            </div>
 	            <div class="btn-group" role="group">
 	              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrées <span class="caret"></span></button>
@@ -193,14 +193,14 @@
 		              			<!-- bouton imprimer -->
 		              			<div class="btn-group btnMoreInfo" role="group" aria-label="...">
 		                			<div class="btn-group  btn-block" role="group">
-		                  			<button id="impression" name="impression" type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
+		                  			<button id="impression" name="impression" type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Imprimer" onclick="imprimer_page()" value="Imprimer cette page" style="text-align:left;"><i class="fa fa-print" aria-hidden="true"></i>  Imprimer
 		                  			</button>
 		                  		</div>
 
 		                  		<!-- bouton commentaires -->
 		                  		<div class="btn-group btn-block" role="group">
 		                  			<a class="js-scrollTo" href="#commentary">
-		                    				<button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires">
+		                    				<button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires" style="text-align:left;">
 		                      				<i class="fa fa-comment" aria-hidden="true"></i> Commentaires
 		                    				</button>
 		                  			</a>
@@ -208,7 +208,7 @@
 
 		                			<!-- bouton Ajouter à mes recettes -->
 		                			<div class="btn-group btn-block" role="group">
-		                  			<button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)">
+		                  			<button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)" style="text-align:left;">
 		                  				<i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
 		                  			</button>
 
@@ -251,7 +251,7 @@
 		                  		<div class="form-group">
 		                    			<label class="col-md-4 control-label" for="textinput">Edité par :</label>  
 		                    			<div class="col-md-5">
-		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="edite" class="form-control input-md" required="">               
+		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="nom" class="form-control input-md" required="">               
 		                    			</div>
 		                  		</div>
 
@@ -277,14 +277,14 @@
 
 		            <div class="col-md-offset-1 col-md-10">
 		            	<div class="row">
-				            <ul class="timeline">
+				            <ul class="timeline" ng-repeat="recette in recettes">
 				              	<li>
 				                	<div class="timeline-badge">
 				                		<i class="glyphicon glyphicon-edit"></i>
 				                	</div>
 				                	<div class="timeline-panel">
 				                  	<div class="timeline-heading">
-				                    		<h4 class="timeline-title">Edité par : </h4>
+				                    		<h4 class="timeline-title">Edité par : {{com.nom}}</h4>
 
 				                  	</div>
 				                  	<div class="timeline-body">

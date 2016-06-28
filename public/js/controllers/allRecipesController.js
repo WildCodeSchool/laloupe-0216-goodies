@@ -1,9 +1,5 @@
 // allRecipesController
 
-
-
-
-
 function allRecipesController($scope, $rootScope, $http, recetteService, userService) {
 	$('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
@@ -12,6 +8,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
 			$scope.lessVote = 0;
 			$scope.seeRecipe=1;
 
+        // Bouton Ajouter à mes recttes ================================= -->
         $scope.favoris = function(recette, idFav) {
                 var count = 0;
                 for (var i = 0; i < userFactory.user.recettes.length; i++) {
@@ -19,7 +16,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
                         count++;
                     }
                 }
-                console.log(count);
+                
                 if (count == 0) {
                   console.log('ajout');
                     recette.userId = $rootScope.userId;
@@ -30,7 +27,8 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
                     });
                 }
             }
-            // Scroll pour le bouton commentaire -->
+
+        // Scroll pour le bouton commentaire ============================== -->
         $(document).ready(function() {
             $('.js-scrollTo').on('click', function() { // Au clic sur un élément
                 var page = $(this).attr('href'); // Page cible
@@ -42,7 +40,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
             });
         });
 
-        // Bouton de vote -->
+        // Bouton de vote ======================= -->
         $scope.plus = function(id, vote) {
             vote += 1;
             recetteService.update(id, {
@@ -60,14 +58,14 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
             });
         }
 
-			$scope.addComm = function(id){
-				var com = {};
-				com.commentaires = [];
-				com.commentaires[0].date = new Date();
-				com.commentaires[0].edite = $scope.edite;
-				com.commentaires[0].commentaire = $scope.commentaire;
-				recetteService.update(id,com);
-			}
+        // Ajouter des commentaires =================== -->
+		$scope.addComm = function(id){
+			var com = {};
+			com.commentaires = [];
+			com.commentaires.nom = $scope.nom;
+			com.commentaires.commentaire = $scope.commentaire;
+			recetteService.update(id,com);
+		}
 
         $scope.id = function(recette) {
             $scope.clickRecipe = recette;
