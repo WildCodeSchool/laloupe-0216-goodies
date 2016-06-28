@@ -18,8 +18,7 @@ var recetteSchema = new mongoose.Schema({
   moreVote: Number,
   lessVote: Number,
   commentaires:[{
-    date: Date,
-    edite: String,
+    nom: String,
     commentaire: String
   }]
 });
