@@ -12,11 +12,11 @@
     <input type="text" class="form-control" id="inputTitre" placeholder="Titre de votre entrée exemple : Tartare de tommate fraiche" ng-model="titre"><br>
     <input type="text" class="form-control" id="inputDescription" placeholder="Description exemple : Une entrée pour l'été" ng-model="description"><br>
     <div class="col-md-6">
-      <p>Temps de préparation :</p>
+      <label>Temps de préparation :</label>
       <input type="number" value="0" min="0" class="form-control col-md-4" id="inputPreparation" placeholder="Minute(s)" ng-model="preparation"><br>
     </div>
     <div class="col-md-6">
-      <p>Temps de cuisson :</p>
+      <label>Temps de cuisson :</label>
       <input type="number" value="0" min="0" class="form-control col-md-4" id="inputCuisson" placeholder="Minute(s)" ng-model="cuisson"><br>
     </div>
     <div class="col-md-4">
@@ -40,10 +40,10 @@
     </div>
   </div>
   <div class="col-md-6">
-    <p>Ingredients
-    </p>
+    <label>Ingredients
+    </label>
     <textarea type="text" class="form-control" id="inputIngredient" name="ingredient" placeholder="Les ingrédient" ng-model="ingredient"></textarea>
-    <p>Recette</p>
+    <label>Recette</label>
     <textarea type="text" class="form-control" id="inputRecette" name="recette" placeholder="La recette" ng-model="recette"></textarea>
   </div>
   <div class="col-md-5">

@@ -51,10 +51,10 @@ function createEventController($scope, $http, eventService, $location, $rootScop
         $scope.addRecette = function(idRecette, index) {
             if ($scope.tabRecetteEvent.indexOf(idRecette) == -1) {
                 $scope.tabRecetteEvent.push(idRecette);
-                $('#gly' + index).addClass('gly-checked');
+                $scope['gly'+ index] = true;
             } else {
                 $scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette), 1);
-                $('#gly' + index).removeClass('gly-checked');
+                $scope['gly'+ index] = false;
             }
         }
 
