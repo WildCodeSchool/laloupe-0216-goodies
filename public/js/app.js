@@ -98,6 +98,14 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
+        .when('/friendhistory/:id', {
+            templateUrl: 'views/friendhistory.html',
+            controller: 'friendHistoryController',
+            resolve: {
+                connected: checkIsConnected,
+                userUpdate: userFactoryUpdate
+            }
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -217,6 +225,7 @@ angular.module('app', ['ngRoute', 'flow'])
     .controller('allRecipesController', allRecipesController)
     .controller('mainController', mainController)
     .controller('adminController', adminController)
+    .controller('friendHistoryController', friendHistoryController)
     .controller('recetteController', recetteController)
     .controller('eventController', eventController)
     .controller('compteController', compteController)
