@@ -35,9 +35,23 @@
 												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
 												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
 											</div>
-											<div class="col-md-6" style="height: 100%;">
-
-											</div>
+											<div class="col-md-12">
+                        <h4>Liste des invités</h4>
+                        <div class="" ng-repeat="amis in event.tabFriendEvent">
+                          <div class="col-md-3">
+                            <div class="card padding" ng-click="friendhistory(amis)">
+                							<img class="imageProfileSmall center-block" src="{{info(amis,'image')}}" alt="" />
+                              <div class="RecetteTitle">{{info(amis,'prenom')}}</div>
+                							<div class="RecetteTitle"> {{info(amis,'nom')}}</div>
+                              <div class="row">
+                                <div class="RecetteDescription"></div>
+                                <div class="RecettePreparation"></div>
+                                <div class="RecetteCuisson"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 										</div>
 									</div>
 								</div>
@@ -65,9 +79,23 @@
 												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
 												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
 											</div>
-											<div class="col-md-6" style="height: 100%;">
-
-											</div>
+											<div class="col-md-12">
+                        <h4>Liste des invités</h4>
+                        <div class="" ng-repeat="amis in event.tabFriendEvent">
+                          <div class="col-md-3">
+                            <div class="card padding" ng-click="friendhistory(amis)">
+                							<img class="imageProfileSmall center-block" src="{{infoInvit(amis,'image')}}" alt="" />
+                              <div class="RecetteTitle">{{infoInvit(amis,'prenom')}}</div>
+                							<div class="RecetteTitle"> {{infoInvit(amis,'nom')}}</div>
+                              <div class="row">
+                                <div class="RecetteDescription"></div>
+                                <div class="RecettePreparation"></div>
+                                <div class="RecetteCuisson"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 										</div>
 									</div>
 								</div>

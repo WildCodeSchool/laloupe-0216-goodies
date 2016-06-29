@@ -18,15 +18,12 @@ function friendHistoryController($scope, $routeParams, userFactory, $location) {
     }
     load();
     $scope.info = function(id,option) {
-      var name = '';
-      var prenom = '';
-      var image = '';
       for (var j = 0; j < userFactory.user.friends.length; j++) {
         if (userFactory.user.friends[j]._id == id) {
-            name = userFactory.user.friends[j].name;
-            prenom = userFactory.user.friends[j].prenom;
+            var name = userFactory.user.friends[j].name;
+            var prenom = userFactory.user.friends[j].prenom;
             if (userFactory.user.friends[j].img) {
-              image = userFactory.user.friends[j].img;
+              var image = userFactory.user.friends[j].img;
             }else {
               image = './assets/user-default.png';
             }

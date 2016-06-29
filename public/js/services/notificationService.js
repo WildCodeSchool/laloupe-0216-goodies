@@ -13,7 +13,7 @@ function notificationService($http) {
             return $http.post('/notifications/events', datas);
         },
         delete : function(id) {
-            return $http.delete('/notifications/' + id);
+            return $http.post('/notifications/delete', id);
         }
     }
 };
