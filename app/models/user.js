@@ -199,6 +199,21 @@ var User = {
             };
         });
     },
+    deleteFriends: function(req, res) {
+        console.log('body Notifications friends delete: ')
+        console.log(req.body);
+        User.model.findByIdAndUpdate(req.body.userId, {
+            $pull: {
+                friendsInvit: req.body.friendId
+            }
+        }, function(err) {
+            if (err) {
+                res.send(err)
+            } else {
+                res.sendStatus(200)
+            };
+        });
+    },
     createEvents: function(userId, eventID) {
         console.log('body Notifications events: ')
         console.log(userId);
@@ -226,6 +241,7 @@ var User = {
         console.log('addFriends');
         console.log(req.body);
         var friendId = mongoose.Types.ObjectId(req.body.friendId);
+        console.log(friendId);
         User.model.findByIdAndUpdate(req.body.userId, {
             $push: {
                 friends: friendId
@@ -243,18 +259,6 @@ var User = {
             res.sendStatus(200);
         });
     },
-    addNotifications: function(userId, notificationId, res) {
-        console.log('addNotifications');
-        console.log(userId);
-        User.model.findByIdAndUpdate(userId, {
-            $push: {
-                notifications: notificationId
-            }
-        }, function(err) {
-            res.sendStatus(200);
-        });
-    },
-
     create: function(req, res) {
         User.model.create(req.body,
             function(err, user) {
@@ -268,7 +272,6 @@ var User = {
                 }
             });
     },
-
     update: function(req, res) {
         User.model.update({
             _id: req.params.id

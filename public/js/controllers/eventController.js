@@ -17,9 +17,8 @@ function eventController($scope, $http, eventService, friendService, $location, 
             $scope.nbEvents = $scope.events.length;
         }
         if (userFactory.user.eventInvit) {
-          $scope.invitEvents = userFactory.user.eventInvit;
-          $scope.nbInvit = userFactory.user.eventInvit.length;
-          console.log($scope.nbInvit);
+            $scope.invitEvents = userFactory.user.eventInvit;
+            $scope.nbInvit = userFactory.user.eventInvit.length;
         }
         $scope.events = userFactory.user.events;
 
@@ -51,5 +50,25 @@ function eventController($scope, $http, eventService, friendService, $location, 
             var eventDate = new Date(date);
             return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
         }
+
+        $scope.info = function(id, option) {
+            for (var j = 0; j < userFactory.user.friends.length; j++) {
+                if (userFactory.user.friends[j]._id == id) {
+                    var name = userFactory.user.friends[j].name;
+                    var prenom = userFactory.user.friends[j].prenom;
+                    if (userFactory.user.friends[j].img) {
+                        var image = userFactory.user.friends[j].img;
+                    } else {
+                        image = './assets/user-default.png';
+                    }
+                }
+            }
+            return option == 'nom' ? name : option == 'prenom' ? prenom : image;
+        }
+
+        $scope.friendhistory = function(id) {
+            $location.path('/friendhistory/' + id);
+        }
     });
+
 }
