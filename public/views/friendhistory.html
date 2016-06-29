@@ -1,10 +1,21 @@
 <div class="row">
     <div class="contEv container">
         <div class="headingEvent">
-            <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;">Histoiques</h2>
+            <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;"> <span ng-show="user.img"><img class="imageProfileXS" src="{{user.img}}" alt="" /></span><span ng-hide="user.img"><img class="imageProfileXS" src="./assets/user-default.png" alt="" /></span> {{user.name}} {{user.prenom}} histoique</h2>
         </div>
         <div class="col-md-offset-1 col-md-10">
             <div class="row">
+              <div class="padding">
+                <!-- <div class="row">
+                  <div class="col-md-6" ng-hide="user.img"><center><img class="imgProfile" src="./assets/user-default.png"/></center></div>
+                  <div class="col-md-6" ng-show="user.img"><center><img class="imgProfile" src="{{user.img}}"/></center></div>
+                  <div class="col-md-6">
+                    <h3></h3>
+                  </div>
+                </div> -->
+
+
+              </div>
               <div class="panel panel-default" ng-repeat="event in history  | filter : {userId: userId} | orderBy: 'crEdateForm'">
                 <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
                   <h3 class="panel-title" style="font-size: 1.5em;">
@@ -19,8 +30,22 @@
                         <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
                         <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
                       </div>
-                      <div class="col-md-6" style="height: 100%;">
-
+                      <div class="col-md-12">
+                        <h4>Liste des invités</h4>
+                        <div class="" ng-repeat="amis in event.tabFriendEvent">
+                          <div class="col-md-3">
+                            <div class="card padding" ng-click="friendhistory(amis)">
+                							<img class="imageProfileSmall center-block" src="{{info(amis,'image')}}" alt="" />
+                              <div class="RecetteTitle">{{info(amis,'prenom')}}</div>
+                							<div class="RecetteTitle"> {{info(amis,'nom')}}</div>
+                              <div class="row">
+                                <div class="RecetteDescription"></div>
+                                <div class="RecettePreparation"></div>
+                                <div class="RecetteCuisson"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

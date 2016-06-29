@@ -69,6 +69,12 @@
   width: 80px;
   height: auto;
 }
+.imageProfileXS{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 40px;
+  height: auto;
+}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
@@ -872,7 +878,7 @@ html { height: 100%;}
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background-color: #fff;
     -webkit-border-radius: 10px;
@@ -882,7 +888,7 @@ html { height: 100%;}
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #bdc3c7; 
+    background: #bdc3c7;
 }
 
 /* =========================================================
@@ -890,8 +896,15 @@ html { height: 100%;}
 ---------------------------------------------------------- */
 /* ****** recette check ************ */
 .gly {
-  color: rgba(189, 195, 199,0.7);
-  font-size: 1.6em;
+  color: #333;
+  font-size: 1.4em;
+  position: absolute;
+  right: 7%;
+  background-color: #f8ac37;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
 }
 .gly-checked{
   color: green;
@@ -913,7 +926,7 @@ html { height: 100%;}
     top: 100px;
 }
 .contEv .page-header{
-  margin-top:0; 
+  margin-top:0;
   padding-bottom: 0px;
 }
 
@@ -990,10 +1003,10 @@ input {
 /************ create Event page ************/
 
 .contDetailsEvent {
-  background-color: #fff; 
-  padding-left:0; 
-  padding-right:0; 
-  border-radius:5px; 
+  background-color: #fff;
+  padding-left:0;
+  padding-right:0;
+  border-radius:5px;
   margin-top:75px;
 }
 .form-control {
@@ -1118,10 +1131,10 @@ input {
   color: #333;
 }
 .btnBackEvent:hover {
-  color: #f8ac37; 
+  color: #f8ac37;
 }
 .btnNextEvent {
-  color: #333; 
+  color: #333;
 }
 .btnNextEvent:hover {
   color: #f8ac37;
@@ -1865,7 +1878,7 @@ input::-webkit-calendar-picker-indicator {
   width: 100%;
 }
 .g_typeRecette {
-  text-align:right; 
+  text-align:right;
   font-family: 'oswald', sans-serif;
 }
 .infoLineRecipe {

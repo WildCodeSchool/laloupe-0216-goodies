@@ -6,7 +6,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
   $rootScope.$on('userFactoryUpdate', function() {
 
       $scope.dataFriends = {};
-      $scope.user = {}
+      $scope.user = {};
       $scope.form = 1;
       $scope.creform = 1;
       $scope.required = true;
@@ -44,7 +44,8 @@ function createEventController($scope, $http, eventService, $location, $rootScop
           $scope.data.crEpostalcodeForm = '';
           $scope.data.crEcountryForm = '';
         }
-      }
+      };
+
 
       // =================== Ajout recettes à un évènement =============
       $scope.tabRecetteEvent = [];
@@ -56,10 +57,18 @@ function createEventController($scope, $http, eventService, $location, $rootScop
           $scope.tabRecetteEvent.splice($scope.tabRecetteEvent.indexOf(idRecette), 1);
           $('#gly' + index).removeClass('gly-checked');
         }
-      }
-
-      // =================== END Ajout recettes à un évènement =============
-
+      };
+        // =================== Ajout recettes à un évènement =============
+        $scope.data.tabRecetteEvent = [];
+        $scope.addRecette = function(idRecette, index) {
+            if ($scope.data.tabRecetteEvent.indexOf(idRecette) == -1) {
+                $scope.data.tabRecetteEvent.push(idRecette);
+                $scope['gly'+ index] = true;
+            } else {
+                $scope.data.tabRecetteEvent.splice($scope.data.tabRecetteEvent.indexOf(idRecette), 1);
+                $scope['gly'+ index] = false;
+            }
+        };
       $(function() {
         $('#search').on('keyup', function() {
           var pattern = $(this).val();
