@@ -1117,14 +1117,13 @@ input {
   text-decoration: none;
   background-color: #e2e0e0;
 }
-
-
 .contentMenu {
   border: 1px solid #e2e0e0;
   border-radius: 5px;
   margin-top: 28px;
   margin-bottom: 25px;
-  height: 600px;
+  height: auto;
+  max-height: 600px;
   padding-top: 20px;
   overflow-y: scroll;
 }

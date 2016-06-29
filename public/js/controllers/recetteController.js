@@ -22,6 +22,18 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.data = {};
         $scope.eat = $rootScope.eat; //type: entrée, plat ou dessert
 
+        // Scroll pour le bouton commentaire ============================== -->
+        $(document).ready(function() {
+            $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+                var page = $(this).attr('href'); // Page cible
+                var speed = 750; // Durée de l'animation (en ms)
+                $('html, body').animate({
+                    scrollTop: $(page).offset().top - 200
+                }, speed); // Go
+                return false;
+            });
+        });
+
         /*===================  Fonction bouton Recette  ========================= */
 
         $scope.bouton = function(n) {
