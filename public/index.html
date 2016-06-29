@@ -37,7 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
 
     <!-- ============================= CONTROLLERS ============================== -->
-    <script src="js/notifications.js"></script>
 
     <script src="js/controllers/eventController.js"></script>
     <script src="js/controllers/connectController.js"></script>
@@ -48,6 +47,7 @@
     <script src="js/controllers/friendHistoryController.js"></script>
     <script src="js/controllers/recetteController.js"></script>
     <script src="js/controllers/createEventController.js"></script>
+    <script src="js/controllers/notificationsController.js"></script>
     <script src="js/controllers/myfriendsController.js"></script>
     <script src="js/controllers/compteController.js"></script>
 
@@ -95,12 +95,16 @@
           <nav id="bs-navbar"  aria-expanded="false">
             <ul class="nav navbar-nav pull-right" style="position:relative; top:10px;">
               <li class="dropdown" ng-show="token">
-                <div class="btn-group">
-
+                <div class="btn-group" ng-controller='notificationsController'>
                 <a href="" class="col-md-3 btn-group" style="color:#333;">
-                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37"></span></i>
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37">{{nbNotifications}}</span></i>
                   <div class="dropdown-menu padding" id="dropdown">
-
+                      <div class="" ng-repeat="friend in friendsInvit">
+                        <div class="dropdown-item notif padding" > {{friend.prenom}} {{friend.name}} demande d'ami <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="accept(friend._id,'amis')"></span> </div>
+                      </div>
+                      <div class="" ng-repeat="event in eventInvit">
+                        <div class="dropdown-item notif padding" ng-click="accept(event._id,'event')" > {{event.prenom}} {{event.name}} vous à inviter un évènement <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </div>
+                      </div>
                   </div>
                 </a>
                 <a href="#/moncompte" class="col-md-3" data-toggle="tooltip" data-placement="bottom" title="Mon compte" style="color:#333;">
@@ -151,7 +155,7 @@
         <ng-view></ng-view>
       </div>
     </div>
-    
+
     <script type="text/javascript">
       $(function () {
           $('[data-toggle="tooltip"]').tooltip()
