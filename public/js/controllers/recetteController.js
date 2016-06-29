@@ -1,12 +1,7 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
 
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
-    function load() {
-        $scope.recettes = userFactory.user.recettes;
-        console.log('1');
-        console.log($scope.recettes);
-    }
-    load();
+
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
         function load() {
@@ -15,6 +10,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
             console.log($scope.recettes);
         }
         load();
+
         $scope.showRecette = 'entree';
         $scope.closeBtnTab = [];
         $scope.userId = $rootScope.userId;

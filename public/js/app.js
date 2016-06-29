@@ -11,10 +11,7 @@ function config($routeProvider, $httpProvider) {
         })
         .when('/allRecipes', {
             templateUrl: 'views/allRecipes.html',
-            controller: 'allRecipesController',
-            resolve: {
-                userUpdate: userFactoryUpdate
-            }
+            controller: 'allRecipesController'
         })
         .when('/events', {
             templateUrl: 'views/events.html',
