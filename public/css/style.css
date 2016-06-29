@@ -1120,11 +1120,12 @@ input {
 
 
 .contentMenu {
-  border: 1px dotted #333;
+  border: 1px solid #e2e0e0;
   border-radius: 5px;
   margin-top: 28px;
   margin-bottom: 25px;
   height: 600px;
+  padding-top: 20px;
   overflow-y: scroll;
 }
 .btnBackEvent {
