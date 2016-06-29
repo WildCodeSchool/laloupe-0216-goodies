@@ -112,8 +112,9 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
     };
 
     $scope.delete = function(recette) {
-        console.log(recette);
+        $scope.seeRecipe = 1;
         recetteService.delete(recette).then(function(res) {});
+        load();
       },
       // Redirection vers page de création
       $scope.locateEntre = function() {
