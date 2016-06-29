@@ -4,10 +4,9 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
+        
         function load() {
             $scope.recettes = userFactory.user.recettes;
-            console.log('2');
-            console.log($scope.recettes);
         }
         load();
 
@@ -128,10 +127,10 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
                 });
             },
 
-            // Redirection vers page de création
-            $scope.locateEntre = function() {
-                $location.path("/createEntree");
-            };
+        // Redirection vers page de création
+        $scope.locateEntre = function() {
+            $location.path("/createEntree");
+        };
 
         $scope.locatePlat = function() {
             $location.path("/createPlat");
@@ -140,6 +139,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.locateDessert = function() {
             $location.path("/createDessert");
         };
+
         //  ------------   FLOW   -----------
         $scope.imageStrings = [];
         $scope.processFiles = function(files) {
