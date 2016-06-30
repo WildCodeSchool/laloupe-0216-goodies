@@ -12,8 +12,12 @@ function notificationService($http) {
         createEvents : function(datas) {
             return $http.post('/notifications/events', datas);
         },
-        delete : function(id) {
-            return $http.delete('/notifications/' + id);
+        deleteFriend : function(id) {
+            return $http.post('/notifications/delete/friends', id);
+        }
+        ,
+        deleteEvent : function(id) {
+            return $http.post('/notifications/delete/events', id);
         }
     }
 };

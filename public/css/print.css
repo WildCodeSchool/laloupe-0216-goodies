@@ -3,30 +3,34 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
-.mainContainerNav {
+/* suppression bar de nav */
+.allRecipesNav {
 	display: none;
 }
-.showAllRecipesMini {
+/* suppression image recette */
+#imgN {
 	display: none;
 }
-.allRecipesPresentation {
-	display: none;
-}
-.g_imgRecipe {
-	display: none;
-}
-
+/* suppression des votes */
 .lineVote {
 	display: none;
 }
 
+.g_titleRecipe {
+	position: relative;
+	bottom: cm;
+}
+/*suppression du type */
+.g_typeRecette {
+	display: none;
+}
 .infoLineRecipe {
 	display: inline-flex;
 	position: relative;
-	bottom: 4cm;
-	left: 4.5cm;
+	top: 10mm;
+	left: 4cm;
 }
+
 .btnClose {
 	display: none;
 }
@@ -36,20 +40,10 @@ body {
 .seeRecipeContainer {
 	border:none;
 }
-.g_titleRecipe {
-	position: relative;
-	bottom: 5cm;
-}
-.g_titleRecipe{
-	font-size: 12pt;
-}
-.g_typeRecette {
-	position: relative;
-	bottom: 9cm;
-}
+
 .box55 {
 	position: relative;
-	bottom: 50mm;
+	top: 1cm;
 }
 
 #commentary {

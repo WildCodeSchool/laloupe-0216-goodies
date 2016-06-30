@@ -24,6 +24,14 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
+        .when('/events/:id', {
+            templateUrl: 'views/eventinfo.html',
+            controller: 'eventInfoController',
+            resolve: {
+                connected: checkIsConnected,
+                userUpdate: userFactoryUpdate
+            }
+        })
         .when('/createEvent', {
             templateUrl: 'views/createEvent.html',
             controller: 'createEventController',
@@ -136,7 +144,6 @@ function config($routeProvider, $httpProvider) {
 function userFactoryUpdate($rootScope, userService) {
     userService.findOne($rootScope.userId).then(function(res) {
         userFactory.user = res.data;
-        console.log(userFactory.user);
         $rootScope.$emit('userFactoryUpdate')
     });
 }
@@ -162,7 +169,7 @@ function run($rootScope, $location, connectService, userFactory, userService) {
         userService.findOne($rootScope.userId).then(function(res) {
             userFactory.user = res.data;
             console.log(userFactory.user);
-            $rootScope.$emit('userFactoryUpdate')
+            $rootScope.$emit('userFactoryUpdate');
         });
     }
 
@@ -222,11 +229,13 @@ angular.module('app', ['ngRoute', 'flow'])
 .directive('checkPassword', checkPassword)
     .controller('connectController', connectController)
     .controller('signupController', signupController)
+    .controller('eventInfoController', eventInfoController)
     .controller('allRecipesController', allRecipesController)
     .controller('mainController', mainController)
     .controller('adminController', adminController)
     .controller('friendHistoryController', friendHistoryController)
     .controller('recetteController', recetteController)
+    .controller('notificationsController', notificationsController)
     .controller('eventController', eventController)
     .controller('compteController', compteController)
     .controller('createEventController', createEventController)

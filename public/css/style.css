@@ -69,6 +69,12 @@
   width: 80px;
   height: auto;
 }
+.imageProfileXS{
+  border-radius: 100px;
+  border: 1px solid black;
+  width: 40px;
+  height: auto;
+}
 /* ===========================================*\
                     Connection
 \* ===========================================*/
@@ -203,7 +209,6 @@ html { height: 100%;}
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
-
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -873,7 +878,7 @@ html { height: 100%;}
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background-color: #fff;
     -webkit-border-radius: 10px;
@@ -883,7 +888,7 @@ html { height: 100%;}
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #bdc3c7; 
+    background: #bdc3c7;
 }
 
 /* =========================================================
@@ -891,8 +896,15 @@ html { height: 100%;}
 ---------------------------------------------------------- */
 /* ****** recette check ************ */
 .gly {
-  color: rgba(189, 195, 199,0.7);
-  font-size: 1.6em;
+  color: #333;
+  font-size: 1.4em;
+  position: absolute;
+  right: 7%;
+  background-color: #f8ac37;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
 }
 .gly-checked{
   color: green;
@@ -914,7 +926,7 @@ html { height: 100%;}
     top: 100px;
 }
 .contEv .page-header{
-  margin-top:0; 
+  margin-top:0;
   padding-bottom: 0px;
 }
 
@@ -991,10 +1003,10 @@ input {
 /************ create Event page ************/
 
 .contDetailsEvent {
-  background-color: #fff; 
-  padding-left:0; 
-  padding-right:0; 
-  border-radius:5px; 
+  background-color: #fff;
+  padding-left:0;
+  padding-right:0;
+  border-radius:5px;
   margin-top:75px;
 }
 .form-control {
@@ -1119,10 +1131,10 @@ input {
   color: #333;
 }
 .btnBackEvent:hover {
-  color: #f8ac37; 
+  color: #f8ac37;
 }
 .btnNextEvent {
-  color: #333; 
+  color: #333;
 }
 .btnNextEvent:hover {
   color: #f8ac37;
@@ -1562,7 +1574,7 @@ input::-webkit-calendar-picker-indicator {
                      ALLRECIPES CSS
 ***********************************************************/
 .allR1{
-  background-color: rgba(255,255,255,0.7);
+  background-color: #fff;
 }
 .mainContainerNav {
   padding-right: 0;
@@ -1573,6 +1585,7 @@ input::-webkit-calendar-picker-indicator {
   top: 54px;
   z-index: 999;
   background-color: #fff;
+  height: 165px;
 }
 .allRecipesNav {
   font-family: 'oswald', pacifico, sans-serif;
@@ -1599,6 +1612,17 @@ input::-webkit-calendar-picker-indicator {
 .showAllRecipesMini {
   position:relative;
   top:195px;
+
+  padding-top: 25px;
+}
+.showAllRecipesMini .page-header {
+  background-color: #f8ac37;
+}
+.showAllRecipesMini h3 {
+  text-align: center;
+  font-family: 'yesteryear',oswald, sans-serif;
+  font-size: 3rem;
+  padding-top: 15px;
 }
 
 .lineSearch {
@@ -1638,7 +1662,7 @@ input::-webkit-calendar-picker-indicator {
 }
 .g_titleMiniRecipes {
   position: absolute;
-    width: 87%;
+    width: 86%;
     bottom: 17%;
     font-family: 'oswald', sans-serif;
     color: #333;    padding: 10px;
@@ -1688,7 +1712,6 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .searchTerm {
-  float: left;
   width: 100%;
   border: 2px solid #f8ac37 !important;
   padding: 5px;
@@ -1696,6 +1719,7 @@ input::-webkit-calendar-picker-indicator {
   outline: none;
   color: #9DBFAF;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .searchTerm:focus{
@@ -1781,7 +1805,12 @@ input::-webkit-calendar-picker-indicator {
 .g_boxMiniRecipes {
   height: 225px;
 }
-
+.boxMini .page-header{
+  background-color: #f8ac37;
+  text-align: center;
+  font-family: 'oswald', sans-serif;
+  padding-top: 1px;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -1802,12 +1831,7 @@ input::-webkit-calendar-picker-indicator {
 
 /* seeRecipeContainer */
 .seeRecipeContainer {
-  border: 1px solid #e2e0e0;
-  border-radius: 4px;
   background-color: #fff;
-  box-shadow: 3px 3px 16px -3px;
-  position: relative;
-  top: 190px;
   padding: 15px;
   padding-bottom: 25px;
   margin-bottom: 25px;
@@ -1853,6 +1877,10 @@ input::-webkit-calendar-picker-indicator {
 .g_imgRecipe img {
   width: 100%;
 }
+.g_typeRecette {
+  text-align:right;
+  font-family: 'oswald', sans-serif;
+}
 .infoLineRecipe {
   padding: 0;
 }
@@ -1874,6 +1902,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* line vote */
+
 .lineVote .btn {
   display: inline-block;
 }
@@ -1892,16 +1921,26 @@ input::-webkit-calendar-picker-indicator {
 .box55 {
   border-top: 1px solid #f8ac37;"
 }
-
+.recetteText {
+  text-align: justify;
+}
 /* --------------------------------------------------- */
 /*      Affichage des commentaires par recette         */
 /* --------------------------------------------------- */
+#commentary {
+  background-color: #f8f8f8;
+}
 #commentary .page-header {
   font-family: 'oswald', sans-serif;
+  text-align: center;
 }
 #commentary fieldset {
-  background-color: #fff;
+  background-color: #f1f1f1;
   padding: 20px;
+}
+.boxCom {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .timeline {
   list-style: none;
