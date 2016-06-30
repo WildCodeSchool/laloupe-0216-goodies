@@ -21,7 +21,7 @@ function notificationsController($scope, userFactory,$rootScope, $location,userS
         $scope.data.userId = $rootScope.userId;
         $scope.data.friendId = id;
         userService.createFriend($scope.data).then(function() {});
-        notificationService.delete($scope.data).then(function() {});
+        notificationService.deleteFriend($scope.data).then(function() {});
         userService.findOne($rootScope.userId).then(function(res) {
             userFactory.user = res.data;
             $rootScope.$emit('userFactoryUpdate');

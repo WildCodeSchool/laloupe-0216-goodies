@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="contEv container">
+        <div class="headingEvent">
+            <h2 class="page-header" style="margin-top:0; padding-bottom: 0px;"> Evènement de {{event.prenom}} {{event.name}}</h2>
+        </div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" style="cursor: pointer">
+                        <h3 class="panel-title" style="font-size: 1.5em;">
+                    {{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+                  </h3>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Adresse évènements</h4>
+                                    <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+                                    <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Liste des invités</h4>
+                                    <div class="" ng-repeat="amis in event.tabFriendEvent">
+                                        <div class="col-md-3">
+                                            <div class="card padding" ng-click="friendhistory(amis)">
+                                                <span ng-show='amis.img'><img class="imageProfileSmall center-block" src="amis.img" alt="" /></span>
+                                                <span ng-hide='amis.img'><img class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" /></span>
+                                                <div class="RecetteTitle">{{amis.prenom}}</div>
+                                                <div class="RecetteTitle">{{amis.name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 boxMini">
+                											<h4>Menu</h4>
+                											<div class="row">
+                													<div class="col-md-12">
+                														<div ng-repeat="recette in event.tabRecetteEvent ">
+                															<div ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
+                																<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+                																	<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+                																	<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+                																	<center>
+                																		<span id="gly{{$index}}" ng-show="gly{{$index}}" class="glyphicon glyphicon-ok gly" aria-hidden="true"></span>
+                																	</center>
+                																</div>
+                															</div>
+                														</div>
+                													</div>
+                											</div>
+                										</div>
+                                    
+                                    <div class="col-md-12">
+                                        <button class="btn btn-warning col-sm-5" ng-click="refuser()">Refuser</button>
+                                        <button class="btn btn-success col-sm-5 col-sm-offset-2" ng-click="accept()">Accepter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

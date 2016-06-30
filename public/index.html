@@ -43,6 +43,7 @@
     <script src="js/controllers/signupController.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/allRecipesController.js"></script>
+    <script src="js/controllers/eventInfoController.js"></script>
     <script src="js/controllers/adminController.js"></script>
     <script src="js/controllers/friendHistoryController.js"></script>
     <script src="js/controllers/recetteController.js"></script>
@@ -97,13 +98,14 @@
               <li class="dropdown" ng-show="token">
                 <div class="btn-group" ng-controller='notificationsController'>
                 <a href="" class="col-md-3 btn-group" style="color:#333;">
-                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" class="badge" style="margin: -10px; background-color: #F8AC37">{{nbNotifications}}</span></i>
+                  <i class="fa fa-bell-o fa-3" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="notification" ng-show="nbNotifications != 0" class="badge" style="margin: -10px; background-color: #F8AC37">{{nbNotifications}}</span></i>
                   <div class="dropdown-menu padding" id="dropdown">
+                      <div ng-show="nbNotifications == 0">Vous n'avez pas de notification</div>
                       <div class="" ng-repeat="friend in friendsInvit">
                         <div class="dropdown-item notif padding" > {{friend.prenom}} {{friend.name}} demande d'ami <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="accept(friend._id,'amis')"></span> </div>
                       </div>
                       <div class="" ng-repeat="event in eventInvit">
-                        <div class="dropdown-item notif padding" ng-click="accept(event._id,'event')" > {{event.prenom}} {{event.name}} vous à inviter un évènement <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </div>
+                        <div class="dropdown-item notif padding" ng-click="accept(event._id,'event')" > {{event.prenom}} {{event.name}} vous à inviter un évènement</div>
                       </div>
                   </div>
                 </a>
