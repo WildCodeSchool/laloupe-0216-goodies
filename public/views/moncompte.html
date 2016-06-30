@@ -77,9 +77,49 @@
                 <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
                 <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
               </div>
-              <div class="col-md-6" style="height: 100%;">
-
+              <div class="col-md-12">
+                <div ng-show='event.tabFriendEvent'>
+                  <div ng-show='event.tabFriendEvent.length'>
+                    <h4>Liste des invités</h4>
+                  </div>
+                </div>
+                <div class="" ng-repeat="amis in event.tabFriendEvent">
+                  <div class="col-md-3">
+                    <div class="card padding" ng-click="friendhistory(amis)">
+                      <img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
+                      <img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />														<div class="RecetteTitle">{{amis.prenom}}</div>
+                      <div class="RecetteTitle"> {{amis.name}}</div>
+                      <div class="row">
+                        <div class="RecetteDescription"></div>
+                        <div class="RecettePreparation"></div>
+                        <div class="RecetteCuisson"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <div class="col-md-12 boxMini">
+                <div ng-show='event.tabRecetteEvent.length'>
+                  <h4>Menu</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div ng-repeat="recette in event.tabRecetteEvent ">
+                        <div ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
+                          <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+                            <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+                            <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+                            <center>
+                              <span id="gly{{$index}}" ng-show="gly{{$index}}" class="glyphicon glyphicon-ok gly" aria-hidden="true"></span>
+                            </center>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
