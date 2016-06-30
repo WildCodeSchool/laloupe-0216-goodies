@@ -25,7 +25,9 @@
                         <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
                       </div>
                       <div class="col-md-12">
-                        <h4>Liste des invités</h4>
+                        <div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
                         <div class="" ng-repeat="amis in event.tabFriendEvent">
   												<div class="col-md-3">
   													<div class="card padding" ng-click="friendhistory(amis)">
@@ -45,7 +47,9 @@
 
                       <div class="row">
                             <div class="col-md-12">
-                              <h4>Menu</h4>
+                              <div ng-show='event.tabRecetteEvent'>
+        												<h4>Menu</h4>
+        											</div>
 
                                 <div ng-repeat="recette in event.tabRecetteEvent">
                                   <div  ng-click="" style="cursor: pointer">
