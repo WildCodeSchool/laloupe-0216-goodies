@@ -1,21 +1,21 @@
 function recetteService($http) {
     return {
-        get : function() {
+        get: function() {
             return $http.get('/recettes');
         },
-        update : function(id, datas){
+        update: function(id, datas) {
             return $http.put('/recettes/' + id, datas);
         },
-        create : function(datas) {
+        create: function(datas) {
             return $http.post('/recettes', datas);
         },
-        mailConfirmAmi : function(datas) {
+        mailConfirmAmi: function(datas) {
             return $http.post('/mail', datas);
         },
-        mailIvitNewUser : function(datas) {
+        mailIvitNewUser: function(datas) {
             return $http.post('/mail', datas);
         },
-        delete : function(id) {
+        delete: function(id) {
             return $http.delete('/recettes/' + id);
         }
     };

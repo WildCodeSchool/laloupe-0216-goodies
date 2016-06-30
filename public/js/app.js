@@ -24,7 +24,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/events/:id', {
+        .when('/event/:id', {
             templateUrl: 'views/eventinfo.html',
             controller: 'eventInfoController',
             resolve: {

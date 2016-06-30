@@ -137,6 +137,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                 });
 
             })
+            $scope.data.tabFriendEvent = [];
         };
 
         // ===================  END Ajout des amis dans la BD =============
