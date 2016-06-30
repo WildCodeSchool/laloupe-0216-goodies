@@ -6,6 +6,9 @@ function eventService($http) {
         get : function() {
             return $http.get('/events');
         },
+        findOne : function(id) {
+            return $http.get('/events/'+id);
+        },
         update : function(id, data){
             return $http.put('/events/' + id, data);
         },

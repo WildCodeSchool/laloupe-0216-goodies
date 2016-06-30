@@ -25,8 +25,8 @@ function config($routeProvider, $httpProvider) {
             }
         })
         .when('/events/:id', {
-            templateUrl: 'views/events.html',
-            controller: 'eventController',
+            templateUrl: 'views/eventinfo.html',
+            controller: 'eventInfoController',
             resolve: {
                 connected: checkIsConnected,
                 userUpdate: userFactoryUpdate
@@ -229,6 +229,7 @@ angular.module('app', ['ngRoute', 'flow'])
 .directive('checkPassword', checkPassword)
     .controller('connectController', connectController)
     .controller('signupController', signupController)
+    .controller('eventInfoController', eventInfoController)
     .controller('allRecipesController', allRecipesController)
     .controller('mainController', mainController)
     .controller('adminController', adminController)

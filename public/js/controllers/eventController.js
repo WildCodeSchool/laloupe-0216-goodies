@@ -9,19 +9,21 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.nbInvit = 0;
         $scope.invit = {};
         $scope.dataFriends = {};
+        $scope.eventsInvit = [];
         $scope.form = 1;
         $scope.creform = 1;
         $scope.showRecette = 'entree';
         if (userFactory.user.events) {
             $scope.events = userFactory.user.events;
-            $scope.nbEvents = $scope.events.length;
+            for (var i = 0; i < $scope.events.length; i++) {
+              if ($scope.events[i].userId != $rootScope.userId) {
+                  $scope.nbInvit++;
+                  $scope.eventsInvit.push($scope.events[i]);
+              }
+            }
+            $scope.nbEvents = $scope.events.length - $scope.nbInvit;
+            $scope.events = userFactory.user.events;
         }
-        if (userFactory.user.eventInvit) {
-            $scope.invitEvents = userFactory.user.eventInvit;
-            $scope.nbInvit = userFactory.user.eventInvit.length;
-        }
-        $scope.events = userFactory.user.events;
-
 
         $scope.required = true;
 
@@ -49,21 +51,6 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.formatDate = function(date) {
             var eventDate = new Date(date);
             return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
-        }
-
-        $scope.info = function(id, option) {
-            for (var j = 0; j < userFactory.user.friends.length; j++) {
-                if (userFactory.user.friends[j]._id == id) {
-                    var name = userFactory.user.friends[j].name;
-                    var prenom = userFactory.user.friends[j].prenom;
-                    if (userFactory.user.friends[j].img) {
-                        var image = userFactory.user.friends[j].img;
-                    } else {
-                        image = './assets/user-default.png';
-                    }
-                }
-            }
-            return option == 'nom' ? name : option == 'prenom' ? prenom : image;
         }
 
         $scope.friendhistory = function(id) {

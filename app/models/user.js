@@ -58,31 +58,45 @@ var User = {
                 __v: 0,
                 isAdmin: 0
             })
-            .populate('events', {
-                __v: 0
+            .populate({
+                path: 'events',
+                populate: {
+                    path: 'tabFriendEvent',
+                    select: 'name prenom img'
+                }
+            })
+            .populate({
+                path: 'events',
+                populate: {
+                    path: 'tabRecetteEvent',
+                },
             })
             .populate('friends', {
-                password: 0,
                 events: 0,
+                password: 0,
+                email: 0,
                 adresse: 0,
-                recettes: 0,
                 friends: 0,
-                isAdmin: 0,
-                __v: 0,
-                notifications: 0
+                recettes: 0,
+                eventInvit: 0,
+                friendsInvit: 0,
+                addfriends: 0,
+                isAdmin: 0
             })
             .populate('recettes', {
                 __v: 0
             })
             .populate('friendsInvit', {
-                password: 0,
                 events: 0,
+                password: 0,
+                email: 0,
                 adresse: 0,
-                recettes: 0,
                 friends: 0,
-                isAdmin: 0,
-                __v: 0,
-                notifications: 0
+                recettes: 0,
+                eventInvit: 0,
+                friendsInvit: 0,
+                addfriends: 0,
+                isAdmin: 0
             })
             .populate('eventInvit', {
                 __v: 0,
@@ -120,30 +134,44 @@ var User = {
                 _id: req.params.id
             })
             .populate('friends', {
-                password: 0,
-                notifications: 0,
                 events: 0,
+                password: 0,
+                email: 0,
                 adresse: 0,
-                recettes: 0,
                 friends: 0,
-                isAdmin: 0,
-                __v: 0
+                recettes: 0,
+                eventInvit: 0,
+                friendsInvit: 0,
+                addfriends: 0,
+                isAdmin: 0
             })
-            .populate('events', {
-                __v: 0
+            .populate({
+                path: 'events',
+                populate: {
+                    path: 'tabFriendEvent',
+                    select: 'name prenom img'
+                }
+            })
+            .populate({
+                path: 'events',
+                populate: {
+                    path: 'tabRecetteEvent',
+                },
             })
             .populate('recettes', {
                 __v: 0
             })
             .populate('friendsInvit', {
-                password: 0,
-                notifications: 0,
                 events: 0,
+                password: 0,
+                email: 0,
                 adresse: 0,
-                recettes: 0,
                 friends: 0,
-                isAdmin: 0,
-                __v: 0
+                recettes: 0,
+                eventInvit: 0,
+                friendsInvit: 0,
+                addfriends: 0,
+                isAdmin: 0
             })
             .populate('eventInvit', {
                 __v: 0,
@@ -214,6 +242,21 @@ var User = {
             };
         });
     },
+    deleteEvents: function(req, res) {
+        console.log('body Notifications event delete: ')
+        console.log(req.body);
+        User.model.findByIdAndUpdate(req.body.userId, {
+            $pull: {
+                eventInvit: req.body.eventId
+            }
+        }, function(err) {
+            if (err) {
+                res.send(err)
+            } else {
+                res.sendStatus(200)
+            };
+        });
+    },
     createEvents: function(userId, eventID) {
         console.log('body Notifications events: ')
         console.log(userId);
@@ -222,7 +265,7 @@ var User = {
             $push: {
                 eventInvit: eventID
             }
-        },function(err) {
+        }, function(err) {
             if (err) {
                 console.log(err)
             };
