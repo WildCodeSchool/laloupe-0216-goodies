@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="" ng-repeat="amis in event.tabFriendEvent">
                                         <div class="col-md-3">
-                                            <div class="card padding" ng-click="friendhistory(amis)">
+                                            <div class="card padding" ng-click="friendhistory(amis._id)">
                                                 <span ng-show='amis.img'><img class="imageProfileSmall center-block" src="amis.img" alt="" /></span>
                                                 <span ng-hide='amis.img'><img class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" /></span>
                                                 <div class="RecetteTitle">{{amis.prenom}}</div>

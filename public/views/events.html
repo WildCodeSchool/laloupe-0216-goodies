@@ -42,7 +42,7 @@
 
 											<div class="" ng-repeat="amis in event.tabFriendEvent">
 												<div class="col-md-3">
-													<div class="card padding" ng-click="friendhistory(amis)">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
 														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
 														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
 														<div class="RecetteTitle">{{amis.prenom}}</div>
@@ -110,7 +110,7 @@
 											</div>
 											<div class="" ng-repeat="amis in event.tabFriendEvent">
 												<div class="col-md-3">
-													<div class="card padding" ng-click="friendhistory(amis)">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
 														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
 														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />														<div class="RecetteTitle">{{amis.prenom}}</div>
 														<div class="RecetteTitle"> {{amis.name}}</div>
