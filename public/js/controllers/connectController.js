@@ -6,11 +6,11 @@ function connectController($scope, $rootScope, $location, connectService, userFa
             console.log('res connection');
             console.log(res.data.user);
             userFactory.user = res.data.user;
-            $rootScope.$emit('userFactoryUpdate');
             sessionStorage.setItem('token', res.data.token); // Replace with cookies
             sessionStorage.setItem('userId', res.data.id); // Replace with cookies
             $rootScope.token = res.data.token;
             $rootScope.userId = res.data.id;
+            $rootScope.$emit('userFactoryUpdate');
             $location.path('/');
         }).catch(function() {
             $rootScope.loginMessage.title = "Connexion error";

@@ -13,10 +13,10 @@ function eventService($http) {
             return $http.put('/events/' + id, data);
         },
         create : function(data) {
-            return $http.post('/events', data);
+            return $http.post('/events/create', data);
         },
         delete : function(id) {
-            return $http.delete('/events/' + id);
+            return $http.delete('/events/delete/' + id);
         }
     }
 };
