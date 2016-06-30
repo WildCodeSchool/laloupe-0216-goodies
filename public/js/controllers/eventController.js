@@ -39,12 +39,10 @@ function eventController($scope, $http, eventService, friendService, $location, 
 
         $scope.update = function(event) {
             eventService.update(event._id, event).then(function(res) {
-
             });
         }
         $scope.delete = function(event) {
             eventService.delete(event._id).then(function(res) {
-
             });
         }
 
