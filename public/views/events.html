@@ -1,111 +1,161 @@
+<div class="container contEv">
+	<div class="headingEvent">
+		<h2 class="page-header"> Mes Evenements</h2>
+	</div>
 
+	<div>
 
-	<div class="container contEv">
-			<div class="headingEvent">
-				<h2 class="page-header"> Mes Evenements</h2>
-			</div>
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs container col-md-12" role="tablist">
+			<li role="presentation" class="active" style="cursor: pointer"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">J'organise <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
+			<li role="presentation" style="cursor: pointer"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Invitations <span class="badge" style="margin-left:10px;" ng-show="nbInvit != 0">{{nbInvit}}</span></a></li>
+			<a href="#/createEvent" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-plus"></span> Créer </a>
+		</ul>
 
-		<div>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<!-- ========================== TAB EVENTS ===================== -->
+			<div role="tabpanel" class="tab-pane active" id="home">
+				<div class="container col-md-12" style="margin-top:20px;">
+					<div class="panel-group" id="accordion">
 
-		  <!-- Nav tabs -->
-		  <ul class="nav nav-tabs container col-md-12" role="tablist">
-		    <li role="presentation" class="active" style="cursor: pointer"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">J'organise <span class="badge" style="margin-left:10px;" ng-show="nbEvents != 0">{{nbEvents}}</span></a></li>
-		    <li role="presentation" style="cursor: pointer"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Invitations <span class="badge" style="margin-left:10px;" ng-show="nbInvit != 0">{{nbInvit}}</span></a></li>
-				<a href="#/createEvent" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-plus"></span> Créer </a>
-		  </ul>
-
-		  <!-- Tab panes -->
-		  <div class="tab-content">
-				<!-- ========================== TAB EVENTS ===================== -->
-		    <div role="tabpanel" class="tab-pane active" id="home">
-					<div class="container col-md-12" style="margin-top:20px;">
-						<div class="panel-group" id="accordion">
-
-							<div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
-								<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
-									<h3 class="panel-title" style="font-size: 1.5em;">
+						<div class="panel panel-default" ng-repeat="event in events  | filter : {userId: userId} | orderBy: 'crEdateForm'">
+							<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+								<h3 class="panel-title" style="font-size: 1.5em;">
 										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
 									</h3>
-								</div>
-								<div id="collapse{{$index}}" class="panel-collapse collapse">
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-md-6">
-												<h4>Adresse évènements</h4>
-												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
-												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+							</div>
+							<div id="collapse{{$index}}" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-6">
+											<h4>Adresse évènements</h4>
+											<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+										</div>
+										<div class="col-md-12">
+											<div ng-show='event.tabFriendEvent'>
+												<div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
 											</div>
-											<div class="col-md-12">
-                        <h4>Liste des invités</h4>
-                        <div class="" ng-repeat="amis in event.tabFriendEvent">
-                          <div class="col-md-3">
-                            <div class="card padding" ng-click="friendhistory(amis)">
-                							<img class="imageProfileSmall center-block" src="{{info(amis,'image')}}" alt="" />
-                              <div class="RecetteTitle">{{info(amis,'prenom')}}</div>
-                							<div class="RecetteTitle"> {{info(amis,'nom')}}</div>
-                              <div class="row">
-                                <div class="RecetteDescription"></div>
-                                <div class="RecettePreparation"></div>
-                                <div class="RecetteCuisson"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+											<div class="" ng-repeat="amis in event.tabFriendEvent">
+												<div class="col-md-3">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
+														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
+														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
+														<div class="RecetteTitle">{{amis.prenom}}</div>
+														<div class="RecetteTitle"> {{amis.name}}</div>
+														<div class="row">
+															<div class="RecetteDescription"></div>
+															<div class="RecettePreparation"></div>
+															<div class="RecetteCuisson"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+												<div class="row">
+												      <div class="col-md-12">
+																<div ng-show='event.tabRecetteEvent.length'>
+																	<h4>Menu</h4>
+																</div>
+
+											            <div ng-repeat="recette in event.tabRecetteEvent">
+												          	<div  ng-click="" style="cursor: pointer">
+												            	<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+												              		<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+												              		<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+												            	</div>
+												            </div>
+												         </div>
+												      </div>
+											   </div>
+
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
-		    </div>
+				</div>
+			</div>
 
 			<!-- ========================== TAB INVITATIONS =================================== -->
-		    <div role="tabpanel" class="tab-pane" id="profile">
-					<div class="container col-md-12" style="margin-top:20px;">
-						<div class="panel-group" id="accordionInvit">
+			<div role="tabpanel" class="tab-pane" id="profile">
+				<div class="container col-md-12" style="margin-top:20px;">
+					<div class="panel-group" id="accordionInvit">
 
-							<div class="panel panel-default" ng-repeat="event in invitEvents">
-								<div class="panel-heading" ng-click="geocodeAddress('hhjfd')" data-toggle="collapse" data-parent="#accordionInvit" data-target="#collapseInvit{{$index}}" style="cursor: pointer">
-									<h4 class="panel-title">
+						<div class="panel panel-default" ng-repeat="event in eventsInvit | orderBy: 'crEdateForm'">
+							<div class="panel-heading" ng-click="geocodeAddress('hhjfd')" data-toggle="collapse" data-parent="#accordionInvit" data-target="#collapseInvit{{$index}}" style="cursor: pointer">
+								<h4 class="panel-title">
 										<p>{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span></p>
 									</h4>
-								</div>
-								<div id="collapseInvit{{$index}}" class="panel-collapse collapse">
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-md-6">
-												<h4>Adresse évènements</h4>
-												<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
-												<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
-											</div>
-											<div class="col-md-12">
-                        <h4>Liste des invités</h4>
-                        <div class="" ng-repeat="amis in event.tabFriendEvent">
-                          <div class="col-md-3">
-                            <div class="card padding" ng-click="friendhistory(amis)">
-                							<img class="imageProfileSmall center-block" src="{{infoInvit(amis,'image')}}" alt="" />
-                              <div class="RecetteTitle">{{infoInvit(amis,'prenom')}}</div>
-                							<div class="RecetteTitle"> {{infoInvit(amis,'nom')}}</div>
-                              <div class="row">
-                                <div class="RecetteDescription"></div>
-                                <div class="RecettePreparation"></div>
-                                <div class="RecetteCuisson"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+							</div>
+							<div id="collapseInvit{{$index}}" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-6">
+											<h4>Adresse évènements</h4>
+											<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
 										</div>
+										<div class="col-md-12">
+											<div ng-show='event.tabFriendEvent'>
+												<div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
+											</div>
+											<div class="" ng-repeat="amis in event.tabFriendEvent">
+												<div class="col-md-3">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
+														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
+														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />														<div class="RecetteTitle">{{amis.prenom}}</div>
+														<div class="RecetteTitle"> {{amis.name}}</div>
+														<div class="row">
+															<div class="RecetteDescription"></div>
+															<div class="RecettePreparation"></div>
+															<div class="RecetteCuisson"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-12 boxMini">
+											<div ng-show='event.tabRecetteEvent.length'>
+												<h4>Menu</h4>
+											</div>
+											<div class="row">
+													<div class="col-md-12">
+														<div ng-repeat="recette in event.tabRecetteEvent ">
+															<div ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
+																<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+																	<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+																	<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+																	<center>
+																		<span id="gly{{$index}}" ng-show="gly{{$index}}" class="glyphicon glyphicon-ok gly" aria-hidden="true"></span>
+																	</center>
+																</div>
+															</div>
+														</div>
+													</div>
+											</div>
+										</div>
+
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
-		    </div>
-		  </div>
-			<ng-map center="{{position}}" zoom="17" style="heigth:200px">
-				<marker position="{{position}}" title=""></marker>
-			</ng-map>
+				</div>
+			</div>
 		</div>
+		<ng-map center="{{position}}" zoom="17" style="heigth:200px">
+			<marker position="{{position}}" title=""></marker>
+		</ng-map>
 	</div>
+</div>

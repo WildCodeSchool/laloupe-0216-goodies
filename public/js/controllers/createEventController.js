@@ -77,7 +77,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
             $scope.data.position = $scope.position;
             $scope.data.name = userFactory.user.name;
             $scope.data.prenom = userFactory.user.prenom;
-            console.log($scope.data.prenom);
+            console.log($scope.data);
             eventService.create($scope.data).then(function(res) { // <------ create event
                 userService.findOne($rootScope.userId).then(function(r) {
                     userFactory.user = r.data;
@@ -137,6 +137,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                 });
 
             })
+            $scope.data.tabFriendEvent = [];
         };
 
         // ===================  END Ajout des amis dans la BD =============

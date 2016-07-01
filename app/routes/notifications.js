@@ -6,5 +6,6 @@ module.exports = function(app) {
     app.post('/notifications/friends', User.createFriends);
     app.post('/notifications/events', User.createEvents);
     // app.put('/notifications/:id', Notifications.update);
-    app.post('/notifications/delete', User.deleteFriends);
+    app.post('/notifications/delete/friends', User.deleteFriends);
+    app.post('/notifications/delete/events', User.deleteEvents);
 }
