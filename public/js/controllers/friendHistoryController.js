@@ -1,6 +1,9 @@
 
-function friendHistoryController($scope, $routeParams, userFactory, $location) {
+function friendHistoryController($scope, $routeParams, userFactory, $location, userService) {
     function load() {
+        userService.findOne($routeParams.id).then(function(res){
+          $scope.user = res.data;
+        });
         $scope.events = userFactory.user.events;
         $scope.history = [];
         for (var j = 0; j < userFactory.user.friends.length; j++) {
