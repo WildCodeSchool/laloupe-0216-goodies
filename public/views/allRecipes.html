@@ -53,7 +53,7 @@
 	         <!-- Search bar -->
             <div class="search">
                <input type="text" class="searchTerm" ng-model="searchRecipesText.titre" placeholder="* Trouver une Recette *">
-            </div>     
+            </div>
 	      </div>
     	</nav>
 
@@ -99,12 +99,12 @@
 		          <h2>Goodies</h2>
 		          <h5>La meilleure méthode<br>pour inviter<br> ses amis<br>à dîner <span>!!</span></h5>
 		          <a href="#/signup" ng-show="!token" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
-		          <a href="#/events" ng-show="token"  class="btn btn-link btn-lg btnSignIn"">Mes évènements</a>
+		          <a href="#/events" ng-show="token"  class="btn btn-link btn-lg btnSignIn">Mes évènements</a>
 		        </center>
 		      </div>
 			</div>
 		</div><!-- /.col-md-12 -->
-		
+
 		<!-- Affichage des miniatures ==========================================-->
 		<div class="col-md-12 boxMini">
 			<div class="row">
@@ -188,7 +188,7 @@
 		                			</div>
 		              			</div><!-- /.lineVote -->
 		            		</div><!-- /.row -->
-		            
+
 		            		<div class="row">
 		              			<!-- bouton imprimer -->
 		              			<div class="btn-group btnMoreInfo" role="group" aria-label="...">
@@ -212,7 +212,7 @@
 		                  				<i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
 		                  			</button>
 
-		                			</div>           
+		                			</div>
 		              			</div><!-- /.btnMoreInfo -->
 		            		</div>
 		            	</div>
@@ -232,34 +232,34 @@
 		              </div>
 		            </div>
 		          </div>
-     
+
     		</div><!-- /.row  -->
 		</div><!-- /.seeRecipeContainer -->
 
 		<!-- Affichage des commentaires par recette =============================================== -->
 		<div class="col-md-12">
 	      <div class="row" id="commentary">
-	         <div class="page-header">	
+	         <div class="page-header">
 		         <h3 id="linetitle">Commentaires</h3>
 		      </div>
-		         <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>   
+		         <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>
 		            <div ng-show="Comm == 1">
-		            	<div class="col-md-offset-1 col-md-10 boxCom">              
+		            	<div class="col-md-offset-1 col-md-10 boxCom">
 		            		<form class="form-horizontal">
 		                		<fieldset>
 		                  		<!-- Input edité-->
 		                  		<div class="form-group">
-		                    			<label class="col-md-4 control-label" for="textinput">Edité par :</label>  
+		                    			<label class="col-md-4 control-label" for="textinput">Edité par :</label>
 		                    			<div class="col-md-5">
-		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="nom" class="form-control input-md" required="">               
+		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="newCommentaire.nom" class="form-control input-md" required="">
 		                    			</div>
 		                  		</div>
 
 		                  		<!-- Textarea -->
 		                  		<div class="form-group">
 		                    			<label class="col-md-4 control-label" for="textarea"> Commentaire :</label>
-		                    			<div class="col-md-7">                     
-		                      			<textarea class="form-control" id="commentaire" name="commentaire" ng-model="commentaire" placeholder="Taper votre texte ici"></textarea>
+		                    			<div class="col-md-7">
+		                      			<textarea class="form-control" id="commentaire" name="commentaire" ng-model="newCommentaire.commentaire" placeholder="Taper votre texte ici"></textarea>
 		                    			</div>
 		                  		</div>
 
@@ -277,32 +277,31 @@
 
 		            <div class="col-md-offset-1 col-md-10">
 		            	<div class="row">
-				            <ul class="timeline" ng-repeat="recette in recettes">
-				              	<li>
+				            <ul class="timeline" ng-repeat="commentaire in commentaires">
+				              	<li ng-show="$index %2 == 0">
 				                	<div class="timeline-badge">
 				                		<i class="glyphicon glyphicon-edit"></i>
 				                	</div>
 				                	<div class="timeline-panel">
 				                  	<div class="timeline-heading">
-				                    		<h4 class="timeline-title">Edité par : {{com.nom}}</h4>
+				                    		<h4 class="timeline-title">Edité par : {{commentaire.nom}}</h4>
 
 				                  	</div>
 				                  	<div class="timeline-body">
-				                    		<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+				                    		<p>{{commentaire.commentaire}}</p>
 				                  	</div>
 				                	</div>
 				               </li>
-				               <li class="timeline-inverted">
+				               <li class="timeline-inverted" ng-show="$index %2 != 0">
 				                	<div class="timeline-badge warning">
 				                		<i class="glyphicon glyphicon-edit"></i>
 				                	</div>
 			                		<div class="timeline-panel">
 				                  	<div class="timeline-heading">
-				                    		<h4 class="timeline-title">Edité par : </h4>
+				                    		<h4 class="timeline-title">Edité par : {{commentaire.nom}}</h4>
 				                  	</div>
 				                  	<div class="timeline-body">
-				                    		<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-				                    		<p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
+				                    		<p>{{commentaire.commentaire}}</p>
 				                  	</div>
 				                	</div>
 				              	</li>
