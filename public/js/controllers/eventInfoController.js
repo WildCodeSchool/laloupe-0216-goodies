@@ -8,7 +8,9 @@ function eventInfoController($routeParams, eventService, userService, $scope, $r
     }
     load();
     $scope.friendhistory = function(id) {
-        $location.path('/friendhistory/' + id);
+      if ($rootScope.userId != id) {
+          $location.path('/friendhistory/' + id);
+      }
     }
     $scope.data = {};
     $scope.refuser = function() {
