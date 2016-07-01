@@ -34,11 +34,15 @@
 											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
 										</div>
 										<div class="col-md-12">
-											<h4>Liste des invités</h4>
+											<div ng-show='event.tabFriendEvent'>
+												<div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
+											</div>
 
 											<div class="" ng-repeat="amis in event.tabFriendEvent">
 												<div class="col-md-3">
-													<div class="card padding" ng-click="friendhistory(amis)">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
 														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
 														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
 														<div class="RecetteTitle">{{amis.prenom}}</div>
@@ -54,7 +58,9 @@
 
 												<div class="row">
 												      <div class="col-md-12">
-																<h4>Menu</h4>
+																<div ng-show='event.tabRecetteEvent.length'>
+																	<h4>Menu</h4>
+																</div>
 
 											            <div ng-repeat="recette in event.tabRecetteEvent">
 												          	<div  ng-click="" style="cursor: pointer">
@@ -97,10 +103,14 @@
 											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
 										</div>
 										<div class="col-md-12">
-											<h4>Liste des invités</h4>
+											<div ng-show='event.tabFriendEvent'>
+												<div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
+											</div>
 											<div class="" ng-repeat="amis in event.tabFriendEvent">
 												<div class="col-md-3">
-													<div class="card padding" ng-click="friendhistory(amis)">
+													<div class="card padding" ng-click="friendhistory(amis._id)">
 														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
 														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />														<div class="RecetteTitle">{{amis.prenom}}</div>
 														<div class="RecetteTitle"> {{amis.name}}</div>
@@ -115,7 +125,9 @@
 										</div>
 
 										<div class="col-md-12 boxMini">
-											<h4>Menu</h4>
+											<div ng-show='event.tabRecetteEvent.length'>
+												<h4>Menu</h4>
+											</div>
 											<div class="row">
 													<div class="col-md-12">
 														<div ng-repeat="recette in event.tabRecetteEvent ">

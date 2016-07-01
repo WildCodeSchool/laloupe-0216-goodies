@@ -8,7 +8,6 @@
               <div class="padding">
                 <h2 ng-hide="events">Vous n'avez pas d'historique avec {{user.name}} {{user.prenom}}</h2>
 
-
               </div>
               <div class="panel panel-default" ng-repeat="event in history  | filter : {userId: userId} | orderBy: 'crEdateForm'">
                 <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
@@ -25,10 +24,12 @@
                         <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
                       </div>
                       <div class="col-md-12">
-                        <h4>Liste des invités</h4>
+                        <div ng-show='event.tabFriendEvent.length'>
+  												<h4>Liste des invités</h4>
+  											</div>
                         <div class="" ng-repeat="amis in event.tabFriendEvent">
   												<div class="col-md-3">
-  													<div class="card padding" ng-click="friendhistory(amis)">
+  													<div class="card padding" ng-click="friendhistory(amis._id)">
   														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
   														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
   														<div class="RecetteTitle">{{amis.prenom}}</div>
@@ -45,8 +46,9 @@
 
                       <div class="row">
                             <div class="col-md-12">
-                              <h4>Menu</h4>
-
+                              <div ng-show='event.tabRecetteEvent'>
+        												<h4>Menu</h4>
+        											</div>
                                 <div ng-repeat="recette in event.tabRecetteEvent">
                                   <div  ng-click="" style="cursor: pointer">
                                     <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
