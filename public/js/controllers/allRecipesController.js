@@ -3,12 +3,19 @@
 function allRecipesController($scope, $rootScope, $http, recetteService, userService, commentaireService) {
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
-    $rootScope.$on('userFactoryUpdate', function() {
         $scope.moreVote = 0;
         $scope.lessVote = 0;
         $scope.seeRecipe = 1;
         $scope.newCommentaire = {};
-        $scope.newCommentaire.userName = userFactory.user.name + ' ' + userFactory.user.prenom;
+        function load() {
+            recetteService.get().then(function(res) {
+                $scope.recettes = res.data;
+            });
+        }
+        load();
+        if (userFactory.user) {
+          $scope.newCommentaire.userName = userFactory.user.name + ' ' + userFactory.user.prenom;
+        }
         $scope.commentaires = [];
 
         // Bouton Ajouter à mes recttes ================================= -->
@@ -90,15 +97,5 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         $scope.close = function() {
             $scope.seeRecipe = 1;
         }
-
-        function load() {
-            recetteService.get().then(function(res) {
-                $scope.recettes = res.data;
-            });
-        }
-        load();
-
-
-    });
 
 }
