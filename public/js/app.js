@@ -142,10 +142,12 @@ function config($routeProvider, $httpProvider) {
 }
 
 function userFactoryUpdate($rootScope, userService) {
-    userService.findOne($rootScope.userId).then(function(res) {
-        userFactory.user = res.data;
-        $rootScope.$emit('userFactoryUpdate')
-    });
+    if ($rootScope.userId) {
+        userService.findOne($rootScope.userId).then(function(res) {
+            userFactory.user = res.data;
+            $rootScope.$emit('userFactoryUpdate')
+        });
+    }
 }
 
 function checkIsConnected($q, $http, $rootScope, $location) {
