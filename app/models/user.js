@@ -42,10 +42,6 @@ var userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    commentaires: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Commentaires',
-    }],
     isAdmin: {
         type: Boolean,
         default: false
@@ -122,22 +118,6 @@ var User = {
                     });
                 }
             });
-    },
-    addcommentaire: function(userId, comId, res) {
-        console.log('======= body add com user: ========')
-        console.log(userId);
-        console.log(comId);
-        User.model.findByIdAndUpdate(userId, {
-            $push: {
-                commentaires: comId
-            }
-        }, function(err) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.sendStatus(200);
-            }
-        });
     },
     findAll: function(req, res) {
         User.model.find({}, {
