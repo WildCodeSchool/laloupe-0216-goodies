@@ -1,16 +1,15 @@
 // allRecipesController
 
-function allRecipesController($scope, $rootScope, $http, recetteService, userService) {
+function allRecipesController($scope, $rootScope, $http, recetteService, userService, commentaireService) {
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.moreVote = 0;
         $scope.lessVote = 0;
         $scope.seeRecipe = 1;
-
         $scope.newCommentaire = {};
+        $scope.newCommentaire.userName = userFactory.user.name + ' ' + userFactory.user.prenom;
         $scope.commentaires = [];
-        console.log($scope.commentaires);
 
         // Bouton Ajouter à mes recttes ================================= -->
         $scope.favoris = function(recette, idFav) {
@@ -63,13 +62,27 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         }
 
         // Ajouter des commentaires =================== -->
+        $scope.scrollCom = function(id) {
+            $scope.newCommentaire.recetteId = id;
+            $scope.Comm = 1;
+        }
         $scope.addComm = function() {
-            $scope.commentaires.push($scope.newCommentaire)
-            $scope.newCommentaire = {};
+            $scope.newCommentaire.userId = $rootScope.userId;
+            $scope.newCommentaire.recetteId = $scope.clickRecipe._id;
+            $scope.newCommentaire.date = new Date();
+            commentaireService.addCommentaire($scope.newCommentaire).then(function(res) {
+                $scope.newCommentaire = {};
+                recetteService.findOne($scope.clickRecipe._id).then(function(res){
+                  console.log(res.data);
+                  $scope.commentaires = res.data.commentaires;
+                })
+            });
+            // $scope.commentaires.push($scope.newCommentaire)
         }
 
         $scope.id = function(recette) {
             $scope.clickRecipe = recette;
+            $scope.commentaires = $scope.clickRecipe.commentaires;
             $scope.seeRecipe = 2;
         }
 

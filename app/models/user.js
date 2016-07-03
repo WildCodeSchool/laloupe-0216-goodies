@@ -119,7 +119,6 @@ var User = {
                 }
             });
     },
-
     findAll: function(req, res) {
         User.model.find({}, {
             password: 0

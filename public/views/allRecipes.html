@@ -200,7 +200,7 @@
 		                  		<!-- bouton commentaires -->
 		                  		<div class="btn-group btn-block" role="group">
 		                  			<a class="js-scrollTo" href="#commentary">
-		                    				<button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter / Voir les commentaires" style="text-align:left;">
+		                    				<button type="button" class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" ng-click="scrollCom(clickRecipe._id)" title="Ajouter / Voir les commentaires" style="text-align:left;">
 		                      				<i class="fa fa-comment" aria-hidden="true"></i> Commentaires
 		                    				</button>
 		                  			</a>
@@ -242,7 +242,7 @@
 	         <div class="page-header">
 		         <h3 id="linetitle">Commentaires</h3>
 		      </div>
-		         <button type="button" class="addComment btn btn-link" ng-click="Comm = 1">Ajouter un commentaire</button>
+		         <button type="button" class="addComment btn btn-link">Ajouter un commentaire</button>
 		            <div ng-show="Comm == 1">
 		            	<div class="col-md-offset-1 col-md-10 boxCom">
 		            		<form class="form-horizontal">
@@ -251,7 +251,7 @@
 		                  		<div class="form-group">
 		                    			<label class="col-md-4 control-label" for="textinput">Edité par :</label>
 		                    			<div class="col-md-5">
-		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="newCommentaire.nom" class="form-control input-md" required="">
+		                    				<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="newCommentaire.userName" class="form-control input-md" required="">
 		                    			</div>
 		                  		</div>
 
@@ -284,7 +284,7 @@
 				                	</div>
 				                	<div class="timeline-panel">
 				                  	<div class="timeline-heading">
-				                    		<h4 class="timeline-title">Edité par : {{commentaire.nom}}</h4>
+				                    		<h4 class="timeline-title">Edité par : {{commentaire.userName}}</h4>
 
 				                  	</div>
 				                  	<div class="timeline-body">
@@ -298,7 +298,7 @@
 				                	</div>
 			                		<div class="timeline-panel">
 				                  	<div class="timeline-heading">
-				                    		<h4 class="timeline-title">Edité par : {{commentaire.nom}}</h4>
+				                    		<h4 class="timeline-title">Edité par : {{commentaire.userName}}</h4>
 				                  	</div>
 				                  	<div class="timeline-body">
 				                    		<p>{{commentaire.commentaire}}</p>
