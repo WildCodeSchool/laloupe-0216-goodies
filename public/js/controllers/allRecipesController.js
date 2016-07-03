@@ -1,6 +1,6 @@
 // allRecipesController
 
-function allRecipesController($scope, $rootScope, $http, recetteService, userService) {
+function allRecipesController($scope, $rootScope, $http, recetteService, userService, commentaireService) {
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
     $rootScope.$on('userFactoryUpdate', function() {
@@ -68,16 +68,21 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         }
         $scope.addComm = function() {
             $scope.newCommentaire.userId = $rootScope.userId;
+            $scope.newCommentaire.recetteId = $scope.clickRecipe._id;
             $scope.newCommentaire.date = new Date();
-            console.log($scope.newCommentaire);
-            recetteService.addCommentaire($scope.newCommentaire).then(function(res) {
+            commentaireService.addCommentaire($scope.newCommentaire).then(function(res) {
                 $scope.newCommentaire = {};
+                recetteService.findOne($scope.clickRecipe._id).then(function(res){
+                  console.log(res.data);
+                  $scope.commentaires = res.data.commentaires;
+                })
             });
-            $scope.commentaires.push($scope.newCommentaire)
+            // $scope.commentaires.push($scope.newCommentaire)
         }
 
         $scope.id = function(recette) {
             $scope.clickRecipe = recette;
+            $scope.commentaires = $scope.clickRecipe.commentaires;
             $scope.seeRecipe = 2;
         }
 

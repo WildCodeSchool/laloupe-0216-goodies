@@ -3,11 +3,11 @@ function recetteService($http) {
         get: function() {
             return $http.get('/recettes');
         },
+        findOne: function(id) {
+            return $http.get('/recettes/'+id);
+        },
         update: function(id, datas) {
             return $http.put('/recettes/' + id, datas);
-        },
-        addCommentaire: function(datas) {
-            return $http.post('/recettes/commentaire', datas);
         },
         create: function(datas) {
             return $http.post('/recettes', datas);
