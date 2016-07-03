@@ -277,7 +277,7 @@
 
 		            <div class="col-md-offset-1 col-md-10">
 		            	<div class="row">
-				            <ul class="timeline" ng-repeat="commentaire in commentaires">
+				            <ul class="timeline" ng-repeat="commentaire in commentaires | orderBy: '-date'">
 				              	<li ng-show="$index %2 == 0">
 				                	<div class="timeline-badge">
 				                		<i class="glyphicon glyphicon-edit"></i>
