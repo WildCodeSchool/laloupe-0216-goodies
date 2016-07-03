@@ -102,10 +102,10 @@
                   <div class="dropdown-menu padding" id="dropdown">
                       <div ng-show="nbNotifications == 0">Vous n'avez pas de notification</div>
                       <div class="" ng-repeat="friend in friendsInvit">
-                        <div class="dropdown-item notif padding" > {{friend.prenom}} {{friend.name}} demande d'ami <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="accept(friend._id,'amis')"></span> </div>
+                        <div class="dropdown-item notif padding" > {{friend.prenom}} {{friend.name}} vous demande en ami <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click="accept(friend._id,'amis')"></span> </div>
                       </div>
                       <div class="" ng-repeat="event in eventInvit">
-                        <div class="dropdown-item notif padding" ng-click="accept(event._id,'event')" > {{event.prenom}} {{event.name}} vous à inviter un évènement</div>
+                        <div class="dropdown-item notif padding" ng-click="accept(event._id,'event')" > {{event.prenom}} {{event.name}} vous a invité à un évènement</div>
                       </div>
                   </div>
                 </a>

@@ -119,12 +119,12 @@
 
                     <div ng-repeat='friend in friends'>
                         <div class="col-md-3">
-                            <div class="card" ng-click="friendhistory(friend._id)">
+                            <div class="card">
                                 <span class="glyphicon glyphicon-remove" ng-click="removeFriend(friend)"></span>
-                                <img ng-hide="friend.img" class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
+                                <img ng-hide="friend.img" ng-click="friendhistory(friend._id)" class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
                                 <img ng-show="friend.img" class="imageProfileSmall center-block" src="{{friend.img}}" alt="" />
-                                <div class="RecetteTitle">{{friend.prenom}}</div>
-                                <div class="RecetteTitle"> {{friend.name}}</div>
+                                <div class="RecetteTitle" ng-click="friendhistory(friend._id)">{{friend.prenom}}</div>
+                                <div class="RecetteTitle" ng-click="friendhistory(friend._id)"> {{friend.name}}</div>
                                 <div class="row">
                                     <div class="RecetteDescription"></div>
                                     <div class="RecettePreparation"></div>

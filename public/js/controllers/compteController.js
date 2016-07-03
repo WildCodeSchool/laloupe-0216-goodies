@@ -1,4 +1,4 @@
-function compteController($scope, $rootScope, $location, eventService, friendService, userService, userFactory) {
+function compteController($scope, $rootScope, $location, eventService, friendService, userService, userFactory, notificationService) {
     $('body').css('background-image', 'none').removeProp('background-color').css('background-image', 'url("./assets/pasta.jpg")');
     function load() {
         userService.get().then(function(res) {
@@ -52,13 +52,24 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
 
     $scope.formatDate = function(date) {
         var eventDate = new Date(date);
-        return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
+        var day = 0;
+        var month = 0;
+        if (eventDate.getDate() < 10) {
+          day = '0'+eventDate.getDate();
+        }else {
+          day = eventDate.getDate();
+        }
+        if (eventDate.getMonth() + 1 < 10) {
+          month = '0'+ (eventDate.getMonth() + 1);
+        }else {
+          month = eventDate.getMonth() + 1;
+        }
+        return day + ' / ' + month + ' / ' + eventDate.getFullYear();
     }
     $scope.dateFilter = function (elem){
       var newDate = new Date();
       var date = new Date(elem.crEdateForm);
       if (date <= newDate) {
-        console.log('ee');
         return true;
       }else {
         return false;
@@ -68,7 +79,6 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
       var newDate = new Date();
       var date = new Date(elem.crEdateForm);
       if (date >= newDate) {
-        console.log('ee');
         return true;
       }else {
         return false;
@@ -101,7 +111,7 @@ function compteController($scope, $rootScope, $location, eventService, friendSer
                     user: userFactory.user.prenom + ' ' + userFactory.user.name
                 };
                 console.log(mailInvitAmi);
-                userService.mailInvitAmi(mailInvitAmi);
+                // userService.mailInvitAmi(mailInvitAmi);
                 notificationService.createFriends(data).then(function() {
                     userService.findOne($rootScope.userId).then(function(user) {
                         userFactory.user = user.data;

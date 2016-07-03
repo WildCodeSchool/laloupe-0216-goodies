@@ -212,19 +212,43 @@ var User = {
         });
     },
     createFriends: function(req, res) {
-        console.log('body Notifications friends: ')
+        console.log('============= body Notifications friends: ')
         console.log(req.body);
-        User.model.findByIdAndUpdate(req.body.userId, {
-            $push: {
-                friendsInvit: req.body.friends
-            }
-        }, function(err) {
+        User.model.findOne({
+            _id: req.body.userId
+        }, {
+            password: 0,
+            __v: 0,
+            isAdmin: 0,
+            adresse: 0
+        }, function(err, user) {
             if (err) {
-                res.send(err)
+                console.log(err);
+            } else if (!user) {
+                res.sendStatus(400);
             } else {
-                res.sendStatus(200)
-            };
+                var count = 0;
+                for (var i = 0; i < user.friendsInvit.length; i++) {
+                    if (user.friendsInvit[i] == req.body.friends) {
+                        count++
+                    }
+                }
+                if (count == 0) {
+                    User.model.findByIdAndUpdate(req.body.userId, {
+                        $push: {
+                            friendsInvit: req.body.friends
+                        }
+                    }, function(err) {
+                        if (err) {
+                            res.send(err)
+                        } else {
+                            res.sendStatus(200)
+                        };
+                    });
+                }
+            }
         });
+
     },
     deleteFriends: function(req, res) {
         console.log('body Notifications friends delete: ')
@@ -283,7 +307,6 @@ var User = {
         console.log('addFriends');
         console.log(req.body);
         var friendId = mongoose.Types.ObjectId(req.body.friendId);
-        console.log(friendId);
         User.model.findByIdAndUpdate(req.body.userId, {
             $push: {
                 friends: friendId
