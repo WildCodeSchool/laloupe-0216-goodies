@@ -192,7 +192,7 @@
 			<div class="row">
 				<div class="contentMenu">
 			      <div class="col-md-12">
-		            <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre' | filter : {type: showRecette, userId: userId}">
+		            <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre' | filter : {type: showRecette}">
 			          	<div  ng-click="addRecette(recette._id, $index)" style="cursor: pointer">
 			            	<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
 			              		<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
