@@ -52,7 +52,9 @@ function eventController($scope, $http, eventService, friendService, $location, 
         }
 
         $scope.friendhistory = function(id) {
-            $location.path('/friendhistory/' + id);
+          if ($rootScope.userId != id) {
+              $location.path('/friendhistory/' + id);
+          }
         }
     });
 

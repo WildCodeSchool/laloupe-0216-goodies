@@ -18,8 +18,8 @@ var recetteSchema = new mongoose.Schema({
   moreVote: Number,
   lessVote: Number,
   commentaires:[{
-    nom: String,
-    commentaire: String
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Commentaires',
   }]
 });
 var Recette = {
@@ -40,6 +40,21 @@ var Recette = {
     findAll: function(req, res) {
         Recette.model.find({}, function(err, data) {
             res.send(data);
+        });
+    },
+    addcommentaire: function(userId, recetteId, comId, res) {
+        console.log('========= body add com recette: ==========')
+        console.log(recetteId);
+        console.log(comId);
+        Recette.model.findByIdAndUpdate(recetteId, {
+            $push: {
+                commentaires: comId
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err)
+                User.model.addcommentaire(userId, comId, res);
+            };
         });
     },
     update: function(req, res) {

@@ -57,7 +57,9 @@ function myfriendsController(userService, $scope, $rootScope, userFactory, notif
         };
 
         $scope.friendhistory = function (id){
-          $location.path('/friendhistory/'+id);
+          if ($rootScope.userId != id) {
+              $location.path('/friendhistory/' + id);
+          }
         }
     });
 }
