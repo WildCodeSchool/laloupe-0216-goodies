@@ -52,7 +52,19 @@ function eventController($scope, $http, eventService, friendService, $location, 
 
         $scope.formatDate = function(date) {
             var eventDate = new Date(date);
-            return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
+            var day = 0;
+            var month = 0;
+            if (eventDate.getDate() < 10) {
+              day = '0'+eventDate.getDate();
+            }else {
+              day = eventDate.getDate();
+            }
+            if (eventDate.getMonth() + 1 < 10) {
+              month = '0'+ (eventDate.getMonth() + 1);
+            }else {
+              month = eventDate.getMonth() + 1;
+            }
+            return day + ' / ' + month + ' / ' + eventDate.getFullYear();
         }
         $scope.dateFilter = function (elem){
           var newDate = new Date();
