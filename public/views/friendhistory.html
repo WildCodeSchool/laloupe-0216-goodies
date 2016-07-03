@@ -6,7 +6,7 @@
         <div class="col-md-offset-1 col-md-10">
             <div class="row">
               <div class="padding">
-                <h2 ng-hide="history.length == 0">Vous n'avez pas d'historique avec {{user.name}} {{user.prenom}}</h2>
+                <h2 ng-show="history.length == 0">Vous n'avez pas d'historique avec {{user.name}} {{user.prenom}}</h2>
 
               </div>
               <div class="panel panel-default" ng-repeat="event in history  | filter : {userId: userId} | orderBy: 'crEdateForm'">
