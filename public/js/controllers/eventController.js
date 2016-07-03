@@ -14,7 +14,6 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.creform = 1;
         $scope.showRecette = 'entree';
         if (userFactory.user.events) {
-            var events = 0;
             $scope.events = userFactory.user.events;
             for (var i = 0; i < $scope.events.length; i++) {
               var newDate = new Date();
@@ -24,10 +23,9 @@ function eventController($scope, $http, eventService, friendService, $location, 
                   $scope.eventsInvit.push($scope.events[i]);
               }
               if ($scope.events[i].userId == $rootScope.userId && date >= newDate) {
-                events++;
+                $scope.nbEvents++;
               }
             }
-            $scope.nbEvents = events - $scope.nbInvit;
             $scope.events = userFactory.user.events;
         }
 
