@@ -14,14 +14,20 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.creform = 1;
         $scope.showRecette = 'entree';
         if (userFactory.user.events) {
+            var events = 0;
             $scope.events = userFactory.user.events;
             for (var i = 0; i < $scope.events.length; i++) {
+              var newDate = new Date();
+              var date = new Date($scope.events[i].crEdateForm);
               if ($scope.events[i].userId != $rootScope.userId) {
                   $scope.nbInvit++;
                   $scope.eventsInvit.push($scope.events[i]);
               }
+              if ($scope.events[i].userId == $rootScope.userId && date >= newDate) {
+                events++;
+              }
             }
-            $scope.nbEvents = $scope.events.length - $scope.nbInvit;
+            $scope.nbEvents = events - $scope.nbInvit;
             $scope.events = userFactory.user.events;
         }
 
@@ -49,6 +55,16 @@ function eventController($scope, $http, eventService, friendService, $location, 
         $scope.formatDate = function(date) {
             var eventDate = new Date(date);
             return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
+        }
+        $scope.dateFilter = function (elem){
+          var newDate = new Date();
+          var date = new Date(elem.crEdateForm);
+          if (date >= newDate) {
+            console.log('ee');
+            return true;
+          }else {
+            return false;
+          }
         }
 
         $scope.friendhistory = function(id) {

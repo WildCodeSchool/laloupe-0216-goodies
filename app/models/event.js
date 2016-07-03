@@ -4,7 +4,7 @@ var User = require('../models/user.js');
 var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
     crEnameForm: String,
-    crEdateForm: String,
+    crEdateForm: Date,
     crEtimeForm: String,
     crEnumberForm: Number,
     crEwayForm: String,
