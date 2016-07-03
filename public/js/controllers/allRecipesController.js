@@ -7,10 +7,9 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         $scope.moreVote = 0;
         $scope.lessVote = 0;
         $scope.seeRecipe = 1;
-
         $scope.newCommentaire = {};
+        $scope.newCommentaire.userName = userFactory.user.name + ' ' + userFactory.user.prenom;
         $scope.commentaires = [];
-        console.log($scope.commentaires);
 
         // Bouton Ajouter à mes recttes ================================= -->
         $scope.favoris = function(recette, idFav) {
@@ -63,9 +62,18 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         }
 
         // Ajouter des commentaires =================== -->
+        $scope.scrollCom = function(id) {
+            $scope.newCommentaire.recetteId = id;
+            $scope.Comm = 1;
+        }
         $scope.addComm = function() {
+            $scope.newCommentaire.userId = $rootScope.userId;
+            $scope.newCommentaire.date = new Date();
+            console.log($scope.newCommentaire);
+            recetteService.addCommentaire($scope.newCommentaire).then(function(res) {
+                $scope.newCommentaire = {};
+            });
             $scope.commentaires.push($scope.newCommentaire)
-            $scope.newCommentaire = {};
         }
 
         $scope.id = function(recette) {

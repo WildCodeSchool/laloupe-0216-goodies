@@ -6,6 +6,9 @@ function recetteService($http) {
         update: function(id, datas) {
             return $http.put('/recettes/' + id, datas);
         },
+        addCommentaire: function(datas) {
+            return $http.post('/recettes/commentaire', datas);
+        },
         create: function(datas) {
             return $http.post('/recettes', datas);
         },
