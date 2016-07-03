@@ -19,6 +19,7 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-md-12">
+                        <h4>Evènement de {{event.prenom}} {{event.name}}</h4>
                         <h4>Adresse évènements</h4>
                         <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
                         <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
@@ -46,7 +47,7 @@
 
                       <div class="row">
                             <div class="col-md-12">
-                              <div ng-show='event.tabRecetteEvent'>
+                              <div ng-show='event.tabRecetteEvent.length'>
         												<h4>Menu</h4>
         											</div>
                                 <div ng-repeat="recette in event.tabRecetteEvent">
