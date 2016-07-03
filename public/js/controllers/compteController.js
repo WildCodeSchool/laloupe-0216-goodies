@@ -1,5 +1,131 @@
 function compteController($scope, $rootScope, $location, eventService, friendService, userService, userFactory) {
     $('body').css('background-image', 'none').removeProp('background-color').css('background-image', 'url("./assets/pasta.jpg")');
+    function load() {
+        userService.get().then(function(res) {
+            $scope.users = res.data;
+            userService.findOne($rootScope.userId).then(function(user) {
+                userFactory.user = user.data;
+                $scope.friends = userFactory.user.friends;
+            });
+            $scope.userId = $rootScope.userId;
+        });
+    }
+    load();
+    // ============================= EVENT ===================================
+
+    $scope.nbEvents = 0;
+    $scope.nbInvit = 0;
+    $scope.invit = {};
+    $scope.dataFriends = {};
+    $scope.eventsInvit = [];
+    $scope.form = 1;
+    $scope.creform = 1;
+    $scope.showRecette = 'entree';
+    if (userFactory.user.events) {
+        var events = 0;
+        $scope.events = userFactory.user.events;
+        for (var i = 0; i < $scope.events.length; i++) {
+          var newDate = new Date();
+          var date = new Date($scope.events[i].crEdateForm);
+          if ($scope.events[i].userId != $rootScope.userId) {
+              $scope.nbInvit++;
+              $scope.eventsInvit.push($scope.events[i]);
+          }
+          if ($scope.events[i].userId == $rootScope.userId && date >= newDate) {
+            events++;
+          }
+        }
+        $scope.nbEvents = events - $scope.nbInvit;
+        $scope.events = userFactory.user.events;
+    }
+
+    $scope.required = true;
+
+    $scope.update = function(event) {
+        eventService.update(event._id, event).then(function(res) {
+        });
+    }
+    $scope.delete = function(event) {
+        eventService.delete(event._id).then(function(res) {
+        });
+    }
+
+    $scope.formatDate = function(date) {
+        var eventDate = new Date(date);
+        return eventDate.getDate() + ' / ' + (eventDate.getMonth() + 1) + ' / ' + eventDate.getFullYear();
+    }
+    $scope.dateFilter = function (elem){
+      var newDate = new Date();
+      var date = new Date(elem.crEdateForm);
+      if (date <= newDate) {
+        console.log('ee');
+        return true;
+      }else {
+        return false;
+      }
+    }
+    $scope.dateFilterNext = function (elem){
+      var newDate = new Date();
+      var date = new Date(elem.crEdateForm);
+      if (date >= newDate) {
+        console.log('ee');
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    // ========================== END EVENT ==================================
+    $scope.addNewFriend = function(userName) {
+        var datas = {};
+        var data = {};
+        data.friends = [];
+        var user = userName.split(' ');
+        userService.findByNameSurname(user[1], user[0]).then(function(res) { // ===== Récupération de l'ID du Friend
+            datas.friendId = res.data._id;
+            datas.userId = $scope.userId;
+            var tabFriends = [];
+            userFactory.user.friends.forEach(function(e) {
+                tabFriends.push(e.name + ' ' + e.prenom)
+            });
+            if ($rootScope.userId != datas.friendId && tabFriends.indexOf(user[1] + ' ' + user[0]) == -1) {
+
+                // ================ ADD friends =========================
+                userService.createFriend(datas).then(function() { load()});
+
+                //================== addNotifications friends ==========
+                data.userId = datas.friendId;
+                data.friends = datas.userId;
+                var mailInvitAmi = {
+                    email: res.data.email,
+                    user: userFactory.user.prenom + ' ' + userFactory.user.name
+                };
+                console.log(mailInvitAmi);
+                userService.mailInvitAmi(mailInvitAmi);
+                notificationService.createFriends(data).then(function() {
+                    userService.findOne($rootScope.userId).then(function(user) {
+                        userFactory.user = user.data;
+                        $scope.friends = userFactory.user.friends;
+                    });
+                });
+            }
+        });
+        $scope.userName = "";
+    };
+    $scope.removeFriend = function(friend) {
+        userService.deleteFriend($rootScope.userId, friend._id).then(function(res) {
+            userService.findOne($rootScope.userId).then(function(res) {
+                userFactory.user = res.data;
+                $scope.friends = userFactory.user.friends;
+            });
+        });
+    };
+
+    $scope.friendhistory = function (id){
+      if ($rootScope.userId != id) {
+          $location.path('/friendhistory/' + id);
+      }
+    }
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.events = userFactory.user.events;
         $scope.user = userFactory.user;

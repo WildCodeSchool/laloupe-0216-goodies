@@ -17,6 +17,10 @@
 .favoris {
   color : green;
 }
+.marginTop {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 .padding {
   padding: 5px;
 }

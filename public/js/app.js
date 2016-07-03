@@ -98,14 +98,6 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/myfriends', {
-            templateUrl: 'views/myfriends.html',
-            controller: 'myfriendsController',
-            resolve: {
-                connected: checkIsConnected,
-                userUpdate: userFactoryUpdate
-            }
-        })
         .when('/friendhistory/:id', {
             templateUrl: 'views/friendhistory.html',
             controller: 'friendHistoryController',
@@ -242,7 +234,6 @@ angular.module('app', ['ngRoute', 'flow'])
     .controller('eventController', eventController)
     .controller('compteController', compteController)
     .controller('createEventController', createEventController)
-    .controller('myfriendsController', myfriendsController)
 
 
 /*.factory('', )*/
