@@ -112,6 +112,9 @@
 		      	<div class="page-header">
 		          	<h3>Des Recettes "So Goodies"</h3>
 		      	</div>
+		      	<center>
+		      		<a href="#/menu" ng-show="token" type="button" class="btn btn-link">Ajouter une recette</a>
+		      	</center>
 		      	<div class="contentMenu">
 			      	<div class="col-md-12">
 			          	<div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
