@@ -139,140 +139,140 @@
             <!-- ========================== TAB EVENTS PASSEES =================================== -->
             <div role="tabpanel" class="tab-pane" id="passe">
               <div class="container col-md-12" style="margin-top:20px;">
-      					<div class="panel-group" id="accordion">
+                        <div class="panel-group" id="accordion">
 
-      						<div class="panel panel-default" ng-repeat="event in events | filter: dateFilter | orderBy: 'crEdateForm'">
-      							<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
-      								<h3 class="panel-title" style="font-size: 1.5em;">
-      										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
-      									</h3>
-      							</div>
-      							<div id="collapse{{$index}}" class="panel-collapse collapse">
-      								<div class="panel-body">
-      									<div class="row">
-      										<div class="col-md-6">
+                            <div class="panel panel-default" ng-repeat="event in events | filter: dateFilter | orderBy: 'crEdateForm'">
+                                <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" style="cursor: pointer">
+                                    <h3 class="panel-title" style="font-size: 1.5em;">
+                                            {{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+                                        </h3>
+                                </div>
+                                <div id="collapse{{$index}}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
                             <h4>Evènement de {{event.prenom}} {{event.name}}</h4>
-      											<h4>Adresse évènements</h4>
-      											<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
-      											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
-      										</div>
-      										<div class="col-md-12">
-      											<div ng-show='event.tabFriendEvent'>
-      												<div ng-show='event.tabFriendEvent.length'>
-        												<h4>Liste des invités</h4>
-        											</div>
-      											</div>
+                                                <h4>Adresse évènements</h4>
+                                                <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+                                                <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div ng-show='event.tabFriendEvent'>
+                                                    <div ng-show='event.tabFriendEvent.length'>
+                                                        <h4>Liste des invités</h4>
+                                                    </div>
+                                                </div>
 
-      											<div class="" ng-repeat="amis in event.tabFriendEvent">
-      												<div class="col-md-3">
-      													<div class="card padding" ng-click="friendhistory(amis._id)">
-      														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
-      														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
-      														<div class="RecetteTitle">{{amis.prenom}}</div>
-      														<div class="RecetteTitle"> {{amis.name}}</div>
-      														<div class="row">
-      															<div class="RecetteDescription"></div>
-      															<div class="RecettePreparation"></div>
-      															<div class="RecetteCuisson"></div>
-      														</div>
-      													</div>
-      												</div>
-      											</div>
+                                                <div class="" ng-repeat="amis in event.tabFriendEvent">
+                                                    <div class="col-md-3">
+                                                        <div class="card padding" ng-click="friendhistory(amis._id)">
+                                                            <img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
+                                                            <img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
+                                                            <div class="RecetteTitle">{{amis.prenom}}</div>
+                                                            <div class="RecetteTitle"> {{amis.name}}</div>
+                                                            <div class="row">
+                                                                <div class="RecetteDescription"></div>
+                                                                <div class="RecettePreparation"></div>
+                                                                <div class="RecetteCuisson"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-      												<div class="row">
-      												      <div class="col-md-12">
-      																<div ng-show='event.tabRecetteEvent.length'>
-      																	<h4>Menu</h4>
-      																</div>
+                                                    <div class="row">
+                                                          <div class="col-md-12">
+                                                                    <div ng-show='event.tabRecetteEvent.length'>
+                                                                        <h4>Menu</h4>
+                                                                    </div>
 
-      											            <div ng-repeat="recette in event.tabRecetteEvent">
-      												          	<div  ng-click="" style="cursor: pointer">
-      												            	<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
-      												              		<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
-      												              		<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
-      												            	</div>
-      												            </div>
-      												         </div>
-      												      </div>
-      											   </div>
+                                                            <div ng-repeat="recette in event.tabRecetteEvent">
+                                                                <div  ng-click="" style="cursor: pointer">
+                                                                    <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+                                                                        <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+                                                                        <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+                                                                    </div>
+                                                                </div>
+                                                             </div>
+                                                          </div>
+                                                   </div>
 
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      						</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-      					</div>
-      				</div>
+                        </div>
+                    </div>
             </div>
             <!-- ========================== TAB EVENTS A VENIR =================================== -->
             <div role="tabpanel" class="tab-pane" id="venir">
               <div class="container col-md-12" style="margin-top:20px;">
-      					<div class="panel-group" id="accordion">
+                        <div class="panel-group" id="accordion">
 
-      						<div class="panel panel-default" ng-repeat="event in events | filter: dateFilterNext | orderBy: 'crEdateForm'">
-      							<div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapseVenir{{$index}}" style="cursor: pointer">
-      								<h3 class="panel-title" style="font-size: 1.5em;">
-      										{{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
-      									</h3>
-      							</div>
-      							<div id="collapseVenir{{$index}}" class="panel-collapse collapse">
-      								<div class="panel-body">
-      									<div class="row">
-      										<div class="col-md-6">
+                            <div class="panel panel-default" ng-repeat="event in events | filter: dateFilterNext | orderBy: 'crEdateForm'">
+                                <div class="panel-heading" ng-click="geocodeAddress(event)" data-toggle="collapse" data-parent="#accordion" data-target="#collapseVenir{{$index}}" style="cursor: pointer">
+                                    <h3 class="panel-title" style="font-size: 1.5em;">
+                                            {{event.crEnameForm}}<span style="float: right; font-weight:bold;">{{formatDate(event.crEdateForm)}}</span>
+                                        </h3>
+                                </div>
+                                <div id="collapseVenir{{$index}}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
                             <h4>Evènement de {{event.prenom}} {{event.name}}</h4>
-      											<h4>Adresse évènements</h4>
-      											<p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
-      											<p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
-      										</div>
-      										<div class="col-md-12">
-      											<div ng-show='event.tabFriendEvent'>
-      												<div ng-show='event.tabFriendEvent.length'>
-        												<h4>Liste des invités</h4>
-        											</div>
-      											</div>
+                                                <h4>Adresse évènements</h4>
+                                                <p>n° {{event.crEnumberForm}} rue {{event.crEwayForm}}</p>
+                                                <p>{{event.crEpostalcodeForm}} {{event.crEcityForm}}</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div ng-show='event.tabFriendEvent'>
+                                                    <div ng-show='event.tabFriendEvent.length'>
+                                                        <h4>Liste des invités</h4>
+                                                    </div>
+                                                </div>
 
-      											<div class="" ng-repeat="amis in event.tabFriendEvent">
-      												<div class="col-md-3">
-      													<div class="card padding" ng-click="friendhistory(amis._id)">
-      														<img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
-      														<img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
-      														<div class="RecetteTitle">{{amis.prenom}}</div>
-      														<div class="RecetteTitle"> {{amis.name}}</div>
-      														<div class="row">
-      															<div class="RecetteDescription"></div>
-      															<div class="RecettePreparation"></div>
-      															<div class="RecetteCuisson"></div>
-      														</div>
-      													</div>
-      												</div>
-      											</div>
+                                                <div class="" ng-repeat="amis in event.tabFriendEvent">
+                                                    <div class="col-md-3">
+                                                        <div class="card padding" ng-click="friendhistory(amis._id)">
+                                                            <img ng-show='amis.img' class="imageProfileSmall center-block" src="{{amis.img}}" alt="" />
+                                                            <img ng-hide='amis.img' class="imageProfileSmall center-block" src="./assets/user-default.png" alt="" />
+                                                            <div class="RecetteTitle">{{amis.prenom}}</div>
+                                                            <div class="RecetteTitle"> {{amis.name}}</div>
+                                                            <div class="row">
+                                                                <div class="RecetteDescription"></div>
+                                                                <div class="RecettePreparation"></div>
+                                                                <div class="RecetteCuisson"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-      												<div class="row">
-      												      <div class="col-md-12">
-      																<div ng-show='event.tabRecetteEvent.length'>
-      																	<h4>Menu</h4>
-      																</div>
+                                                    <div class="row">
+                                                          <div class="col-md-12">
+                                                                    <div ng-show='event.tabRecetteEvent.length'>
+                                                                        <h4>Menu</h4>
+                                                                    </div>
 
-      											            <div ng-repeat="recette in event.tabRecetteEvent">
-      												          	<div  ng-click="" style="cursor: pointer">
-      												            	<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
-      												              		<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
-      												              		<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
-      												            	</div>
-      												            </div>
-      												         </div>
-      												      </div>
-      											   </div>
+                                                            <div ng-repeat="recette in event.tabRecetteEvent">
+                                                                <div  ng-click="" style="cursor: pointer">
+                                                                    <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+                                                                        <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="image">
+                                                                        <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+                                                                    </div>
+                                                                </div>
+                                                             </div>
+                                                          </div>
+                                                   </div>
 
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      						</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-      					</div>
-      				</div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

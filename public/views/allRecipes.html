@@ -121,6 +121,9 @@
 					<div class="page-header">
 						<h3>Des Recettes "So Goodies"</h3>
 					</div>
+					<center>
+		      		<a href="#/menu" ng-show="token" type="button" class="btn btn-link">Ajouter une recette</a>
+		      	</center>
 					<div class="col-md-12">
 						<div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
 							<div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
@@ -267,8 +270,8 @@
 						<h3 id="linetitle">Commentaires</h3>
 					</div>
 					<a class="js-scrollTo" href="#commentary">
-						<button type="button" class="addComment btn btn-link" ng-click="scrollCom(clickRecipe._id)">Ajouter un commentaire</button>
-					</a>
+					<button type="button" class="addComment btn btn-link" ng-click="scrollCom(clickRecipe._id)">Ajouter un commentaire</button>
+				</a>
 					<div ng-show="Comm == 1">
 						<div class="col-md-offset-1 col-md-10 boxCom">
 							<form class="form-horizontal">
@@ -320,12 +323,12 @@
 											</div>
 											<div ng-show='com{{$index}}'>
 												<div class="col-md-12">
-													<textarea class="form-control" name="commentaire" ng-model='commentaire.commentaire' placeholder="Taper votre texte ici"></textarea>
-												</div>
-												<div class="col-md-12">
-													<button class="btn btn-warning col-sm-5" ng-click='updateCom($index,commentaire,"annuler")'>Annuler</button>
-													<button class="btn btn-success col-sm-5 col-sm-offset-2" ng-click='updateCom($index,commentaire,"valider")'>Valider</button>
-												</div>
+												<textarea class="form-control" name="commentaire" ng-model='commentaire.commentaire' placeholder="Taper votre texte ici"></textarea>
+											</div>
+											<div class="col-md-12">
+												<button class="btn btn-warning col-sm-5" ng-click='updateCom($index,commentaire,"annuler")'>Annuler</button>
+												<button class="btn btn-success col-sm-5 col-sm-offset-2" ng-click='updateCom($index,commentaire,"valider")'>Valider</button>
+											</div>
 											</div>
 										</div>
 									</div>
