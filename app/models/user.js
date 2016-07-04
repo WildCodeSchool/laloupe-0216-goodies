@@ -364,9 +364,20 @@ var User = {
                 friends: req.params.friendId
             }
         }, function(err) {
-            if (err)
+            if (err) {
                 res.status(500).send(err.message);
-            res.sendStatus(200);
+            } else {
+                User.model.findByIdAndUpdate(req.params.friendId, {
+                    $pull: {
+                        friends: req.params.userId
+                    }
+                }, function(err) {
+                    if (err)
+                        res.status(500).send(err.message);
+                    res.sendStatus(200);
+                });
+            }
+
         });
     }
 }
