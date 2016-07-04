@@ -10,7 +10,7 @@ module.exports = function(app) {
     request(url, function(err, resp, body) {
       var $ = cheerio.load(body);
 
-      var titre = $('.fn');
+      var titre = $('.m_title.fn > .item > .fn');
       var titreText = titre.text();
 
       var preparation = $('.preptime');
