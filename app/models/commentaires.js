@@ -29,7 +29,7 @@ var Commentaires = {
             res.send(data);
         });
     },
-    update: function(req, res) {
+    updateCommentaire: function(req, res) {
         Commentaires.model.findByIdAndUpdate(req.params.id, req.body, function(err) {
             if (err) {
                 res.send(err);
@@ -38,7 +38,7 @@ var Commentaires = {
             }
         });
     },
-    delete: function(req, res) {
+    deleteCommentaire: function(req, res) {
         Commentaires.model.findByIdAndRemove(req.params.id, function() {
             res.sendStatus(200);
         });
