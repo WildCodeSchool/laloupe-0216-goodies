@@ -95,14 +95,6 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/myfriends', {
-            templateUrl: 'views/myfriends.html',
-            controller: 'myfriendsController',
-            resolve: {
-                connected: checkIsConnected,
-                userUpdate: userFactoryUpdate
-            }
-        })
         .when('/friendhistory/:id', {
             templateUrl: 'views/friendhistory.html',
             controller: 'friendHistoryController',
@@ -139,10 +131,12 @@ function config($routeProvider, $httpProvider) {
 }
 
 function userFactoryUpdate($rootScope, userService) {
-    userService.findOne($rootScope.userId).then(function(res) {
-        userFactory.user = res.data;
-        $rootScope.$emit('userFactoryUpdate')
-    });
+    if ($rootScope.userId) {
+        userService.findOne($rootScope.userId).then(function(res) {
+            userFactory.user = res.data;
+            $rootScope.$emit('userFactoryUpdate')
+        });
+    }
 }
 
 function checkIsConnected($q, $http, $rootScope, $location) {
@@ -219,6 +213,7 @@ angular.module('app', ['ngRoute', 'flow'])
     .service('friendService', friendService)
     .service('recetteService', recetteService)
     .service('connectService', connectService)
+    .service('commentaireService', commentaireService)
     .service('notificationService', notificationService)
     .service('userService', userService)
     .factory('userFactory', userFactory)
@@ -236,7 +231,6 @@ angular.module('app', ['ngRoute', 'flow'])
     .controller('eventController', eventController)
     .controller('compteController', compteController)
     .controller('createEventController', createEventController)
-    .controller('myfriendsController', myfriendsController)
 
 
 /*.factory('', )*/

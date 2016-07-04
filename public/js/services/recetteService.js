@@ -3,6 +3,9 @@ function recetteService($http) {
         get: function() {
             return $http.get('/recettes');
         },
+        findOne: function(id) {
+            return $http.get('/recettes/'+id);
+        },
         update: function(id, datas) {
             return $http.put('/recettes/' + id, datas);
         },
