@@ -2085,3 +2085,40 @@ padding-left:90px;
 .timeline-body > p + p {
   margin-top: 5px;
 }
+
+/* -------------------------------------- */
+              /*  footer */
+/* -------------------------------------- */
+footer nav {
+  background-color: #f8f8f8;
+}
+footer nav {
+  border-top: 3px solid #f8ac37;
+  padding: 10px;
+}
+footer nav h3 {
+  font-family: 'yesteryear', sans-serif;
+  color: #333;
+  display: initial;
+}
+footer nav h3::after {
+  content: " - ";
+}
+
+
+/* ----------------------------------------- */
+              /* mentions */
+/* ----------------------------------------- */
+.mentions {
+  background-color:#f8f8f8; 
+  height:100%;
+}
+.mentions h2 {
+  border-bottom: 3px solid #f8ac37;
+}
+.mentions h3 {
+  text-decoration: underline;
+}
+.mentions li, p {
+  color: #877c7c;
+}
