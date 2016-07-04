@@ -4,16 +4,30 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
+        
         function load() {
             $scope.recettes = userFactory.user.recettes;
         }
         load();
+
         $scope.showRecette = 'entree';
         $scope.closeBtnTab = [];
         $scope.userId = $rootScope.userId;
         $scope.recetteTab = [];
         $scope.data = {};
         $scope.eat = $rootScope.eat; //type: entrée, plat ou dessert
+
+        // Scroll pour le bouton commentaire ============================== -->
+        $(document).ready(function() {
+            $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+                var page = $(this).attr('href'); // Page cible
+                var speed = 750; // Durée de l'animation (en ms)
+                $('html, body').animate({
+                    scrollTop: $(page).offset().top - 200
+                }, speed); // Go
+                return false;
+            });
+        });
 
         /*===================  Fonction bouton Recette  ========================= */
 
@@ -113,10 +127,10 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
                 });
             },
 
-            // Redirection vers page de création
-            $scope.locateEntre = function() {
-                $location.path("/createEntree");
-            };
+        // Redirection vers page de création
+        $scope.locateEntre = function() {
+            $location.path("/createEntree");
+        };
 
         $scope.locatePlat = function() {
             $location.path("/createPlat");
@@ -125,6 +139,7 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.locateDessert = function() {
             $location.path("/createDessert");
         };
+
         //  ------------   FLOW   -----------
         $scope.imageStrings = [];
         $scope.processFiles = function(files) {

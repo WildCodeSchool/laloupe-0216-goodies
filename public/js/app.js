@@ -9,12 +9,12 @@ function config($routeProvider, $httpProvider) {
             templateUrl: 'views/connect.html',
             controller: 'connectController'
         })
+        .when('/mentions_legales', {
+            templateUrl: 'views/mentions.html'
+        })
         .when('/allRecipes', {
             templateUrl: 'views/allRecipes.html',
-            controller: 'allRecipesController',
-            resolve: {
-                userUpdate: userFactoryUpdate
-            }
+            controller: 'allRecipesController'
         })
         .when('/events', {
             templateUrl: 'views/events.html',

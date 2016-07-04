@@ -44,18 +44,20 @@
 	<div ng-show="seeRecipe == 1">
 		<div class="col-md-12 boxMini">
 			<div class="row">
-		      <div class="page-header">
-		          <h3>Mes Recettes</h3>
-		      </div>
-		      <div class="col-md-12">
-		          <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
-		            <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
-		              <img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
-		              <div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
-		            </div>
-		          </div>
-		      </div>
-		   </div>
+		      	<div class="page-header">
+		          	<h3>Mes Recettes</h3>
+		      	</div>
+				<div class="contentMenu">
+			      	<div class="col-md-12">
+			          <div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
+			            <div class="col-md-3 g_boxMiniRecipes" ng-click="id(recette)">
+			              	<img class="g_imgMiniRecipes col-md-12" src={{recette.img}} alt="">
+			              	<div class="g_titleMiniRecipes col-md-10">{{recette.titre}}</div>
+			            </div>
+			          </div>
+			      	</div>
+		   		</div>
+			</div>
 		</div>
 	</div>
 
