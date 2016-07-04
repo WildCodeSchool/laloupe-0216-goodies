@@ -27,7 +27,7 @@ var userSchema = new mongoose.Schema({
         ref: 'Event',
     }],
     recettes: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: ngoose.Schema.Types.ObjectId,
         ref: 'Recette',
     }],
     eventInvit: [{
@@ -193,14 +193,14 @@ var User = {
             }
         }, function(err) {
             if (err) {
-                res.send(err)
+                res.send(err);
             } else {
-                res.sendStatus(200)
-            };
+                res.sendStatus(200);
+            }
         });
     },
     deleteFriends: function(req, res) {
-        console.log('body Notifications friends delete: ')
+        console.log('body Notifications friends delete: ');
         console.log(req.body);
         User.model.findByIdAndUpdate(req.body.userId, {
             $pull: {
@@ -208,14 +208,14 @@ var User = {
             }
         }, function(err) {
             if (err) {
-                res.send(err)
+                res.send(err);
             } else {
-                res.sendStatus(200)
-            };
+                res.sendStatus(200);
+            }
         });
     },
     createEvents: function(userId, eventID) {
-        console.log('body Notifications events: ')
+        console.log('body Notifications events: ');
         console.log(userId);
         console.log(eventID);
         User.model.findByIdAndUpdate(userId, {
@@ -224,7 +224,7 @@ var User = {
             }
         },function(err) {
             if (err) {
-                console.log(err)
+                console.log(err);
             };
         });
     },
@@ -288,7 +288,7 @@ var User = {
             if (err)
                 res.status(500).send(err.message);
             res.sendStatus(200);
-        })
+        });
     },
     deleteFriend: function(req, res) {
         console.log('deleteFriend');
@@ -304,7 +304,7 @@ var User = {
             res.sendStatus(200);
         });
     }
-}
+};
 
 
 module.exports = User;

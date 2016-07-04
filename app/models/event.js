@@ -29,6 +29,8 @@ var Event = {
         Event.model.create(req.body, function(err, data) {
             console.log(req.body);
             User.addEvent(req.body.userId, data._id, res);
+
+            
             for (var i = 0 ; i < req.body.tabFriendEvent.length ; i++){
               User.createEvents(req.body.tabFriendEvent[i],data._id, res);
             }
