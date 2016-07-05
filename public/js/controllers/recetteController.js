@@ -129,15 +129,15 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
         // Redirection vers page de création
         $scope.locateEntre = function() {
-            $location.path("/createEntree");
+            $location.path("/ajouter_une_entree");
         };
 
         $scope.locatePlat = function() {
-            $location.path("/createPlat");
+            $location.path("/ajouter_un_plat");
         };
 
         $scope.locateDessert = function() {
-            $location.path("/createDessert");
+            $location.path("/ajouter_un_dessert");
         };
 
         //  ------------   FLOW   -----------

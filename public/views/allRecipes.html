@@ -107,8 +107,8 @@
 						<center>
 							<h2>Goodies</h2>
 							<h5>La meilleure méthode<br>pour inviter<br> ses amis<br>à dîner <span>!!</span></h5>
-							<a href="#/signup" ng-show="!token" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
-							<a href="#/events" ng-show="token" class="btn btn-link btn-lg btnSignIn">Mes évènements</a>
+							<a href="#/creer_un_compte" ng-show="!token" class="btn btn-link btn-lg btnSignIn">S'inscrire</a>
+							<a href="#/mes_evenements" ng-show="token" class="btn btn-link btn-lg btnSignIn">Mes évènements</a>
 						</center>
 					</div>
 				</div>
@@ -122,7 +122,7 @@
 						<h3>Des Recettes "So Goodies"</h3>
 					</div>
 					<center>
-		      		<a href="#/menu" ng-show="token" type="button" class="btn btn-link">Ajouter une recette</a>
+		      		<a href="#/mes_recettes" ng-show="token" type="button" class="btn btn-link">Ajouter une recette</a>
 		      	</center>
 					<div class="col-md-12">
 						<div ng-repeat="recette in recettes | filter:searchRecipesText | orderBy:'titre'">
