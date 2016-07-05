@@ -280,7 +280,8 @@
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">Edité par :</label>
 										<div class="col-md-5">
-											<input id="textinput" name="edite" type="text" placeholder="ex: Jean" ng-model="newCommentaire.userName" class="form-control input-md" required="">
+											<label class="col-md-4 control-label" for="textinput"> {{newCommentaire.userName}}</label>
+											<input id="textinput" ng-hide='newCommentaire.userName' name="edite" type="text" placeholder="ex: Jean" ng-model="newCommentaire.userName" class="form-control input-md" required="">
 										</div>
 									</div>
 
@@ -309,7 +310,7 @@
 						<div class="row">
 							<ul class="timeline" ng-repeat="commentaire in commentaires | orderBy: '-date'">
 								<li ng-show="$index %2 == 0">
-									<div class="timeline-badge" ng-click="updateCom($index)">
+									<div class="timeline-badge" ng-click="updateCom($index, commentaire)">
 										<i class="glyphicon glyphicon-edit"></i>
 									</div>
 									<div class="timeline-panel">
@@ -334,7 +335,7 @@
 									</div>
 								</li>
 								<li class="timeline-inverted" ng-show="$index %2 != 0">
-									<div class="timeline-badge warning" ng-click="updateCom()">
+									<div class="timeline-badge warning" ng-click="updateCom($index, commentaire)">
 										<i class="glyphicon glyphicon-edit"></i>
 									</div>
 									<div class="timeline-panel">

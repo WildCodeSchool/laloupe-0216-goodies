@@ -80,6 +80,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
         $scope.newCommentaire.date = new Date();
         commentaireService.addCommentaire($scope.newCommentaire).then(function(res) {
             $scope.newCommentaire = {};
+            $scope.newCommentaire.userName = userFactory.user.name + ' ' + userFactory.user.prenom;
             recetteService.findOne($scope.clickRecipe._id).then(function(res) {
                 $scope.commentaires = res.data.commentaires;
             })
