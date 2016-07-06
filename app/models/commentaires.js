@@ -12,8 +12,6 @@ var commentaireSchema = new mongoose.Schema({
 var Commentaires = {
     model: mongoose.model('Commentaires', commentaireSchema),
     addcommentaire: function(req, res) {
-        console.log('========= add com: ===========')
-        console.log(req.body);
         Commentaires.model.create(req.body, function(err, data) {
             if (req.body._id) {
               dataid = req.body._id;
