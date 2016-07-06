@@ -1,10 +1,10 @@
 function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory, commentaireService) {
 
-    $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
+    $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
-        
+
         function load() {
             $scope.recettes = userFactory.user.recettes;
         }
