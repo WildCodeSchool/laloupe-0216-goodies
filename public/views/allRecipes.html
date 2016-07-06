@@ -90,7 +90,7 @@
 								<img src="../assets/plats/brochette.jpg" alt="...">
 								<div class="carousel-caption">
 									<h2>Les Grillades</h2>
-									<p>Un moment a partager en famille et entre amis</p>
+									<p>Un moment à partager en famille et entre amis</p>
 								</div>
 							</div>
 							<div class="item carItem">
@@ -230,7 +230,7 @@
 
 										<!-- bouton Ajouter à mes recettes -->
 										<div class="btn-group btn-block" role="group">
-											<button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)" style="text-align:left;">
+											<button type="button" id='favoris{{$index}}' class="btn btn-link btn-block" data-toggle="tooltip" data-placement="top" title="Ajouer à mes recettes" ng-click="favoris(clickRecipe,'favoris'+$index)" style="text-align:left;" ng-show="token">
 												<i class="fa fa-star" aria-hidden="true"></i> Ajouter à mes recettes
 											</button>
 

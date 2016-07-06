@@ -82,7 +82,7 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                 userService.findOne($rootScope.userId).then(function(r) {
                     userFactory.user = r.data;
                 });
-                $location.path('/events');
+                $location.path('/mes_evenements');
             }); // <----- End create event
 
         }
