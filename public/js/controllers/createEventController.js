@@ -3,7 +3,6 @@
 function createEventController($scope, $http, eventService, $location, $rootScope, userService, userFactory, notificationService) {
 
     $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
-    $rootScope.$on('userFactoryUpdate', function() {
 
         $scope.dataFriends = {};
         $scope.user = {}
@@ -163,5 +162,5 @@ function createEventController($scope, $http, eventService, $location, $rootScop
                 $scope.position = [res.data.results[0].geometry.location.lat, res.data.results[0].geometry.location.lng];
             })
         }
-    });
+
 }
