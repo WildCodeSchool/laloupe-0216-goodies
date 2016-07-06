@@ -4,13 +4,6 @@ function mainController($scope, $rootScope, $http, recetteService, userFactory) 
 
         $scope.showRecette = 'entree';
 
-        function load() {
-            recetteService.get().then(function(res) {
-                $scope.recettes = res.data;
-            });
-        }
-        load();
-
         $('.carousel-fade').carousel({
             interval: 3000
         });
