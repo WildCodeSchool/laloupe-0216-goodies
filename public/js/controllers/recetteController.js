@@ -1,10 +1,10 @@
-function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory) {
+function recetteController($scope, recetteService, $http, $rootScope, $location, userService, marmitonService, userFactory, commentaireService) {
 
-    $('body').css('background-image', 'none').css('background-image', 'url("./assets/testbg.jpg")');
+    $('body').css('background-image', 'none').css('background-image', 'url("./assets/backhome.jpg")');
 
     $rootScope.$on('userFactoryUpdate', function() {
         $scope.seeRecipe = 1;
-        
+
         function load() {
             $scope.recettes = userFactory.user.recettes;
         }
@@ -15,19 +15,72 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
         $scope.userId = $rootScope.userId;
         $scope.recetteTab = [];
         $scope.data = {};
+        $scope.newCommentaire = {};
         $scope.eat = $rootScope.eat; //type: entrée, plat ou dessert
 
-        // Scroll pour le bouton commentaire ============================== -->
+
+        // --- COMMENTAIRES ==================================================== -->
+
+        /* --- Scroll pour le bouton commentaire --- */
         $(document).ready(function() {
             $('.js-scrollTo').on('click', function() { // Au clic sur un élément
                 var page = $(this).attr('href'); // Page cible
                 var speed = 750; // Durée de l'animation (en ms)
                 $('html, body').animate({
-                    scrollTop: $(page).offset().top - 200
+                    scrollTop: $(page).offset().top - 500
                 }, speed); // Go
                 return false;
             });
         });
+
+        /* --- Ajouter des commentaires --- */
+        $scope.scrollCom = function(id) {
+            $scope.newCommentaire.recetteId = id;
+            $scope.Comm = 1;
+            console.log($scope.Comm)
+        }
+        $scope.addComm = function() {
+            $scope.newCommentaire.userId = $rootScope.userId;
+            $scope.newCommentaire.recetteId = $scope.clickRecipe._id;
+            $scope.newCommentaire.date = new Date();
+            commentaireService.addCommentaire($scope.newCommentaire).then(function(res) {
+                $scope.newCommentaire = {};
+                recetteService.findOne($scope.clickRecipe._id).then(function(res) {
+                    $scope.commentaires = res.data.commentaires;
+                })
+            });
+            // $scope.commentaires.push($scope.newCommentaire)
+        }
+
+        $scope.id = function(recette) {
+            $scope.clickRecipe = recette;
+            $scope.commentaires = $scope.clickRecipe.commentaires;
+            $scope.seeRecipe = 2;
+        }
+
+        $scope.updateCom = function(id, commentaire, option) {
+        if (commentaire == undefined && option == undefined) {
+            $scope['com' + id] = !$scope['com' + id];
+        } else {
+            switch (option) {
+                case "valider":
+                    commentaireService.updateCommentaire(commentaire._id, commentaire).then(function(res) {});
+                    $scope['com' + id] = false;
+                    break;
+                case "annuler":
+                    $scope['com' + id] = false;
+                    break;
+                case "supprimer":
+                    commentaireService.deleteCommentaire(commentaire._id).then(function(res) {
+                      recetteService.findOne($scope.clickRecipe._id).then(function(res) {
+                          $scope.commentaires = res.data.commentaires;
+                      })
+                    });
+                    $scope['com' + id] = false;
+                    break;
+                }
+            }
+        }
 
         /*===================  Fonction bouton Recette  ========================= */
 
@@ -129,15 +182,15 @@ function recetteController($scope, recetteService, $http, $rootScope, $location,
 
         // Redirection vers page de création
         $scope.locateEntre = function() {
-            $location.path("/createEntree");
+            $location.path("/ajouter_une_entree");
         };
 
         $scope.locatePlat = function() {
-            $location.path("/createPlat");
+            $location.path("/ajouter_un_plat");
         };
 
         $scope.locateDessert = function() {
-            $location.path("/createDessert");
+            $location.path("/ajouter_un_dessert");
         };
 
         //  ------------   FLOW   -----------

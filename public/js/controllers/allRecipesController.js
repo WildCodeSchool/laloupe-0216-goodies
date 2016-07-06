@@ -19,7 +19,7 @@ function allRecipesController($scope, $rootScope, $http, recetteService, userSer
     }
     $scope.commentaires = [];
 
-    // Bouton Ajouter à mes recttes ================================= -->
+    // Bouton Ajouter à mes recettes ================================= -->
     $scope.favoris = function(recette, idFav) {
         var count = 0;
         for (var i = 0; i < userFactory.user.recettes.length; i++) {

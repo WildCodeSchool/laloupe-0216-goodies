@@ -12,11 +12,11 @@ function config($routeProvider, $httpProvider) {
         .when('/mentions_legales', {
             templateUrl: 'views/mentions.html'
         })
-        .when('/allRecipes', {
+        .when('/toutes_les_recettes', {
             templateUrl: 'views/allRecipes.html',
             controller: 'allRecipesController'
         })
-        .when('/events', {
+        .when('/mes_evenements', {
             templateUrl: 'views/events.html',
             controller: 'eventController',
             resolve: {
@@ -32,7 +32,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/createEvent', {
+        .when('/creer_mon_evenement', {
             templateUrl: 'views/createEvent.html',
             controller: 'createEventController',
             resolve: {
@@ -40,7 +40,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/signup', {
+        .when('/creer_un_compte', {
             templateUrl: 'views/signup.html',
             controller: 'signupController'
         })
@@ -52,7 +52,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/menu', {
+        .when('/mes_recettes', {
             templateUrl: 'views/menu.html',
             controller: 'recetteController',
             resolve: {
@@ -60,7 +60,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/createEntree', {
+        .when('/ajouter_une_entree', {
             templateUrl: 'views/createEntree.html',
             controller: 'recetteController',
             resolve: {
@@ -68,7 +68,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/createPlat', {
+        .when('/ajouter_un_plat', {
             templateUrl: 'views/createPlat.html',
             controller: 'recetteController',
             resolve: {
@@ -76,7 +76,7 @@ function config($routeProvider, $httpProvider) {
                 userUpdate: userFactoryUpdate
             }
         })
-        .when('/createDessert', {
+        .when('/ajouter_un_dessert', {
             templateUrl: 'views/createDessert.html',
             controller: 'recetteController',
             resolve: {
